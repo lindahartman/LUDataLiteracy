@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Tutorial_1_DataViz.html",
+    "href": "Tutorial_1_DataViz.html",
+    "title": "Practical 1: Data Visualization",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n[1] 2"
   }
 ]
