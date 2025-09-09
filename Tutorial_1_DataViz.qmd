@@ -1,0 +1,9 @@
+---
+title: "Practical 1: Data Visualization"
+---
+
+This is the tutorial for the first practical on **Data Visualization with Plotnine**
+
+```{r}
+1 + 1
+```
