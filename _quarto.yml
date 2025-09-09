@@ -6,6 +6,9 @@ brand: brand/_brand.yml
 
 website:
   title: "LUDataLiteracy"
+  page-footer:
+    left: 'Lund University'
+    right: "Data Literacy with Python"
   navbar:
     left:
       - href: index.qmd
@@ -14,11 +17,35 @@ website:
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-    css: styles.css
+    page-layout: full
+    grid: 
+      body-width: 1000px
+    theme: [zephyr, brand]
+    anchor-sections: true
+    email-obfuscation: javascript
     toc: true
+    link-external-icon: true
+    link-external-newwindow: true
 
-editor: visual
+custom-callout:
+  challenge:
+    icon-symbol: "🛠️"
+    color: "firebrick"
+  question:
+    icon-symbol: "🧠"
+    color: "pink"
+filters:
+  - custom-callout
+
+
+
+# format:
+#   html:
+#     theme:
+#       - cosmo
+#       - brand
+#     css: styles.css
+#     toc: true
+# 
+# editor: visual
 
