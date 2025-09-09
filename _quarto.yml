@@ -1,5 +1,8 @@
 project:
   type: website
+  output-dir: docs
+
+brand: brand/_brand.yml
 
 website:
   title: "LUDataLiteracy"
