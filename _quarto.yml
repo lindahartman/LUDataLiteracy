@@ -14,6 +14,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - Tutorial_1_DataViz.qmd
 
 format:
   html:
