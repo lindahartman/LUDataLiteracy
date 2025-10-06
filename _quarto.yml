@@ -4,6 +4,9 @@ project:
 
 brand: brand/_brand.yml
 
+execute:
+  python: .venv/Scripts/python.exe
+  
 website:
   title: "LUDataLiteracy"
   page-footer:
