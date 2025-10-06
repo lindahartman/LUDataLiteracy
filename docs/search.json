@@ -4,7 +4,7 @@
     "href": "Tutorial_1_DataViz.html",
     "title": "Practical 1: Data Visualization",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "about.html",
