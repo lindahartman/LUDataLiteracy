@@ -1,6 +1,45 @@
-.Rproj.user
+
+# -------------------------
+# OS / editor files
+# -------------------------
+
+.DS_Store
+Thumbs.db
 .Rhistory
 .RData
+.Rproj.user
+
 .Ruserdata
 
 /.quarto/
+
+## Suggested additions from ChatGPT
+# -------------------------
+# Quarto website
+# -------------------------
+
+# Cache for intermediate files
+_quarto_cache/
+
+# Site output libraries (Quarto generates these automatically)
+docs/site_libs/
+
+# Temporary or auxiliary files
+*.utf8.md
+*.nb.html
+
+# -------------------------
+# Python environment
+# -------------------------
+
+# Virtual environment created by uv or venv
+.venv/
+__pycache__/
+*.pyc
+
+
+# -------------------------
+# Optional: node/npm files if used
+# -------------------------
+node_modules/
+
