@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practical 1: Data Visualization – LUDataLiteracy</title>
+<title>Utrecht Housing – LUDataLiteracy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,7 +57,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-75f85ff3afe47a507ba5bdac098e00a3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc481145a034a9bc6707220edadee8cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a65af601ebb7923055384dba408bd6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <style>
 div.callout-challenge.callout {
   border-left-color: firebrick;
@@ -152,21 +155,56 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practicals" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Practicals</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-practicals">    
         <li>
-    <a class="dropdown-item" href="./Tutorial_1_DataViz.html">
+    <a class="dropdown-item" href="./1_DataViz.html">
  <span class="dropdown-text">Practical 1: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./2_DataViz_wrangling.html">
+ <span class="dropdown-text">Practical 2: Data Visualization + Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./3_Wrangling_GT.html">
+ <span class="dropdown-text">Practical 3: Data Wrangling + Great Tables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./4_Wrangling_joins.html">
+ <span class="dropdown-text">Practical 4: Data Wrangling + joins</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./5_Pivots_GT.html">
+ <span class="dropdown-text">Practical 5: Pivots + Great Tables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./6_Quarto.html">
+ <span class="dropdown-text">Practical 5: Producing reports with Quarto</span></a>
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="./Utrecht.html">
+ <span class="dropdown-text">Utrecht Housing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./KingsCounty.html">
+ <span class="dropdown-text">Kings County Housing</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -186,7 +224,7 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practical 1: Data Visualization</h1>
+<h1 class="title">Utrecht Housing</h1>
 </div>
 
 
@@ -203,38 +241,172 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 </header>
 
 
-<p>This is the tutorial for the first practical on <strong>Data Visualization with Plotnine</strong></p>
-<div id="2d27b902" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>2</code></pre>
+<p>The dataset contains the following columns</p>
+<div id="ee9b2417" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ut_doc <span class="op">=</span> pl.DataFrame(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"variable"</span>:[<span class="st">"id"</span>, <span class="st">"zip_code4"</span>,  <span class="st">"zip_code6"</span>,    <span class="st">"zip_code6_id"</span>, <span class="st">"house_type"</span>,   <span class="st">"lot_area"</span>, <span class="st">"house_area"</span>,   <span class="st">"garden_size"</span>,  <span class="st">"rooms"</span>,    <span class="st">"bathrooms"</span>,    <span class="st">"x_coor"</span>,   <span class="st">"y_coor"</span>,   <span class="st">"build_year"</span>,   <span class="st">"retail_value"</span>, <span class="st">"asking_price"</span>, <span class="st">"energy_label"</span>, <span class="st">"energy_eff"</span>,   <span class="st">"valuation_date"</span>,   <span class="st">"street"</span>,   <span class="st">"subdistrict"</span>,  <span class="st">"district"</span>, <span class="st">"city"</span>, <span class="st">"dist_from_train"</span>],</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"description"</span>:[<span class="st">"Unique ID"</span>, <span class="st">"Zip Code 4 digits"</span>,    <span class="st">"Zip Code 6 symbols"</span>,   <span class="st">"Zip Code 6 symbols ID"</span>,    <span class="st">"House Type: Apartment or House"</span>,   <span class="st">"Lot Aream, sqm"</span>,   <span class="st">"House Area, sqm"</span>,  <span class="st">"Garden Size, sqm"</span>, <span class="st">"Number of Rooms"</span>,  <span class="st">"Number of Bathrooms"</span>,  <span class="st">"X Coordinate"</span>, <span class="st">"Y Coordinate"</span>, <span class="st">"Build Year"</span>,   <span class="st">"Retail Value, k€"</span>, <span class="st">"Asking Price, k€"</span>, <span class="st">"Energy Label"</span>, <span class="st">"Energy Efficiency"</span>,    <span class="st">"Valuation Date"</span>,   <span class="st">"Street Name"</span>,  <span class="st">"Subdistrict Name"</span>, <span class="st">"District Name"</span>,    <span class="st">"City"</span>, <span class="st">"Distance from train, km"</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ut_doc.pipe(GT).opt_stylize(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="cgzdwpwjab" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#cgzdwpwjab table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#cgzdwpwjab thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#cgzdwpwjab p { margin: 0; padding: 0; }
+ #cgzdwpwjab .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #cgzdwpwjab .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #cgzdwpwjab .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #cgzdwpwjab .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #cgzdwpwjab .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cgzdwpwjab .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; }
+ #cgzdwpwjab .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cgzdwpwjab .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #cgzdwpwjab .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #cgzdwpwjab .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #cgzdwpwjab .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #cgzdwpwjab .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #cgzdwpwjab .gt_spanner_row { border-bottom-style: hidden; }
+ #cgzdwpwjab .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #cgzdwpwjab .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; vertical-align: middle; }
+ #cgzdwpwjab .gt_from_md> :first-child { margin-top: 0; }
+ #cgzdwpwjab .gt_from_md> :last-child { margin-bottom: 0; }
+ #cgzdwpwjab .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #89D3FE; border-left-style: none; border-left-width: 1px; border-left-color: #89D3FE; border-right-style: none; border-right-width: 1px; border-right-color: #89D3FE; vertical-align: middle; overflow-x: hidden; }
+ #cgzdwpwjab .gt_stub { color: #FFFFFF; background-color: #0076BA; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #0076BA; padding-left: 5px; padding-right: 5px; }
+ #cgzdwpwjab .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #cgzdwpwjab .gt_row_group_first td { border-top-width: 2px; }
+ #cgzdwpwjab .gt_row_group_first th { border-top-width: 2px; }
+ #cgzdwpwjab .gt_striped { background-color: #F4F4F4; }
+ #cgzdwpwjab .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; }
+ #cgzdwpwjab .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #cgzdwpwjab .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #cgzdwpwjab .gt_left { text-align: left; }
+ #cgzdwpwjab .gt_center { text-align: center; }
+ #cgzdwpwjab .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #cgzdwpwjab .gt_font_normal { font-weight: normal; }
+ #cgzdwpwjab .gt_font_bold { font-weight: bold; }
+ #cgzdwpwjab .gt_font_italic { font-style: italic; }
+ #cgzdwpwjab .gt_super { font-size: 65%; }
+ #cgzdwpwjab .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #cgzdwpwjab .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">variable</th>
+<th id="description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left">id</td>
+<td class="gt_row gt_left">Unique ID</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">zip_code4</td>
+<td class="gt_row gt_left gt_striped">Zip Code 4 digits</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">zip_code6</td>
+<td class="gt_row gt_left">Zip Code 6 symbols</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">zip_code6_id</td>
+<td class="gt_row gt_left gt_striped">Zip Code 6 symbols ID</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">house_type</td>
+<td class="gt_row gt_left">House Type: Apartment or House</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">lot_area</td>
+<td class="gt_row gt_left gt_striped">Lot Aream, sqm</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">house_area</td>
+<td class="gt_row gt_left">House Area, sqm</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">garden_size</td>
+<td class="gt_row gt_left gt_striped">Garden Size, sqm</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">rooms</td>
+<td class="gt_row gt_left">Number of Rooms</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">bathrooms</td>
+<td class="gt_row gt_left gt_striped">Number of Bathrooms</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">x_coor</td>
+<td class="gt_row gt_left">X Coordinate</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">y_coor</td>
+<td class="gt_row gt_left gt_striped">Y Coordinate</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">build_year</td>
+<td class="gt_row gt_left">Build Year</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">retail_value</td>
+<td class="gt_row gt_left gt_striped">Retail Value, k€</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">asking_price</td>
+<td class="gt_row gt_left">Asking Price, k€</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">energy_label</td>
+<td class="gt_row gt_left gt_striped">Energy Label</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">energy_eff</td>
+<td class="gt_row gt_left">Energy Efficiency</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">valuation_date</td>
+<td class="gt_row gt_left gt_striped">Valuation Date</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">street</td>
+<td class="gt_row gt_left">Street Name</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">subdistrict</td>
+<td class="gt_row gt_left gt_striped">Subdistrict Name</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">district</td>
+<td class="gt_row gt_left">District Name</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">city</td>
+<td class="gt_row gt_left gt_striped">City</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">dist_from_train</td>
+<td class="gt_row gt_left">Distance from train, km</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
-</div>
-<div id="0bee0496" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gapminder <span class="im">import</span> gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Projects\Teaching\LUDataLiteracy\.venv\Lib\site-packages\gapminder\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.</code></pre>
-</div>
-</div>
-<div id="adf7df79" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gapminder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="7bb0724c" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ggplot(gapminder)<span class="op">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'gdpPercap'</span>, y<span class="op">=</span><span class="st">'lifeExp'</span>, color<span class="op">=</span><span class="st">'continent'</span>))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Tutorial_1_DataViz_files/figure-html/cell-5-output-1.png" width="672" height="480" class="figure-img"></p>
-</figure>
-</div>
+        
 </div>
 </div>
 

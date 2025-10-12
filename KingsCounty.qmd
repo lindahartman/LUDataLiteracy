@@ -1,0 +1,19 @@
+---
+title: "Kings County Housing"
+---
+
+```{python}
+#| include: false
+
+import polars as pl
+from great_tables import GT
+```
+
+The dataset contains the following columns
+
+```{python}
+#| echo: false
+
+kc_doc = pl.read_csv('data/kc_house_data_dictionary.csv')
+kc_doc.pipe(GT).opt_stylize(1)
+```

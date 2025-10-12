@@ -1,5 +1,5 @@
 ---
-title: "Practical 1: Data Visualization"
+title: "Practical 5: Pivots + Great Tables"
 ---
 
 This is the tutorial for the first practical on **Data Visualization with Plotnine**

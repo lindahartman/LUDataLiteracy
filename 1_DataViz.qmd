@@ -1,0 +1,213 @@
+---
+title: "Practical 1: Data Visualization"
+---
+
+This is the tutorial for the first practical on **Data Visualization with Plotnine**
+
+The objective of the tutorial is to give student chance to practice data visualization applying the skills learned through the video lessons on a new dataset.
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset. 
+
+:::{.callout-note}
+## Preparation
+
+Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
+```
+
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization`. Then add a code cell and place the following code there.
+
+```{python}
+import polars as pl
+from plotnine import *
+```
+
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: Utrecht
+
+```{python}
+# TO BE CHANGED LATER
+ut = pl.read_csv("data/utrecht_2025.csv")
+kc = pl.read_csv('data/kc_house_data.csv')
+```
+
+:::
+
+::: {.challenge}
+## Challenge 1
+
+Reproduce this plot.
+
+```{python}
+#| echo: false
+(
+ggplot(ut)+
+geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
+labs(x='House Area, sqm', y='Retail Price, k€', color='House type') 
+)
+```
+
+:::
+
+
+:::{.challenge}
+## Challenge 2
+
+Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
+
+```{python}
+#| include: false
+(
+ggplot(ut)+
+geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
+labs(x='Number of rooms', y='Asking Price, k€', color='Bathrooms') 
+)
+```
+
+:::
+
+
+:::{.challenge}
+## Challenge 3
+
+How did the energy class of the houses change in 20th and 21th century? How old is the newest house (woonhuis) in energy class B?
+
+:bulb: You can limit the plot to the years between `x1` and `x2`, using `scale_x_continuous(limits=[x1, x2])`
+
+```{python}
+#| include: false
+(
+ggplot(ut)+
+geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
+scale_x_continuous(limits=[1900, 2025])+
+labs(x='Year Built', y='Energy Class', color='House type') 
+)
+```
+
+```{python}
+#| include: false
+(
+ggplot(ut)+
+geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
+scale_x_continuous(limits=[1998, 2025])+
+labs(x='Year Built', y='Energy Class', color='House type') 
+)
+```
+
+:::
+
+
+:::{.challenge}
+## Challenge 4
+
+Reproduce this plot.
+
+> :bulb: If you want to match the color palette as well, it's qualitative brewer scale number 2
+> :bulb: You can add multi-line strings with triple quotes like this `"""long string"""`
+
+:::
+
+```{python}
+#| echo: false
+(
+ggplot(ut)+
+geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+
+geom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+
+labs(title='Scatterplot of house area and retail value',
+subtitle='Color indicates the type of property',
+x='House Area, sqm', y='Retail Price, k€', color='House type',
+caption="""A linear regression approximates the positive relation between  
+the variables (with error bands shown in gray)""")+
+scale_color_brewer('qual', 2)+
+theme_bw()
+)
+```
+
+:::{.challenge}
+## Challenge 5
+
+Plot prices by district. Place districts on y-axis to fit the labels nicely. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly.
+:::
+
+```{python}
+#| include: false
+(
+ggplot(ut)+
+geom_boxplot(mapping=aes(y='retail_value', x='reorder(district, retail_value)'))+
+coord_flip()+
+labs(x="", y="Retail value, kEUR")
+)
+```
+
+:::{.challenge}
+## Challenge 6
+
+Plot the distribution of retail values for the two types of houses using both density plot and histogram.
+
+```{python}
+#| include: false
+(
+ggplot(ut,aes(x='retail_value'))+
+geom_histogram(aes(fill='house_type', y=after_stat("density")),bins=15,alpha=0.3)+
+geom_density(mapping=aes(color='house_type'))+
+labs(x="Retail value, kEUR")
+)
+```
+:::
+
+:::{.challenge}
+## Challenge 7
+
+Plot the distribution of property prices vs the house size for each district using small multiples. Add a linear regression to each subplot. Color the regression line blue.
+
+```{python}
+#| include: false
+(
+ggplot(ut, aes(y='retail_value', x='house_area'))+
+geom_point()+
+geom_smooth(method="lm", color="blue")+
+labs(y="Retail value, kEUR", x="House Area")+
+facet_wrap('district')
+)
+```
+
+:::
+
+# Kings County
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset. 
+
+:::{.challenge}
+## Challenge 8
+
+Plot the house prices vs living area. Color by the property grade.
+
+```{python}
+(
+ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
+geom_point(alpha=0.3)+
+facet_wrap('grade')
+)
+```
+
+:::
+
+
+:::{.challenge}
+## Challenge 9
+
+Plot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?
+:bulb: Put the house price on log scale to avoid overplotting
+
+```{python}
+(
+ggplot(kc, aes(y='price', x='yr_built', color='grade'))+
+geom_point(alpha=0.3)+
+scale_y_log10()
+)
+```
+
+:::
