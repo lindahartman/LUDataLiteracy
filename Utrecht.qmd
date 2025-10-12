@@ -12,6 +12,7 @@ from great_tables import GT
 The dataset contains the following columns
 
 ```{python}
+#| echo: false
 ut_doc = pl.DataFrame(
     {
         "variable":["id", "zip_code4",	"zip_code6",	"zip_code6_id",	"house_type",	"lot_area",	"house_area",	"garden_size",	"rooms",	"bathrooms",	"x_coor",	"y_coor",	"build_year",	"retail_value",	"asking_price",	"energy_label",	"energy_eff",	"valuation_date",	"street",	"subdistrict",	"district",	"city",	"dist_from_train"],

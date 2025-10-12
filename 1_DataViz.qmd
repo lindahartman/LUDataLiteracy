@@ -1,5 +1,6 @@
 ---
 title: "Practical 1: Data Visualization"
+from: markdown+emoji
 ---
 
 This is the tutorial for the first practical on **Data Visualization with Plotnine**
@@ -105,8 +106,9 @@ labs(x='Year Built', y='Energy Class', color='House type')
 
 Reproduce this plot.
 
-> :bulb: If you want to match the color palette as well, it's qualitative brewer scale number 2
-> :bulb: You can add multi-line strings with triple quotes like this `"""long string"""`
+:bulb: If you want to match the color palette as well, it's qualitative brewer scale number 2
+
+:bulb: You can add multi-line strings with triple quotes like this `"""long string"""`
 
 :::
 
@@ -186,6 +188,7 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 Plot the house prices vs living area. Color by the property grade.
 
 ```{python}
+#| include: false
 (
 ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
 geom_point(alpha=0.3)+
@@ -203,6 +206,7 @@ Plot the house prices vs living area. Color by the property grade. Do newer hous
 :bulb: Put the house price on log scale to avoid overplotting
 
 ```{python}
+#| include: false
 (
 ggplot(kc, aes(y='price', x='yr_built', color='grade'))+
 geom_point(alpha=0.3)+
