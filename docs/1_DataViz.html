@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>LUDataLiteracy</title>
+<title>Practical 1: Data Visualization – LUDataLiteracy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,7 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -213,20 +213,41 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#utrecht" id="toc-utrecht" class="nav-link active" data-scroll-target="#utrecht">Utrecht</a>
+  <ul class="collapse">
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
+  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
+  <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
+  <li><a href="#challenge-4" id="toc-challenge-4" class="nav-link" data-scroll-target="#challenge-4">Challenge 4</a></li>
+  <li><a href="#challenge-5" id="toc-challenge-5" class="nav-link" data-scroll-target="#challenge-5">Challenge 5</a></li>
+  <li><a href="#challenge-6" id="toc-challenge-6" class="nav-link" data-scroll-target="#challenge-6">Challenge 6</a></li>
+  <li><a href="#challenge-7" id="toc-challenge-7" class="nav-link" data-scroll-target="#challenge-7">Challenge 7</a></li>
+  </ul></li>
+  <li><a href="#kings-county" id="toc-kings-county" class="nav-link" data-scroll-target="#kings-county">Kings County</a>
+  <ul class="collapse">
+  <li><a href="#challenge-8" id="toc-challenge-8" class="nav-link" data-scroll-target="#challenge-8">Challenge 8</a></li>
+  <li><a href="#challenge-9" id="toc-challenge-9" class="nav-link" data-scroll-target="#challenge-9">Challenge 9</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LUDataLiteracy</h1>
+<h1 class="title">Practical 1: Data Visualization</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -238,16 +259,211 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<p>This is the tutorial for the first practical on <strong>Data Visualization with Plotnine</strong></p>
+<p>The objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset.</p>
+<section id="utrecht" class="level1">
+<h1>Utrecht</h1>
+<p>Answer the following challenges using <a href="./Utrecht.html">Utrecht</a> dataset.</p>
+<section id="preparation" class="level2">
+<h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
+<pre><code>uv run jupyter lab</code></pre>
+<p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
+<div id="29d74e1d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht</p>
+<div id="f401f97d" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TO BE CHANGED LATER</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"data/utrecht_2025.csv"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'data/kc_house_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Reproduce this plot.</p>
+<div id="ebc745e6" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-4-output-1.png" width="640" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="challenge-2" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-2">Challenge 2</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.</p>
+</div>
+</div>
+</section>
+<section id="challenge-3" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-3">Challenge 3</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?</p>
+<p><span class="emoji" data-emoji="bulb">💡</span> You can limit the plot to the years between <code>x1</code> and <code>x2</code> using <code>scale_x_continuous(limits=[x1, x2])</code></p>
+</div>
+</div>
+</section>
+<section id="challenge-4" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-4">Challenge 4</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Reproduce this plot.<br>
+<span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
+<div id="acd13c96" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-8-output-1.png" width="640" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="challenge-5" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-5">Challenge 5</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly.</p>
+</div>
+</div>
+</section>
+<section id="challenge-6" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-6">Challenge 6</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the distribution of retail values for the two types of houses using both density plot and histogram.</p>
+</div>
+</div>
+</section>
+<section id="challenge-7" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-7">Challenge 7</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="kings-county" class="level1">
+<h1>Kings County</h1>
+<p>Answer the following challenges using <a href="./KingsCounty.html">Kings County</a> dataset.</p>
+<section id="challenge-8" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-8">Challenge 8</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the house prices vs living area. Color by the property grade.</p>
+</div>
+</div>
+</section>
+<section id="challenge-9" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-9">Challenge 9</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade? <span class="emoji" data-emoji="bulb">💡</span> Put the house price on log scale to avoid overplotting</p>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

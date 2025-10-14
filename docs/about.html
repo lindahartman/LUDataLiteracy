@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-75f85ff3afe47a507ba5bdac098e00a3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-fc481145a034a9bc6707220edadee8cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4a65af601ebb7923055384dba408bd6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,17 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-challenge.callout {
-  border-left-color: firebrick;
-}
-div.callout-challenge.callout-style-default > .callout-header {
-  background-color: rgb(from firebrick r g b / 13%);
-}
-div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
-  content: '🛠️';
-  background-image: none;
-}
 div.callout-question.callout {
   border-left-color: pink;
 }
@@ -121,6 +110,17 @@ div.callout-question.callout-style-default > .callout-header {
 div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
   content: '🧠';
+  background-image: none;
+}
+div.callout-challenge.callout {
+  border-left-color: firebrick;
+}
+div.callout-challenge.callout-style-default > .callout-header {
+  background-color: rgb(from firebrick r g b / 13%);
+}
+div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
+  content: '🛠️';
   background-image: none;
 }
 </style>
@@ -152,21 +152,56 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-practicals" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Practicals</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-practicals">    
         <li>
-    <a class="dropdown-item" href="./Tutorial_1_DataViz.html">
+    <a class="dropdown-item" href="./1_DataViz.html">
  <span class="dropdown-text">Practical 1: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./2_DataViz_wrangling.html">
+ <span class="dropdown-text">Practical 2: Data Visualization + Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./3_Wrangling_GT.html">
+ <span class="dropdown-text">Practical 3: Data Wrangling + Great Tables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./4_Wrangling_joins.html">
+ <span class="dropdown-text">Practical 4: Data Wrangling + joins</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./5_Pivots_GT.html">
+ <span class="dropdown-text">Practical 5: Pivots + Great Tables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./6_Quarto.html">
+ <span class="dropdown-text">Practical 5: Producing reports with Quarto</span></a>
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data">    
+        <li>
+    <a class="dropdown-item" href="./Utrecht.html">
+ <span class="dropdown-text">Utrecht Housing</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./KingsCounty.html">
+ <span class="dropdown-text">Kings County Housing</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
+<span class="menu-text">About</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">

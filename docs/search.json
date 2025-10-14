@@ -1,10 +1,31 @@
 [
   {
-    "objectID": "Tutorial_1_DataViz.html",
-    "href": "Tutorial_1_DataViz.html",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "Utrecht.html",
+    "href": "Utrecht.html",
+    "title": "Utrecht Housing",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID\n\n\nzip_code4\nZip Code 4 digits\n\n\nzip_code6\nZip Code 6 symbols\n\n\nzip_code6_id\nZip Code 6 symbols ID\n\n\nhouse_type\nHouse Type: Apartment or House\n\n\nlot_area\nLot Aream, sqm\n\n\nhouse_area\nHouse Area, sqm\n\n\ngarden_size\nGarden Size, sqm\n\n\nrooms\nNumber of Rooms\n\n\nbathrooms\nNumber of Bathrooms\n\n\nx_coor\nX Coordinate\n\n\ny_coor\nY Coordinate\n\n\nbuild_year\nBuild Year\n\n\nretail_value\nRetail Value, k€\n\n\nasking_price\nAsking Price, k€\n\n\nenergy_label\nEnergy Label\n\n\nenergy_eff\nEnergy Efficiency\n\n\nvaluation_date\nValuation Date\n\n\nstreet\nStreet Name\n\n\nsubdistrict\nSubdistrict Name\n\n\ndistrict\nDistrict Name\n\n\ncity\nCity\n\n\ndist_from_train\nDistance from train, km"
+  },
+  {
+    "objectID": "4_Wrangling_joins.html",
+    "href": "4_Wrangling_joins.html",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "5_Pivots_GT.html",
+    "href": "5_Pivots_GT.html",
+    "title": "Practical 5: Pivots + Great Tables",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "LUDataLiteracy",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "about.html",
@@ -14,10 +35,108 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "LUDataLiteracy",
+    "objectID": "3_Wrangling_GT.html",
+    "href": "3_Wrangling_GT.html",
+    "title": "Practical 3: Data Wrangling + Great Tables",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "1_DataViz.html",
+    "href": "1_DataViz.html",
+    "title": "Practical 1: Data Visualization",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\nThe objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset."
+  },
+  {
+    "objectID": "1_DataViz.html#preparation",
+    "href": "1_DataViz.html#preparation",
+    "title": "Practical 1: Data Visualization",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht\n\n# TO BE CHANGED LATER\nut = pl.read_csv(\"data/utrecht_2025.csv\")\nkc = pl.read_csv('data/kc_house_data.csv')"
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-1",
+    "href": "1_DataViz.html#challenge-1",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-2",
+    "href": "1_DataViz.html#challenge-2",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-3",
+    "href": "1_DataViz.html#challenge-3",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-4",
+    "href": "1_DataViz.html#challenge-4",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-5",
+    "href": "1_DataViz.html#challenge-5",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-6",
+    "href": "1_DataViz.html#challenge-6",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two types of houses using both density plot and histogram."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-7",
+    "href": "1_DataViz.html#challenge-7",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-8",
+    "href": "1_DataViz.html#challenge-8",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-9",
+    "href": "1_DataViz.html#challenge-9",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 9",
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade? 💡 Put the house price on log scale to avoid overplotting"
+  },
+  {
+    "objectID": "6_Quarto.html",
+    "href": "6_Quarto.html",
+    "title": "Practical 5: Producing reports with Quarto",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html",
+    "href": "2_DataViz_wrangling.html",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "KingsCounty.html",
+    "href": "KingsCounty.html",
+    "title": "Kings County Housing",
+    "section": "",
+    "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID for each home sold\n\n\ndate\nDate of the home sale\n\n\nprice\nPrice of each home sold\n\n\nbedrooms\nNumber of bedrooms\n\n\nbathrooms\nNumber of bathrooms\n\n\nsqft_living\nSquare footage of the apartments interior living space\n\n\nsqft_lot\nSquare footage of the land space\n\n\nfloors\nNumber of floors\n\n\nwaterfront\nA dummy variable for whether the apartment was overlooking the waterfront or not\n\n\nview\nAn index from 0 to 4 of how good the view of the property was\n\n\ncondition\nAn index from 1 to 5 on the condition of the apartment\n\n\ngrade\nAn index from 1 to 13 where 1-3 falls short of building construction and design, 7 has an average level of construction and design and 11-13 have a high quality level of construction and design\n\n\nsqft_above\nSquare footage of the interior housing space above ground level\n\n\nsqft_basement\nSquare footage of the interior housing space below ground level\n\n\nyr_built\nYear the house was initially built\n\n\nyr_renovated\nYear of the house’s last renovation and, if not renovated, the year built\n\n\nzipcode\nZipcode the house belongs to\n\n\nlat\nLatitude\n\n\nlong\nLongitude\n\n\nsqft_living15\nAverage square footage of the apartments interior living space for the nearest 15 neighbors\n\n\nsqft_lot15\nAverage square footage of the land space for the nearest 15 neighbors"
   }
 ]
