@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-75f85ff3afe47a507ba5bdac098e00a3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4a65af601ebb7923055384dba408bd6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fc481145a034a9bc6707220edadee8cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -279,12 +279,12 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
-<div id="29d74e1d" class="cell" data-execution_count="1">
+<div id="c9da228d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht</p>
-<div id="f401f97d" class="cell" data-execution_count="2">
+<div id="b452db9d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TO BE CHANGED LATER</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"data/utrecht_2025.csv"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'data/kc_house_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -305,11 +305,11 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Reproduce this plot.</p>
-<div id="ebc745e6" class="cell" data-execution_count="3">
+<div id="039d4abf" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1_DataViz_files/figure-html/cell-4-output-1.png" width="640" height="480" class="figure-img"></p>
+<p><img src="1_DataViz_files/figure-html/cell-4-output-1.png" width="672" height="480" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -365,11 +365,11 @@ Challenge
 <div class="line-block">Reproduce this plot.<br>
 <span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
-<div id="acd13c96" class="cell" data-execution_count="7">
+<div id="ddd4b2ec" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="1_DataViz_files/figure-html/cell-8-output-1.png" width="640" height="480" class="figure-img"></p>
+<p><img src="1_DataViz_files/figure-html/cell-8-output-1.png" width="672" height="480" class="figure-img"></p>
 </figure>
 </div>
 </div>

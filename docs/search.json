@@ -7,20 +7,6 @@
     "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID\n\n\nzip_code4\nZip Code 4 digits\n\n\nzip_code6\nZip Code 6 symbols\n\n\nzip_code6_id\nZip Code 6 symbols ID\n\n\nhouse_type\nHouse Type: Apartment or House\n\n\nlot_area\nLot Aream, sqm\n\n\nhouse_area\nHouse Area, sqm\n\n\ngarden_size\nGarden Size, sqm\n\n\nrooms\nNumber of Rooms\n\n\nbathrooms\nNumber of Bathrooms\n\n\nx_coor\nX Coordinate\n\n\ny_coor\nY Coordinate\n\n\nbuild_year\nBuild Year\n\n\nretail_value\nRetail Value, k€\n\n\nasking_price\nAsking Price, k€\n\n\nenergy_label\nEnergy Label\n\n\nenergy_eff\nEnergy Efficiency\n\n\nvaluation_date\nValuation Date\n\n\nstreet\nStreet Name\n\n\nsubdistrict\nSubdistrict Name\n\n\ndistrict\nDistrict Name\n\n\ncity\nCity\n\n\ndist_from_train\nDistance from train, km"
   },
   {
-    "objectID": "4_Wrangling_joins.html",
-    "href": "4_Wrangling_joins.html",
-    "title": "Practical 4: Data Wrangling + joins",
-    "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
-  },
-  {
-    "objectID": "5_Pivots_GT.html",
-    "href": "5_Pivots_GT.html",
-    "title": "Practical 5: Pivots + Great Tables",
-    "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "LUDataLiteracy",
@@ -28,18 +14,25 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "6_Quarto.html",
+    "href": "6_Quarto.html",
+    "title": "Practical 5: Producing reports with Quarto",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
-    "objectID": "3_Wrangling_GT.html",
-    "href": "3_Wrangling_GT.html",
-    "title": "Practical 3: Data Wrangling + Great Tables",
+    "objectID": "4_Wrangling_joins.html",
+    "href": "4_Wrangling_joins.html",
+    "title": "Practical 4: Data Wrangling + joins",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html",
+    "href": "2_DataViz_wrangling.html",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "1_DataViz.html",
@@ -119,18 +112,25 @@
     "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade? 💡 Put the house price on log scale to avoid overplotting"
   },
   {
-    "objectID": "6_Quarto.html",
-    "href": "6_Quarto.html",
-    "title": "Practical 5: Producing reports with Quarto",
+    "objectID": "3_Wrangling_GT.html",
+    "href": "3_Wrangling_GT.html",
+    "title": "Practical 3: Data Wrangling + Great Tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
-    "objectID": "2_DataViz_wrangling.html",
-    "href": "2_DataViz_wrangling.html",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html",
+    "href": "5_Pivots_GT.html",
+    "title": "Practical 5: Pivots + Great Tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "KingsCounty.html",
