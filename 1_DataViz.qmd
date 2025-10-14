@@ -5,14 +5,16 @@ from: markdown+emoji
 
 This is the tutorial for the first practical on **Data Visualization with Plotnine**
 
-The objective of the tutorial is to give student chance to practice data visualization applying the skills learned through the video lessons on a new dataset.
+The objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset.
 
 # Utrecht
 
 Answer the following challenges using [Utrecht](Utrecht.qmd) dataset. 
 
-:::{.callout-note}
+
 ## Preparation
+
+:::{.callout-note}
 
 Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
 
@@ -37,8 +39,9 @@ kc = pl.read_csv('data/kc_house_data.csv')
 
 :::
 
-::: {.challenge}
 ## Challenge 1
+
+::: {.challenge}
 
 Reproduce this plot.
 
@@ -53,9 +56,9 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 
 :::
 
+## Challenge 2
 
 :::{.challenge}
-## Challenge 2
 
 Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
 
@@ -70,13 +73,12 @@ labs(x='Number of rooms', y='Asking Price, k€', color='Bathrooms')
 
 :::
 
-
-:::{.challenge}
 ## Challenge 3
+:::{.challenge}
 
-How did the energy class of the houses change in 20th and 21th century? How old is the newest house (woonhuis) in energy class B?
+How did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?
 
-:bulb: You can limit the plot to the years between `x1` and `x2`, using `scale_x_continuous(limits=[x1, x2])`
+:bulb: You can limit the plot to the years between `x1` and `x2` using `scale_x_continuous(limits=[x1, x2])`
 
 ```{python}
 #| include: false
@@ -100,17 +102,12 @@ labs(x='Year Built', y='Energy Class', color='House type')
 
 :::
 
-
-:::{.challenge}
 ## Challenge 4
+:::{.challenge}
 
-Reproduce this plot.
-
-:bulb: If you want to match the color palette as well, it's qualitative brewer scale number 2
-
-:bulb: You can add multi-line strings with triple quotes like this `"""long string"""`
-
-:::
+| Reproduce this plot.
+| :bulb: If you want to match the color palette as well, it's qualitative brewer scale number 2
+| :bulb: You can add multi-line strings in Python using triple quotes like this `"""long string which may span multiple lines"""`
 
 ```{python}
 #| echo: false
@@ -128,11 +125,13 @@ theme_bw()
 )
 ```
 
-:::{.challenge}
-## Challenge 5
-
-Plot prices by district. Place districts on y-axis to fit the labels nicely. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly.
 :::
+
+## Challenge 5
+:::{.challenge}
+
+
+Plot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly.
 
 ```{python}
 #| include: false
@@ -144,26 +143,31 @@ labs(x="", y="Retail value, kEUR")
 )
 ```
 
-:::{.challenge}
+:::
+
 ## Challenge 6
+:::{.challenge}
 
 Plot the distribution of retail values for the two types of houses using both density plot and histogram.
 
 ```{python}
 #| include: false
+
+# this could be two separate plots, then after_stat() would not be required
 (
 ggplot(ut,aes(x='retail_value'))+
 geom_histogram(aes(fill='house_type', y=after_stat("density")),bins=15,alpha=0.3)+
 geom_density(mapping=aes(color='house_type'))+
+facet_wrap('house_type', ncol=1)+
 labs(x="Retail value, kEUR")
 )
 ```
 :::
 
-:::{.challenge}
 ## Challenge 7
+:::{.challenge}
 
-Plot the distribution of property prices vs the house size for each district using small multiples. Add a linear regression to each subplot. Color the regression line blue.
+Plot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. 
 
 ```{python}
 #| include: false
@@ -182,8 +186,8 @@ facet_wrap('district')
 
 Answer the following challenges using [Kings County](KingsCounty.qmd) dataset. 
 
-:::{.challenge}
 ## Challenge 8
+:::{.challenge}
 
 Plot the house prices vs living area. Color by the property grade.
 
@@ -198,12 +202,13 @@ facet_wrap('grade')
 
 :::
 
-
-:::{.challenge}
 ## Challenge 9
+:::{.challenge}
 
 Plot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?
 :bulb: Put the house price on log scale to avoid overplotting
+
+:::
 
 ```{python}
 #| include: false
@@ -213,5 +218,3 @@ geom_point(alpha=0.3)+
 scale_y_log10()
 )
 ```
-
-:::
