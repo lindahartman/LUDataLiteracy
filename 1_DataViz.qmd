@@ -9,7 +9,7 @@ The objective of the tutorial is to give student a chance to practice the data v
 
 # Utrecht
 
-Answer the following challenges using [Utrecht](Utrecht.qmd) dataset. 
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 
 
 ## Preparation
@@ -50,7 +50,7 @@ Reproduce this plot.
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
-labs(x='House Area, sqm', y='Retail Price, k€', color='House type') 
+labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 )
 ```
 
@@ -67,7 +67,7 @@ Plot the (asked) price of the house against the number of rooms. Use color to in
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
-labs(x='Number of rooms', y='Asking Price, k€', color='Bathrooms') 
+labs(x='Number of rooms', y='Asking Price, k€', color='Bathrooms')
 )
 ```
 
@@ -86,7 +86,7 @@ How did the energy class of the houses change for the houses built during 20th a
 ggplot(ut)+
 geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
 scale_x_continuous(limits=[1900, 2025])+
-labs(x='Year Built', y='Energy Class', color='House type') 
+labs(x='Year Built', y='Energy Class', color='House type')
 )
 ```
 
@@ -96,7 +96,7 @@ labs(x='Year Built', y='Energy Class', color='House type')
 ggplot(ut)+
 geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
 scale_x_continuous(limits=[1998, 2025])+
-labs(x='Year Built', y='Energy Class', color='House type') 
+labs(x='Year Built', y='Energy Class', color='House type')
 )
 ```
 
@@ -118,7 +118,7 @@ geom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+
 labs(title='Scatterplot of house area and retail value',
 subtitle='Color indicates the type of property',
 x='House Area, sqm', y='Retail Price, k€', color='House type',
-caption="""A linear regression approximates the positive relation between  
+caption="""A linear regression approximates the positive relation between
 the variables (with error bands shown in gray)""")+
 scale_color_brewer('qual', 2)+
 theme_bw()
@@ -162,12 +162,13 @@ facet_wrap('house_type', ncol=1)+
 labs(x="Retail value, kEUR")
 )
 ```
+
 :::
 
 ## Challenge 7
 :::{.challenge}
 
-Plot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. 
+Plot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot.
 
 ```{python}
 #| include: false
@@ -184,7 +185,7 @@ facet_wrap('district')
 
 # Kings County
 
-Answer the following challenges using [Kings County](KingsCounty.qmd) dataset. 
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 
 ## Challenge 8
 :::{.challenge}

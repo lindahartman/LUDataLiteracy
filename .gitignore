@@ -22,7 +22,7 @@ Thumbs.db
 _quarto_cache/
 
 # Site output libraries (Quarto generates these automatically)
-docs/site_libs/
+#docs/site_libs/
 
 # Temporary or auxiliary files
 *.utf8.md
