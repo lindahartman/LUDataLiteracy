@@ -18,21 +18,21 @@
     "href": "6_Quarto.html",
     "title": "Practical 5: Producing reports with Quarto",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Kurser\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "4_Wrangling_joins.html",
     "href": "4_Wrangling_joins.html",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Kurser\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "2_DataViz_wrangling.html",
     "href": "2_DataViz_wrangling.html",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Kurser\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "1_DataViz.html",
@@ -53,77 +53,77 @@
     "href": "1_DataViz.html#challenge-1",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot."
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot."
   },
   {
     "objectID": "1_DataViz.html#challenge-2",
     "href": "1_DataViz.html#challenge-2",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house."
   },
   {
     "objectID": "1_DataViz.html#challenge-3",
     "href": "1_DataViz.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nHow did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
   },
   {
     "objectID": "1_DataViz.html#challenge-4",
     "href": "1_DataViz.html#challenge-4",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
   },
   {
     "objectID": "1_DataViz.html#challenge-5",
     "href": "1_DataViz.html#challenge-5",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly."
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly."
   },
   {
     "objectID": "1_DataViz.html#challenge-6",
     "href": "1_DataViz.html#challenge-6",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the distribution of retail values for the two types of houses using both density plot and histogram."
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two types of houses using both density plot and histogram."
   },
   {
     "objectID": "1_DataViz.html#challenge-7",
     "href": "1_DataViz.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot."
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot."
   },
   {
     "objectID": "1_DataViz.html#challenge-8",
     "href": "1_DataViz.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade."
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade."
   },
   {
     "objectID": "1_DataViz.html#challenge-9",
     "href": "1_DataViz.html#challenge-9",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade? 💡 Put the house price on log scale to avoid overplotting"
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade? 💡 Put the house price on log scale to avoid overplotting"
   },
   {
     "objectID": "3_Wrangling_GT.html",
     "href": "3_Wrangling_GT.html",
     "title": "Practical 3: Data Wrangling + Great Tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Kurser\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "5_Pivots_GT.html",
     "href": "5_Pivots_GT.html",
     "title": "Practical 5: Pivots + Great Tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Projects\\Kurser\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "about.html",
