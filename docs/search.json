@@ -7,6 +7,20 @@
     "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID\n\n\nzip_code4\nZip Code 4 digits\n\n\nzip_code6\nZip Code 6 symbols\n\n\nzip_code6_id\nZip Code 6 symbols ID\n\n\nhouse_type\nHouse Type: Apartment or House\n\n\nlot_area\nLot Aream, sqm\n\n\nhouse_area\nHouse Area, sqm\n\n\ngarden_size\nGarden Size, sqm\n\n\nrooms\nNumber of Rooms\n\n\nbathrooms\nNumber of Bathrooms\n\n\nx_coor\nX Coordinate\n\n\ny_coor\nY Coordinate\n\n\nbuild_year\nBuild Year\n\n\nretail_value\nRetail Value, k€\n\n\nasking_price\nAsking Price, k€\n\n\nenergy_label\nEnergy Label\n\n\nenergy_eff\nEnergy Efficiency\n\n\nvaluation_date\nValuation Date\n\n\nstreet\nStreet Name\n\n\nsubdistrict\nSubdistrict Name\n\n\ndistrict\nDistrict Name\n\n\ncity\nCity\n\n\ndist_from_train\nDistance from train, km"
   },
   {
+    "objectID": "4_Wrangling_joins.html",
+    "href": "4_Wrangling_joins.html",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "5_Pivots_GT.html",
+    "href": "5_Pivots_GT.html",
+    "title": "Practical 5: Pivots + Great Tables",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "LUDataLiteracy",
@@ -14,25 +28,18 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "6_Quarto.html",
-    "href": "6_Quarto.html",
-    "title": "Practical 5: Producing reports with Quarto",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "4_Wrangling_joins.html",
-    "href": "4_Wrangling_joins.html",
-    "title": "Practical 4: Data Wrangling + joins",
+    "objectID": "3_Wrangling_GT.html",
+    "href": "3_Wrangling_GT.html",
+    "title": "Practical 3: Data Wrangling + Great Tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
-  },
-  {
-    "objectID": "2_DataViz_wrangling.html",
-    "href": "2_DataViz_wrangling.html",
-    "title": "Practical 2: Data Visualization + Wrangling",
-    "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "1_DataViz.html",
@@ -46,7 +53,7 @@
     "href": "1_DataViz.html#preparation",
     "title": "Practical 1: Data Visualization",
     "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht\n\n# TO BE CHANGED LATER\nut = pl.read_csv(\"data/utrecht_2025.csv\")\nkc = pl.read_csv('data/kc_house_data.csv')"
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht\n\n# TO BE CHANGED LATER\nut = pl.read_csv(\"data/utrecht_2025.csv\", try_parse_dates=True)\nkc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)"
   },
   {
     "objectID": "1_DataViz.html#challenge-1",
@@ -81,56 +88,70 @@
     "href": "1_DataViz.html#challenge-5",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly."
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot retail prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates using coord_flip() to see the district names more clearly."
   },
   {
     "objectID": "1_DataViz.html#challenge-6",
     "href": "1_DataViz.html#challenge-6",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two types of houses using both density plot and histogram."
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two types of houses. Which of these distributions look more symmetrical?"
   },
   {
     "objectID": "1_DataViz.html#challenge-7",
     "href": "1_DataViz.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot."
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. Which district shows the steepest slope of the regression line? Which one shows the shallowest slope?"
   },
   {
     "objectID": "1_DataViz.html#challenge-8",
     "href": "1_DataViz.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade."
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat do you think are the approximate coordinates of the train station? In which district do you think it might be located? What do you think is the zip code of the train station? (Google to check your answer)"
   },
   {
     "objectID": "1_DataViz.html#challenge-9",
     "href": "1_DataViz.html#challenge-9",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade? 💡 Put the house price on log scale to avoid overplotting"
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area coloring point by the property grade."
   },
   {
-    "objectID": "3_Wrangling_GT.html",
-    "href": "3_Wrangling_GT.html",
-    "title": "Practical 3: Data Wrangling + Great Tables",
-    "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "objectID": "1_DataViz.html#challenge-10",
+    "href": "1_DataViz.html#challenge-10",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 10",
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?\n💡 Put the house price on log scale to avoid overplotting"
   },
   {
-    "objectID": "5_Pivots_GT.html",
-    "href": "5_Pivots_GT.html",
-    "title": "Practical 5: Pivots + Great Tables",
-    "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\gapminder\\data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "objectID": "1_DataViz.html#challenge-11",
+    "href": "1_DataViz.html#challenge-11",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 11",
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize distribution of price per square foot of living area for properties in each of the housing conditions. Would you say that newer houses tend to be in better condition?"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "1_DataViz.html#challenge-12",
+    "href": "1_DataViz.html#challenge-12",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 12",
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize distribution of price per square foot of living area for water-facing properties and the non-water facing properties. Which of the distributions look more symmetrical?"
+  },
+  {
+    "objectID": "6_Quarto.html",
+    "href": "6_Quarto.html",
+    "title": "Practical 5: Producing reports with Quarto",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html",
+    "href": "2_DataViz_wrangling.html",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "",
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "KingsCounty.html",
