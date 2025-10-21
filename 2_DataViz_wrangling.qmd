@@ -2,33 +2,162 @@
 title: "Practical 2: Data Visualization + Wrangling"
 ---
 
-This is the tutorial for the first practical on **Data Visualization with Plotnine**
+The objective of the tutorial is to give student a chance to practice the data visualization and data wrangling applying the skills learned through the video lessons on a new dataset.
 
-```{python}
-1 + 1
+## Preparation
+
+:::{.callout-note}
+
+Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
 ```
 
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization and wrangling`. Then add a code cell and place the following code there.
 
 ```{python}
-#| echo: true
-#| code-fold: true
 import polars as pl
+import polars.selectors as cs
 from plotnine import *
-from gapminder import gapminder
 ```
 
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
-#gapminder
-
+# TO BE CHANGED LATER
+ut = pl.read_csv("data/utrecht_2025.csv", try_parse_dates=True)
+kc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)
 ```
 
+:::
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+
+## Challenge 1
+
+::: {.challenge}
+
+What is the average garden size for the houses in Utrecht dataset? What is the median distance from train?
 
 ```{python}
-#| eval: true
+#| echo: false
 (
-ggplot(gapminder)+
-geom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))
+ut.describe()
 )
 ```
 
+:::
+
+## Challenge 2
+
+::: {.challenge}
+
+| Create a plot of house area vs lot area for the 'woonhuis' properties. Add a linear trend line. Can you identify at least a couple outliers from the general trend? What is an approximate lot area that you would predict using this model for a house of 200 sqm?
+| :bulb: Remember, that you can pass the data to `plotnine` using `.pipe()` method.
+:::
+
+```{python}
+#| echo: false
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .pipe(ggplot, aes(x='house_area', y='lot_area')) +
+    geom_point()+
+    geom_smooth(method='lm')
+)
+```
+
+## Challenge 3
+
+::: {.challenge}
+
+Are the outliers you identified in the previous plot also outliers with regards to the relationship between the house area and the asking price? Are these outliers correspond to the newer or older houses? Are they located close by to each other? What's their 4 digit zip-code? 
+
+:::
+
+```{python}
+#| echo: false
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .filter(pl.col('build_year')>1900)
+    .pipe(ggplot, aes(x='house_area', y='asking_price'))+
+    geom_point(aes(size='lot_area>300', color='build_year'))+
+    geom_smooth(method='lm')
+)
+
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .filter(pl.col('build_year')>1900)
+    .pipe(ggplot, aes(x='x_coor', y='y_coor'))+
+    geom_jitter(aes(color='lot_area>300'))
+)
+
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .filter(pl.col('lot_area')>300)
+    .select(pl.col('zip_code4'))
+)
+
+
+```
+
+
+
+## Challenge 4
+
+::: {.challenge}
+
+Create a small dataset which includes only houses from the zipcode(s) identified in the previous challenge. Show the street name, house size, lot area, build year, energy class and the asking price. How many houses are in your dataset? Arrange the observations by the year these houses were built. What is the street name in which the oldest of these houses is located?
+
+:::
+
+
+```{python}
+#| echo: false
+
+(
+ut
+    .filter(pl.col('zip_code4')==3543)
+    .select(pl.col('street', 'house_area', 'lot_area', 'build_year', 'energy_label', 'asking_price'))
+    .sort('build_year')
+)
+
+
+```
+
+
+## Challenge 5
+
+::: {.challenge}
+
+| Plot the line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?
+| :bulb: The whole number division in Python is denoted with `//`
+:::
+
+```{python}
+(
+ut
+    .filter(pl.col('build_year')>=1900, pl.col('build_year')<=2000)
+    .with_columns(build_dec=pl.col('build_year')//10*10)
+    .group_by(pl.col('build_dec'))
+    .agg(pl.col('house_area').mean())
+    .pipe(ggplot)+
+    geom_line(aes(x='build_dec', y='house_area'))
+)
+
+```
+
+
+
+
+# Kings County
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.

@@ -7,12 +7,7 @@ This is the tutorial for the first practical on **Data Visualization with Plotni
 
 The objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset.
 
-# Utrecht
-
-Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
-
-
-## Preparation
+# Preparation
 
 :::{.callout-note}
 
@@ -29,7 +24,7 @@ import polars as pl
 from plotnine import *
 ```
 
-Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: Utrecht
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
 # TO BE CHANGED LATER
@@ -38,6 +33,13 @@ kc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)
 ```
 
 :::
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+
 
 ## Challenge 1
 
