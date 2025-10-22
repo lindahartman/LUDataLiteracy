@@ -27,9 +27,8 @@ from plotnine import *
 Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
-# TO BE CHANGED LATER
-ut = pl.read_csv("data/utrecht_2025.csv", try_parse_dates=True)
-kc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)
+ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
 ```
 
 :::

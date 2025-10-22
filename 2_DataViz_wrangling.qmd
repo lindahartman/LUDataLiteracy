@@ -1,5 +1,6 @@
 ---
 title: "Practical 2: Data Visualization + Wrangling"
+from: markdown+emoji
 ---
 
 The objective of the tutorial is to give student a chance to practice the data visualization and data wrangling applying the skills learned through the video lessons on a new dataset.
@@ -25,9 +26,8 @@ from plotnine import *
 Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
-# TO BE CHANGED LATER
-ut = pl.read_csv("data/utrecht_2025.csv", try_parse_dates=True)
-kc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)
+ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
 ```
 
 :::
@@ -46,6 +46,7 @@ What is the average garden size for the houses in Utrecht dataset? What is the m
 
 ```{python}
 #| echo: false
+#| include: false
 (
 ut.describe()
 )
@@ -63,6 +64,7 @@ ut.describe()
 
 ```{python}
 #| echo: false
+#| include: false
 (
 ut
     .filter(pl.col('house_type')=='woonhuis')
@@ -82,6 +84,7 @@ Are the outliers you identified in the previous plot also outliers with regards 
 
 ```{python}
 #| echo: false
+#| include: false
 (
 ut
     .filter(pl.col('house_type')=='woonhuis')
@@ -122,7 +125,7 @@ Create a small dataset which includes only houses from the zipcode(s) identified
 
 ```{python}
 #| echo: false
-
+#| include: false
 (
 ut
     .filter(pl.col('zip_code4')==3543)
@@ -143,6 +146,7 @@ ut
 :::
 
 ```{python}
+#| include: false
 (
 ut
     .filter(pl.col('build_year')>=1900, pl.col('build_year')<=2000)
@@ -155,8 +159,29 @@ ut
 
 ```
 
+## Challenge 6
 
+::: {.challenge}
 
+| Calculate the averate square meter price per valuation week using retail value and plot it. Do you see any trend in the development of real estate prices?
+| :bulb: Measure per square meter price as retail value divided by house area
+| :bulb: You can convert the date into the ISO week number using `.dt.week()` method
+:::
+
+```{python}
+#| include: false
+(
+ut
+    .with_columns(wk=pl.col('valuation_date').dt.week(),
+                rv_psq=pl.col('retail_value')/pl.col('house_area'))
+    .group_by(pl.col('wk'))
+    .agg(avg_rv=pl.col('rv_psq').mean())
+    .pipe(ggplot, aes(x='wk', y='avg_rv'))+
+    geom_line()+
+    geom_smooth(method='lm')
+)
+
+```
 
 # Kings County
 

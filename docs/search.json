@@ -151,42 +151,49 @@
     "href": "2_DataViz_wrangling.html#preparation",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\n# TO BE CHANGED LATER\nut = pl.read_csv(\"data/utrecht_2025.csv\", try_parse_dates=True)\nkc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)"
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-1",
     "href": "2_DataViz_wrangling.html#challenge-1",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in Utrecht dataset? What is the median distance from train?\n\n\n\nshape: (9, 24)\n\n\n\nstatistic\nid\nzip_code4\nzip_code6\nzip_code6_id\nhouse_type\nlot_area\nhouse_area\ngarden_size\nrooms\nbathrooms\nx_coor\ny_coor\nbuild_year\nretail_value\nasking_price\nenergy_label\nenergy_eff\nvaluation_date\nstreet\nsubdistrict\ndistrict\ncity\ndist_from_train\n\n\nstr\nf64\nf64\nstr\nstr\nstr\nf64\nf64\nf64\nf64\nf64\nf64\nf64\nf64\nf64\nf64\nstr\nf64\nstr\nstr\nstr\nstr\nstr\nf64\n\n\n\n\n\"count\"\n153.0\n153.0\n\"153\"\n\"153\"\n\"153\"\n153.0\n153.0\n141.0\n153.0\n153.0\n153.0\n153.0\n153.0\n153.0\n153.0\n\"150\"\n150.0\n\"153\"\n\"153\"\n\"153\"\n\"153\"\n\"153\"\n153.0\n\n\n\"null_count\"\n0.0\n0.0\n\"0\"\n\"0\"\n\"0\"\n0.0\n0.0\n12.0\n0.0\n0.0\n0.0\n0.0\n0.0\n0.0\n0.0\n\"3\"\n3.0\n\"0\"\n\"0\"\n\"0\"\n\"0\"\n\"0\"\n0.0\n\n\n\"mean\"\n5077.104575\n3524.026144\nnull\nnull\nnull\n69.503268\n98.830065\n29.87234\n4.03268\n1.091503\n52.088116\n5.088639\n1967.980392\n559.300654\n506.140523\nnull\n0.5\n\"2024-07-13 06:16:28.235000\"\nnull\nnull\nnull\nnull\n3.045817\n\n\n\"std\"\n45.075107\n38.256225\nnull\nnull\nnull\n79.20818\n35.672448\n33.3903\n1.519255\n0.28927\n0.016607\n0.039587\n67.868824\n173.819215\n162.0794\nnull\n0.501675\nnull\nnull\nnull\nnull\nnull\n1.879933\n\n\n\"min\"\n5000.0\n3438.0\n\"3438LE\"\n\"3438LE100\"\n\"appartement\"\n0.0\n28.0\n0.0\n1.0\n1.0\n52.0465\n5.0\n1320.0\n225.0\n225.0\n\"A\"\n0.0\n\"2024-01-31\"\n\"A v Dalsumlaan\"\n\"Binnenstad city\"\n\"Binnenstad\"\n\"De Meern\"\n0.68\n\n\n\"25%\"\n5038.0\n3521.0\nnull\nnull\nnull\n0.0\n76.0\n0.0\n3.0\n1.0\n52.0773\n5.068\n1932.0\n425.0\n375.0\nnull\n0.0\n\"2024-05-15\"\nnull\nnull\nnull\nnull\n1.63\n\n\n\"50%\"\n5077.0\n3527.0\nnull\nnull\nnull\n48.0\n93.0\n21.0\n4.0\n1.0\n52.0919\n5.0989\n1985.0\n541.0\n490.0\nnull\n1.0\n\"2024-07-10\"\nnull\nnull\nnull\nnull\n2.68\n\n\n\"75%\"\n5116.0\n3544.0\nnull\nnull\nnull\n125.0\n118.0\n50.0\n5.0\n1.0\n52.0986\n5.1123\n2007.0\n676.0\n625.0\nnull\n1.0\n\"2024-09-16\"\nnull\nnull\nnull\nnull\n4.32\n\n\n\"max\"\n5154.0\n3584.0\n\"3584HD\"\n\"3584HD019\"\n\"woonhuis\"\n400.0\n204.0\n162.0\n8.0\n2.0\n52.1131\n5.1505\n2019.0\n1050.0\n995.0\n\"G\"\n1.0\n\"2024-11-27\"\n\"van der Broekstraat\"\n\"Zuilen-west\"\n\"Zuid-West\"\n\"Vleuten\"\n7.57"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in Utrecht dataset? What is the median distance from train?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-2",
     "href": "2_DataViz_wrangling.html#challenge-2",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a plot of house area vs lot area for the ‘woonhuis’ properties. Add a linear trend line. Can you identify at least a couple outliers from the general trend? What is an approximate lot area that you would predict using this model for a house of 200 sqm?\n:bulb: Remember, that you can pass the data to plotnine using .pipe() method."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a plot of house area vs lot area for the ‘woonhuis’ properties. Add a linear trend line. Can you identify at least a couple outliers from the general trend? What is an approximate lot area that you would predict using this model for a house of 200 sqm?\n💡 Remember, that you can pass the data to plotnine using .pipe() method."
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-3",
     "href": "2_DataViz_wrangling.html#challenge-3",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nAre the outliers you identified in the previous plot also outliers with regards to the relationship between the house area and the asking price? Are these outliers correspond to the newer or older houses? Are they located close by to each other? What’s their 4 digit zip-code?\n\n\n\n\n\nshape: (2, 1)\n\n\n\nzip_code4\n\n\ni64\n\n\n\n\n3543\n\n\n3543"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nAre the outliers you identified in the previous plot also outliers with regards to the relationship between the house area and the asking price? Are these outliers correspond to the newer or older houses? Are they located close by to each other? What’s their 4 digit zip-code?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-4",
     "href": "2_DataViz_wrangling.html#challenge-4",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset which includes only houses from the zipcode(s) identified in the previous challenge. Show the street name, house size, lot area, build year, energy class and the asking price. How many houses are in your dataset? Arrange the observations by the year these houses were built. What is the street name in which the oldest of these houses is located?\n\n\n\n\n\nshape: (5, 6)\n\n\n\nstreet\nhouse_area\nlot_area\nbuild_year\nenergy_label\nasking_price\n\n\nstr\ni64\ni64\ni64\nstr\nf64\n\n\n\n\n\"Leo Fallplantsoen\"\n81\n123\n2001\n\"A\"\n435.0\n\n\n\"Leo Fallplantsoen\"\n176\n207\n2004\n\"A\"\n725.0\n\n\n\"Jule Stynestraat\"\n162\n308\n2007\n\"A\"\n950.0\n\n\n\"Jule Stynestraat\"\n174\n179\n2007\n\"A\"\n825.0\n\n\n\"CG Sigmund Rombergstraat\"\n152\n400\n2017\n\"A\"\n995.0"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset which includes only houses from the zipcode(s) identified in the previous challenge. Show the street name, house size, lot area, build year, energy class and the asking price. How many houses are in your dataset? Arrange the observations by the year these houses were built. What is the street name in which the oldest of these houses is located?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-5",
     "href": "2_DataViz_wrangling.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n:bulb: The whole number division in Python is denoted with //\n\n\n\n(\nut\n    .filter(pl.col('build_year')&gt;=1900, pl.col('build_year')&lt;=2000)\n    .with_columns(build_dec=pl.col('build_year')//10*10)\n    .group_by(pl.col('build_dec'))\n    .agg(pl.col('house_area').mean())\n    .pipe(ggplot)+\n    geom_line(aes(x='build_dec', y='house_area'))\n)"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole number division in Python is denoted with //"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-6",
+    "href": "2_DataViz_wrangling.html#challenge-6",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate the averate square meter price per valuation week using retail value and plot it. Do you see any trend in the development of real estate prices?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can convert the date into the ISO week number using .dt.week() method"
   },
   {
     "objectID": "KingsCounty.html",
