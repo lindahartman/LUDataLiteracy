@@ -7,12 +7,7 @@ This is the tutorial for the first practical on **Data Visualization with Plotni
 
 The objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset.
 
-# Utrecht
-
-Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
-
-
-## Preparation
+# Preparation
 
 :::{.callout-note}
 
@@ -29,15 +24,22 @@ import polars as pl
 from plotnine import *
 ```
 
-Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: Utrecht
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
 # TO BE CHANGED LATER
-ut = pl.read_csv("data/utrecht_2025.csv")
-kc = pl.read_csv('data/kc_house_data.csv')
+ut = pl.read_csv("data/utrecht_2025.csv", try_parse_dates=True)
+kc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)
 ```
 
 :::
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+
 
 ## Challenge 1
 
@@ -62,23 +64,28 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 
 Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
 
+
 ```{python}
 #| include: false
 (
 ggplot(ut)+
-geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
-labs(x='Number of rooms', y='Asking Price, k€', color='Bathrooms')
+geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
+scale_x_continuous(limits=[1998, 2025])+
+labs(x='Year Built', y='Energy Class', color='House type')
 )
 ```
 
 :::
 
 ## Challenge 3
+
 :::{.challenge}
 
 How did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?
 
 :bulb: You can limit the plot to the years between `x1` and `x2` using `scale_x_continuous(limits=[x1, x2])`
+
+:::
 
 ```{python}
 #| include: false
@@ -100,7 +107,6 @@ labs(x='Year Built', y='Energy Class', color='House type')
 )
 ```
 
-:::
 
 ## Challenge 4
 :::{.challenge}
@@ -131,13 +137,14 @@ theme_bw()
 :::{.challenge}
 
 
-Plot prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates to see the district names more clearly.
+Plot retail prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates using `coord_flip()` to see the district names more clearly.
 
 ```{python}
 #| include: false
+
 (
-ggplot(ut)+
-geom_boxplot(mapping=aes(y='retail_value', x='reorder(district, retail_value)'))+
+ggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+
+geom_boxplot()+
 coord_flip()+
 labs(x="", y="Retail value, kEUR")
 )
@@ -148,7 +155,7 @@ labs(x="", y="Retail value, kEUR")
 ## Challenge 6
 :::{.challenge}
 
-Plot the distribution of retail values for the two types of houses using both density plot and histogram.
+Plot the distribution of retail values for the two types of houses. Which of these distributions look more symmetrical?
 
 ```{python}
 #| include: false
@@ -168,7 +175,7 @@ labs(x="Retail value, kEUR")
 ## Challenge 7
 :::{.challenge}
 
-Plot the scatterplot of property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot.
+Plot property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. Which district shows the steepest slope of the regression line? Which one shows the shallowest slope? 
 
 ```{python}
 #| include: false
@@ -183,31 +190,66 @@ facet_wrap('district')
 
 :::
 
-# Kings County
-
-Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
-
 ## Challenge 8
 :::{.challenge}
 
-Plot the house prices vs living area. Color by the property grade.
+What do you think are the approximate coordinates of the train station? In which district do you think it might be located? What do you think is the zip code of the train station? (Google to check your answer)
 
 ```{python}
 #| include: false
 (
-ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
-geom_point(alpha=0.3)+
-facet_wrap('grade')
+ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
+geom_point()
+)
+```
+
+```{python}
+#| include: false
+(
+ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
+geom_point()+
+facet_wrap('district')
+)
+```
+
+```{python}
+#| include: false
+(
+ggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+
+geom_jitter()+
+coord_flip()+
+facet_wrap('district', scales='free_y')+
+scale_y_log10()
+
 )
 ```
 
 :::
 
+# Kings County
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
+
 ## Challenge 9
 :::{.challenge}
 
-Plot the house prices vs living area. Color by the property grade. Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?
-:bulb: Put the house price on log scale to avoid overplotting
+Plot the house prices vs living area coloring point by the property grade.
+
+```{python}
+#| include: false
+(
+ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
+geom_point(alpha=0.3)
+)
+```
+
+:::
+
+## Challenge 10
+:::{.challenge}
+
+| Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?
+| :bulb: Put the house price on log scale to avoid overplotting
 
 :::
 
@@ -219,3 +261,34 @@ geom_point(alpha=0.3)+
 scale_y_log10()
 )
 ```
+
+## Challenge 11
+:::{.challenge}
+Visualize distribution of price per square foot of living area for properties in each of the housing conditions. Would you say that newer houses tend to be in better condition?
+
+:::
+
+```{python}
+#| include: false
+(
+ggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+
+geom_jitter(aes(color='yr_built'),alpha=0.3)+
+geom_boxplot()
+)
+```
+
+
+
+## Challenge 12
+:::{.challenge}
+Visualize distribution of price per square foot of living area for water-facing properties and the non-water facing properties. Which of the distributions look more symmetrical?
+:::
+
+```{python}
+#| include: false
+(
+ggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+
+geom_density(alpha=0.3)
+)
+```
+
