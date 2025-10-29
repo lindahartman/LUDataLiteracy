@@ -20,3 +20,4 @@ lat,Latitude
 long,Longitude
 sqft_living15,Average square footage of the apartments interior living space for the nearest 15 neighbors
 sqft_lot15,Average square footage of the land space for the nearest 15 neighbors
+district,School district name
