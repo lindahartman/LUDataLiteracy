@@ -67,7 +67,7 @@
     "href": "1_DataViz.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
   },
   {
     "objectID": "1_DataViz.html#challenge-4",
@@ -81,56 +81,56 @@
     "href": "1_DataViz.html#challenge-5",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot retail prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates using coord_flip() to see the district names more clearly."
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read."
   },
   {
     "objectID": "1_DataViz.html#challenge-6",
     "href": "1_DataViz.html#challenge-6",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two types of houses. Which of these distributions look more symmetrical?"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?"
   },
   {
     "objectID": "1_DataViz.html#challenge-7",
     "href": "1_DataViz.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. Which district shows the steepest slope of the regression line? Which one shows the shallowest slope?"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?"
   },
   {
     "objectID": "1_DataViz.html#challenge-8",
     "href": "1_DataViz.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat do you think are the approximate coordinates of the train station? In which district do you think it might be located? What do you think is the zip code of the train station? (Google to check your answer)"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)"
   },
   {
     "objectID": "1_DataViz.html#challenge-9",
     "href": "1_DataViz.html#challenge-9",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the house prices vs living area coloring point by the property grade."
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade."
   },
   {
     "objectID": "1_DataViz.html#challenge-10",
     "href": "1_DataViz.html#challenge-10",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?\n💡 Put the house price on log scale to avoid overplotting"
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting."
   },
   {
     "objectID": "1_DataViz.html#challenge-11",
     "href": "1_DataViz.html#challenge-11",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize distribution of price per square foot of living area for properties in each of the housing conditions. Would you say that newer houses tend to be in better condition?"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?"
   },
   {
     "objectID": "1_DataViz.html#challenge-12",
     "href": "1_DataViz.html#challenge-12",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize distribution of price per square foot of living area for water-facing properties and the non-water facing properties. Which of the distributions look more symmetrical?"
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
   },
   {
     "objectID": "6_Quarto.html",
@@ -151,49 +151,91 @@
     "href": "2_DataViz_wrangling.html#preparation",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)"
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)\nkc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-1",
     "href": "2_DataViz_wrangling.html#challenge-1",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in Utrecht dataset? What is the median distance from train?"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-2",
     "href": "2_DataViz_wrangling.html#challenge-2",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a plot of house area vs lot area for the ‘woonhuis’ properties. Add a linear trend line. Can you identify at least a couple outliers from the general trend? What is an approximate lot area that you would predict using this model for a house of 200 sqm?\n💡 Remember, that you can pass the data to plotnine using .pipe() method."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?\n💡 You can pass the data to plotnine using the .pipe() method."
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-3",
     "href": "2_DataViz_wrangling.html#challenge-3",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nAre the outliers you identified in the previous plot also outliers with regards to the relationship between the house area and the asking price? Are these outliers correspond to the newer or older houses? Are they located close by to each other? What’s their 4 digit zip-code?"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-4",
     "href": "2_DataViz_wrangling.html#challenge-4",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset which includes only houses from the zipcode(s) identified in the previous challenge. Show the street name, house size, lot area, build year, energy class and the asking price. How many houses are in your dataset? Arrange the observations by the year these houses were built. What is the street name in which the oldest of these houses is located?"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-5",
     "href": "2_DataViz_wrangling.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole number division in Python is denoted with //"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-6",
     "href": "2_DataViz_wrangling.html#challenge-6",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate the averate square meter price per valuation week using retail value and plot it. Do you see any trend in the development of real estate prices?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can convert the date into the ISO week number using .dt.week() method"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole-number division in Python is written as //"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-7",
+    "href": "2_DataViz_wrangling.html#challenge-7",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can extract the ISO week number from the date using the .dt.week() method"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-8",
+    "href": "2_DataViz_wrangling.html#challenge-8",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhich street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?\n💡 You can calculate the proportion using .over() clause"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-9",
+    "href": "2_DataViz_wrangling.html#challenge-9",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 9",
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nDefine the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?\nPlot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?\n💡 You can see the house on Google Street View if you search Google Maps using x_coor, y_coor."
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-10",
+    "href": "2_DataViz_wrangling.html#challenge-10",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 10",
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the number of houses sold in each district.\n💡 Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the reorder() function in Plotnine and see if you can improve your plot with it."
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-11",
+    "href": "2_DataViz_wrangling.html#challenge-11",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 11",
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-12",
+    "href": "2_DataViz_wrangling.html#challenge-12",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 12",
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start()."
   },
   {
     "objectID": "KingsCounty.html",

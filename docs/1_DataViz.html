@@ -279,12 +279,12 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
-<div id="816707aa" class="cell" data-execution_count="1">
+<div id="7bdb6a76" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="f9ef6644" class="cell" data-execution_count="2">
+<div id="ccd0cb77" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -307,7 +307,7 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Reproduce this plot.</p>
-<div id="20f9509e" class="cell" data-execution_count="3">
+<div id="7bf0160d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -347,8 +347,9 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>How did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?</p>
-<p><span class="emoji" data-emoji="bulb">💡</span> You can limit the plot to the years between <code>x1</code> and <code>x2</code> using <code>scale_x_continuous(limits=[x1, x2])</code></p>
+<div class="line-block">How did the energy class of houses evolve for those built during the 20th and 21st century?<br>
+What is the build year of the newest house (woonhuis) with energy class B?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can limit the plot to the years between <code>x1</code> and <code>x2</code> using <code>scale_x_continuous(limits=[x1, x2])</code></div>
 </div>
 </div>
 </section>
@@ -367,7 +368,7 @@ Challenge
 <div class="line-block">Reproduce this plot.<br>
 <span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
-<div id="bde7637b" class="cell" data-execution_count="7">
+<div id="28ef0ba4" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -391,7 +392,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Plot retail prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates using <code>coord_flip()</code> to see the district names more clearly.</p>
+<p>Plot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use <code>coord_flip()</code> if the district names are hard to read.</p>
 </div>
 </div>
 </section>
@@ -407,7 +408,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Plot the distribution of retail values for the two types of houses. Which of these distributions look more symmetrical?</p>
+<p>Plot the distribution of retail values for the two house types. Which of the two appears more symmetrical?</p>
 </div>
 </div>
 </section>
@@ -423,7 +424,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Plot property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. Which district shows the steepest slope of the regression line? Which one shows the shallowest slope?</p>
+<p>Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?</p>
 </div>
 </div>
 </section>
@@ -439,7 +440,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What do you think are the approximate coordinates of the train station? In which district do you think it might be located? What do you think is the zip code of the train station? (Google to check your answer)</p>
+<p>What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)</p>
 </div>
 </div>
 </section>
@@ -459,7 +460,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Plot the house prices vs living area coloring point by the property grade.</p>
+<p>Plot house prices against living area, coloring the points by property grade.</p>
 </div>
 </div>
 </section>
@@ -475,8 +476,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?<br>
-<span class="emoji" data-emoji="bulb">💡</span> Put the house price on log scale to avoid overplotting</div>
+<div class="line-block">Do newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?<br>
+<span class="emoji" data-emoji="bulb">💡</span> Use a log scale for house prices to reduce overplotting.</div>
 </div>
 </div>
 </section>
@@ -492,7 +493,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Visualize distribution of price per square foot of living area for properties in each of the housing conditions. Would you say that newer houses tend to be in better condition?</p>
+<p>Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?</p>
 </div>
 </div>
 </section>
@@ -508,7 +509,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Visualize distribution of price per square foot of living area for water-facing properties and the non-water facing properties. Which of the distributions look more symmetrical?</p>
+<p>Visualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?</p>
 </div>
 </div>
 

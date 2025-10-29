@@ -63,26 +63,26 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 
 Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
 
+:::
 
 ```{python}
 #| include: false
 (
 ggplot(ut)+
-geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
-scale_x_continuous(limits=[1998, 2025])+
-labs(x='Year Built', y='Energy Class', color='House type')
+geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
+labs(x='Number of rooms', y='Asking Price', color='Bathrooms')
 )
 ```
 
-:::
+
 
 ## Challenge 3
 
 :::{.challenge}
 
-How did the energy class of the houses change for the houses built during 20th and 21th century? How old is the newest house (woonhuis) in energy class B?
-
-:bulb: You can limit the plot to the years between `x1` and `x2` using `scale_x_continuous(limits=[x1, x2])`
+| How did the energy class of houses evolve for those built during the 20th and 21st century?
+| What is the build year of the newest house (woonhuis) with energy class B?
+| :bulb: You can limit the plot to the years between `x1` and `x2` using `scale_x_continuous(limits=[x1, x2])`
 
 :::
 
@@ -136,7 +136,9 @@ theme_bw()
 :::{.challenge}
 
 
-Plot retail prices by district. Which district has highest median prices and which has the lowest? Flip the coordinates using `coord_flip()` to see the district names more clearly.
+Plot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use `coord_flip()` if the district names are hard to read.
+
+:::
 
 ```{python}
 #| include: false
@@ -149,12 +151,14 @@ labs(x="", y="Retail value, kEUR")
 )
 ```
 
-:::
+
 
 ## Challenge 6
 :::{.challenge}
 
-Plot the distribution of retail values for the two types of houses. Which of these distributions look more symmetrical?
+Plot the distribution of retail values for the two house types. Which of the two appears more symmetrical?
+
+:::
 
 ```{python}
 #| include: false
@@ -169,12 +173,14 @@ labs(x="Retail value, kEUR")
 )
 ```
 
-:::
+
 
 ## Challenge 7
 :::{.challenge}
 
-Plot property prices vs the house size for each district using small multiples. Add a blue linear regression to each subplot. Which district shows the steepest slope of the regression line? Which one shows the shallowest slope? 
+Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?
+
+:::
 
 ```{python}
 #| include: false
@@ -187,12 +193,14 @@ facet_wrap('district')
 )
 ```
 
-:::
+
 
 ## Challenge 8
 :::{.challenge}
 
-What do you think are the approximate coordinates of the train station? In which district do you think it might be located? What do you think is the zip code of the train station? (Google to check your answer)
+What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)
+
+:::
 
 ```{python}
 #| include: false
@@ -223,7 +231,7 @@ scale_y_log10()
 )
 ```
 
-:::
+
 
 # Kings County
 
@@ -232,7 +240,9 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 ## Challenge 9
 :::{.challenge}
 
-Plot the house prices vs living area coloring point by the property grade.
+Plot house prices against living area, coloring the points by property grade.
+
+:::
 
 ```{python}
 #| include: false
@@ -242,13 +252,12 @@ geom_point(alpha=0.3)
 )
 ```
 
-:::
 
 ## Challenge 10
 :::{.challenge}
 
-| Do newer houses cost more? Do higher grade houses cost more? Are newer houses higher grade?
-| :bulb: Put the house price on log scale to avoid overplotting
+| Do newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?
+| :bulb: Use a log scale for house prices to reduce overplotting.
 
 :::
 
@@ -263,7 +272,7 @@ scale_y_log10()
 
 ## Challenge 11
 :::{.challenge}
-Visualize distribution of price per square foot of living area for properties in each of the housing conditions. Would you say that newer houses tend to be in better condition?
+Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?
 
 :::
 
@@ -280,7 +289,7 @@ geom_boxplot()
 
 ## Challenge 12
 :::{.challenge}
-Visualize distribution of price per square foot of living area for water-facing properties and the non-water facing properties. Which of the distributions look more symmetrical?
+Visualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?
 :::
 
 ```{python}
