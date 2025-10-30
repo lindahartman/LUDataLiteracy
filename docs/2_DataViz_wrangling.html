@@ -229,8 +229,17 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
   <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
   <li><a href="#challenge-4" id="toc-challenge-4" class="nav-link" data-scroll-target="#challenge-4">Challenge 4</a></li>
   <li><a href="#challenge-5" id="toc-challenge-5" class="nav-link" data-scroll-target="#challenge-5">Challenge 5</a></li>
+  <li><a href="#challenge-6" id="toc-challenge-6" class="nav-link" data-scroll-target="#challenge-6">Challenge 6</a></li>
+  <li><a href="#challenge-7" id="toc-challenge-7" class="nav-link" data-scroll-target="#challenge-7">Challenge 7</a></li>
+  <li><a href="#challenge-8" id="toc-challenge-8" class="nav-link" data-scroll-target="#challenge-8">Challenge 8</a></li>
+  <li><a href="#challenge-9" id="toc-challenge-9" class="nav-link" data-scroll-target="#challenge-9">Challenge 9</a></li>
   </ul></li>
-  <li><a href="#kings-county" id="toc-kings-county" class="nav-link" data-scroll-target="#kings-county">Kings County</a></li>
+  <li><a href="#kings-county" id="toc-kings-county" class="nav-link" data-scroll-target="#kings-county">Kings County</a>
+  <ul class="collapse">
+  <li><a href="#challenge-10" id="toc-challenge-10" class="nav-link" data-scroll-target="#challenge-10">Challenge 10</a></li>
+  <li><a href="#challenge-11" id="toc-challenge-11" class="nav-link" data-scroll-target="#challenge-11">Challenge 11</a></li>
+  <li><a href="#challenge-12" id="toc-challenge-12" class="nav-link" data-scroll-target="#challenge-12">Challenge 12</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -272,15 +281,15 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization and wrangling</code>. Then add a code cell and place the following code there.</p>
-<div id="319df0eb" class="cell" data-execution_count="1">
+<div id="87cb1fb0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="d183e690" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># TO BE CHANGED LATER</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"data/utrecht_2025.csv"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
+<div id="3a5db177" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'data/kc_house_data.csv'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -301,312 +310,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What is the average garden size for the houses in Utrecht dataset? What is the median distance from train?</p>
-<div id="17c1688c" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (9, 24)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">statistic</th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">zip_code4</th>
-<th data-quarto-table-cell-role="th">zip_code6</th>
-<th data-quarto-table-cell-role="th">zip_code6_id</th>
-<th data-quarto-table-cell-role="th">house_type</th>
-<th data-quarto-table-cell-role="th">lot_area</th>
-<th data-quarto-table-cell-role="th">house_area</th>
-<th data-quarto-table-cell-role="th">garden_size</th>
-<th data-quarto-table-cell-role="th">rooms</th>
-<th data-quarto-table-cell-role="th">bathrooms</th>
-<th data-quarto-table-cell-role="th">x_coor</th>
-<th data-quarto-table-cell-role="th">y_coor</th>
-<th data-quarto-table-cell-role="th">build_year</th>
-<th data-quarto-table-cell-role="th">retail_value</th>
-<th data-quarto-table-cell-role="th">asking_price</th>
-<th data-quarto-table-cell-role="th">energy_label</th>
-<th data-quarto-table-cell-role="th">energy_eff</th>
-<th data-quarto-table-cell-role="th">valuation_date</th>
-<th data-quarto-table-cell-role="th">street</th>
-<th data-quarto-table-cell-role="th">subdistrict</th>
-<th data-quarto-table-cell-role="th">district</th>
-<th data-quarto-table-cell-role="th">city</th>
-<th data-quarto-table-cell-role="th">dist_from_train</th>
-</tr>
-<tr class="even">
-<th>str</th>
-<th>f64</th>
-<th>f64</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>f64</th>
-<th>str</th>
-<th>f64</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>str</th>
-<th>f64</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>"count"</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>"153"</td>
-<td>"153"</td>
-<td>"153"</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>141.0</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>153.0</td>
-<td>"150"</td>
-<td>150.0</td>
-<td>"153"</td>
-<td>"153"</td>
-<td>"153"</td>
-<td>"153"</td>
-<td>"153"</td>
-<td>153.0</td>
-</tr>
-<tr class="even">
-<td>"null_count"</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>"0"</td>
-<td>"0"</td>
-<td>"0"</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>12.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>0.0</td>
-<td>"3"</td>
-<td>3.0</td>
-<td>"0"</td>
-<td>"0"</td>
-<td>"0"</td>
-<td>"0"</td>
-<td>"0"</td>
-<td>0.0</td>
-</tr>
-<tr class="odd">
-<td>"mean"</td>
-<td>5077.104575</td>
-<td>3524.026144</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>69.503268</td>
-<td>98.830065</td>
-<td>29.87234</td>
-<td>4.03268</td>
-<td>1.091503</td>
-<td>52.088116</td>
-<td>5.088639</td>
-<td>1967.980392</td>
-<td>559.300654</td>
-<td>506.140523</td>
-<td>null</td>
-<td>0.5</td>
-<td>"2024-07-13 06:16:28.235000"</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>3.045817</td>
-</tr>
-<tr class="even">
-<td>"std"</td>
-<td>45.075107</td>
-<td>38.256225</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>79.20818</td>
-<td>35.672448</td>
-<td>33.3903</td>
-<td>1.519255</td>
-<td>0.28927</td>
-<td>0.016607</td>
-<td>0.039587</td>
-<td>67.868824</td>
-<td>173.819215</td>
-<td>162.0794</td>
-<td>null</td>
-<td>0.501675</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>1.879933</td>
-</tr>
-<tr class="odd">
-<td>"min"</td>
-<td>5000.0</td>
-<td>3438.0</td>
-<td>"3438LE"</td>
-<td>"3438LE100"</td>
-<td>"appartement"</td>
-<td>0.0</td>
-<td>28.0</td>
-<td>0.0</td>
-<td>1.0</td>
-<td>1.0</td>
-<td>52.0465</td>
-<td>5.0</td>
-<td>1320.0</td>
-<td>225.0</td>
-<td>225.0</td>
-<td>"A"</td>
-<td>0.0</td>
-<td>"2024-01-31"</td>
-<td>"A v Dalsumlaan"</td>
-<td>"Binnenstad city"</td>
-<td>"Binnenstad"</td>
-<td>"De Meern"</td>
-<td>0.68</td>
-</tr>
-<tr class="even">
-<td>"25%"</td>
-<td>5038.0</td>
-<td>3521.0</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>0.0</td>
-<td>76.0</td>
-<td>0.0</td>
-<td>3.0</td>
-<td>1.0</td>
-<td>52.0773</td>
-<td>5.068</td>
-<td>1932.0</td>
-<td>425.0</td>
-<td>375.0</td>
-<td>null</td>
-<td>0.0</td>
-<td>"2024-05-15"</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>1.63</td>
-</tr>
-<tr class="odd">
-<td>"50%"</td>
-<td>5077.0</td>
-<td>3527.0</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>48.0</td>
-<td>93.0</td>
-<td>21.0</td>
-<td>4.0</td>
-<td>1.0</td>
-<td>52.0919</td>
-<td>5.0989</td>
-<td>1985.0</td>
-<td>541.0</td>
-<td>490.0</td>
-<td>null</td>
-<td>1.0</td>
-<td>"2024-07-10"</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>2.68</td>
-</tr>
-<tr class="even">
-<td>"75%"</td>
-<td>5116.0</td>
-<td>3544.0</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>125.0</td>
-<td>118.0</td>
-<td>50.0</td>
-<td>5.0</td>
-<td>1.0</td>
-<td>52.0986</td>
-<td>5.1123</td>
-<td>2007.0</td>
-<td>676.0</td>
-<td>625.0</td>
-<td>null</td>
-<td>1.0</td>
-<td>"2024-09-16"</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>4.32</td>
-</tr>
-<tr class="odd">
-<td>"max"</td>
-<td>5154.0</td>
-<td>3584.0</td>
-<td>"3584HD"</td>
-<td>"3584HD019"</td>
-<td>"woonhuis"</td>
-<td>400.0</td>
-<td>204.0</td>
-<td>162.0</td>
-<td>8.0</td>
-<td>2.0</td>
-<td>52.1131</td>
-<td>5.1505</td>
-<td>2019.0</td>
-<td>1050.0</td>
-<td>995.0</td>
-<td>"G"</td>
-<td>1.0</td>
-<td>"2024-11-27"</td>
-<td>"van der Broekstraat"</td>
-<td>"Zuilen-west"</td>
-<td>"Zuid-West"</td>
-<td>"Vleuten"</td>
-<td>7.57</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+<p>What is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?</p>
 </div>
 </div>
 </section>
@@ -622,17 +326,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Create a plot of house area vs lot area for the ‘woonhuis’ properties. Add a linear trend line. Can you identify at least a couple outliers from the general trend? What is an approximate lot area that you would predict using this model for a house of 200 sqm?<br>
-:bulb: Remember, that you can pass the data to <code>plotnine</code> using <code>.pipe()</code> method.</div>
-</div>
-</div>
-<div id="036798ad" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2_DataViz_wrangling_files/figure-html/cell-5-output-1.png" width="640" height="480" class="figure-img"></p>
-</figure>
-</div>
+<div class="line-block">Plot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can pass the data to <code>plotnine</code> using the <code>.pipe()</code> method.</div>
 </div>
 </div>
 </section>
@@ -648,38 +343,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Are the outliers you identified in the previous plot also outliers with regards to the relationship between the house area and the asking price? Are these outliers correspond to the newer or older houses? Are they located close by to each other? What’s their 4 digit zip-code?</p>
-</div>
-</div>
-<div id="194667e7" class="cell" data-execution_count="5">
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (2, 1)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">zip_code4</th>
-</tr>
-<tr class="even">
-<th>i64</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>3543</td>
-</tr>
-<tr class="even">
-<td>3543</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>Do the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?</p>
 </div>
 </div>
 </section>
@@ -695,82 +359,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Create a small dataset which includes only houses from the zipcode(s) identified in the previous challenge. Show the street name, house size, lot area, build year, energy class and the asking price. How many houses are in your dataset? Arrange the observations by the year these houses were built. What is the street name in which the oldest of these houses is located?</p>
-</div>
-</div>
-<div id="a4436c7c" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
-<div><style>
-.dataframe > thead > tr,
-.dataframe > tbody > tr {
-  text-align: right;
-  white-space: pre-wrap;
-}
-</style>
-<small>shape: (5, 6)</small>
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">street</th>
-<th data-quarto-table-cell-role="th">house_area</th>
-<th data-quarto-table-cell-role="th">lot_area</th>
-<th data-quarto-table-cell-role="th">build_year</th>
-<th data-quarto-table-cell-role="th">energy_label</th>
-<th data-quarto-table-cell-role="th">asking_price</th>
-</tr>
-<tr class="even">
-<th>str</th>
-<th>i64</th>
-<th>i64</th>
-<th>i64</th>
-<th>str</th>
-<th>f64</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>"Leo Fallplantsoen"</td>
-<td>81</td>
-<td>123</td>
-<td>2001</td>
-<td>"A"</td>
-<td>435.0</td>
-</tr>
-<tr class="even">
-<td>"Leo Fallplantsoen"</td>
-<td>176</td>
-<td>207</td>
-<td>2004</td>
-<td>"A"</td>
-<td>725.0</td>
-</tr>
-<tr class="odd">
-<td>"Jule Stynestraat"</td>
-<td>162</td>
-<td>308</td>
-<td>2007</td>
-<td>"A"</td>
-<td>950.0</td>
-</tr>
-<tr class="even">
-<td>"Jule Stynestraat"</td>
-<td>174</td>
-<td>179</td>
-<td>2007</td>
-<td>"A"</td>
-<td>825.0</td>
-</tr>
-<tr class="odd">
-<td>"CG Sigmund Rombergstraat"</td>
-<td>152</td>
-<td>400</td>
-<td>2017</td>
-<td>"A"</td>
-<td>995.0</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>Create a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?</p>
 </div>
 </div>
 </section>
@@ -786,26 +375,79 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Plot the line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?<br>
-:bulb: The whole number division in Python is denoted with <code>//</code></div>
+<div class="line-block">Which 4-digit zip code includes the largest number of streets?<br>
+Within that zip code, what is the street name of the house closest to the train station?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can count unique values using <code>n_unique()</code> and find the minimum value with <code>min()</code></div>
 </div>
 </div>
-<div id="e42ad034" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ut</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">'build_year'</span>)<span class="op">&gt;=</span><span class="dv">1900</span>, pl.col(<span class="st">'build_year'</span>)<span class="op">&lt;=</span><span class="dv">2000</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    .with_columns(build_dec<span class="op">=</span>pl.col(<span class="st">'build_year'</span>)<span class="op">//</span><span class="dv">10</span><span class="op">*</span><span class="dv">10</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    .group_by(pl.col(<span class="st">'build_dec'</span>))</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    .agg(pl.col(<span class="st">'house_area'</span>).mean())</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    .pipe(ggplot)<span class="op">+</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    geom_line(aes(x<span class="op">=</span><span class="st">'build_dec'</span>, y<span class="op">=</span><span class="st">'house_area'</span>))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="2_DataViz_wrangling_files/figure-html/cell-8-output-1.png" width="640" height="480" class="figure-img"></p>
-</figure>
+</section>
+<section id="challenge-6" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-6">Challenge 6</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Plot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?<br>
+<span class="emoji" data-emoji="bulb">💡</span> The whole-number division in Python is written as <code>//</code></div>
+</div>
+</div>
+</section>
+<section id="challenge-7" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-7">Challenge 7</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Calculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?<br>
+<span class="emoji" data-emoji="bulb">💡</span> Measure per square meter price as retail value divided by house area<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can extract the ISO week number from the date using the <code>.dt.week()</code> method</div>
+</div>
+</div>
+</section>
+<section id="challenge-8" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-8">Challenge 8</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Which street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can calculate the proportion using <code>.over()</code> clause</div>
+</div>
+</div>
+</section>
+<section id="challenge-9" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-9">Challenge 9</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Define the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?<br>
+Plot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can see the house on Google Street View if you search Google Maps using <code>x_coor</code>, <code>y_coor</code>.</div>
 </div>
 </div>
 </section>
@@ -813,8 +455,58 @@ Challenge
 <section id="kings-county" class="level1">
 <h1>Kings County</h1>
 <p>Answer the following challenges using <a href="./KingsCounty.html">Kings County</a> dataset.</p>
+<section id="challenge-10" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-10">Challenge 10</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Plot the number of houses sold in each district.<br>
+<span class="emoji" data-emoji="bulb">💡</span> Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the <code>reorder()</code> function in Plotnine and see if you can improve your plot with it.</div>
+</div>
+</div>
+</section>
+<section id="challenge-11" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-11">Challenge 11</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?</p>
+</div>
+</div>
+</section>
+<section id="challenge-12" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-12">Challenge 12</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Plot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?<br>
+<span class="emoji" data-emoji="bulb">💡</span> ou can round dates to the start of each month using <code>dt.month_start()</code>.</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
