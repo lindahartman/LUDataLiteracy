@@ -101,17 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-question.callout {
-  border-left-color: pink;
-}
-div.callout-question.callout-style-default > .callout-header {
-  background-color: rgb(from pink r g b / 13%);
-}
-div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
-  content: '🧠';
-  background-image: none;
-}
 div.callout-challenge.callout {
   border-left-color: firebrick;
 }
@@ -121,6 +110,17 @@ div.callout-challenge.callout-style-default > .callout-header {
 div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
   content: '🛠️';
+  background-image: none;
+}
+div.callout-question.callout {
+  border-left-color: pink;
+}
+div.callout-question.callout-style-default > .callout-header {
+  background-color: rgb(from pink r g b / 13%);
+}
+div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
+  content: '🧠';
   background-image: none;
 }
 </style>
@@ -218,7 +218,8 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#scope" id="toc-scope" class="nav-link active" data-scroll-target="#scope">Scope</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
   <li><a href="#utrecht" id="toc-utrecht" class="nav-link" data-scroll-target="#utrecht">Utrecht</a>
   <ul class="collapse">
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
@@ -230,7 +231,7 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
   <li><a href="#challenge-7" id="toc-challenge-7" class="nav-link" data-scroll-target="#challenge-7">Challenge 7</a></li>
   <li><a href="#challenge-8" id="toc-challenge-8" class="nav-link" data-scroll-target="#challenge-8">Challenge 8</a></li>
   </ul></li>
-  <li><a href="#kings-county" id="toc-kings-county" class="nav-link" data-scroll-target="#kings-county">Kings County</a>
+  <li><a href="#kings-county---optional-challenges" id="toc-kings-county---optional-challenges" class="nav-link" data-scroll-target="#kings-county---optional-challenges">Kings County - optional challenges</a>
   <ul class="collapse">
   <li><a href="#challenge-9" id="toc-challenge-9" class="nav-link" data-scroll-target="#challenge-9">Challenge 9</a></li>
   <li><a href="#challenge-10" id="toc-challenge-10" class="nav-link" data-scroll-target="#challenge-10">Challenge 10</a></li>
@@ -263,7 +264,11 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
 
 
 <p>This is the tutorial for the first practical on <strong>Data Visualization with Plotnine</strong></p>
-<p>The objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset.</p>
+<p>The objective of the tutorial is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.</p>
+<section id="scope" class="level1">
+<h1>Scope</h1>
+<p>Getting confident with building code is - surprise! - achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King’s county as an (optional) repetition of the concepts.</p>
+</section>
 <section id="preparation" class="level1">
 <h1>Preparation</h1>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -279,12 +284,12 @@ Note
 <p>Before you begin your peer-programming session, please <strong>open a terminal and navigate to the course folder</strong> you created during the installation and preparations (remember <code>cd</code> and <code>ls</code>). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
-<div id="78dd3698" class="cell" data-execution_count="1">
+<div id="189aaa1b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="e9345f8c" class="cell" data-execution_count="2">
+<div id="2972da34" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -308,7 +313,7 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Reproduce this plot.</p>
-<div id="7de44f0b" class="cell" data-execution_count="3">
+<div id="2d14dd17" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -369,7 +374,7 @@ Challenge
 <div class="line-block">Reproduce this plot.<br>
 <span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
-<div id="a513ebd2" class="cell" data-execution_count="7">
+<div id="7b4a3ab2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -446,8 +451,8 @@ Challenge
 </div>
 </section>
 </section>
-<section id="kings-county" class="level1">
-<h1>Kings County</h1>
+<section id="kings-county---optional-challenges" class="level1">
+<h1>Kings County - optional challenges</h1>
 <p>Answer the following challenges using <a href="./KingsCounty.html">Kings County</a> dataset.</p>
 <section id="challenge-9" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-9">Challenge 9</h2>
