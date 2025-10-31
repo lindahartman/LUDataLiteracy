@@ -5,7 +5,11 @@ from: markdown+emoji
 
 This is the tutorial for the first practical on **Data Visualization with Plotnine**
 
-The objective of the tutorial is to give student a chance to practice the data visualization applying the skills learned through the video lessons on a new dataset.
+The objective of the tutorial is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.
+
+# Scope
+
+Getting confident with building code is - surprise! -  achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King's county as an (optional) repetition of the concepts. 
 
 # Preparation
 
@@ -233,11 +237,11 @@ scale_y_log10()
 
 
 
-# Kings County
+# Kings County - optional challenges
 
 Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 
-## Challenge 9
+## Challenge 9 
 :::{.challenge}
 
 Plot house prices against living area, coloring the points by property grade.
