@@ -11,14 +11,14 @@
     "href": "4_Wrangling_joins.html",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/gapminder/data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "5_Pivots_GT.html",
     "href": "5_Pivots_GT.html",
     "title": "Practical 5: Pivots + Great Tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/gapminder/data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "index.html",
@@ -37,9 +37,86 @@
   {
     "objectID": "3_Wrangling_GT.html",
     "href": "3_Wrangling_GT.html",
-    "title": "Practical 3: Data Wrangling + Great Tables",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "The objective of the tutorial is to give student a chance to practice the data wrangling and great tables applying the skills learned through the video lessons on a new dataset."
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#preparation",
+    "href": "3_Wrangling_GT.html#preparation",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\nfrom great_tables import GT\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-1",
+    "href": "3_Wrangling_GT.html#challenge-1",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nHow old is the newest house (woonhuis) with energy class B?"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-2",
+    "href": "3_Wrangling_GT.html#challenge-2",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? Do any of these districs have missing values in the energy_label column?\n💡 The logical OR operator in Python is denoted by |"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-3",
+    "href": "3_Wrangling_GT.html#challenge-3",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-4",
+    "href": "3_Wrangling_GT.html#challenge-4",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-5",
+    "href": "3_Wrangling_GT.html#challenge-5",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. Show proportions as percent in your table.\n💡 You can add prefix to a set of columns using .name.prefix('zzz_')"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-6",
+    "href": "3_Wrangling_GT.html#challenge-6",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1).\n💡 You will need to remember how to use .over() to complete this challenge."
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-7",
+    "href": "3_Wrangling_GT.html#challenge-7",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nDefine a reconstruction year, as a year when the most recent renovation happened, or in the absence of it, the construction year. For the multiple sales of the same property, keep only the most recent record.\nExplore whether houses in the Highline district that were recently reconstructed tend to have a higher price per square foot. How does this relationship change after you remove outliers?\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-8",
+    "href": "3_Wrangling_GT.html#challenge-8",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 8",
+    "text": "Challenge 8"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-9",
+    "href": "3_Wrangling_GT.html#challenge-9",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 9",
+    "text": "Challenge 9"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-10",
+    "href": "3_Wrangling_GT.html#challenge-10",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 10",
+    "text": "Challenge 10"
   },
   {
     "objectID": "1_DataViz.html",
@@ -137,7 +214,7 @@
     "href": "6_Quarto.html",
     "title": "Practical 5: Producing reports with Quarto",
     "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\n\n1 + 1\n\n2\n\n\n\n\nCode\nimport polars as pl\nfrom plotnine import *\nfrom gapminder import gapminder\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/gapminder/data.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools&lt;81.\n\n\n\n#gapminder\n\n\n(\nggplot(gapminder)+\ngeom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))\n)"
   },
   {
     "objectID": "2_DataViz_wrangling.html",
@@ -151,7 +228,7 @@
     "href": "2_DataViz_wrangling.html#preparation",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)\nkc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)"
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-1",
@@ -242,6 +319,6 @@
     "href": "KingsCounty.html",
     "title": "Kings County Housing",
     "section": "",
-    "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID for each home sold\n\n\ndate\nDate of the home sale\n\n\nprice\nPrice of each home sold\n\n\nbedrooms\nNumber of bedrooms\n\n\nbathrooms\nNumber of bathrooms\n\n\nsqft_living\nSquare footage of the apartments interior living space\n\n\nsqft_lot\nSquare footage of the land space\n\n\nfloors\nNumber of floors\n\n\nwaterfront\nA dummy variable for whether the apartment was overlooking the waterfront or not\n\n\nview\nAn index from 0 to 4 of how good the view of the property was\n\n\ncondition\nAn index from 1 to 5 on the condition of the apartment\n\n\ngrade\nAn index from 1 to 13 where 1-3 falls short of building construction and design, 7 has an average level of construction and design and 11-13 have a high quality level of construction and design\n\n\nsqft_above\nSquare footage of the interior housing space above ground level\n\n\nsqft_basement\nSquare footage of the interior housing space below ground level\n\n\nyr_built\nYear the house was initially built\n\n\nyr_renovated\nYear of the house’s last renovation and, if not renovated, the year built\n\n\nzipcode\nZipcode the house belongs to\n\n\nlat\nLatitude\n\n\nlong\nLongitude\n\n\nsqft_living15\nAverage square footage of the apartments interior living space for the nearest 15 neighbors\n\n\nsqft_lot15\nAverage square footage of the land space for the nearest 15 neighbors"
+    "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID for each home sold\n\n\ndate\nDate of the home sale\n\n\nprice\nPrice of each home sold\n\n\nbedrooms\nNumber of bedrooms\n\n\nbathrooms\nNumber of bathrooms\n\n\nsqft_living\nSquare footage of the apartments interior living space\n\n\nsqft_lot\nSquare footage of the land space\n\n\nfloors\nNumber of floors\n\n\nwaterfront\nA dummy variable for whether the apartment was overlooking the waterfront or not\n\n\nview\nAn index from 0 to 4 of how good the view of the property was\n\n\ncondition\nAn index from 1 to 5 on the condition of the apartment\n\n\ngrade\nAn index from 1 to 13 where 1-3 falls short of building construction and design, 7 has an average level of construction and design and 11-13 have a high quality level of construction and design\n\n\nsqft_above\nSquare footage of the interior housing space above ground level\n\n\nsqft_basement\nSquare footage of the interior housing space below ground level\n\n\nyr_built\nYear the house was initially built\n\n\nyr_renovated\nYear of the house’s last renovation and, if not renovated, the year built\n\n\nzipcode\nZipcode the house belongs to\n\n\nlat\nLatitude\n\n\nlong\nLongitude\n\n\nsqft_living15\nAverage square footage of the apartments interior living space for the nearest 15 neighbors\n\n\nsqft_lot15\nAverage square footage of the land space for the nearest 15 neighbors\n\n\ndistrict\nSchool district name"
   }
 ]

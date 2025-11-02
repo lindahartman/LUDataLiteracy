@@ -1,34 +1,258 @@
 ---
-title: "Practical 3: Data Wrangling + Great Tables"
+title: "Practical 3: Data Wrangling + great tables"
+from: markdown+emoji
 ---
 
-This is the tutorial for the first practical on **Data Visualization with Plotnine**
+The objective of the tutorial is to give student a chance to practice the data wrangling and [great tables](https://posit-dev.github.io/great-tables/articles/intro.html) applying the skills learned through the video lessons on a new dataset.
 
-```{python}
-1 + 1
+## Preparation
+
+:::{.callout-note}
+
+Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
 ```
 
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization and wrangling`. Then add a code cell and place the following code there.
 
 ```{python}
-#| echo: true
-#| code-fold: true
 import polars as pl
+import polars.selectors as cs
 from plotnine import *
-from gapminder import gapminder
+from great_tables import GT
 ```
 
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
-#gapminder
-
+ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
 ```
 
+:::
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+## Challenge 1
+
+:::{.challenge}
+
+How old is the newest house (woonhuis) with energy class B?
+
+:::
 
 ```{python}
-#| eval: true
+#| include: false
 (
-ggplot(gapminder)+
-geom_point(mapping=aes(x='gdpPercap', y='lifeExp', color='continent'))
+    ut
+    .filter(pl.col('energy_label')=='B', 
+            pl.col('house_type') == 'woonhuis')
+    .with_columns(age=2025-pl.col('build_year'))
+    .sort(pl.col('build_year'))
+    .tail(1)
+    .select(pl.col('age'))
 )
 ```
+
+
+## Challenge 2
+
+:::{.challenge}
+
+| What are top-3 districts with the largest number of properties in energy class **B** or better? Do any of these districs have missing values in the `energy_label` column?
+| :bulb: The logical `OR` operator in Python is denoted by `|`
+
+
+:::
+
+```{python}
+#| include: false
+(
+    ut
+    .group_by('district')
+    .agg(pl.col('energy_label').is_null().sum().alias('energy_missing'))
+    .sort('energy_missing', descending=True)
+)
+
+
+(
+    ut
+    .with_columns(bplus=(pl.col('energy_label')=='B') | 
+                        (pl.col('energy_eff')==1)
+                )
+    .group_by('district')
+    .agg(bplus_count=pl.col('bplus').sum(),
+        missing_count=pl.col('energy_label').is_null().sum())
+    .sort('bplus_count', descending=True)
+    .head(3)
+)
+```
+
+## Challenge 3
+
+:::{.challenge}
+| Create a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.
+| :bulb: You can group houses by decade by flooring the build year to the start of the decade using integer division `//`
+:::
+
+```{python}
+#| include: false
+(
+    ut
+    .filter(pl.col('build_year')>=1900)
+    .with_columns(build_decade=(pl.col('build_year')//10*10).cast(pl.String)+'s')
+    .group_by('build_decade')
+    .agg(prop=pl.col('energy_eff').mean())
+    .sort('build_decade')
+    .pipe(GT)
+    .fmt_percent(columns='prop')
+    .opt_stylize(1)
+)
+```
+
+## Challenge 4
+
+:::{.challenge}
+| Create a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?
+| :bulb: You can count number of records per group with `pl.len()`
+:::
+
+```{python}
+#| include: false
+(
+    ut
+    .with_columns(psqm=pl.col('retail_value')/pl.col('house_area'))
+    .group_by('city','district')
+    .agg(n=pl.len(),
+        min_psqm=pl.col('psqm').min(),
+        max_psqm=pl.col('psqm').max())
+    .with_columns(range=pl.col('max_psqm')-pl.col('min_psqm'))
+    .sort('range')
+    .pipe(GT)
+    .cols_hide('range')
+    .fmt_number(columns=cs.ends_with('psqm'), decimals=2)
+    .opt_stylize(1)
+)
+
+```
+
+## Challenge 5
+
+:::{.challenge}
+
+| Use selectors and multi-column expressions for this challenge. Create a great table showing *average values* (`mean()`) for all numeric columns and the *number of unique values* (`n_unique()`) for all string columns, *by district*, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.
+| :bulb: This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix `avg_` and the string columns the prefix `num_`. The proportion could be prefixed with `prop_`. Show proportions as percent in your table. 
+| :bulb: You can add prefix to a set of columns using `.name.prefix('zzz_')`
+
+::: 
+
+```{python}
+#| include: false
+(
+    ut
+    .drop('id', cs.starts_with('zip'), cs.ends_with('coor'), 'build_year')
+    .group_by('district')
+    .agg(cs.numeric().exclude('energy_eff').mean().name.prefix("avg_"),
+        cs.matches('energy_eff').mean().name.prefix("prop_"),
+        cs.string().n_unique().name.prefix("num_"))
+    .sort('avg_retail_value', descending=True)
+    .pipe(GT)
+    .fmt_number(columns=cs.starts_with("avg_"), decimals=1)
+    .fmt_percent(columns=cs.starts_with("prop_"), decimals=0)
+    .opt_stylize(2)
+)
+```
+
+
+
+# Kings County
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
+
+## Challenge 6
+
+:::{.challenge}
+| Make a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.
+| :bulb: You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using `.shift(-1)`.
+| :bulb: You will need to remember how to use `.over()` to complete this challenge. 
+:::
+
+```{python}
+#| include: false
+(
+    kc
+    .group_by('id')
+    .agg(pl.len())
+    .filter(pl.col('len')>1)
+    .sort('len', descending=True)
+)
+
+(
+    kc
+    .with_columns(sold_times=pl.len().over('id'))
+    .filter(pl.col('sold_times')>1)
+    .sort('id','date', descending=True)
+    .select('id', 'district','price')
+    .with_columns(last_price=pl.col('price').shift(-1).over('id'))
+    .with_columns(profit=pl.col('price')-pl.col('last_price'))
+    .group_by('district')
+    .agg(pl.col('profit').drop_nulls().sum())
+    .sort('profit', descending=True)
+    .head(5)
+    .pipe(GT)
+)
+
+```
+
+
+## Challenge 7
+
+:::{.challenge}
+
+Define a reconstruction year, as a year when the most recent renovation happened, or in the absence of it, the construction year. For the multiple sales of the same property, keep only the most recent record.
+
+Explore whether houses in the Highline district that were recently reconstructed tend to have a higher price per square foot. How does this relationship change after you remove outliers?
+
+| :bulb: You can use a conditional expression in Polars such as: `pl.when(condition).then(value_if_true).otherwise(value_if_false)`.
+:::
+
+```{python}
+#| include: false
+(
+    kc
+    .filter(pl.col('district')=="Highline")
+    .group_by('id')
+    .agg(pl.len())
+    .sort('len', descending=True)
+)
+
+(
+    kc
+    .filter(pl.col('district')=="Highline")
+    .sort('id', 'yr_renovated', descending=True)
+    .group_by('id')
+    .agg(pl.col('yr_renovated', 'yr_built', 'price', 'sqft_living', 'condition').first())
+    .with_columns(
+        yr_rebuilt=pl.when(pl.col('yr_renovated')>pl.col('yr_built'))
+                    .then(pl.col('yr_renovated')).otherwise(pl.col('yr_built')),
+        ppsqft=pl.col('price')/pl.col('sqft_living')
+    )
+    #.filter(pl.col('ppsqft')<=700)
+    .pipe(ggplot, aes(x='yr_rebuilt', y='ppsqft'))+
+    geom_point(aes(color='condition'))+
+    geom_smooth()
+)
+```
+
+## Challenge 8
+
+## Challenge 9
+
+## Challenge 10
+
 
