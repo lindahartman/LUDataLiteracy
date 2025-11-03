@@ -28,7 +28,6 @@ Then import the datasets for this practical. Add another code cell below (using 
 ```{python}
 ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
 kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
-kc = pl.read_csv('data/kc_house_data.csv', try_parse_dates=True)
 ```
 
 :::
