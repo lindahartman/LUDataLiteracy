@@ -177,20 +177,45 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 ## Challenge 6
 
 :::{.challenge}
-| Make a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.
-| :bulb: You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using `.shift(-1)`.
+| Make a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.
 | :bulb: You will need to remember how to use `.over()` to complete this challenge. 
 :::
 
 ```{python}
 #| include: false
+
 (
     kc
-    .group_by('id')
+    .group_by('id', 'district')
     .agg(pl.len())
     .filter(pl.col('len')>1)
     .sort('len', descending=True)
 )
+
+(
+    kc
+    .filter(pl.col('district')=="Seattle")
+    .with_columns(n_times=pl.len().over('id'))
+    .filter(pl.col('n_times')>1)
+    .sort('n_times', descending=True)
+    .select('id', 'date', 'price')
+    .pipe(GT)
+    .tab_stub(groupname_col='id')
+)
+
+```
+
+
+## Challenge 7
+
+:::{.challenge}
+| Make a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.
+| :bulb: You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using `.shift(-1)`.
+
+:::
+
+```{python}
+#| include: false
 
 (
     kc
@@ -209,16 +234,44 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 
 ```
 
+## Challenge 8
 
-## Challenge 7
+:::{.challenge}
+| Correct the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.
+| :bulb: You can use a conditional expression in Polars such as: `pl.when(condition).then(value_if_true).otherwise(value_if_false)`. 
+:::
+
+```{python}
+kc = (kc
+    .with_columns(
+        yr_rebuilt=pl.when(pl.col('yr_renovated')>pl.col('yr_built'))
+                    .then(pl.col('yr_renovated')).otherwise(pl.col('yr_built')))
+)
+```
+
+## Challenge 9
+
+:::{.challenge}
+| Visualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?
+| :bulb: The year of sale can be extracted with `pl.col('date').dt.year()`
+:::
+
+```{python}
+(
+    kc
+    .with_columns(age=pl.col('date').dt.year()-pl.col('yr_built'))
+    .pipe(ggplot, aes(x='age', color='district', fill='district'))+
+    geom_density(alpha=0.2, show_legend=False)+
+    facet_wrap('district')
+)
+```
+
+## Challenge 10
 
 :::{.challenge}
 
-Define a reconstruction year, as a year when the most recent renovation happened, or in the absence of it, the construction year. For the multiple sales of the same property, keep only the most recent record.
+Explore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. How does this relationship change after you remove outliers?
 
-Explore whether houses in the Highline district that were recently reconstructed tend to have a higher price per square foot. How does this relationship change after you remove outliers?
-
-| :bulb: You can use a conditional expression in Polars such as: `pl.when(condition).then(value_if_true).otherwise(value_if_false)`.
 :::
 
 ```{python}
@@ -249,10 +302,9 @@ Explore whether houses in the Highline district that were recently reconstructed
 )
 ```
 
-## Challenge 8
+## Challenge 11
 
-## Challenge 9
+## Challenge 12
 
-## Challenge 10
 
 

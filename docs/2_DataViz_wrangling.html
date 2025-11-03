@@ -281,13 +281,13 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization and wrangling</code>. Then add a code cell and place the following code there.</p>
-<div id="af6649c8" class="cell" data-execution_count="1">
+<div id="c7a5a1be" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="63199190" class="cell" data-execution_count="2">
+<div id="b9a77c8f" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
