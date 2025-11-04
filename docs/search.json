@@ -9,9 +9,37 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "LUDataLiteracy",
+    "title": "Getting started",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
+  },
+  {
+    "objectID": "index.html#shell-basics",
+    "href": "index.html#shell-basics",
+    "title": "Getting started",
+    "section": "",
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
+  },
+  {
+    "objectID": "index.html#installing-and-using-uv",
+    "href": "index.html#installing-and-using-uv",
+    "title": "Getting started",
+    "section": "Installing and using uv",
+    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
+  },
+  {
+    "objectID": "index.html#python-project-setup",
+    "href": "index.html#python-project-setup",
+    "title": "Getting started",
+    "section": "Python & Project Setup",
+    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
+  },
+  {
+    "objectID": "index.html#jupyter",
+    "href": "index.html#jupyter",
+    "title": "Getting started",
+    "section": "Jupyter",
+    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
   },
   {
     "objectID": "6_Quarto.html",
@@ -277,35 +305,49 @@
     "href": "3_Wrangling_GT.html#challenge-6",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1).\n💡 You will need to remember how to use .over() to complete this challenge."
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.\n💡 You will need to remember how to use .over() to complete this challenge."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-7",
     "href": "3_Wrangling_GT.html#challenge-7",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nDefine a reconstruction year, as a year when the most recent renovation happened, or in the absence of it, the construction year. For the multiple sales of the same property, keep only the most recent record.\nExplore whether houses in the Highline district that were recently reconstructed tend to have a higher price per square foot. How does this relationship change after you remove outliers?\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1)."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-8",
     "href": "3_Wrangling_GT.html#challenge-8",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 8",
-    "text": "Challenge 8"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nCorrect the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false).\n\n\n\nkc = (kc\n    .with_columns(\n        yr_rebuilt=pl.when(pl.col('yr_renovated')&gt;pl.col('yr_built'))\n                    .then(pl.col('yr_renovated')).otherwise(pl.col('yr_built')))\n)"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-9",
     "href": "3_Wrangling_GT.html#challenge-9",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 9",
-    "text": "Challenge 9"
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()\n\n\n\n(\n    kc\n    .with_columns(age=pl.col('date').dt.year()-pl.col('yr_built'))\n    .pipe(ggplot, aes(x='age', color='district', fill='district'))+\n    geom_density(alpha=0.2, show_legend=False)+\n    facet_wrap('district')\n)"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-10",
     "href": "3_Wrangling_GT.html#challenge-10",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 10",
-    "text": "Challenge 10"
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nExplore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. How does this relationship change after you remove outliers?"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-11",
+    "href": "3_Wrangling_GT.html#challenge-11",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 11",
+    "text": "Challenge 11"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-12",
+    "href": "3_Wrangling_GT.html#challenge-12",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Challenge 12",
+    "text": "Challenge 12"
   },
   {
     "objectID": "5_Pivots_GT.html",
