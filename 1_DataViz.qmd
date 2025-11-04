@@ -9,13 +9,28 @@ The objective of the tutorial is to give students a chance to practice data visu
 
 # Scope
 
-Getting confident with building code is - surprise! -  achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King's county as an (optional) repetition of the concepts. 
+Getting confident with building code is - surprise! -  achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect that (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King's county as an (optional) repetition of the concepts. 
 
-# Preparation
 
+
+# Pair programming
+
+Before you begin your pair-programming session, decide who starts as *Driver* and who is first *Navigator*. 
 :::{.callout-note}
 
-Before you begin your peer-programming session, please **open a terminal and navigate to the course folder** you created during the installation and preparations (remember `cd` and `ls`). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+## Preparation: 
+### Navigator's computer 
+Please open the files you need for reference, they will be the navigator's best tools to help the driver efficiently:
+
+- Open your self-created code-along notebook with the commands you tried during the preparatory videos. 
+- Keep [this document](https://lindahartman.github.io/LUDataLiteracy/1_DataViz.html) on the screen
+- Open [data dictionary](https://lindahartman.github.io/LUDataLiteracy/Utrecht.html) for Utrecht data  
+- Have a look at the [manuscripts for the preparatory videos](https://dmi3kno.github.io/DATA24/visualization.html). Although, texts are rather chatty, the code (and explanations) can be useful!
+
+
+### Driver's computer
+
+Please **open a terminal and navigate to the course folder** you created during the installation and preparations (remember `cd` and `ls`). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
 
 ```
 uv run jupyter lab
@@ -36,7 +51,9 @@ kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
 ```
 
 :::
-Save the notebook, eg. as 'Practical1.ipynb'.
+Save the notebook, eg. as 'Practical1.ipynb'. 
+
+After the Practical, share your common notebook in your programming pair. 
 
 # Utrecht
 
@@ -65,9 +82,10 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 
 :::{.challenge}
 
-Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
-
+| Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
+| :bulb: Plot bathrooms as a 'factor' to show the two categories more distinctly.
 :::
+
 
 ```{python}
 #| include: false
@@ -202,7 +220,8 @@ facet_wrap('district')
 ## Challenge 8
 :::{.challenge}
 
-What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)
+| What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)
+| :bulb: There is a variable for distance to train station in the data, see Utrecht Data Dictionary. 
 
 :::
 
@@ -276,8 +295,8 @@ scale_y_log10()
 
 ## Challenge 11
 :::{.challenge}
-Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?
-
+| Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?
+| :bulb: You can directly plot a transformation including one or more variables, eg. `y='price/sqft_living'` for the price per square foot.
 :::
 
 ```{python}
