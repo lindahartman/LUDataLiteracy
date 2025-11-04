@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>LUDataLiteracy</title>
+<title>Getting started – LUDataLiteracy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -101,17 +67,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-challenge.callout {
-  border-left-color: firebrick;
-}
-div.callout-challenge.callout-style-default > .callout-header {
-  background-color: rgb(from firebrick r g b / 13%);
-}
-div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
-  content: '🛠️';
-  background-image: none;
-}
 div.callout-question.callout {
   border-left-color: pink;
 }
@@ -121,6 +76,17 @@ div.callout-question.callout-style-default > .callout-header {
 div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
   content: '🧠';
+  background-image: none;
+}
+div.callout-challenge.callout {
+  border-left-color: firebrick;
+}
+div.callout-challenge.callout-style-default > .callout-header {
+  background-color: rgb(from firebrick r g b / 13%);
+}
+div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
+  content: '🛠️';
   background-image: none;
 }
 </style>
@@ -213,20 +179,29 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#shell-basics" id="toc-shell-basics" class="nav-link active" data-scroll-target="#shell-basics">Shell basics</a></li>
+  <li><a href="#installing-and-using-uv" id="toc-installing-and-using-uv" class="nav-link" data-scroll-target="#installing-and-using-uv">Installing and using <code>uv</code></a></li>
+  <li><a href="#python-project-setup" id="toc-python-project-setup" class="nav-link" data-scroll-target="#python-project-setup">Python &amp; Project Setup</a></li>
+  <li><a href="#jupyter" id="toc-jupyter" class="nav-link" data-scroll-target="#jupyter">Jupyter</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LUDataLiteracy</h1>
+<h1 class="title">Getting started</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -238,16 +213,87 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+<section id="shell-basics" class="level2">
+<h2 class="anchored" data-anchor-id="shell-basics">Shell basics</h2>
+<p>Common commands:</p>
+<pre><code>pwd          # print working directory
+ls           # list files
+cd Pictures  # change to Pictures directory
+cd ..        # go up one level</code></pre>
+</section>
+<section id="installing-and-using-uv" class="level2">
+<h2 class="anchored" data-anchor-id="installing-and-using-uv">Installing and using <code>uv</code></h2>
+<p>Mac / Linux:</p>
+<pre><code>curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+<p>Windows (PowerShell):</p>
+<pre><code>powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"</code></pre>
+<p>After uv is installed you can check that it is discoverable on your system</p>
+<pre><code>uv --version</code></pre>
+<p>More info: <a href="https://docs.astral.sh/uv/">uv documentation</a></p>
+</section>
+<section id="python-project-setup" class="level2">
+<h2 class="anchored" data-anchor-id="python-project-setup">Python &amp; Project Setup</h2>
+<p>Install the latest Python:</p>
+<pre><code>uv python install</code></pre>
+<p>Create a new project (replace the name if you like):</p>
+<pre><code>uv init data-literacy-project
+cd data-literacy-project</code></pre>
+<p>Install course libraries:</p>
+<pre><code>uv add gapminder plotnine polars pyarrow great_tables
+uv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto</code></pre>
+<p>uv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:</p>
+<pre><code>uv sync</code></pre>
+</section>
+<section id="jupyter" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter">Jupyter</h2>
+<p>Launch Jupyter</p>
+<pre><code>uv run jupyter lab</code></pre>
+<p>Here are some shortcuts which can be used in <strong>Command</strong> mode.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Shortcut</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Enter</code></td>
+<td>Enter the edit mode</td>
+</tr>
+<tr class="even">
+<td><code>Esc</code></td>
+<td>Exit the edit mode and return to command mode</td>
+</tr>
+<tr class="odd">
+<td><code>y</code></td>
+<td>Change cell to code</td>
+</tr>
+<tr class="even">
+<td><code>m</code></td>
+<td>Change cell to markdown (text)</td>
+</tr>
+<tr class="odd">
+<td><code>a</code></td>
+<td>Insert cell above</td>
+</tr>
+<tr class="even">
+<td><code>b</code></td>
+<td>Insert cell below</td>
+</tr>
+<tr class="odd">
+<td><code>d d</code></td>
+<td>Delete current cell</td>
+</tr>
+<tr class="even">
+<td><code>Ctrl+Enter</code></td>
+<td>Run current cell</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

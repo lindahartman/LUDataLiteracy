@@ -1,11 +1,87 @@
 ---
-title: "LUDataLiteracy"
+title: "Getting started"
 ---
 
-This is a Quarto website.
+## Shell basics
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Common commands:
 
-```{r}
-1 + 1
 ```
+pwd          # print working directory
+ls           # list files
+cd Pictures  # change to Pictures directory
+cd ..        # go up one level
+```
+
+## Installing and using `uv`
+
+
+Mac / Linux:
+
+```
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Windows (PowerShell):
+
+```
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+After uv is installed you can check that it is discoverable on your system
+
+```
+uv --version
+```
+
+More info: [uv documentation](https://docs.astral.sh/uv/)
+
+## Python & Project Setup
+
+Install the latest Python:
+
+```
+uv python install
+```
+
+Create a new project (replace the name if you like):
+
+```
+uv init data-literacy-project
+cd data-literacy-project
+```
+
+Install course libraries:
+
+```
+uv add gapminder plotnine polars pyarrow great_tables
+uv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto
+```
+
+uv creates a pyproject.toml with dependencies and a local .venv for the environment.
+To restore everything later:
+
+```
+uv sync
+```
+
+## Jupyter
+
+Launch Jupyter
+
+```
+uv run jupyter lab
+```
+
+Here are some shortcuts which can be used in **Command** mode.
+
+| Shortcut  | Meaning  | 
+|-----------|----------|
+| `Enter` | Enter the edit mode | 
+| `Esc` | Exit the edit mode and return to command mode | 
+| `y` | Change cell to code | 
+| `m` | Change cell to markdown (text) |
+| `a` | Insert cell above |
+| `b` | Insert cell below |
+| `d d` | Delete current cell |
+| `Ctrl+Enter` | Run current cell |
