@@ -16,7 +16,8 @@ Getting confident with building code is - surprise! -  achieved by practicing! T
 # Pair programming
 
 Before you begin your pair-programming session, decide who starts as *Driver* and who is first *Navigator*. 
-:::{.callout-note}
+
+
 
 ## Preparation: 
 ### Navigator's computer 
@@ -29,6 +30,8 @@ Please open the files you need for reference, they will be the navigator's best 
 
 
 ### Driver's computer
+
+:::{.callout-note}
 
 Please **open a terminal and navigate to the course folder** you created during the installation and preparations (remember `cd` and `ls`). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
 
@@ -50,10 +53,12 @@ ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
 kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
 ```
 
-:::
-Save the notebook, eg. as 'Practical1.ipynb'. 
 
-After the Practical, share your common notebook in your programming pair. 
+Save the notebook, eg. as `Practical1.ipynb`. 
+
+After the Practical, share the notebook (+ `pyproject.toml`) in your programming pair. 
+
+::: 
 
 # Utrecht
 
