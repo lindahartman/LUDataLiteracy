@@ -133,6 +133,13 @@
     "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\nThe objective of the tutorial is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset."
   },
   {
+    "objectID": "1_DataViz.html#preparation",
+    "href": "1_DataViz.html#preparation",
+    "title": "Practical 1: Data Visualization",
+    "section": "Preparation:",
+    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://rrr.is/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)\n\n::: Save the notebook, eg. as ‘Practical1.ipynb’.\nAfter the Practical, share your common notebook in your programming pair."
+  },
+  {
     "objectID": "1_DataViz.html#challenge-1",
     "href": "1_DataViz.html#challenge-1",
     "title": "Practical 1: Data Visualization",
@@ -144,7 +151,7 @@
     "href": "1_DataViz.html#challenge-2",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly."
   },
   {
     "objectID": "1_DataViz.html#challenge-3",
@@ -179,14 +186,14 @@
     "href": "1_DataViz.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!"
   },
   {
     "objectID": "1_DataViz.html#challenge-8",
     "href": "1_DataViz.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary."
   },
   {
     "objectID": "1_DataViz.html#challenge-9",
@@ -207,7 +214,7 @@
     "href": "1_DataViz.html#challenge-11",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot."
   },
   {
     "objectID": "1_DataViz.html#challenge-12",

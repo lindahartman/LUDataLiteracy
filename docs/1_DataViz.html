@@ -101,17 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-challenge.callout {
-  border-left-color: firebrick;
-}
-div.callout-challenge.callout-style-default > .callout-header {
-  background-color: rgb(from firebrick r g b / 13%);
-}
-div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
-  content: '🛠️';
-  background-image: none;
-}
 div.callout-question.callout {
   border-left-color: pink;
 }
@@ -121,6 +110,17 @@ div.callout-question.callout-style-default > .callout-header {
 div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
   content: '🧠';
+  background-image: none;
+}
+div.callout-challenge.callout {
+  border-left-color: firebrick;
+}
+div.callout-challenge.callout-style-default > .callout-header {
+  background-color: rgb(from firebrick r g b / 13%);
+}
+div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
+  content: '🛠️';
   background-image: none;
 }
 </style>
@@ -219,7 +219,14 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
    
   <ul>
   <li><a href="#scope" id="toc-scope" class="nav-link active" data-scroll-target="#scope">Scope</a></li>
-  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#pair-programming" id="toc-pair-programming" class="nav-link" data-scroll-target="#pair-programming">Pair programming</a>
+  <ul class="collapse">
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation:</a>
+  <ul class="collapse">
+  <li><a href="#navigators-computer" id="toc-navigators-computer" class="nav-link" data-scroll-target="#navigators-computer">Navigator’s computer</a></li>
+  <li><a href="#drivers-computer" id="toc-drivers-computer" class="nav-link" data-scroll-target="#drivers-computer">Driver’s computer</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#utrecht" id="toc-utrecht" class="nav-link" data-scroll-target="#utrecht">Utrecht</a>
   <ul class="collapse">
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
@@ -267,35 +274,42 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 <p>The objective of the tutorial is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.</p>
 <section id="scope" class="level1">
 <h1>Scope</h1>
-<p>Getting confident with building code is - surprise! - achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King’s county as an (optional) repetition of the concepts.</p>
+<p>Getting confident with building code is - surprise! - achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect that (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King’s county as an (optional) repetition of the concepts.</p>
 </section>
-<section id="preparation" class="level1">
-<h1>Preparation</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Before you begin your peer-programming session, please <strong>open a terminal and navigate to the course folder</strong> you created during the installation and preparations (remember <code>cd</code> and <code>ls</code>). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
+<section id="pair-programming" class="level1">
+<h1>Pair programming</h1>
+<p>Before you begin your pair-programming session, decide who starts as <em>Driver</em> and who is first <em>Navigator</em>. :::{.callout-note}</p>
+<section id="preparation" class="level2">
+<h2 class="anchored" data-anchor-id="preparation">Preparation:</h2>
+<section id="navigators-computer" class="level3">
+<h3 class="anchored" data-anchor-id="navigators-computer">Navigator’s computer</h3>
+<p>Please open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:</p>
+<ul>
+<li>Open your self-created code-along notebook with the commands you tried during the preparatory videos.</li>
+<li>Keep <a href="https://lindahartman.github.io/LUDataLiteracy/1_DataViz.html">this document</a> on the screen</li>
+<li>Open <a href="https://lindahartman.github.io/LUDataLiteracy/Utrecht.html">data dictionary</a> for Utrecht data<br>
+</li>
+<li>Have a look at the <a href="https://dmi3kno.github.io/DATA24/visualization.html">manuscripts for the preparatory videos</a>. Although, texts are rather chatty, the code (and explanations) can be useful!</li>
+</ul>
+</section>
+<section id="drivers-computer" class="level3">
+<h3 class="anchored" data-anchor-id="drivers-computer">Driver’s computer</h3>
+<p>Please <strong>open a terminal and navigate to the course folder</strong> you created during the installation and preparations (remember <code>cd</code> and <code>ls</code>). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
-<div id="2ceb63b3" class="cell" data-execution_count="1">
+<div id="ccd431ec" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="0945f5ef" class="cell" data-execution_count="2">
+<div id="3391bde5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<p>Save the notebook, eg. as ‘Practical1.ipynb’.</p>
+<p>::: Save the notebook, eg. as ‘Practical1.ipynb’.</p>
+<p>After the Practical, share your common notebook in your programming pair.</p>
+</section>
+</section>
 </section>
 <section id="utrecht" class="level1">
 <h1>Utrecht</h1>
@@ -313,7 +327,7 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Reproduce this plot.</p>
-<div id="94949641" class="cell" data-execution_count="3">
+<div id="240c21eb" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -337,7 +351,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.</p>
+<div class="line-block">Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.<br>
+<span class="emoji" data-emoji="bulb">💡</span> Plot bathrooms as a ‘factor’ to show the two categories more distinctly.</div>
 </div>
 </div>
 </section>
@@ -374,7 +389,7 @@ Challenge
 <div class="line-block">Reproduce this plot.<br>
 <span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
-<div id="9e0d3e16" class="cell" data-execution_count="7">
+<div id="eb6b18cb" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <figure class="figure">
@@ -430,7 +445,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?</p>
+<div class="line-block">Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?<br>
+<span class="emoji" data-emoji="bulb">💡</span> <code>facet_wrap</code>could be of good help here!</div>
 </div>
 </div>
 </section>
@@ -446,7 +462,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)</p>
+<div class="line-block">What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)<br>
+<span class="emoji" data-emoji="bulb">💡</span> There is a variable for distance to train station in the data, see Utrecht Data Dictionary.</div>
 </div>
 </div>
 </section>
@@ -499,7 +516,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?</p>
+<div class="line-block">Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can directly plot a transformation including one or more variables, eg. <code>y='price/sqft_living'</code> for the price per square foot.</div>
 </div>
 </div>
 </section>
