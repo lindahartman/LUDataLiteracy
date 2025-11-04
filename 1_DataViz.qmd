@@ -200,7 +200,8 @@ labs(x="Retail value, kEUR")
 ## Challenge 7
 :::{.challenge}
 
-Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?
+| Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?
+| :bulb: `facet_wrap`could be of good help here!
 
 :::
 
