@@ -307,12 +307,12 @@ Note
 <p>Please <strong>open a terminal and navigate to the course folder</strong> you created during the installation and preparations (remember <code>cd</code> and <code>ls</code>). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
-<div id="ba1985c7" class="cell" data-execution_count="1">
+<div id="623508e5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="9c223ec5" class="cell" data-execution_count="2">
+<div id="f93f1f86" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -339,7 +339,12 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Reproduce this plot.</p>
-<div id="b080c075" class="cell" data-execution_count="3">
+<div id="e5649aa4" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut)<span class="op">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'house_area'</span>, y<span class="op">=</span><span class="st">'retail_value'</span>, color<span class="op">=</span><span class="st">'house_type'</span>)) <span class="op">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>labs(x<span class="op">=</span><span class="st">'House Area, sqm'</span>, y<span class="op">=</span><span class="st">'Retail Price, k€'</span>, color<span class="op">=</span><span class="st">'House type'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -367,6 +372,20 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> Plot bathrooms as a ‘factor’ to show the two categories more distinctly.</div>
 </div>
 </div>
+<div id="d8bc50e4" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut)<span class="op">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>geom_jitter(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'rooms'</span>, y<span class="op">=</span><span class="st">'asking_price'</span>, color<span class="op">=</span><span class="st">'factor(bathrooms)'</span>)) <span class="op">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>labs(x<span class="op">=</span><span class="st">'Number of rooms'</span>, y<span class="op">=</span><span class="st">'Asking Price'</span>, color<span class="op">=</span><span class="st">'Bathrooms'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-5-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="challenge-3" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-3">Challenge 3</h2>
@@ -385,6 +404,42 @@ What is the build year of the newest house (woonhuis) with energy class B?<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can limit the plot to the years between <code>x1</code> and <code>x2</code> using <code>scale_x_continuous(limits=[x1, x2])</code></div>
 </div>
 </div>
+<div id="c654ec60" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut)<span class="op">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>geom_jitter(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'build_year'</span>, y<span class="op">=</span><span class="st">'energy_label'</span>, color<span class="op">=</span><span class="st">'house_type'</span>)) <span class="op">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>scale_x_continuous(limits<span class="op">=</span>[<span class="dv">1900</span>, <span class="dv">2025</span>])<span class="op">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>labs(x<span class="op">=</span><span class="st">'Year Built'</span>, y<span class="op">=</span><span class="st">'Energy Class'</span>, color<span class="op">=</span><span class="st">'House type'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Projects\Teaching\LUDataLiteracy\.venv\Lib\site-packages\plotnine\layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-6-output-2.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="c40d9d68" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut)<span class="op">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>geom_jitter(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'build_year'</span>, y<span class="op">=</span><span class="st">'energy_label'</span>, color<span class="op">=</span><span class="st">'house_type'</span>)) <span class="op">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>scale_x_continuous(limits<span class="op">=</span>[<span class="dv">1998</span>, <span class="dv">2025</span>])<span class="op">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>labs(x<span class="op">=</span><span class="st">'Year Built'</span>, y<span class="op">=</span><span class="st">'Energy Class'</span>, color<span class="op">=</span><span class="st">'House type'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Projects\Teaching\LUDataLiteracy\.venv\Lib\site-packages\plotnine\layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-7-output-2.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="challenge-4" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-4">Challenge 4</h2>
@@ -401,7 +456,19 @@ Challenge
 <div class="line-block">Reproduce this plot.<br>
 <span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
-<div id="c58cea10" class="cell" data-execution_count="7">
+<div id="fb50c52f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut)<span class="op">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'house_area'</span>, y<span class="op">=</span><span class="st">'retail_value'</span>, color<span class="op">=</span><span class="st">'house_type'</span>))<span class="op">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>geom_smooth(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'house_area'</span>, y<span class="op">=</span><span class="st">'retail_value'</span>),method<span class="op">=</span><span class="st">'lm'</span>)<span class="op">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>labs(title<span class="op">=</span><span class="st">'Scatterplot of house area and retail value'</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>subtitle<span class="op">=</span><span class="st">'Color indicates the type of property'</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>x<span class="op">=</span><span class="st">'House Area, sqm'</span>, y<span class="op">=</span><span class="st">'Retail Price, k€'</span>, color<span class="op">=</span><span class="st">'House type'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>caption<span class="op">=</span><span class="st">"""A linear regression approximates the positive relation between</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="st">the variables (with error bands shown in gray)"""</span>)<span class="op">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>scale_color_brewer(<span class="st">'qual'</span>, <span class="dv">2</span>)<span class="op">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>theme_bw()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <figure class="figure">
@@ -428,6 +495,21 @@ Challenge
 <p>Plot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use <code>coord_flip()</code> if the district names are hard to read.</p>
 </div>
 </div>
+<div id="e61c5544" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut, aes(y<span class="op">=</span><span class="st">'retail_value'</span>, x<span class="op">=</span><span class="st">'reorder(district, retail_value)'</span>))<span class="op">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>geom_boxplot()<span class="op">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>coord_flip()<span class="op">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>labs(x<span class="op">=</span><span class="st">""</span>, y<span class="op">=</span><span class="st">"Retail value, kEUR"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-9-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="challenge-6" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-6">Challenge 6</h2>
@@ -442,6 +524,23 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Plot the distribution of retail values for the two house types. Which of the two appears more symmetrical?</p>
+</div>
+</div>
+<div id="2fe7b463" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this could be two separate plots, then after_stat() would not be required</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ggplot(ut,aes(x<span class="op">=</span><span class="st">'retail_value'</span>))<span class="op">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>geom_histogram(aes(fill<span class="op">=</span><span class="st">'house_type'</span>, y<span class="op">=</span>after_stat(<span class="st">"density"</span>)),bins<span class="op">=</span><span class="dv">15</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)<span class="op">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>geom_density(mapping<span class="op">=</span>aes(color<span class="op">=</span><span class="st">'house_type'</span>))<span class="op">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>facet_wrap(<span class="st">'house_type'</span>, ncol<span class="op">=</span><span class="dv">1</span>)<span class="op">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>labs(x<span class="op">=</span><span class="st">"Retail value, kEUR"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-10-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -461,6 +560,22 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> <code>facet_wrap</code>could be of good help here!</div>
 </div>
 </div>
+<div id="96c23b0a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut, aes(y<span class="op">=</span><span class="st">'retail_value'</span>, x<span class="op">=</span><span class="st">'house_area'</span>))<span class="op">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>geom_point()<span class="op">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>geom_smooth(method<span class="op">=</span><span class="st">"lm"</span>, color<span class="op">=</span><span class="st">"blue"</span>)<span class="op">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>labs(y<span class="op">=</span><span class="st">"Retail value, kEUR"</span>, x<span class="op">=</span><span class="st">"House Area"</span>)<span class="op">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>facet_wrap(<span class="st">'district'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-11-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="challenge-8" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-8">Challenge 8</h2>
@@ -476,6 +591,50 @@ Challenge
 <div class="callout-body-container callout-body">
 <div class="line-block">What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)<br>
 <span class="emoji" data-emoji="bulb">💡</span> There is a variable for distance to train station in the data, see Utrecht Data Dictionary.</div>
+</div>
+</div>
+<div id="ec8840a9" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut, aes(x<span class="op">=</span><span class="st">'x_coor'</span>, y<span class="op">=</span><span class="st">'y_coor'</span>, color<span class="op">=</span><span class="st">'dist_from_train'</span>))<span class="op">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>geom_point()</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-12-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="6b304419" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut, aes(x<span class="op">=</span><span class="st">'x_coor'</span>, y<span class="op">=</span><span class="st">'y_coor'</span>, color<span class="op">=</span><span class="st">'dist_from_train'</span>))<span class="op">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>geom_point()<span class="op">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>facet_wrap(<span class="st">'district'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-13-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="d173dba6" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ggplot(ut, aes(x<span class="op">=</span><span class="st">'factor(zip_code4)'</span>, y<span class="op">=</span><span class="st">'dist_from_train'</span>))<span class="op">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>geom_jitter()<span class="op">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>coord_flip()<span class="op">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>facet_wrap(<span class="st">'district'</span>, scales<span class="op">=</span><span class="st">'free_y'</span>)<span class="op">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>scale_y_log10()</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-14-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -498,6 +657,19 @@ Challenge
 <p>Plot house prices against living area, coloring the points by property grade.</p>
 </div>
 </div>
+<div id="301f13fe" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ggplot(kc, aes(y<span class="op">=</span><span class="st">'price'</span>, x<span class="op">=</span><span class="st">'sqft_living'</span>, color<span class="op">=</span><span class="st">'grade'</span>))<span class="op">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-15-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="challenge-10" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-10">Challenge 10</h2>
@@ -513,6 +685,20 @@ Challenge
 <div class="callout-body-container callout-body">
 <div class="line-block">Do newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?<br>
 <span class="emoji" data-emoji="bulb">💡</span> Use a log scale for house prices to reduce overplotting.</div>
+</div>
+</div>
+<div id="8f92cb47" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ggplot(kc, aes(y<span class="op">=</span><span class="st">'price'</span>, x<span class="op">=</span><span class="st">'yr_built'</span>, color<span class="op">=</span><span class="st">'grade'</span>))<span class="op">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>geom_point(alpha<span class="op">=</span><span class="fl">0.3</span>)<span class="op">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>scale_y_log10()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-16-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -532,6 +718,20 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> You can directly plot a transformation including one or more variables, eg. <code>y='price/sqft_living'</code> for the price per square foot.</div>
 </div>
 </div>
+<div id="97571b7a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ggplot(kc, aes(y<span class="op">=</span><span class="st">'price/sqft_living'</span>, x<span class="op">=</span><span class="st">'factor(condition)'</span>))<span class="op">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>geom_jitter(aes(color<span class="op">=</span><span class="st">'yr_built'</span>),alpha<span class="op">=</span><span class="fl">0.3</span>)<span class="op">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>geom_boxplot()</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-17-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="challenge-12" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-12">Challenge 12</h2>
@@ -546,6 +746,19 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Visualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?</p>
+</div>
+</div>
+<div id="46488d13" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ggplot(kc, aes(x<span class="op">=</span><span class="st">'price/sqft_living'</span>, color<span class="op">=</span> <span class="st">'factor(waterfront)'</span>, fill<span class="op">=</span><span class="st">'factor(waterfront)'</span>))<span class="op">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>geom_density(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+<figure class="figure">
+<p><img src="1_DataViz_files/figure-html/cell-18-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 

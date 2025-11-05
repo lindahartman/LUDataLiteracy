@@ -1,6 +1,9 @@
 ---
 title: "Practical 2: Data Visualization + Wrangling"
 from: markdown+emoji
+execute: 
+  include: false
+  echo: false
 ---
 
 The objective of the tutorial is to give student a chance to practice the data visualization and data wrangling applying the skills learned through the video lessons on a new dataset.
@@ -18,6 +21,8 @@ uv run jupyter lab
 Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization and wrangling`. Then add a code cell and place the following code there.
 
 ```{python}
+#| echo: true
+#| include: true
 import polars as pl
 import polars.selectors as cs
 from plotnine import *
@@ -26,6 +31,8 @@ from plotnine import *
 Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
+#| echo: true
+#| include: true
 ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
 kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
 ```
@@ -47,8 +54,6 @@ What is the average garden size for the houses in the Utrecht dataset? What is t
 :::
 
 ```{python}
-#| echo: false
-#| include: false
 (
 ut.describe()
 )
@@ -65,8 +70,6 @@ ut.describe()
 :::
 
 ```{python}
-#| echo: false
-#| include: false
 (
 ut
     .filter(pl.col('house_type')=='woonhuis')
@@ -85,8 +88,6 @@ Do the outliers you identified in the previous plot also stand out in the relati
 :::
 
 ```{python}
-#| echo: false
-#| include: false
 (
 ut
     .filter(pl.col('house_type')=='woonhuis')
@@ -110,8 +111,6 @@ ut
     .filter(pl.col('lot_area')>300)
     .select(pl.col('zip_code4'))
 )
-
-
 ```
 
 
@@ -126,16 +125,12 @@ Create a small dataset that includes only houses from the zip codes identified i
 
 
 ```{python}
-#| echo: false
-#| include: false
 (
 ut
     .filter(pl.col('zip_code4')==3543)
     .select(pl.col('street', 'house_area', 'lot_area', 'build_year', 'energy_label', 'asking_price'))
     .sort('build_year')
 )
-
-
 ```
 
 ## Challenge 5
@@ -147,7 +142,6 @@ ut
 :::
 
 ```{python}
-#| include: false
 (
     ut
     .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))
@@ -175,7 +169,6 @@ ut
 :::
 
 ```{python}
-#| include: false
 (
 ut
     .filter(pl.col('build_year')>=1900, pl.col('build_year')<=2000)
@@ -198,7 +191,6 @@ ut
 :::
 
 ```{python}
-#| include: false
 (
 ut
     .with_columns(wk=pl.col('valuation_date').dt.week(),
@@ -222,7 +214,6 @@ ut
 :::
 
 ```{python}
-#| include: false
 (
 ut
     .group_by('street','energy_eff')
@@ -244,7 +235,6 @@ ut
 :::
 
 ```{python}
-#| include: false
 (
     ut
     .pipe(ggplot)+
@@ -296,7 +286,6 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 :::
 
 ```{python}
-#| include: false
 (
     kc
     .pipe(ggplot)+
@@ -322,7 +311,6 @@ How many houses changed owners more than once? What is the maximum number of tim
 :::
 
 ```{python}
-#| include: false
 (
     kc
     .group_by('id')
@@ -348,7 +336,6 @@ How many houses changed owners more than once? What is the maximum number of tim
 :::
 
 ```{python}
-#| include: false
 (
     kc
     .with_columns(monyear=pl.col('date').dt.month_start(),
