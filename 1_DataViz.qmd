@@ -2,8 +2,8 @@
 title: "Practical 1: Data Visualization"
 from: markdown+emoji
 execute: 
-  include: true
-  echo: true
+  include: false
+  echo: false
 ---
 
 This is the tutorial for the first practical on **Data Visualization with Plotnine**
@@ -76,6 +76,8 @@ Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 Reproduce this plot.
 
 ```{python}
+#| include: true
+#| echo: false
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
@@ -141,6 +143,9 @@ labs(x='Year Built', y='Energy Class', color='House type')
 | :bulb: You can add multi-line strings in Python using triple quotes like this `"""long string which may span multiple lines"""`
 
 ```{python}
+
+
+#| include: true
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+
