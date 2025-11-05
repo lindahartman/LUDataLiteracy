@@ -24,6 +24,9 @@ website:
           - 4_Wrangling_joins.qmd
           - 5_Pivots_GT.qmd
           - 6_Quarto.qmd
+      - text: "Solutions"
+        menu:
+          - 1_DataViz_sol.qmd
       - text: "Data"
         menu:
           - Utrecht.qmd
