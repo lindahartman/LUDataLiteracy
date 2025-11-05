@@ -172,84 +172,84 @@
     "href": "1_DataViz.html#challenge-1",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot."
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, k€', color='House type')\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-2",
     "href": "1_DataViz.html#challenge-2",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-3",
     "href": "1_DataViz.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values."
   },
   {
     "objectID": "1_DataViz.html#challenge-4",
     "href": "1_DataViz.html#challenge-4",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-5",
     "href": "1_DataViz.html#challenge-5",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read."
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-6",
     "href": "1_DataViz.html#challenge-6",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-7",
     "href": "1_DataViz.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-8",
     "href": "1_DataViz.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary."
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-9",
     "href": "1_DataViz.html#challenge-9",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade."
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-10",
     "href": "1_DataViz.html#challenge-10",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting."
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-11",
     "href": "1_DataViz.html#challenge-11",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot."
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
   },
   {
     "objectID": "1_DataViz.html#challenge-12",
     "href": "1_DataViz.html#challenge-12",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
   },
   {
     "objectID": "3_Wrangling_GT.html",
@@ -319,14 +319,14 @@
     "href": "3_Wrangling_GT.html#challenge-8",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nCorrect the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false).\n\n\n\nkc = (kc\n    .with_columns(\n        yr_rebuilt=pl.when(pl.col('yr_renovated')&gt;pl.col('yr_built'))\n                    .then(pl.col('yr_renovated')).otherwise(pl.col('yr_built')))\n)"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nCorrect the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-9",
     "href": "3_Wrangling_GT.html#challenge-9",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()\n\n\n\n(\n    kc\n    .with_columns(age=pl.col('date').dt.year()-pl.col('yr_built'))\n    .pipe(ggplot, aes(x='age', color='district', fill='district'))+\n    geom_density(alpha=0.2, show_legend=False)+\n    facet_wrap('district')\n)"
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-10",

@@ -1,6 +1,9 @@
 ---
 title: "Practical 1: Data Visualization"
 from: markdown+emoji
+execute: 
+  include: true
+  echo: true
 ---
 
 This is the tutorial for the first practical on **Data Visualization with Plotnine**
@@ -73,7 +76,6 @@ Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 Reproduce this plot.
 
 ```{python}
-#| echo: false
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
@@ -93,7 +95,6 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 
 
 ```{python}
-#| include: false
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
@@ -114,7 +115,6 @@ labs(x='Number of rooms', y='Asking Price', color='Bathrooms')
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
@@ -124,7 +124,6 @@ labs(x='Year Built', y='Energy Class', color='House type')
 ```
 
 ```{python}
-#| include: false
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
@@ -142,7 +141,6 @@ labs(x='Year Built', y='Energy Class', color='House type')
 | :bulb: You can add multi-line strings in Python using triple quotes like this `"""long string which may span multiple lines"""`
 
 ```{python}
-#| echo: false
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+
@@ -168,8 +166,6 @@ Plot the retail values of houses by district. Which district has the highest med
 :::
 
 ```{python}
-#| include: false
-
 (
 ggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+
 geom_boxplot()+
@@ -188,7 +184,6 @@ Plot the distribution of retail values for the two house types. Which of the two
 :::
 
 ```{python}
-#| include: false
 
 # this could be two separate plots, then after_stat() would not be required
 (
@@ -211,7 +206,6 @@ labs(x="Retail value, kEUR")
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(ut, aes(y='retail_value', x='house_area'))+
 geom_point()+
@@ -232,7 +226,6 @@ facet_wrap('district')
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
 geom_point()
@@ -240,7 +233,6 @@ geom_point()
 ```
 
 ```{python}
-#| include: false
 (
 ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
 geom_point()+
@@ -249,7 +241,6 @@ facet_wrap('district')
 ```
 
 ```{python}
-#| include: false
 (
 ggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+
 geom_jitter()+
@@ -274,7 +265,6 @@ Plot house prices against living area, coloring the points by property grade.
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
 geom_point(alpha=0.3)
@@ -291,7 +281,6 @@ geom_point(alpha=0.3)
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(kc, aes(y='price', x='yr_built', color='grade'))+
 geom_point(alpha=0.3)+
@@ -306,7 +295,6 @@ scale_y_log10()
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+
 geom_jitter(aes(color='yr_built'),alpha=0.3)+
@@ -322,7 +310,6 @@ Visualize the distribution of price per square foot of living area for water-fac
 :::
 
 ```{python}
-#| include: false
 (
 ggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+
 geom_density(alpha=0.3)
