@@ -16,7 +16,7 @@ The dataset contains the following columns
 ut_doc = pl.DataFrame(
     {
         "variable":["id", "zip_code4",	"zip_code6",	"zip_code6_id",	"house_type",	"lot_area",	"house_area",	"garden_size",	"rooms",	"bathrooms",	"x_coor",	"y_coor",	"build_year",	"retail_value",	"asking_price",	"energy_label",	"energy_eff",	"valuation_date",	"street",	"subdistrict",	"district",	"city",	"dist_from_train"],
-        "description":["Unique ID", "Zip Code 4 digits",	"Zip Code 6 symbols",	"Zip Code 6 symbols ID",	"House Type: Apartment or House",	"Lot Aream, sqm",	"House Area, sqm",	"Garden Size, sqm",	"Number of Rooms",	"Number of Bathrooms",	"X Coordinate",	"Y Coordinate",	"Build Year",	"Retail Value, k€",	"Asking Price, k€",	"Energy Label",	"Energy Efficiency",	"Valuation Date",	"Street Name",	"Subdistrict Name",	"District Name",	"City",	"Distance from train, km"]
+        "description":["Unique ID", "Zip Code 4 digits",	"Zip Code 6 symbols",	"Zip Code 6 symbols ID",	"House Type: Apartment or House",	"Lot Aream, sqm",	"House Area, sqm",	"Garden Size, sqm",	"Number of Rooms",	"Number of Bathrooms",	"X Coordinate",	"Y Coordinate",	"Build Year",	"Retail Value, k€",	"Asking Price, k€",	"Energy Label ('A++' to 'G')",	"Energy Efficiency (=1 for A, A+, A++, 0 otherwise)",	"Valuation Date",	"Street Name",	"Subdistrict Name",	"District Name",	"City",	"Distance from train, km"]
     }
 )
 

@@ -34,8 +34,8 @@ Then import the datasets for this practical. Add another code cell below (using 
 ```{python}
 #| echo: true
 #| include: true
-ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
-kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
+ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
 ```
 
 :::
@@ -84,6 +84,8 @@ How old is the newest house (woonhuis) with energy class B?
     .sort('energy_missing', descending=True)
 )
 
+## Split in 2
+## energy_eff is not explained 1 for A or A+ or A++, 1 for lower...
 
 (
     ut

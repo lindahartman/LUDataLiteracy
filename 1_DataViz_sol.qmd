@@ -55,8 +55,8 @@ from plotnine import *
 Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
 ```{python}
-ut = pl.read_csv("https://rrr.is/data24utrecht", try_parse_dates=True)
-kc = pl.read_csv('https://rrr.is/data24kingscounty', try_parse_dates=True)
+ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
 ```
 
 
@@ -87,6 +87,8 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 )
 ```
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
@@ -105,6 +107,8 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
@@ -125,6 +129,8 @@ labs(x='Number of rooms', y='Asking Price', color='Bathrooms')
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
@@ -134,6 +140,8 @@ labs(x='Year Built', y='Energy Class', color='House type')
 ```
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut)+
 geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
@@ -151,6 +159,8 @@ labs(x='Year Built', y='Energy Class', color='House type')
 | :bulb: You can add multi-line strings in Python using triple quotes like this `"""long string which may span multiple lines"""`
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+
@@ -176,6 +186,8 @@ Plot the retail values of houses by district. Which district has the highest med
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+
 geom_boxplot()+
@@ -194,6 +206,8 @@ Plot the distribution of retail values for the two house types. Which of the two
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 
 # this could be two separate plots, then after_stat() would not be required
 (
@@ -216,6 +230,8 @@ labs(x="Retail value, kEUR")
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut, aes(y='retail_value', x='house_area'))+
 geom_point()+
@@ -236,6 +252,8 @@ facet_wrap('district')
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
 geom_point()
@@ -243,6 +261,8 @@ geom_point()
 ```
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
 geom_point()+
@@ -251,6 +271,8 @@ facet_wrap('district')
 ```
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+
 geom_jitter()+
@@ -275,6 +297,8 @@ Plot house prices against living area, coloring the points by property grade.
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
 geom_point(alpha=0.3)
@@ -291,6 +315,8 @@ geom_point(alpha=0.3)
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(kc, aes(y='price', x='yr_built', color='grade'))+
 geom_point(alpha=0.3)+
@@ -305,6 +331,8 @@ scale_y_log10()
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+
 geom_jitter(aes(color='yr_built'),alpha=0.3)+
@@ -320,6 +348,8 @@ Visualize the distribution of price per square foot of living area for water-fac
 :::
 
 ```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
 (
 ggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+
 geom_density(alpha=0.3)
