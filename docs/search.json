@@ -473,28 +473,28 @@
     "href": "3_Wrangling_GT.html#challenge-2",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? Do any of these districs have missing values in the energy_label column?\n💡 The logical OR operator in Python is denoted by |"
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? What are the number of missing values in the energy_label column of these district?\n💡 B or better requires info from both energy_label and energy_eff.\n💡 The logical OR operator in Python is denoted by |"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-3",
     "href": "3_Wrangling_GT.html#challenge-3",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //\n💡 For a binary variable, the proportion can be calculated with mean()"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-4",
     "href": "3_Wrangling_GT.html#challenge-4",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Table is arranged by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()\n\n\n\n\n\n\n\n\n\n\nCity\nDistrict\nn\nPrice per sqm\n\n\nMin\nMax\nRange\n\n\n\n\nDe Meern\nVleuten-De Meern\n2\n4.62\n4.85\n0.23\n\n\nNieuwegein\nBlokhoeve-Nieuwegein\n8\n3.99\n5.78\n1.79\n\n\nUtrecht\nOvervecht\n5\n4.06\n6.07\n2.01\n\n\nUtrecht\nZuid\n7\n3.64\n5.97\n2.33\n\n\nUtrecht\nBinnenstad\n7\n5.26\n7.92\n2.66\n\n\nUtrecht\nNoord-Oost\n9\n5.15\n7.88\n2.73\n\n\nVleuten\nVleuten-De Meern\n15\n4.06\n6.82\n2.76\n\n\nUtrecht\nLeidsche Rijn\n25\n4.03\n6.91\n2.87\n\n\nUtrecht\nOost\n7\n4.44\n8.53\n4.09\n\n\nUtrecht\nNoord-West\n16\n3.30\n7.69\n4.39\n\n\nUtrecht\nWest\n15\n3.79\n8.21\n4.42\n\n\nUtrecht\nZuid-West\n37\n3.81\n8.89\n5.08"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-5",
     "href": "3_Wrangling_GT.html#challenge-5",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. Show proportions as percent in your table.\n💡 You can add prefix to a set of columns using .name.prefix('zzz_')"
+    "text": "Challenge 5\nThis is a challenge on a more difficult label. Do it in class if time allows, otherwise save it until after the Kings county challenges.\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. Show proportions as percent in your table.\n💡 You can add prefix to a set of columns using .name.prefix('zzz_')"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-6",
@@ -515,7 +515,7 @@
     "href": "3_Wrangling_GT.html#challenge-8",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nCorrect the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nUpdate the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-9",
