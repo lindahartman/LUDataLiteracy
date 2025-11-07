@@ -1,9 +1,9 @@
 ---
 title: "About"
 ---
+This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.
 
-About this site
+Practicals are under construction and the state preliminary until the scheduled help sessions.
 
-```{r}
-1 + 1
-```
+Solutions will be published after each Practical for further practice.
+
