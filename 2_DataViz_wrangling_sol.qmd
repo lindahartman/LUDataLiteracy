@@ -4,6 +4,7 @@ from: markdown+emoji
 execute: 
   include: true
   echo: true
+ipynb-shell-interactivity: all
 ---
 This document contain a solved version of the second practical on **Data Visualization + Wrangling**
 
