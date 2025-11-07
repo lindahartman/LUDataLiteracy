@@ -101,17 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 <style>
-div.callout-question.callout {
-  border-left-color: pink;
-}
-div.callout-question.callout-style-default > .callout-header {
-  background-color: rgb(from pink r g b / 13%);
-}
-div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
-  content: '🧠';
-  background-image: none;
-}
 div.callout-challenge.callout {
   border-left-color: firebrick;
 }
@@ -121,6 +110,17 @@ div.callout-challenge.callout-style-default > .callout-header {
 div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
   content: '🛠️';
+  background-image: none;
+}
+div.callout-question.callout {
+  border-left-color: pink;
+}
+div.callout-question.callout-style-default > .callout-header {
+  background-color: rgb(from pink r g b / 13%);
+}
+div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
+  content: '🧠';
   background-image: none;
 }
 </style>
@@ -191,6 +191,10 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
         <li>
     <a class="dropdown-item" href="./1_DataViz_sol.html">
  <span class="dropdown-text">Practical 1: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./2_DataViz_wrangling_sol.html">
+ <span class="dropdown-text">Practical 2: Data Visualization + Wrangling</span></a>
   </li>  
     </ul>
   </li>
@@ -319,12 +323,12 @@ Note
 <p>Please <strong>open a terminal and navigate to the course folder</strong> you created during the installation and preparations (remember <code>cd</code> and <code>ls</code>). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization</code>. Then add a code cell and place the following code there.</p>
-<div id="fb7b54a8" class="cell" data-execution_count="1">
+<div id="0e16fd0b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="980b1e1a" class="cell" data-execution_count="2">
+<div id="e0473ad7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://bit.ly/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -351,7 +355,7 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <p>Reproduce this plot.</p>
-<div id="f090c3f3" class="cell" data-execution_count="3">
+<div id="8ce87dd3" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -360,7 +364,7 @@ Challenge
 </div>
 </div>
 </div>
-<div id="a551c0c6" class="cell" data-execution_count="4">
+<div id="111e47cc" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -396,7 +400,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> Plot bathrooms as a ‘factor’ to show the two categories more distinctly.</div>
 </div>
 </div>
-<div id="6c5353b0" class="cell" data-execution_count="5">
+<div id="e373f698" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -431,7 +435,7 @@ What is the build year of the newest house (woonhuis) with energy class B?<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can limit the plot to the years between <code>x1</code> and <code>x2</code> using <code>scale_x_continuous(limits=[x1, x2])</code></div>
 </div>
 </div>
-<div id="0c9d67c8" class="cell" data-execution_count="6">
+<div id="d527c946" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -442,7 +446,7 @@ What is the build year of the newest house (woonhuis) with energy class B?<br>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Projects\Teaching\LUDataLiteracy\.venv\Lib\site-packages\plotnine\layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.</code></pre>
+<pre><code>C:\Projects\Teaching\LUDataLiteracy\.venv\Lib\site-packages\plotnine\layer.py:374: PlotnineWarning: geom_jitter : Removed 6 rows containing missing values.</code></pre>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -452,7 +456,7 @@ What is the build year of the newest house (woonhuis) with energy class B?<br>
 </div>
 </div>
 </div>
-<div id="37358664" class="cell" data-execution_count="7">
+<div id="4eea5ff9" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -489,7 +493,7 @@ Challenge
 <div class="line-block">Reproduce this plot.<br>
 <span class="emoji" data-emoji="bulb">💡</span> If you want to match the color palette as well, it’s qualitative brewer scale number 2<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can add multi-line strings in Python using triple quotes like this <code>"""long string which may span multiple lines"""</code></div>
-<div id="9187a92e" class="cell" data-execution_count="8">
+<div id="2364bf8c" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -531,7 +535,7 @@ Challenge
 <p>Plot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use <code>coord_flip()</code> if the district names are hard to read.</p>
 </div>
 </div>
-<div id="0ba71fe5" class="cell" data-execution_count="9">
+<div id="b1c525aa" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -565,7 +569,7 @@ Challenge
 <p>Plot the distribution of retail values for the two house types. Which of the two appears more symmetrical?</p>
 </div>
 </div>
-<div id="469a04fb" class="cell" data-execution_count="10">
+<div id="9b1ecfb4" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this could be two separate plots, then after_stat() would not be required</span></span>
@@ -602,7 +606,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> <code>facet_wrap</code>could be of good help here!</div>
 </div>
 </div>
-<div id="f6fb5101" class="cell" data-execution_count="11">
+<div id="03e72868" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -638,7 +642,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> There is a variable for distance to train station in the data, see Utrecht Data Dictionary.</div>
 </div>
 </div>
-<div id="06dcedb0" class="cell" data-execution_count="12">
+<div id="613333fc" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -654,7 +658,7 @@ Challenge
 </div>
 </div>
 </div>
-<div id="6979c6da" class="cell" data-execution_count="13">
+<div id="69db09d5" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -671,7 +675,7 @@ Challenge
 </div>
 </div>
 </div>
-<div id="9352beef" class="cell" data-execution_count="14">
+<div id="cfc54ce4" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -711,7 +715,7 @@ Challenge
 <p>Plot house prices against living area, coloring the points by property grade.</p>
 </div>
 </div>
-<div id="b639b7a9" class="cell" data-execution_count="15">
+<div id="7eb127cb" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -744,7 +748,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> Use a log scale for house prices to reduce overplotting.</div>
 </div>
 </div>
-<div id="9b37e699" class="cell" data-execution_count="16">
+<div id="ea40e6e6" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -778,7 +782,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> You can directly plot a transformation including one or more variables, eg. <code>y='price/sqft_living'</code> for the price per square foot.</div>
 </div>
 </div>
-<div id="07f0a03e" class="cell" data-execution_count="17">
+<div id="ad0b0d09" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -811,7 +815,7 @@ Challenge
 <p>Visualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?</p>
 </div>
 </div>
-<div id="f21e4864" class="cell" data-execution_count="18">
+<div id="5251c016" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(</span>
