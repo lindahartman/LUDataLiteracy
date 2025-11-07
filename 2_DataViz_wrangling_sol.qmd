@@ -1,0 +1,376 @@
+---
+title: "Practical 2: Data Visualization + Wrangling"
+from: markdown+emoji
+execute: 
+  include: true
+  echo: true
+---
+This document contain a solved version of the second practical on **Data Visualization + Wrangling**
+
+The objective of the tutorial is to give students a chance to practice the data visualization and data wrangling, applying the skills learned through the video lessons on a new dataset.
+
+Remember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours! The solution presents how to obtain the tables and graph that gives you the numbers asked for, but it is left as an exercise to you to read out the numbers that answer the actual questions.
+
+
+## Preparation
+
+:::{.callout-note}
+
+Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
+```
+
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization and wrangling`. Then add a code cell and place the following code there.
+
+```{python}
+#| echo: true
+#| include: true
+import polars as pl
+import polars.selectors as cs
+from plotnine import *
+```
+
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
+
+```{python}
+#| echo: true
+#| include: true
+ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
+```
+
+:::
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+
+## Challenge 1
+
+::: {.challenge}
+
+What is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?
+
+:::
+
+```{python}
+(
+ut.describe()
+)
+```
+
+
+
+## Challenge 2
+
+::: {.challenge}
+
+| Plot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?
+| :bulb: You can pass the data to `plotnine` using the `.pipe()` method.
+:::
+
+```{python}
+
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .pipe(ggplot, aes(x='house_area', y='lot_area')) +
+    geom_point()+
+    geom_smooth(method='lm')
+)
+```
+
+## Challenge 3
+
+::: {.challenge}
+
+Do the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?
+
+:::
+
+```{python}
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .filter(pl.col('build_year')>1900)
+    .pipe(ggplot, aes(x='house_area', y='asking_price'))+
+    geom_point(aes(size='lot_area>300', color='build_year'))+
+    geom_smooth(method='lm')
+)
+
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .filter(pl.col('build_year')>1900)
+    .pipe(ggplot, aes(x='x_coor', y='y_coor'))+
+    geom_jitter(aes(color='lot_area>300'))
+)
+
+(
+ut
+    .filter(pl.col('house_type')=='woonhuis')
+    .filter(pl.col('lot_area')>300)
+    .select(pl.col('zip_code4'))
+)
+```
+
+
+
+## Challenge 4
+
+::: {.challenge}
+
+Create a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?
+
+:::
+
+
+```{python}
+(
+ut
+    .filter(pl.col('zip_code4')==3543)
+    .select(pl.col('street', 'house_area', 'lot_area', 'build_year', 'energy_label', 'asking_price'))
+    .sort('build_year')
+)
+```
+
+## Challenge 5
+
+::: {.challenge}
+| Which 4-digit zip code includes the largest number of streets?
+| Within that zip code, what is the street name of the house closest to the train station?
+| :bulb: You can count unique values using `n_unique()` and find the minimum value with `min()`
+:::
+
+```{python}
+(
+    ut
+    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))
+    .group_by(pl.col('zip_code4'))
+    .agg(n_str=pl.n_unique('street'))
+    .sort('n_str', descending=True)
+)
+
+(
+    ut
+    .filter(pl.col('zip_code4')==3544)
+    .group_by('street')
+    .agg(min_dist=pl.col('dist_from_train').min())
+    .sort('min_dist')
+)
+```
+
+
+## Challenge 6
+
+::: {.challenge}
+
+| Plot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?
+| :bulb: The whole-number division in Python is written as `//`
+:::
+
+```{python}
+(
+ut
+    .filter(pl.col('build_year')>=1900, pl.col('build_year')<=2000)
+    .with_columns(build_dec=pl.col('build_year')//10*10)
+    .group_by(pl.col('build_dec'))
+    .agg(pl.col('house_area').mean())
+    .pipe(ggplot)+
+    geom_line(aes(x='build_dec', y='house_area'))
+)
+
+```
+
+## Challenge 7
+
+::: {.challenge}
+
+| Calculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?
+| :bulb: Measure per square meter price as retail value divided by house area
+| :bulb: You can extract the ISO week number from the date using the `.dt.week()` method
+:::
+
+```{python}
+(
+ut
+    .with_columns(wk=pl.col('valuation_date').dt.week(),
+                rv_psq=pl.col('retail_value')/pl.col('house_area'))
+    .group_by(pl.col('wk'))
+    .agg(avg_rv=pl.col('rv_psq').mean())
+    .pipe(ggplot, aes(x='wk', y='avg_rv'))+
+    geom_line()+
+    geom_smooth(method='lm')
+)
+
+```
+
+
+## Challenge 8
+
+::: {.challenge}
+
+| Which street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?
+| :bulb: You can calculate the proportion using `.over()` clause
+:::
+
+```{python}
+(
+ut
+    .group_by('street','energy_eff')
+    .agg(n_houses=pl.len(), old=pl.col('build_year').min()) 
+    .sort('n_houses','street', descending=True) 
+    .with_columns(prop_houses=(pl.col('n_houses')/pl.col('n_houses').sum())
+                                .over('street'))
+    .filter(pl.col('energy_eff')==1)
+)
+```
+
+## Challenge 9
+
+::: {.challenge}
+
+| Define the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?
+| Plot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?
+| :bulb: You can see the house on Google Street View if you search Google Maps using `x_coor`, `y_coor`.
+:::
+
+```{python}
+(
+    ut
+    .pipe(ggplot)+
+    geom_point(aes(x='retail_value', y='asking_price'))
+)
+
+(
+    ut
+    .with_columns(premium=pl.col('asking_price')/pl.col('retail_value'))
+    .sort('premium', descending=True)
+    .slice(0,1)
+)
+
+(
+    ut
+    .filter(pl.col('street')=='Vleutenseweg')
+    .with_columns(premium=pl.col('asking_price')/pl.col('retail_value'), 
+                    psqm=pl.col('asking_price')/pl.col('house_area'))
+    .sort('premium', descending=True)
+)
+
+
+(
+    ut
+    .with_columns(premium=pl.col('asking_price')/pl.col('retail_value'), 
+                    psqm=pl.col('asking_price')/pl.col('house_area'))
+    .pipe(ggplot)+
+    geom_histogram(aes(x='psqm'), bins=50)
+)
+
+
+(    ut
+    .with_columns(premium=pl.col('asking_price')/pl.col('retail_value'), 
+                    psqm=pl.col('asking_price')/pl.col('house_area'))
+    .sort('psqm', descending=True)
+)
+
+```
+
+# Kings County
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
+
+## Challenge 10
+
+:::{.challenge}
+| Plot the number of houses sold in each district.
+| :bulb: Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the `reorder()` function in Plotnine and see if you can improve your plot with it.
+:::
+
+```{python}
+(
+    kc
+    .pipe(ggplot)+
+    geom_bar(aes('reorder(district, district, len)'))+
+    coord_flip()
+)
+
+(
+    kc
+    .group_by('district')
+    .agg(n=pl.len())
+    .pipe(ggplot)+
+    geom_col(aes(x='reorder(district, n)', y='n'))+
+    coord_flip()
+)
+```
+
+
+## Challenge 11
+
+:::{.challenge}
+How many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?
+:::
+
+```{python}
+(
+    kc
+    .group_by('id')
+    .agg(pl.len())
+    .filter(pl.col('len')>1)
+    .sort('len', descending=True)
+)
+
+(
+    kc
+    .filter(pl.col('id')==795000620)
+    .sort('date')
+    .select(diff=pl.col('price').diff())
+    .sum()
+)
+```
+
+## Challenge 12
+
+:::{.challenge}
+| Plot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?
+| :bulb: ou can round dates to the start of each month using `dt.month_start()`.
+:::
+
+```{python}
+(
+    kc
+    .with_columns(monyear=pl.col('date').dt.month_start(),
+                ppsqm=pl.col('price')/pl.col('sqft_living'))
+    .group_by('monyear')
+    .agg(av_ppsqm=pl.col('ppsqm').mean())
+    .pipe(ggplot, aes(x='monyear', y='av_ppsqm'))+
+    geom_line()
+)
+
+(
+    kc
+    .with_columns(monyear=pl.col('date').dt.month_start(),
+                ppsqm=pl.col('price')/pl.col('sqft_living'))
+    .pipe(ggplot, aes(x='date', y='ppsqm'))+
+    geom_smooth(method='lm', color="blue")
+)
+
+(
+    kc
+    .with_columns(monyear=pl.col('date').dt.month_start(),
+                ppsqm=pl.col('price')/pl.col('sqft_living'))
+    .group_by('monyear', 'district')
+    .agg(av_ppsqm=pl.col('ppsqm').mean())
+    .pipe(ggplot, aes(x='monyear', y='av_ppsqm'))+
+    geom_smooth(method='lm')+
+    facet_wrap('district')
+)
+
+
+```
+
+
