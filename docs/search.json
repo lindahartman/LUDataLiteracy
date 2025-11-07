@@ -186,7 +186,7 @@
     "href": "1_DataViz_sol.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 6 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-4",
@@ -557,7 +557,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.\nPracticals are under construction and the state preliminary until the scheduled help sessions.\nSolutions will be published after each Practical for further practice."
   },
   {
     "objectID": "KingsCounty.html",
