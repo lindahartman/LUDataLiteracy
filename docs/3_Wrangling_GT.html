@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-75f85ff3afe47a507ba5bdac098e00a3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4a65af601ebb7923055384dba408bd6e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-fc481145a034a9bc6707220edadee8cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -182,7 +182,22 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
   </li>  
         <li>
     <a class="dropdown-item" href="./6_Quarto.html">
- <span class="dropdown-text">Practical 5: Producing reports with Quarto</span></a>
+ <span class="dropdown-text">Practical 6: Producing reports with Quarto</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-solutions" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Solutions</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-solutions">    
+        <li>
+    <a class="dropdown-item" href="./1_DataViz_sol.html">
+ <span class="dropdown-text">Practical 1: Data Visualization</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./2_DataViz_wrangling_sol.html">
+ <span class="dropdown-text">Practical 2: Data Visualization + Wrangling</span></a>
   </li>  
     </ul>
   </li>
@@ -281,16 +296,16 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization and wrangling</code>. Then add a code cell and place the following code there.</p>
-<div id="01365578" class="cell" data-execution_count="1">
+<div id="133a8ce5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="4ef4f989" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://rrr.is/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://rrr.is/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="8b66b6c1" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://bit.ly/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -326,7 +341,8 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">What are top-3 districts with the largest number of properties in energy class <strong>B</strong> or better? Do any of these districs have missing values in the <code>energy_label</code> column?<br>
+<div class="line-block">What are top-3 districts with the largest number of properties in energy class <strong>B</strong> or better? What are the number of missing values in the <code>energy_label</code> column of these district?<br>
+<span class="emoji" data-emoji="bulb">💡</span> <strong>B</strong> or better requires info from both <code>energy_label</code> and <code>energy_eff</code>.<br>
 <span class="emoji" data-emoji="bulb">💡</span> The logical <code>OR</code> operator in Python is denoted by <code>|</code></div>
 </div>
 </div>
@@ -344,7 +360,8 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <div class="line-block">Create a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.<br>
-<span class="emoji" data-emoji="bulb">💡</span> You can group houses by decade by flooring the build year to the start of the decade using integer division <code>//</code></div>
+<span class="emoji" data-emoji="bulb">💡</span> You can group houses by decade by flooring the build year to the start of the decade using integer division <code>//</code><br>
+<span class="emoji" data-emoji="bulb">💡</span> For a binary variable, the proportion can be calculated with <code>mean()</code></div>
 </div>
 </div>
 </section>
@@ -360,13 +377,187 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Create a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?<br>
+<div class="line-block">Reproduce this great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Table is arranged by the price range from lowest to highest. Which district has the most expensive housing?<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can count number of records per group with <code>pl.len()</code></div>
+</div>
+</div>
+<div id="20ba31af" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div id="fpapieadda" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#fpapieadda table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#fpapieadda thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#fpapieadda p { margin: 0; padding: 0; }
+ #fpapieadda .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #fpapieadda .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #fpapieadda .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #fpapieadda .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #fpapieadda .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #fpapieadda .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; }
+ #fpapieadda .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #fpapieadda .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #fpapieadda .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #fpapieadda .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #fpapieadda .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #fpapieadda .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #fpapieadda .gt_spanner_row { border-bottom-style: hidden; }
+ #fpapieadda .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #fpapieadda .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; vertical-align: middle; }
+ #fpapieadda .gt_from_md> :first-child { margin-top: 0; }
+ #fpapieadda .gt_from_md> :last-child { margin-bottom: 0; }
+ #fpapieadda .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #89D3FE; border-left-style: none; border-left-width: 1px; border-left-color: #89D3FE; border-right-style: none; border-right-width: 1px; border-right-color: #89D3FE; vertical-align: middle; overflow-x: hidden; }
+ #fpapieadda .gt_stub { color: #FFFFFF; background-color: #0076BA; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #0076BA; padding-left: 5px; padding-right: 5px; }
+ #fpapieadda .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #fpapieadda .gt_row_group_first td { border-top-width: 2px; }
+ #fpapieadda .gt_row_group_first th { border-top-width: 2px; }
+ #fpapieadda .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #fpapieadda .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; }
+ #fpapieadda .gt_grand_summary_row { color: #333333; background-color: #89D3FE; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #fpapieadda .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #fpapieadda .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #fpapieadda .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #fpapieadda .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #fpapieadda .gt_left { text-align: left; }
+ #fpapieadda .gt_center { text-align: center; }
+ #fpapieadda .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #fpapieadda .gt_font_normal { font-weight: normal; }
+ #fpapieadda .gt_font_bold { font-weight: bold; }
+ #fpapieadda .gt_font_italic { font-style: italic; }
+ #fpapieadda .gt_super { font-size: 65%; }
+ #fpapieadda .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #fpapieadda .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="city" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">City</th>
+<th rowspan="2" id="district" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">District</th>
+<th rowspan="2" id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th colspan="3" id="Price-per-sqm" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><span class="gt_column_spanner">Price per sqm</span></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="min_psqm" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Min</th>
+<th id="max_psqm" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max</th>
+<th id="range_psqm" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Range</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left">De Meern</td>
+<td class="gt_row gt_left">Vleuten-De Meern</td>
+<td class="gt_row gt_right">2</td>
+<td class="gt_row gt_right">4.62</td>
+<td class="gt_row gt_right">4.85</td>
+<td class="gt_row gt_right">0.23</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Nieuwegein</td>
+<td class="gt_row gt_left gt_striped">Blokhoeve-Nieuwegein</td>
+<td class="gt_row gt_right gt_striped">8</td>
+<td class="gt_row gt_right gt_striped">3.99</td>
+<td class="gt_row gt_right gt_striped">5.78</td>
+<td class="gt_row gt_right gt_striped">1.79</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Utrecht</td>
+<td class="gt_row gt_left">Overvecht</td>
+<td class="gt_row gt_right">5</td>
+<td class="gt_row gt_right">4.06</td>
+<td class="gt_row gt_right">6.07</td>
+<td class="gt_row gt_right">2.01</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Utrecht</td>
+<td class="gt_row gt_left gt_striped">Zuid</td>
+<td class="gt_row gt_right gt_striped">7</td>
+<td class="gt_row gt_right gt_striped">3.64</td>
+<td class="gt_row gt_right gt_striped">5.97</td>
+<td class="gt_row gt_right gt_striped">2.33</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Utrecht</td>
+<td class="gt_row gt_left">Binnenstad</td>
+<td class="gt_row gt_right">7</td>
+<td class="gt_row gt_right">5.26</td>
+<td class="gt_row gt_right">7.92</td>
+<td class="gt_row gt_right">2.66</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Utrecht</td>
+<td class="gt_row gt_left gt_striped">Noord-Oost</td>
+<td class="gt_row gt_right gt_striped">9</td>
+<td class="gt_row gt_right gt_striped">5.15</td>
+<td class="gt_row gt_right gt_striped">7.88</td>
+<td class="gt_row gt_right gt_striped">2.73</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Vleuten</td>
+<td class="gt_row gt_left">Vleuten-De Meern</td>
+<td class="gt_row gt_right">15</td>
+<td class="gt_row gt_right">4.06</td>
+<td class="gt_row gt_right">6.82</td>
+<td class="gt_row gt_right">2.76</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Utrecht</td>
+<td class="gt_row gt_left gt_striped">Leidsche Rijn</td>
+<td class="gt_row gt_right gt_striped">25</td>
+<td class="gt_row gt_right gt_striped">4.03</td>
+<td class="gt_row gt_right gt_striped">6.91</td>
+<td class="gt_row gt_right gt_striped">2.87</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Utrecht</td>
+<td class="gt_row gt_left">Oost</td>
+<td class="gt_row gt_right">7</td>
+<td class="gt_row gt_right">4.44</td>
+<td class="gt_row gt_right">8.53</td>
+<td class="gt_row gt_right">4.09</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Utrecht</td>
+<td class="gt_row gt_left gt_striped">Noord-West</td>
+<td class="gt_row gt_right gt_striped">16</td>
+<td class="gt_row gt_right gt_striped">3.30</td>
+<td class="gt_row gt_right gt_striped">7.69</td>
+<td class="gt_row gt_right gt_striped">4.39</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Utrecht</td>
+<td class="gt_row gt_left">West</td>
+<td class="gt_row gt_right">15</td>
+<td class="gt_row gt_right">3.79</td>
+<td class="gt_row gt_right">8.21</td>
+<td class="gt_row gt_right">4.42</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Utrecht</td>
+<td class="gt_row gt_left gt_striped">Zuid-West</td>
+<td class="gt_row gt_right gt_striped">37</td>
+<td class="gt_row gt_right gt_striped">3.81</td>
+<td class="gt_row gt_right gt_striped">8.89</td>
+<td class="gt_row gt_right gt_striped">5.08</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
 </div>
 </div>
 </section>
 <section id="challenge-5" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-5">Challenge 5</h2>
+<p>This is a challenge on a more difficult label. Do it in class if time allows, otherwise save it until after the Kings county challenges.</p>
 <div class="callout callout-style-default callout-challenge callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -433,7 +624,7 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Correct the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.<br>
+<div class="line-block">Update the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.<br>
 <span class="emoji" data-emoji="bulb">💡</span> You can use a conditional expression in Polars such as: <code>pl.when(condition).then(value_if_true).otherwise(value_if_false)</code>.</div>
 </div>
 </div>

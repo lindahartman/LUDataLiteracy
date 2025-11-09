@@ -2,11 +2,16 @@
 title: "Practical 2: Data Visualization + Wrangling"
 from: markdown+emoji
 execute: 
-  include: false
-  echo: false
+  include: true
+  echo: true
+ipynb-shell-interactivity: all
 ---
+This document contain a solved version of the second practical on **Data Visualization + Wrangling**
 
-The objective of the tutorial is to give student a chance to practice the data visualization and data wrangling applying the skills learned through the video lessons on a new dataset.
+The objective of the tutorial is to give students a chance to practice the data visualization and data wrangling, applying the skills learned through the video lessons on a new dataset.
+
+Remember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours! The solution presents how to obtain the tables and graph that gives you the numbers asked for, but it is left as an exercise to you to read out the numbers that answer the actual questions.
+
 
 ## Preparation
 
@@ -70,6 +75,7 @@ ut.describe()
 :::
 
 ```{python}
+
 (
 ut
     .filter(pl.col('house_type')=='woonhuis')

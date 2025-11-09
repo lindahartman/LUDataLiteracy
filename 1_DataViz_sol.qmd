@@ -1,0 +1,358 @@
+---
+title: "Practical 1: Data Visualization"
+from: markdown+emoji
+execute: 
+  include: true
+  echo: true
+---
+
+This document contain a solved version of the first practical on **Data Visualization with Plotnine**.
+
+The objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.
+
+Remember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours!
+
+
+# Scope
+
+Getting confident with building code is - surprise! -  achieved by practicing! To provide enough possibilities for practice our tutorials will be longer than what we expect that (any of) you to fit into the 2 hours. You can consider the challenges on the Utrecht data as the basis, and the challenges for the King's county as an (optional) repetition of the concepts. 
+
+
+
+# Pair programming
+
+Before you begin your pair-programming session, decide who starts as *Driver* and who is first *Navigator*. 
+
+
+
+## Preparation: 
+### Navigator's computer 
+Please open the files you need for reference, they will be the navigator's best tools to help the driver efficiently:
+
+- Open your self-created code-along notebook with the commands you tried during the preparatory videos. 
+- Keep [this document](https://lindahartman.github.io/LUDataLiteracy/1_DataViz.html) on the screen
+- Open [data dictionary](https://lindahartman.github.io/LUDataLiteracy/Utrecht.html) for Utrecht data  
+- Have a look at the [manuscripts for the preparatory videos](https://dmi3kno.github.io/DATA24/visualization.html). Although, texts are rather chatty, the code (and explanations) can be useful!
+
+
+### Driver's computer
+
+:::{.callout-note}
+
+Please **open a terminal and navigate to the course folder** you created during the installation and preparations (remember `cd` and `ls`). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
+```
+
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization`. Then add a code cell and place the following code there.
+
+```{python}
+import polars as pl
+from plotnine import *
+```
+
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
+
+```{python}
+ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
+```
+
+
+Save the notebook, eg. as `Practical1.ipynb`. 
+
+After the Practical, share the notebook (+ `pyproject.toml`) in your programming pair. 
+
+::: 
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+
+
+## Challenge 1
+
+::: {.challenge}
+
+Reproduce this plot.
+
+```{python}
+#| echo: false
+(
+ggplot(ut)+
+geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
+labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
+)
+```
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut)+
+geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
+labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
+)
+```
+:::
+
+## Challenge 2
+
+:::{.challenge}
+
+| Plot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.
+| :bulb: Plot bathrooms as a 'factor' to show the two categories more distinctly.
+:::
+
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut)+
+geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
+labs(x='Number of rooms', y='Asking Price', color='Bathrooms')
+)
+```
+
+
+
+## Challenge 3
+
+:::{.challenge}
+
+| How did the energy class of houses evolve for those built during the 20th and 21st century?
+| What is the build year of the newest house (woonhuis) with energy class B?
+| :bulb: You can limit the plot to the years between `x1` and `x2` using `scale_x_continuous(limits=[x1, x2])`
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut)+
+geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
+scale_x_continuous(limits=[1900, 2025])+
+labs(x='Year Built', y='Energy Class', color='House type')
+)
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut)+
+geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
+scale_x_continuous(limits=[1998, 2025])+
+labs(x='Year Built', y='Energy Class', color='House type')
+)
+```
+
+
+## Challenge 4
+:::{.challenge}
+
+| Reproduce this plot.
+| :bulb: If you want to match the color palette as well, it's qualitative brewer scale number 2
+| :bulb: You can add multi-line strings in Python using triple quotes like this `"""long string which may span multiple lines"""`
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut)+
+geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+
+geom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+
+labs(title='Scatterplot of house area and retail value',
+subtitle='Color indicates the type of property',
+x='House Area, sqm', y='Retail Price, k€', color='House type',
+caption="""A linear regression approximates the positive relation between
+the variables (with error bands shown in gray)""")+
+scale_color_brewer('qual', 2)+
+theme_bw()
+)
+```
+
+:::
+
+## Challenge 5
+:::{.challenge}
+
+
+Plot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use `coord_flip()` if the district names are hard to read.
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+
+geom_boxplot()+
+coord_flip()+
+labs(x="", y="Retail value, kEUR")
+)
+```
+
+
+
+## Challenge 6
+:::{.challenge}
+
+Plot the distribution of retail values for the two house types. Which of the two appears more symmetrical?
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+
+# this could be two separate plots, then after_stat() would not be required
+(
+ggplot(ut,aes(x='retail_value'))+
+geom_histogram(aes(fill='house_type', y=after_stat("density")),bins=15,alpha=0.3)+
+geom_density(mapping=aes(color='house_type'))+
+facet_wrap('house_type', ncol=1)+
+labs(x="Retail value, kEUR")
+)
+```
+
+
+
+## Challenge 7
+:::{.challenge}
+
+| Plot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?
+| :bulb: `facet_wrap`could be of good help here!
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut, aes(y='retail_value', x='house_area'))+
+geom_point()+
+geom_smooth(method="lm", color="blue")+
+labs(y="Retail value, kEUR", x="House Area")+
+facet_wrap('district')
+)
+```
+
+
+
+## Challenge 8
+:::{.challenge}
+
+| What are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)
+| :bulb: There is a variable for distance to train station in the data, see Utrecht Data Dictionary. 
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
+geom_point()
+)
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
+geom_point()+
+facet_wrap('district')
+)
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+
+geom_jitter()+
+coord_flip()+
+facet_wrap('district', scales='free_y')+
+scale_y_log10()
+
+)
+```
+
+
+
+# Kings County - optional challenges
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
+
+## Challenge 9 
+:::{.challenge}
+
+Plot house prices against living area, coloring the points by property grade.
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
+geom_point(alpha=0.3)
+)
+```
+
+
+## Challenge 10
+:::{.challenge}
+
+| Do newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?
+| :bulb: Use a log scale for house prices to reduce overplotting.
+
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(kc, aes(y='price', x='yr_built', color='grade'))+
+geom_point(alpha=0.3)+
+scale_y_log10()
+)
+```
+
+## Challenge 11
+:::{.challenge}
+| Visualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?
+| :bulb: You can directly plot a transformation including one or more variables, eg. `y='price/sqft_living'` for the price per square foot.
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+
+geom_jitter(aes(color='yr_built'),alpha=0.3)+
+geom_boxplot()
+)
+```
+
+
+
+## Challenge 12
+:::{.challenge}
+Visualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?
+:::
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+ggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+
+geom_density(alpha=0.3)
+)
+```
+

@@ -14,6 +14,6 @@ The dataset contains the following columns
 ```{python}
 #| echo: false
 
-kc_doc = pl.read_csv('https://rrr.is/data24kingscountydd')
+kc_doc = pl.read_csv('https://bit.ly/data24kingscountydd')
 kc_doc.pipe(GT).opt_stylize(1)
 ```
