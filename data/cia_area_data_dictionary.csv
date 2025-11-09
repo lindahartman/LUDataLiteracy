@@ -1,0 +1,5 @@
+variable,description
+name,Name of the country
+slug,Unique country identifier on CIA factbook website
+region,Region of the world where the country is located
+area_sqkm,Country area in sq km

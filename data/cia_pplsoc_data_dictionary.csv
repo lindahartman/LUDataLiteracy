@@ -1,0 +1,19 @@
+variable,description
+name,Name of the country
+slug,Unique country identifier on CIA factbook website
+region,Region of the world where the country is located
+alcohol_consumption_per_capita,"Alcohol consumption, liter"
+birth_rate,"Birth rate, per 1000 population"
+children_under_the_age_of_5_years_underweight,"Children under the age of 5 years underweight, in %"
+death_rate,"Dearth rate, per 1000 population"
+education_expenditures,"Education expenditure, % of GDP"
+infant_mortality_rate,"Infant morality rate, deaths per 1000 live births"
+life_expectancy_at_birth,"Life expectancy at birth, years"
+maternal_mortality_ratio,"Maternal morality ratio, deaths per 1000 live births"
+median_age,"Median age, years"
+net_migration_rate,"Net migration rate, migrants per 1000 population"
+obesity_adult_prevalence_rate,"Obesity, adult prevalence, in %"
+population_total,"Population, ppl"
+population_growth_rate,"Populatio growth rate, in %"
+tobacco_use,"Tobacco use, in % of population"
+total_fertility_rate,"Total fertility rate, children born per woman"
