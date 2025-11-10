@@ -1,0 +1,12 @@
+variable,description
+name,Name of the country
+slug,Unique country identifier on CIA factbook website
+region,Region of the world where the country is located
+current_account_balance,"current account balance, in USD"
+debt_external,"External debt, in USD"
+exports,Export in USD
+carbon_dioxide_emissions,"CO2 emissions, in metric tonnes"
+electricity_installed_generating_capacity,installed generating capacity in kW
+energy_consumption_per_capita,Btu/person
+revenue_from_coal,Revenue from coal in bln USD
+revenue_from_forest_resources,Revenue from forest in bln USD

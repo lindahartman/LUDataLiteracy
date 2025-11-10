@@ -1,0 +1,24 @@
+variable,description
+name,Name of the country
+slug,Unique country identifier on CIA factbook website
+region,Region of the world where the country is located
+current_account_balance,"Current account balance, in USD"
+debt_external,"External debt, in USD"
+exports,"Exports, in USD"
+gdp_composition_by_sector_of_origin_agriculture,"GDP from agriculture, in %"
+gdp_composition_by_sector_of_origin_industry,"GDP from industry, in %"
+gdp_composition_by_sector_of_origin_services,"GDP from services, in %"
+gini_index_coefficient_distribution_of_family_income,Gini coefficients
+imports,"Imports, in USD"
+industrial_production_growth_rate,"Industrial production growth rate, in %"
+inflation_rate_consumer_prices,"Inflation, in %"
+labor_force,"Labor Force, number of people"
+military_expenditures,"Military expenditures, % of GDP"
+public_debt,"Public debt, % of GDP"
+real_gdp_purchasing_power_parity,"Real GDP (PPP), in USD"
+real_gdp_growth_rate,"Real GDP growth rate, in %"
+real_gdp_per_capita,"Real GDP (PPP), in USD"
+reserves_of_foreign_exchange_and_gold,"Reserves, in USD"
+taxes_and_other_revenues,"Taxes and other revenues, % of GDP"
+unemployment_rate,"Unemployment rate, in %"
+youth_unemployment_rate_ages_15_24,"Youth unemployment rate, in %"
