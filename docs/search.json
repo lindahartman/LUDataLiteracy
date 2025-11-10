@@ -4,54 +4,19 @@
     "href": "Utrecht.html",
     "title": "Utrecht Housing",
     "section": "",
-    "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID\n\n\nzip_code4\nZip Code 4 digits\n\n\nzip_code6\nZip Code 6 symbols\n\n\nzip_code6_id\nZip Code 6 symbols ID\n\n\nhouse_type\nHouse Type: Apartment or House\n\n\nlot_area\nLot Aream, sqm\n\n\nhouse_area\nHouse Area, sqm\n\n\ngarden_size\nGarden Size, sqm\n\n\nrooms\nNumber of Rooms\n\n\nbathrooms\nNumber of Bathrooms\n\n\nx_coor\nX Coordinate\n\n\ny_coor\nY Coordinate\n\n\nbuild_year\nBuild Year\n\n\nretail_value\nRetail Value, k€\n\n\nasking_price\nAsking Price, k€\n\n\nenergy_label\nEnergy Label ('A++' to 'G')\n\n\nenergy_eff\nEnergy Efficiency (=1 for A, A+, A++, 0 otherwise)\n\n\nvaluation_date\nValuation Date\n\n\nstreet\nStreet Name\n\n\nsubdistrict\nSubdistrict Name\n\n\ndistrict\nDistrict Name\n\n\ncity\nCity\n\n\ndist_from_train\nDistance from train, km"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Getting started",
-    "section": "",
-    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
-  },
-  {
-    "objectID": "index.html#shell-basics",
-    "href": "index.html#shell-basics",
-    "title": "Getting started",
-    "section": "",
-    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
-  },
-  {
-    "objectID": "index.html#installing-and-using-uv",
-    "href": "index.html#installing-and-using-uv",
-    "title": "Getting started",
-    "section": "Installing and using uv",
-    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
-  },
-  {
-    "objectID": "index.html#python-project-setup",
-    "href": "index.html#python-project-setup",
-    "title": "Getting started",
-    "section": "Python & Project Setup",
-    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
-  },
-  {
-    "objectID": "index.html#jupyter",
-    "href": "index.html#jupyter",
-    "title": "Getting started",
-    "section": "Jupyter",
-    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
-  },
-  {
-    "objectID": "6_Quarto.html",
-    "href": "6_Quarto.html",
-    "title": "Practical 6: Producing reports with Quarto",
-    "section": "",
-    "text": "Under preparation"
+    "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID\n\n\nzip_code4\nZip Code 4 digits\n\n\nzip_code6\nZip Code 6 symbols\n\n\nzip_code6_id\nZip Code 6 symbols ID\n\n\nhouse_type\nHouse Type: Apartment or House\n\n\nlot_area\nLot Aream, sqm\n\n\nhouse_area\nHouse Area, sqm\n\n\ngarden_size\nGarden Size, sqm\n\n\nrooms\nNumber of Rooms\n\n\nbathrooms\nNumber of Bathrooms\n\n\nx_coor\nX Coordinate\n\n\ny_coor\nY Coordinate\n\n\nbuild_year\nBuild Year\n\n\nretail_value\nRetail Value, k€\n\n\nasking_price\nAsking Price, k€\n\n\nenergy_label\nEnergy Label ('A++' to 'G')\n\n\nenergy_eff\nBinary variable equal 1 for energy labels A, A+, A++, and 0 otherwise\n\n\nvaluation_date\nValuation Date\n\n\nstreet\nStreet Name\n\n\nsubdistrict\nSubdistrict Name\n\n\ndistrict\nDistrict Name\n\n\ncity\nCity\n\n\ndist_from_train\nDistance from train, km"
   },
   {
     "objectID": "4_Wrangling_joins.html",
     "href": "4_Wrangling_joins.html",
     "title": "Practical 4: Data Wrangling + joins",
+    "section": "",
+    "text": "Under preparation"
+  },
+  {
+    "objectID": "5_Pivots_GT.html",
+    "href": "5_Pivots_GT.html",
+    "title": "Practical 5: Pivots + Great Tables",
     "section": "",
     "text": "Under preparation"
   },
@@ -88,7 +53,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-3",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?\n\n\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='house_area', y='asking_price'))+\n    geom_point(aes(size='lot_area&gt;300', color='build_year'))+\n    geom_smooth(method='lm')\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='x_coor', y='y_coor'))+\n    geom_jitter(aes(color='lot_area&gt;300'))\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('lot_area')&gt;300)\n    .select(pl.col('zip_code4'))\n)\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\scales\\scale_size.py:46: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nshape: (2, 1)\n\n\n\nzip_code4\n\n\ni64\n\n\n\n\n3543\n\n\n3543"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?\n\n\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='house_area', y='asking_price'))+\n    geom_point(aes(size='lot_area&gt;300', color='build_year'))+\n    geom_smooth(method='lm')\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='x_coor', y='y_coor'))+\n    geom_jitter(aes(color='lot_area&gt;300'))\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('lot_area')&gt;300)\n    .select(pl.col('zip_code4'))\n)\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/scales/scale_size.py:46: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nshape: (2, 1)\n\n\n\nzip_code4\n\n\ni64\n\n\n\n\n3543\n\n\n3543"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-4",
@@ -102,7 +67,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3543\n3\n\n\n3553\n3\n\n\n3541\n2\n\n\n…\n…\n\n\n3511\n1\n\n\n3554\n1\n\n\n3581\n1\n\n\n3533\n1\n\n\n3513\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3561\n2\n\n\n…\n…\n\n\n3453\n1\n\n\n3511\n1\n\n\n3531\n1\n\n\n3532\n1\n\n\n3581\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-6",
@@ -144,7 +109,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n5101405604\n2\n\n\n1036400200\n2\n\n\n1423049019\n2\n\n\n5417600130\n2\n\n\n…\n…\n\n\n1630700361\n2\n\n\n8832900780\n2\n\n\n8645530010\n2\n\n\n4364700600\n2\n\n\n3523069060\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n9809000020\n2\n\n\n9407110710\n2\n\n\n2726049071\n2\n\n\n5417600130\n2\n\n\n…\n…\n\n\n251300110\n2\n\n\n5430300171\n2\n\n\n4154300296\n2\n\n\n5536100020\n2\n\n\n302000375\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-12",
@@ -154,102 +119,144 @@
     "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start().\n\n\n\n(\n    kc\n    .with_columns(monyear=pl.col('date').dt.month_start(),\n                ppsqm=pl.col('price')/pl.col('sqft_living'))\n    .group_by('monyear')\n    .agg(av_ppsqm=pl.col('ppsqm').mean())\n    .pipe(ggplot, aes(x='monyear', y='av_ppsqm'))+\n    geom_line()\n)\n\n(\n    kc\n    .with_columns(monyear=pl.col('date').dt.month_start(),\n                ppsqm=pl.col('price')/pl.col('sqft_living'))\n    .pipe(ggplot, aes(x='date', y='ppsqm'))+\n    geom_smooth(method='lm', color=\"blue\")\n)\n\n(\n    kc\n    .with_columns(monyear=pl.col('date').dt.month_start(),\n                ppsqm=pl.col('price')/pl.col('sqft_living'))\n    .group_by('monyear', 'district')\n    .agg(av_ppsqm=pl.col('ppsqm').mean())\n    .pipe(ggplot, aes(x='monyear', y='av_ppsqm'))+\n    geom_smooth(method='lm')+\n    facet_wrap('district')\n)"
   },
   {
-    "objectID": "1_DataViz_sol.html",
-    "href": "1_DataViz_sol.html",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Getting started",
     "section": "",
-    "text": "This document contain a solved version of the first practical on Data Visualization with Plotnine.\nThe objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.\nRemember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours!"
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
   },
   {
-    "objectID": "1_DataViz_sol.html#preparation",
-    "href": "1_DataViz_sol.html#preparation",
-    "title": "Practical 1: Data Visualization",
-    "section": "Preparation:",
-    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)\n\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
+    "objectID": "index.html#shell-basics",
+    "href": "index.html#shell-basics",
+    "title": "Getting started",
+    "section": "",
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-1",
-    "href": "1_DataViz_sol.html#challenge-1",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "index.html#installing-and-using-uv",
+    "href": "index.html#installing-and-using-uv",
+    "title": "Getting started",
+    "section": "Installing and using uv",
+    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
+  },
+  {
+    "objectID": "index.html#python-project-setup",
+    "href": "index.html#python-project-setup",
+    "title": "Getting started",
+    "section": "Python & Project Setup",
+    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
+  },
+  {
+    "objectID": "index.html#jupyter",
+    "href": "index.html#jupyter",
+    "title": "Getting started",
+    "section": "Jupyter",
+    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.\nPracticals are under construction and the state preliminary until the scheduled help sessions.\nSolutions will be published after each Practical for further practice."
+  },
+  {
+    "objectID": "3_Wrangling_GT.html",
+    "href": "3_Wrangling_GT.html",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "",
+    "text": "The objective of the tutorial is to give student a chance to practice the data wrangling and great tables applying the skills learned through the video lessons on a new dataset."
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#preparation",
+    "href": "3_Wrangling_GT.html#preparation",
+    "title": "Practical 3: Data Wrangling + great tables",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\nfrom great_tables import GT\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)"
+  },
+  {
+    "objectID": "3_Wrangling_GT.html#challenge-1",
+    "href": "3_Wrangling_GT.html#challenge-1",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, k€', color='House type')\n)"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nHow old is the newest house (woonhuis) with energy class B?"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-2",
-    "href": "1_DataViz_sol.html#challenge-2",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-2",
+    "href": "3_Wrangling_GT.html#challenge-2",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? Do any of these districs have missing values in the energy_label column?\n💡 The logical OR operator in Python is denoted by |"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-3",
-    "href": "1_DataViz_sol.html#challenge-3",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-3",
+    "href": "3_Wrangling_GT.html#challenge-3",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-4",
-    "href": "1_DataViz_sol.html#challenge-4",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-4",
+    "href": "3_Wrangling_GT.html#challenge-4",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-5",
-    "href": "1_DataViz_sol.html#challenge-5",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-5",
+    "href": "3_Wrangling_GT.html#challenge-5",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. You can add prefix to a set of columns using .name.prefix('zzz_'). Show proportions as percent in your table.\n💡 Priciest district is the district with the highest average retail value per square meter."
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-6",
-    "href": "1_DataViz_sol.html#challenge-6",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-6",
+    "href": "3_Wrangling_GT.html#challenge-6",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table summary showing top-3 most expensive houses in every district (in terms of asking price per sqm). Show house type, lot and house area, number of rooms and bathrooms. Arrange the houses from most expensive to least expensive within each district.\n💡 There are number of ways of showing top-3 houses. I suggest you use the .rank().over('district').\n💡 For extra fun, you can show ‘woonhuis’ and ‘appartement’ as pl.lit('house-chimney') and pl.lit('building') icons, respectively."
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-7",
-    "href": "1_DataViz_sol.html#challenge-7",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-7",
+    "href": "3_Wrangling_GT.html#challenge-7",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.\n💡 You will need to remember how to use .over() to complete this challenge."
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-8",
-    "href": "1_DataViz_sol.html#challenge-8",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-8",
+    "href": "3_Wrangling_GT.html#challenge-8",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1)."
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-9",
-    "href": "1_DataViz_sol.html#challenge-9",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-9",
+    "href": "3_Wrangling_GT.html#challenge-9",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nCorrect the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-10",
-    "href": "1_DataViz_sol.html#challenge-10",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-10",
+    "href": "3_Wrangling_GT.html#challenge-10",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-11",
-    "href": "1_DataViz_sol.html#challenge-11",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-11",
+    "href": "3_Wrangling_GT.html#challenge-11",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nExplore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. How does this relationship change after you remove outliers?"
   },
   {
-    "objectID": "1_DataViz_sol.html#challenge-12",
-    "href": "1_DataViz_sol.html#challenge-12",
-    "title": "Practical 1: Data Visualization",
+    "objectID": "3_Wrangling_GT.html#challenge-12",
+    "href": "3_Wrangling_GT.html#challenge-12",
+    "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot\n💡 You can use .dt.month_start() to floor the date to beginning of the month"
   },
   {
     "objectID": "1_DataViz.html",
@@ -350,6 +357,111 @@
     "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
   },
   {
+    "objectID": "1_DataViz_sol.html",
+    "href": "1_DataViz_sol.html",
+    "title": "Practical 1: Data Visualization",
+    "section": "",
+    "text": "This document contain a solved version of the first practical on Data Visualization with Plotnine.\nThe objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.\nRemember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours!"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#preparation",
+    "href": "1_DataViz_sol.html#preparation",
+    "title": "Practical 1: Data Visualization",
+    "section": "Preparation:",
+    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)\n\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-1",
+    "href": "1_DataViz_sol.html#challenge-1",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, k€', color='House type')\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-2",
+    "href": "1_DataViz_sol.html#challenge-2",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-3",
+    "href": "1_DataViz_sol.html#challenge-3",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-4",
+    "href": "1_DataViz_sol.html#challenge-4",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-5",
+    "href": "1_DataViz_sol.html#challenge-5",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-6",
+    "href": "1_DataViz_sol.html#challenge-6",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-7",
+    "href": "1_DataViz_sol.html#challenge-7",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-8",
+    "href": "1_DataViz_sol.html#challenge-8",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-9",
+    "href": "1_DataViz_sol.html#challenge-9",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 9",
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-10",
+    "href": "1_DataViz_sol.html#challenge-10",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 10",
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-11",
+    "href": "1_DataViz_sol.html#challenge-11",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 11",
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-12",
+    "href": "1_DataViz_sol.html#challenge-12",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 12",
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
+  },
+  {
+    "objectID": "6_Quarto.html",
+    "href": "6_Quarto.html",
+    "title": "Practical 6: Producing reports with Quarto",
+    "section": "",
+    "text": "Under preparation"
+  },
+  {
     "objectID": "2_DataViz_wrangling.html",
     "href": "2_DataViz_wrangling.html",
     "title": "Practical 2: Data Visualization + Wrangling",
@@ -446,118 +558,6 @@
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 12",
     "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start()."
-  },
-  {
-    "objectID": "3_Wrangling_GT.html",
-    "href": "3_Wrangling_GT.html",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "",
-    "text": "The objective of the tutorial is to give student a chance to practice the data wrangling and great tables applying the skills learned through the video lessons on a new dataset."
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#preparation",
-    "href": "3_Wrangling_GT.html#preparation",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\nfrom great_tables import GT\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-1",
-    "href": "3_Wrangling_GT.html#challenge-1",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nHow old is the newest house (woonhuis) with energy class B?"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-2",
-    "href": "3_Wrangling_GT.html#challenge-2",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? What are the number of missing values in the energy_label column of these district?\n💡 B or better requires info from both energy_label and energy_eff.\n💡 The logical OR operator in Python is denoted by |"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-3",
-    "href": "3_Wrangling_GT.html#challenge-3",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //\n💡 For a binary variable, the proportion can be calculated with mean()"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-4",
-    "href": "3_Wrangling_GT.html#challenge-4",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Table is arranged by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()\n\n\n\n\n\n\n\n\n\n\nCity\nDistrict\nn\nPrice per sqm\n\n\nMin\nMax\nRange\n\n\n\n\nDe Meern\nVleuten-De Meern\n2\n4.62\n4.85\n0.23\n\n\nNieuwegein\nBlokhoeve-Nieuwegein\n8\n3.99\n5.78\n1.79\n\n\nUtrecht\nOvervecht\n5\n4.06\n6.07\n2.01\n\n\nUtrecht\nZuid\n7\n3.64\n5.97\n2.33\n\n\nUtrecht\nBinnenstad\n7\n5.26\n7.92\n2.66\n\n\nUtrecht\nNoord-Oost\n9\n5.15\n7.88\n2.73\n\n\nVleuten\nVleuten-De Meern\n15\n4.06\n6.82\n2.76\n\n\nUtrecht\nLeidsche Rijn\n25\n4.03\n6.91\n2.87\n\n\nUtrecht\nOost\n7\n4.44\n8.53\n4.09\n\n\nUtrecht\nNoord-West\n16\n3.30\n7.69\n4.39\n\n\nUtrecht\nWest\n15\n3.79\n8.21\n4.42\n\n\nUtrecht\nZuid-West\n37\n3.81\n8.89\n5.08"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-5",
-    "href": "3_Wrangling_GT.html#challenge-5",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 5",
-    "text": "Challenge 5\nThis is a challenge on a more difficult label. Do it in class if time allows, otherwise save it until after the Kings county challenges.\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. Show proportions as percent in your table.\n💡 You can add prefix to a set of columns using .name.prefix('zzz_')"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-6",
-    "href": "3_Wrangling_GT.html#challenge-6",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.\n💡 You will need to remember how to use .over() to complete this challenge."
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-7",
-    "href": "3_Wrangling_GT.html#challenge-7",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1)."
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-8",
-    "href": "3_Wrangling_GT.html#challenge-8",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nUpdate the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-9",
-    "href": "3_Wrangling_GT.html#challenge-9",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-10",
-    "href": "3_Wrangling_GT.html#challenge-10",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nExplore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. How does this relationship change after you remove outliers?"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-11",
-    "href": "3_Wrangling_GT.html#challenge-11",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 11",
-    "text": "Challenge 11"
-  },
-  {
-    "objectID": "3_Wrangling_GT.html#challenge-12",
-    "href": "3_Wrangling_GT.html#challenge-12",
-    "title": "Practical 3: Data Wrangling + great tables",
-    "section": "Challenge 12",
-    "text": "Challenge 12"
-  },
-  {
-    "objectID": "5_Pivots_GT.html",
-    "href": "5_Pivots_GT.html",
-    "title": "Practical 5: Pivots + Great Tables",
-    "section": "",
-    "text": "Under preparation"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.\nPracticals are under construction and the state preliminary until the scheduled help sessions.\nSolutions will be published after each Practical for further practice."
   },
   {
     "objectID": "KingsCounty.html",
