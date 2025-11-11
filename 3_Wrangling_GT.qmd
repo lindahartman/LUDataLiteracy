@@ -36,6 +36,7 @@ Then import the datasets for this practical. Add another code cell below (using 
 #| include: true
 ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
 kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
+
 ```
 
 :::
@@ -64,6 +65,7 @@ How old is the newest house (woonhuis) with energy class B?
     .select(pl.col('age'))
 )
 ```
+
 
 
 ## Challenge 2
@@ -277,14 +279,13 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 :::
 
 ```{python}
-(
-    kc
+( kc
     .with_columns(sold_times=pl.len().over('id'))
-    .filter(pl.col('sold_times')>1)
-    .sort('id','date', descending=True)
-    .select('id', 'district','price')
-    .with_columns(last_price=pl.col('price').shift(-1).over('id'))
-    .with_columns(profit=pl.col('price')-pl.col('last_price'))
+     .filter(pl.col('sold_times')>1)
+     .sort('id','date', descending=True)
+     .select('id', 'district','price')
+     .with_columns(last_price=pl.col('price').shift(-1).over('id'))
+     .with_columns(profit=pl.col('price')-pl.col('last_price'))
     .group_by('district')
     .agg(pl.col('profit').drop_nulls().sum())
     .sort('profit', descending=True)
