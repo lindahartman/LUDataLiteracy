@@ -70,7 +70,8 @@ How old is the newest house (woonhuis) with energy class B?
 
 :::{.challenge}
 
-| What are top-3 districts with the largest number of properties in energy class **B** or better? Do any of these districs have missing values in the `energy_label` column?
+| What are top-3 districts with the largest number of properties in energy class **B** or better? What is the number of missing values in the `energy_label` column of these district?
+| :bulb: To find out the number of houses in energy class **B** or better check out the meaning of columns `energy_label` and `energy_eff`. You might want to use both of them!
 | :bulb: The logical `OR` operator in Python is denoted by `|`
 
 
@@ -84,6 +85,9 @@ How old is the newest house (woonhuis) with energy class B?
     .sort('energy_missing', descending=True)
 )
 
+
+## Split in 2
+## energy_eff is not explained 1 for A or A+ or A++, 1 for lower...
 
 (
     ut
@@ -103,6 +107,7 @@ How old is the newest house (woonhuis) with energy class B?
 :::{.challenge}
 | Create a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.
 | :bulb: You can group houses by decade by flooring the build year to the start of the decade using integer division `//`
+| :bulb: The `mean()` of a binary variable is showing you the proportion of the "positive" cases.
 :::
 
 ```{python}
@@ -122,11 +127,12 @@ How old is the newest house (woonhuis) with energy class B?
 ## Challenge 4
 
 :::{.challenge}
-| Create a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?
+| Reproduce this great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Table is arranged by the price range from lowest to highest. Which district has the most expensive housing?
 | :bulb: You can count number of records per group with `pl.len()`
 :::
 
 ```{python}
+#| include: true 
 (
     ut
     .with_columns(psqm=pl.col('retail_value')/pl.col('house_area'))
@@ -134,17 +140,26 @@ How old is the newest house (woonhuis) with energy class B?
     .agg(n=pl.len(),
         min_psqm=pl.col('psqm').min(),
         max_psqm=pl.col('psqm').max())
-    .with_columns(range=pl.col('max_psqm')-pl.col('min_psqm'))
-    .sort('range')
+    .with_columns(range_psqm=pl.col('max_psqm')-pl.col('min_psqm'))
+    .sort('range_psqm')
     .pipe(GT)
-    .cols_hide('range')
+    .tab_spanner(label="Price per sqm", 
+                columns=cs.ends_with("psqm"))
+        .cols_label(city='City',
+                    district='District',
+                    min_psqm='Min',
+                    max_psqm='Max',
+                    range_psqm='Range')
     .fmt_number(columns=cs.ends_with('psqm'), decimals=2)
     .opt_stylize(1)
 )
-
 ```
 
 ## Challenge 5
+
+:::{.callout-warning}
+This is a challenge on a more difficult label. Do it in class if time allows, otherwise save it until after the Kings county challenges.
+:::
 
 :::{.challenge}
 
@@ -204,7 +219,26 @@ How old is the newest house (woonhuis) with energy class B?
 
 Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 
+
 ## Challenge 7
+
+:::{.challenge}
+| Visualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?
+| :bulb: The year of sale can be extracted with `pl.col('date').dt.year()`
+:::
+
+```{python}
+(
+    kc
+    .with_columns(age=pl.col('date').dt.year()-pl.col('yr_built'))
+    .pipe(ggplot, aes(x='age', color='district', fill='district'))+
+    geom_density(alpha=0.2, show_legend=False)+
+    facet_wrap('district')
+)
+```
+
+
+## Challenge 8
 
 :::{.challenge}
 | Make a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.
@@ -234,7 +268,7 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 ```
 
 
-## Challenge 8
+## Challenge 9
 
 :::{.challenge}
 | Make a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.
@@ -260,10 +294,10 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 
 ```
 
-## Challenge 9
+## Challenge 10
 
 :::{.challenge}
-| Correct the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.
+| Update the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.
 | :bulb: You can use a conditional expression in Polars such as: `pl.when(condition).then(value_if_true).otherwise(value_if_false)`. 
 :::
 
@@ -275,28 +309,11 @@ kc = (kc
 )
 ```
 
-## Challenge 10
-
-:::{.challenge}
-| Visualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?
-| :bulb: The year of sale can be extracted with `pl.col('date').dt.year()`
-:::
-
-```{python}
-(
-    kc
-    .with_columns(age=pl.col('date').dt.year()-pl.col('yr_built'))
-    .pipe(ggplot, aes(x='age', color='district', fill='district'))+
-    geom_density(alpha=0.2, show_legend=False)+
-    facet_wrap('district')
-)
-```
-
 ## Challenge 11
 
 :::{.challenge}
 
-Explore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. How does this relationship change after you remove outliers?
+Explore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. Do you spot any outliers? Does this relationship change after you remove the outliers?
 
 :::
 
