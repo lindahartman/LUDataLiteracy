@@ -154,8 +154,7 @@ How old is the newest house (woonhuis) with energy class B?
 ```
 
 ```{python}
-#| code-fold: true
-#| code-summary: "Show solution"
+#| output: false
 (
     ut
     .with_columns(psqm=pl.col('retail_value')/pl.col('house_area'))
@@ -269,7 +268,7 @@ Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
 :::
 
 ```{python}
-#Preliminary look at the number 
+#Preliminary look at the numbers 
 # (
 #     kc
 #     .filter(pl.col('district')=="Seattle")
