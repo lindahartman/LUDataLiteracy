@@ -104,17 +104,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <style>
-div.callout-challenge.callout {
-  border-left-color: firebrick;
-}
-div.callout-challenge.callout-style-default > .callout-header {
-  background-color: rgb(from firebrick r g b / 13%);
-}
-div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
-  content: '🛠️';
-  background-image: none;
-}
 div.callout-question.callout {
   border-left-color: pink;
 }
@@ -124,6 +113,17 @@ div.callout-question.callout-style-default > .callout-header {
 div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
   content: '🧠';
+  background-image: none;
+}
+div.callout-challenge.callout {
+  border-left-color: firebrick;
+}
+div.callout-challenge.callout-style-default > .callout-header {
+  background-color: rgb(from firebrick r g b / 13%);
+}
+div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
+  content: '🛠️';
   background-image: none;
 }
 </style>
@@ -298,13 +298,13 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization and wrangling</code>. Then add a code cell and place the following code there.</p>
-<div id="29096b86" class="cell" data-execution_count="1">
+<div id="9ffc0293" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="4f0cc69d" class="cell" data-execution_count="2">
+<div id="0ab26c01" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc <span class="op">=</span> pl.read_csv(<span class="st">'https://bit.ly/data24kingscounty'</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -329,7 +329,7 @@ Challenge
 <p>What is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?</p>
 </div>
 </div>
-<div id="c76d9c34" class="cell" data-execution_count="3">
+<div id="c5d95cf6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ut.describe()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -654,7 +654,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> You can pass the data to <code>plotnine</code> using the <code>.pipe()</code> method.</div>
 </div>
 </div>
-<div id="ff7ff3d2" class="cell" data-execution_count="4">
+<div id="ef2a52a5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ut</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">'house_type'</span>)<span class="op">==</span><span class="st">'woonhuis'</span>)</span>
@@ -686,7 +686,7 @@ Challenge
 <p>Do the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?</p>
 </div>
 </div>
-<div id="c30bd457" class="cell" data-execution_count="5">
+<div id="c83f9e75" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ut</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">'house_type'</span>)<span class="op">==</span><span class="st">'woonhuis'</span>)</span>
@@ -773,7 +773,7 @@ Challenge
 <p>Create a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?</p>
 </div>
 </div>
-<div id="67554837" class="cell" data-execution_count="6">
+<div id="ab0fd2f5" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ut</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">'zip_code4'</span>)<span class="op">==</span><span class="dv">3543</span>)</span>
@@ -872,7 +872,7 @@ Within that zip code, what is the street name of the house closest to the train 
 <span class="emoji" data-emoji="bulb">💡</span> You can count unique values using <code>n_unique()</code> and find the minimum value with <code>min()</code></div>
 </div>
 </div>
-<div id="b144a79a" class="cell" data-execution_count="7">
+<div id="d19d54a9" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    ut</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    .select(cs.starts_with(<span class="st">'zip'</span>), cs.matches(<span class="st">'street'</span>), cs.matches(<span class="st">'dist_from_train'</span>))</span>
@@ -918,15 +918,15 @@ Within that zip code, what is the street name of the house closest to the train 
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>3553</td>
-<td>3</td>
-</tr>
-<tr class="even">
 <td>3543</td>
 <td>3</td>
 </tr>
+<tr class="even">
+<td>3553</td>
+<td>3</td>
+</tr>
 <tr class="odd">
-<td>3561</td>
+<td>3438</td>
 <td>2</td>
 </tr>
 <tr class="even">
@@ -934,23 +934,23 @@ Within that zip code, what is the street name of the house closest to the train 
 <td>…</td>
 </tr>
 <tr class="odd">
+<td>3554</td>
+<td>1</td>
+</tr>
+<tr class="even">
 <td>3453</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>3511</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>3531</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>3532</td>
 <td>1</td>
 </tr>
 <tr class="odd">
 <td>3581</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>3513</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>3573</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -1020,7 +1020,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> The whole-number division in Python is written as <code>//</code></div>
 </div>
 </div>
-<div id="22cbe8ae" class="cell" data-execution_count="8">
+<div id="4d6e5466" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ut</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">'build_year'</span>)<span class="op">&gt;=</span><span class="dv">1900</span>, pl.col(<span class="st">'build_year'</span>)<span class="op">&lt;=</span><span class="dv">2000</span>)</span>
@@ -1056,7 +1056,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> You can extract the ISO week number from the date using the <code>.dt.week()</code> method</div>
 </div>
 </div>
-<div id="39744ca3" class="cell" data-execution_count="9">
+<div id="3e103912" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>ut</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    .with_columns(wk<span class="op">=</span>pl.col(<span class="st">'valuation_date'</span>).dt.week(),</span>
@@ -1092,7 +1092,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> You can calculate the proportion using <code>.over()</code> clause</div>
 </div>
 </div>
-<div id="99d7b5e2" class="cell" data-execution_count="10">
+<div id="6dc02cb0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ut</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    .group_by(<span class="st">'street'</span>,<span class="st">'energy_eff'</span>)</span>
@@ -1229,7 +1229,7 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <span class="emoji" data-emoji="bulb">💡</span> You can see the house on Google Street View if you search Google Maps using <code>x_coor</code>, <code>y_coor</code>.</div>
 </div>
 </div>
-<div id="981b09fd" class="cell" data-execution_count="11">
+<div id="1ea49a33" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    ut</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    .pipe(ggplot)<span class="op">+</span></span>
@@ -1971,7 +1971,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the <code>reorder()</code> function in Plotnine and see if you can improve your plot with it.</div>
 </div>
 </div>
-<div id="8da84ebc" class="cell" data-execution_count="12">
+<div id="d47d747e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    kc</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    .pipe(ggplot)<span class="op">+</span></span>
@@ -2018,7 +2018,7 @@ Challenge
 <p>How many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?</p>
 </div>
 </div>
-<div id="1eff0cfa" class="cell" data-execution_count="13">
+<div id="fb9e4864" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    kc</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    .group_by(<span class="st">'id'</span>)</span>
@@ -2060,19 +2060,19 @@ Challenge
 <td>3</td>
 </tr>
 <tr class="even">
-<td>9809000020</td>
+<td>2206700215</td>
 <td>2</td>
 </tr>
 <tr class="odd">
-<td>9407110710</td>
+<td>6141100320</td>
 <td>2</td>
 </tr>
 <tr class="even">
-<td>2726049071</td>
+<td>7972000010</td>
 <td>2</td>
 </tr>
 <tr class="odd">
-<td>5417600130</td>
+<td>1036400200</td>
 <td>2</td>
 </tr>
 <tr class="even">
@@ -2080,23 +2080,23 @@ Challenge
 <td>…</td>
 </tr>
 <tr class="odd">
-<td>251300110</td>
+<td>9828200460</td>
 <td>2</td>
 </tr>
 <tr class="even">
-<td>5430300171</td>
-<td>2</td>
-</tr>
-<tr class="odd">
 <td>4154300296</td>
 <td>2</td>
 </tr>
+<tr class="odd">
+<td>641900050</td>
+<td>2</td>
+</tr>
 <tr class="even">
-<td>5536100020</td>
+<td>2767603612</td>
 <td>2</td>
 </tr>
 <tr class="odd">
-<td>302000375</td>
+<td>251300110</td>
 <td>2</td>
 </tr>
 </tbody>
@@ -2147,7 +2147,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> ou can round dates to the start of each month using <code>dt.month_start()</code>.</div>
 </div>
 </div>
-<div id="89a9dc0b" class="cell" data-execution_count="14">
+<div id="edf783a6" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    kc</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    .with_columns(monyear<span class="op">=</span>pl.col(<span class="st">'date'</span>).dt.month_start(),</span>

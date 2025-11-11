@@ -67,7 +67,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3561\n2\n\n\n…\n…\n\n\n3453\n1\n\n\n3511\n1\n\n\n3531\n1\n\n\n3532\n1\n\n\n3581\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3543\n3\n\n\n3553\n3\n\n\n3438\n2\n\n\n…\n…\n\n\n3554\n1\n\n\n3453\n1\n\n\n3581\n1\n\n\n3513\n1\n\n\n3573\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-6",
@@ -109,7 +109,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n9809000020\n2\n\n\n9407110710\n2\n\n\n2726049071\n2\n\n\n5417600130\n2\n\n\n…\n…\n\n\n251300110\n2\n\n\n5430300171\n2\n\n\n4154300296\n2\n\n\n5536100020\n2\n\n\n302000375\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n2206700215\n2\n\n\n6141100320\n2\n\n\n7972000010\n2\n\n\n1036400200\n2\n\n\n…\n…\n\n\n9828200460\n2\n\n\n4154300296\n2\n\n\n641900050\n2\n\n\n2767603612\n2\n\n\n251300110\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-12",
@@ -186,28 +186,28 @@
     "href": "3_Wrangling_GT.html#challenge-2",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? Do any of these districs have missing values in the energy_label column?\n💡 The logical OR operator in Python is denoted by |"
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? What is the number of missing values in the energy_label column of these district?\n💡 To find out the number of houses in energy class B or better check out the meaning of columns energy_label and energy_eff. You might want to use both of them!\n💡 The logical OR operator in Python is denoted by |"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-3",
     "href": "3_Wrangling_GT.html#challenge-3",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.\n💡 You can group houses by decade by flooring the build year to the start of the decade using integer division //\n💡 The mean() of a binary variable is showing you the proportion of the “positive” cases."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-4",
     "href": "3_Wrangling_GT.html#challenge-4",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Arrange the table by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Table is arranged by the price range from lowest to highest. Which district has the most expensive housing?\n💡 You can count number of records per group with pl.len()\n\n\n\n\n\n\n\n\n\n\nCity\nDistrict\nn\nPrice per sqm\n\n\nMin\nMax\nRange\n\n\n\n\nDe Meern\nVleuten-De Meern\n2\n4.62\n4.85\n0.23\n\n\nNieuwegein\nBlokhoeve-Nieuwegein\n8\n3.99\n5.78\n1.79\n\n\nUtrecht\nOvervecht\n5\n4.06\n6.07\n2.01\n\n\nUtrecht\nZuid\n7\n3.64\n5.97\n2.33\n\n\nUtrecht\nBinnenstad\n7\n5.26\n7.92\n2.66\n\n\nUtrecht\nNoord-Oost\n9\n5.15\n7.88\n2.73\n\n\nVleuten\nVleuten-De Meern\n15\n4.06\n6.82\n2.76\n\n\nUtrecht\nLeidsche Rijn\n25\n4.03\n6.91\n2.87\n\n\nUtrecht\nOost\n7\n4.44\n8.53\n4.09\n\n\nUtrecht\nNoord-West\n16\n3.30\n7.69\n4.39\n\n\nUtrecht\nWest\n15\n3.79\n8.21\n4.42\n\n\nUtrecht\nZuid-West\n37\n3.81\n8.89\n5.08"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-5",
     "href": "3_Wrangling_GT.html#challenge-5",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. You can add prefix to a set of columns using .name.prefix('zzz_'). Show proportions as percent in your table.\n💡 Priciest district is the district with the highest average retail value per square meter."
+    "text": "Challenge 5\n\n\n\n\n\n\nWarning\n\n\n\nThis is a challenge on a more difficult label. Do it in class if time allows, otherwise save it until after the Kings county challenges.\n\n\n\n\n\n\n\n\nChallenge\n\n\n\nUse selectors and multi-column expressions for this challenge. Create a great table showing average values (mean()) for all numeric columns and the number of unique values (n_unique()) for all string columns, by district, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.\n💡 This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix avg_ and the string columns the prefix num_. The proportion could be prefixed with prop_. You can add prefix to a set of columns using .name.prefix('zzz_'). Show proportions as percent in your table.\n💡 Priciest district is the district with the highest average retail value per square meter."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-6",
@@ -221,35 +221,35 @@
     "href": "3_Wrangling_GT.html#challenge-7",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.\n💡 You will need to remember how to use .over() to complete this challenge."
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-8",
     "href": "3_Wrangling_GT.html#challenge-8",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1)."
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.\n💡 You will need to remember how to use .over() to complete this challenge."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-9",
     "href": "3_Wrangling_GT.html#challenge-9",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nCorrect the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.\n💡 You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using .shift(-1)."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-10",
     "href": "3_Wrangling_GT.html#challenge-10",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?\n💡 The year of sale can be extracted with pl.col('date').dt.year()"
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nUpdate the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.\n💡 You can use a conditional expression in Polars such as: pl.when(condition).then(value_if_true).otherwise(value_if_false)."
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-11",
     "href": "3_Wrangling_GT.html#challenge-11",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nExplore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. How does this relationship change after you remove outliers?"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nExplore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. Do you spot any outliers? Does this relationship change after you remove the outliers?"
   },
   {
     "objectID": "3_Wrangling_GT.html#challenge-12",
@@ -389,7 +389,7 @@
     "href": "1_DataViz_sol.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 83 rows containing missing values."
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-4",
