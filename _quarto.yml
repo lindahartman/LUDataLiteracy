@@ -28,6 +28,7 @@ website:
         menu:
           - 1_DataViz_sol.qmd
           - 2_DataViz_wrangling_sol.qmd
+          - 3_Wrangling_GT_sol.qmd
       - text: "Data"
         menu:
           - Utrecht.qmd
