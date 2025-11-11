@@ -1,0 +1,419 @@
+---
+title: "Practical 3: Data Wrangling + great tables"
+from: markdown+emoji
+execute: 
+  include: true
+  echo: true
+---
+
+The objective of the tutorial is to give student a chance to practice the data wrangling and [great tables](https://posit-dev.github.io/great-tables/articles/intro.html) applying the skills learned through the video lessons on a new dataset.
+
+## Preparation
+
+:::{.callout-note}
+
+Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
+```
+
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization and wrangling`. Then add a code cell and place the following code there.
+
+```{python}
+#| echo: true
+#| include: true
+import polars as pl
+import polars.selectors as cs
+from plotnine import *
+from great_tables import GT
+```
+
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
+
+```{python}
+#| echo: true
+#| include: true
+ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
+
+```
+
+:::
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+## Challenge 1
+
+:::{.challenge}
+
+How old is the newest house (woonhuis) with energy class B?
+
+:::
+
+```{python}
+(
+    ut
+    .filter(pl.col('energy_label')=='B', 
+            pl.col('house_type') == 'woonhuis')
+    .with_columns(age=2025-pl.col('build_year'))
+    .sort(pl.col('build_year'))
+    .tail(1)
+    .select(pl.col('age'))
+)
+```
+
+
+## Challenge 2
+
+:::{.challenge}
+
+| What are top-3 districts with the largest number of properties in energy class **B** or better? What is the number of missing values in the `energy_label` column of these district?
+| :bulb: To find out the number of houses in energy class **B** or better check out the meaning of columns `energy_label` and `energy_eff`. You might want to use both of them!
+| :bulb: The logical `OR` operator in Python is denoted by `|`
+
+
+:::
+
+```{python}
+(
+    ut
+    .group_by('district')
+    .agg(pl.col('energy_label').is_null().sum().alias('energy_missing'))
+    .sort('energy_missing', descending=True)
+)
+
+
+(
+    ut
+    .with_columns(bplus=(pl.col('energy_label')=='B') | 
+                        (pl.col('energy_eff')==1)
+                )
+    .group_by('district')
+    .agg(bplus_count=pl.col('bplus').sum(),
+        missing_count=pl.col('energy_label').is_null().sum())
+    .sort('bplus_count', descending=True)
+    .head(3)
+)
+```
+
+## Challenge 3
+
+:::{.challenge}
+| Create a great tables summary showing the proportion of energy-efficient homes (those with an energy label of A or better) for each decade from the 20th and 21st century.
+| :bulb: You can group houses by decade by flooring the build year to the start of the decade using integer division `//`
+| :bulb: The `mean()` of a binary variable is showing you the proportion of the "positive" cases.
+:::
+
+```{python}
+(
+    ut
+    .filter(pl.col('build_year')>=1900)
+    .with_columns(build_decade=(pl.col('build_year')//10*10).cast(pl.String)+'s')
+    .group_by('build_decade')
+    .agg(prop=pl.col('energy_eff').mean())
+    .sort('build_decade')
+    .pipe(GT)
+    .fmt_percent(columns='prop')
+    .opt_stylize(1)
+)
+```
+
+## Challenge 4
+
+:::{.challenge}
+| Reproduce this great table showing the minimum and maximum retail value per square meter by city and district, as well as the number of houses in each district. Table is arranged by the price range from lowest to highest. Which district has the most expensive housing?
+| :bulb: You can count number of records per group with `pl.len()`
+:::
+
+```{python}
+#| echo: false 
+(
+    ut
+    .with_columns(psqm=pl.col('retail_value')/pl.col('house_area'))
+    .group_by('city','district')
+    .agg(n=pl.len(),
+        min_psqm=pl.col('psqm').min(),
+        max_psqm=pl.col('psqm').max())
+    .with_columns(range_psqm=pl.col('max_psqm')-pl.col('min_psqm'))
+    .sort('range_psqm')
+    .pipe(GT)
+    .tab_spanner(label="Price per sqm", 
+                columns=cs.ends_with("psqm"))
+        .cols_label(city='City',
+                    district='District',
+                    min_psqm='Min',
+                    max_psqm='Max',
+                    range_psqm='Range')
+    .fmt_number(columns=cs.ends_with('psqm'), decimals=2)
+    .opt_stylize(1)
+)
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show solution"
+(
+    ut
+    .with_columns(psqm=pl.col('retail_value')/pl.col('house_area'))
+    .group_by('city','district')
+    .agg(n=pl.len(),
+        min_psqm=pl.col('psqm').min(),
+        max_psqm=pl.col('psqm').max())
+    .with_columns(range_psqm=pl.col('max_psqm')-pl.col('min_psqm'))
+    .sort('range_psqm')
+    .pipe(GT)
+    .tab_spanner(label="Price per sqm", 
+                columns=cs.ends_with("psqm"))
+        .cols_label(city='City',
+                    district='District',
+                    min_psqm='Min',
+                    max_psqm='Max',
+                    range_psqm='Range')
+    .fmt_number(columns=cs.ends_with('psqm'), decimals=2)
+    .opt_stylize(1)
+)
+```
+
+## Challenge 5
+
+:::{.callout-warning}
+This is a challenge on a more difficult label. Do it in class if time allows, otherwise save it until after the Kings county challenges.
+:::
+
+:::{.challenge}
+
+| Use selectors and multi-column expressions for this challenge. Create a great table showing *average values* (`mean()`) for all numeric columns and the *number of unique values* (`n_unique()`) for all string columns, *by district*, for all columns except for IDs, zip codes, geographic coordinates and build year. Arrange your table from the priciest to the cheapest district.
+| :bulb: This challenge will be easier if you assign prefixes to the aggregated column names. For example you can give numeric columns the prefix `avg_` and the string columns the prefix `num_`. The proportion could be prefixed with `prop_`. You can add prefix to a set of columns using `.name.prefix('zzz_')`. Show proportions as percent in your table. 
+| :bulb: Priciest district is the district with the highest average retail value per square meter.
+
+::: 
+
+```{python}
+(
+    ut
+    .with_columns(psqm=pl.col('retail_value')/pl.col('house_area'))
+    .drop('id', cs.starts_with('zip'), cs.ends_with('coor'), 'build_year')
+    .group_by('district')
+    .agg(cs.numeric().exclude('energy_eff').mean().name.prefix("avg_"),
+        cs.matches('energy_eff').mean().name.prefix("prop_"),
+        cs.string().n_unique().name.prefix("num_")
+        )
+    .sort('avg_psqm', descending=True)
+    .drop('avg_psqm')
+    .pipe(GT)
+    .fmt_number(columns=cs.starts_with("avg_"), decimals=1)
+    .fmt_percent(columns=cs.starts_with("prop_"), decimals=0)
+    .opt_stylize(2)
+)
+```
+
+## Challenge 6
+
+:::{.challenge}
+| Create a great table summary showing top-3 most expensive houses in every district (in terms of asking price per sqm). Show house type, lot and house area, number of rooms and bathrooms. Arrange the houses from most expensive to least expensive within each district.
+| :bulb: There are number of ways of showing top-3 houses. I suggest you use the `.rank().over('district')`.
+| :bulb: For extra fun, you can show 'woonhuis' and 'appartement' as `pl.lit('house-chimney')` and `pl.lit('building')` icons, respectively. 
+:::
+
+```{python}
+(
+    ut
+    .with_columns(icon_nm=pl.when(pl.col('house_type')=='woonhuis')
+                    .then(pl.lit('house-chimney')).otherwise(pl.lit('building')))
+    .with_columns(psqm=pl.col('asking_price')/pl.col('house_area'))
+    .with_columns(rnk=pl.col('psqm').rank(descending=True).over('district'))
+    .filter(pl.col('rnk')<=3)
+    .select(cs.contains('icon'), cs.contains('area'), cs.contains('room'), pl.col('district'), pl.col('psqm'))
+    .sort('district', 'psqm')
+    .pipe(GT)
+    .tab_stub(rowname_col='district')
+    .fmt_icon(columns=cs.matches('icon_nm'))
+    .fmt_number(columns=cs.matches('psqm'), decimals=2)
+    .cols_label(icon_nm="")
+    .opt_stylize(1)
+)
+```
+
+# Kings County
+
+Answer the following challenges using [Kings County](KingsCounty.qmd) dataset.
+
+
+## Challenge 7
+
+:::{.challenge}
+| Visualize the distribution of the property age at the time of sale. Which district is likely to have been developed most recently?
+| :bulb: The year of sale can be extracted with `pl.col('date').dt.year()`
+:::
+
+```{python}
+(
+    kc
+    .with_columns(age=pl.col('date').dt.year()-pl.col('yr_built'))
+    .pipe(ggplot, aes(x='age', color='district', fill='district'))+
+    geom_density(alpha=0.2, show_legend=False)+
+    facet_wrap('district')
+)
+```
+
+
+## Challenge 8
+
+:::{.challenge}
+| Make a great table containing Seattle properties that were sold multiple times. For each property ID, show the date of the sale and the price it was sold at.
+| :bulb: You will need to remember how to use `.over()` to complete this challenge. 
+:::
+
+```{python}
+#Preliminary look at the number 
+# (
+#     kc
+#     .filter(pl.col('district')=="Seattle")
+#     .group_by('id', 'district')
+#     .agg(pl.len())
+#     .filter(pl.col('len')>1)
+#     .sort('len', descending=True)
+# )
+```
+
+In the final printout I only show the 6 first rows:
+```{python}
+kc_mult = (
+    kc
+    .filter(pl.col('district')=="Seattle")
+    .with_columns(n_times=pl.len().over('id'))
+    .filter(pl.col('n_times')>1)
+    .sort('n_times', descending=True)
+    .select('id', 'date', 'price')
+   
+)
+( kc_mult 
+.head(6)
+ .pipe(GT)
+    .tab_stub(groupname_col='id')
+    )
+```
+
+
+## Challenge 9
+
+:::{.challenge}
+| Make a great table showing how much profit was made from property flipping (buying and reselling homes) in the top five districts.
+| :bulb: You can create a lagged version of a column - e.g. to compare consecutive sales of the same property - using `.shift(-1)`.
+
+:::
+
+```{python}
+( kc
+    .with_columns(sold_times=pl.len().over('id'))
+     .filter(pl.col('sold_times')>1)
+     .sort('id','date', descending=True)
+     .select('id', 'district','price')
+     .with_columns(last_price=pl.col('price').shift(-1).over('id'))
+     .with_columns(profit=pl.col('price')-pl.col('last_price'))
+    .group_by('district')
+    .agg(pl.col('profit').drop_nulls().sum())
+    .sort('profit', descending=True)
+    .head(5)
+    .pipe(GT)
+)
+
+```
+
+## Challenge 10
+
+:::{.challenge}
+| Update the renovation year, to show the year when the most recent renovation happened, or in the absence of it, make it show the construction year.
+| :bulb: You can use a conditional expression in Polars such as: `pl.when(condition).then(value_if_true).otherwise(value_if_false)`. 
+:::
+
+```{python}
+kc = (kc
+    .with_columns(
+        yr_rebuilt=pl.when(pl.col('yr_renovated')>pl.col('yr_built'))
+                    .then(pl.col('yr_renovated')).otherwise(pl.col('yr_built')))
+)
+```
+
+## Challenge 11
+
+:::{.challenge}
+
+Explore whether houses in the Highline district that were recently renovated tend to have a higher price per square foot. Do you spot any outliers? Does this relationship change after you remove the outliers?
+
+:::
+
+```{python}
+(
+    kc
+    .filter(pl.col('district')=="Highline")
+    .sort('id', 'yr_renovated', descending=True)
+    .group_by('id')
+    .agg(pl.col('yr_renovated', 'yr_built', 'price', 'sqft_living', 'condition').first())
+    .with_columns(
+        yr_rebuilt=pl.when(pl.col('yr_renovated')>pl.col('yr_built'))
+                    .then(pl.col('yr_renovated')).otherwise(pl.col('yr_built')),
+        ppsqft=pl.col('price')/pl.col('sqft_living')
+    )
+    #.filter(pl.col('ppsqft')<=700)
+    .pipe(ggplot, aes(x='yr_rebuilt', y='ppsqft'))+
+    geom_point(aes(color='condition'))+
+    geom_smooth()
+)
+```
+
+## Challenge 12
+
+:::{.challenge}
+| Reproduce this plot
+| :bulb: You can use `.dt.month_start()` to floor the date to beginning of the month
+:::
+
+```{python}
+#| include: true
+#| echo: false
+(
+    kc
+    .with_columns(moye=pl.col('date').dt.month_start(),
+            psqm=pl.col('price')/pl.col('sqft_living'))
+    .group_by('moye', 'district')
+    .agg(pl.col('psqm').mean(),
+        n=pl.len())
+    .with_columns(rnk=pl.col('psqm').rank().over('moye'))
+    .filter(pl.col('rnk')<=10)
+    .pipe(ggplot)+
+    geom_line(aes(x='moye', y='rnk', color='district'))+
+    geom_point(aes(x='moye', y='rnk', color='district', size='n'))+
+    scale_y_reverse(limits=[1,10], breaks=range(1,11))+
+    labs(x="Month and year", y="Rank", color="District" , size="Number of houses",
+    subtitle="District ranks by average USD/sqft",
+    title="Top-10 districts in King County")+
+    theme_minimal()
+)
+```
+
+```{python}
+#| output: false
+(
+    kc
+    .with_columns(moye=pl.col('date').dt.month_start(),
+            psqm=pl.col('price')/pl.col('sqft_living'))
+    .group_by('moye', 'district')
+    .agg(pl.col('psqm').mean(),
+        n=pl.len())
+    .with_columns(rnk=pl.col('psqm').rank().over('moye'))
+    .filter(pl.col('rnk')<=10)
+    .pipe(ggplot)+
+    geom_line(aes(x='moye', y='rnk', color='district'))+
+    geom_point(aes(x='moye', y='rnk', color='district', size='n'))+
+    scale_y_reverse(limits=[1,10], breaks=range(1,11))+
+    labs(x="Month and year", y="Rank", color="District" , size="Number of houses",
+    subtitle="District ranks by average USD/sqft",
+    title="Top-10 districts in King County")+
+    theme_minimal()
+)
+```
