@@ -1,4 +1,73 @@
 ---
 title: "Practical 4: Data Wrangling + joins"
+from: markdown+emoji
+execute: 
+  include: false
+  echo: false
 ---
-Under preparation
+
+The objective of the tutorial is to give student a chance to practice the data wrangling and joins applying the skills learned through the video lessons on a new dataset.
+
+## Preparation
+
+:::{.callout-note}
+
+Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.
+
+```
+uv run jupyter lab
+```
+
+Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Wrangling and Joins`. Then add a code cell and place the following code there.
+
+```{python}
+#| echo: true
+#| include: true
+import polars as pl
+import polars.selectors as cs
+from plotnine import *
+from great_tables import GT
+```
+
+Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import .
+
+```{python}
+#| echo: true
+#| include: true
+cia_area = pl.read_csv("data/factbook_area_2024.csv")
+cia_commtran = pl.read_csv("data/factbook_comm_transport_2024.csv")
+cia_ecosec = pl.read_csv("data/factbook_economy_security_2024.csv")
+cia_enenv = pl.read_csv("data/factbook_energy_environment_2024.csv")
+cia_pplsoc = pl.read_csv("data/factbook_people_society_2024.csv")
+
+```
+
+:::
+
+
+# CIA
+
+Answer the following challenges using [CIA](CIA.qmd) datasets.
+
+## Challenge 1
+
+:::{.challenge}
+
+What's the largest territory for which we don't have carbon dioxide emissions?
+
+:::
+
+```{python}
+(
+  cia_enenv.describe()
+)
+
+(
+  cia_area
+  .join(cia_enenv, on=["name", "slug", "region"], how="anti")
+  .sort('area_sqkm')
+  .tail(1)
+)
+
+```
+
