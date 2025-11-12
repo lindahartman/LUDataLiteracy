@@ -42,44 +42,21 @@ cia_commtran = pl.read_csv("data/factbook_comm_transport_2024.csv")
 cia_ecosec = pl.read_csv("data/factbook_economy_security_2024.csv")
 cia_enenv = pl.read_csv("data/factbook_energy_environment_2024.csv")
 cia_pplsoc = pl.read_csv("data/factbook_people_society_2024.csv")
-
+iso_df = pl.read_csv("https://bit.ly/data24-countrycodes")
 ```
 
 :::
-
-
 
 # CIA
 
 Answer the following challenges using [CIA](CIA.qmd) datasets.
 
+
+
 ## Challenge 1
 
 :::{.challenge}
-
-What's the largest territory for which we don't have carbon dioxide emissions?
-
-:::
-
-```{python}
-(
-  cia_enenv.describe()
-)
-
-(
-  cia_area
-  .join(cia_enenv, on=["name", "slug", "region"], how="anti")
-  .sort('area_sqkm')
-  .tail(1)
-)
-
-```
-
-
-## Challenge 2
-life expectancy vs gdp per capita
-
-:::{.challenge}
+Plot life expectancy (`life_expectancy_at_birth`) vs gdp per capita (`real_gdp_per_capita`). Does the plot look like the first plot in the course we made?
 :::
 
 ```{python}
@@ -91,11 +68,33 @@ life expectancy vs gdp per capita
 )
 ```
 
+## Challenge 2
+
+:::{.challenge}
+
+What's the largest territory (by area) for which we don't have carbon dioxide emissions?
+
+:::
+
+```{python}
+(
+  cia_enenv.describe()
+)
+
+(
+  cia_area
+  .join(cia_enenv, on=["name", "slug", "region"], how="anti")
+  .sort('area_sqkm', descending=True)
+  .head(1)
+)
+
+```
+
 
 ## Challenge 3
 
 :::{.challenge}
-Are there any countries or territories in any of the CIA factbook datasets, for which we do not have the territory size? Whats the total number of airports in these territories?
+Are there any countries or territories in any of the CIA factbook datasets, for which we do not have the territory size (area)? Whats the total number of airports in these territories?
 :::
 
 ```{python}
@@ -110,15 +109,52 @@ Are there any countries or territories in any of the CIA factbook datasets, for 
 )
 ```
 
-## Challenge 3
+## Challenge 4
 
+:::{.challenge}
+| Make a great table containing top-5 countries by GDP per capita from agriculture. Show also GPD per capita from other sources. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using `alpha3` code next to the country name.
+| :bulb: Use gdp composition and existing gdp per capita columns in `cia_ecosec`
+| :bulb: To manually correct the country names, use `.when().then(pl.lit('x')).when().then(pl.lit('y')).otherwise()` expression within `.with_columns()`. The `pl.lit()` is a wrapper for literal values (e.g. strings). 
+:::
+
+```{python}
+(
+  cia_ecosec
+  .select('name', 'region', cs.starts_with("gdp_composition"),
+  cs.ends_with("per_capita"))
+  .with_columns(cs.starts_with('gdp_composition')*pl.col('real_gdp_per_capita')/100)
+  .filter(cs.ends_with('agriculture').is_not_null())
+  .sort(cs.ends_with('agriculture'), descending=True)
+  .head(5)
+  .with_columns(name=pl.when(pl.col('name')=="Faroe Islands")
+                      .then(pl.lit('Faroe Islands (the)'))
+                      .when(pl.col('name').str.contains("Falkland"))
+                      .then(pl.lit("Falkland Islands (the) [Malvinas]"))
+                      .otherwise(pl.col('name'))
+                      )
+  .join(iso_df, left_on="name", right_on="country", how="left")
+  .pipe(GT)
+  .tab_spanner_delim(delim="_", split="last", limit=1, columns=cs.starts_with("gdp_composition"))
+  .cols_hide(columns=["alpha2", "numeric"])
+  .cols_move_to_start(columns="alpha3")
+  .cols_label(alpha3="")
+  .fmt_number(columns=cs.starts_with("gdp_comp"), decimals=0)
+  .fmt_flag(columns="alpha3")
+)
+
+```
+
+## Challenge 5
+
+
+## Challenge 6
 
 
 # Utrecht
 
 Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 
-## Challenge 1
+## Challenge 7
 
 :::{.challenge}
 
@@ -140,7 +176,7 @@ Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 )
 ```
 
-# Challenge 2
+# Challenge 8
 
 :::{.challenge}
 
@@ -150,6 +186,7 @@ Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 :::
 
 ```{python}
+#| include: true
 dist_df = ut.group_by("district").agg(
     cs.ends_with("coor").median(),
     pl.col("dist_from_train").mean().alias("avg_dist_from_train"),
@@ -166,12 +203,13 @@ dist_df = ut.group_by("district").agg(
 ```
 
 
-## Challenge 3
+## Challenge 9
 
 
 :::{.challenge}
 | Plot the retail values against the lot areas of private houses (woonhuis). Add text labels showing the street name of the top 3 houses in terms of the lot size. Which districts are these houses located in?
 | :bulb: You can color the text labels by district to differentiate between them.
+:::
 
 ```{python}
 top3_houses = (
@@ -190,3 +228,6 @@ top3_houses = (
 )
 
 ```
+
+## Challenge 10
+
