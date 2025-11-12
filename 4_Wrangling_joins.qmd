@@ -1,7 +1,7 @@
 ---
 title: "Practical 4: Data Wrangling + joins"
 from: markdown+emoji
-execute: 
+execute:
   include: false
   echo: false
 ---
@@ -32,8 +32,11 @@ from great_tables import GT
 Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import .
 
 ```{python}
-#| echo: true
-#| include: true
+# | echo: true
+# | include: true
+
+ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
+
 cia_area = pl.read_csv("data/factbook_area_2024.csv")
 cia_commtran = pl.read_csv("data/factbook_comm_transport_2024.csv")
 cia_ecosec = pl.read_csv("data/factbook_economy_security_2024.csv")
@@ -43,6 +46,7 @@ cia_pplsoc = pl.read_csv("data/factbook_people_society_2024.csv")
 ```
 
 :::
+
 
 
 # CIA
@@ -71,3 +75,118 @@ What's the largest territory for which we don't have carbon dioxide emissions?
 
 ```
 
+
+## Challenge 2
+life expectancy vs gdp per capita
+
+:::{.challenge}
+:::
+
+```{python}
+(
+  cia_ecosec
+  .join(cia_pplsoc, on=['name', 'slug', 'region'], how='inner')
+  .pipe(ggplot)
+  +geom_point(aes(x='real_gdp_per_capita', y='life_expectancy_at_birth'))
+)
+```
+
+
+## Challenge 3
+
+:::{.challenge}
+Are there any countries or territories in any of the CIA factbook datasets, for which we do not have the territory size? Whats the total number of airports in these territories?
+:::
+
+```{python}
+(
+    cia_commtran
+    .join(cia_ecosec, on=["name", "slug", "region"], how="full", coalesce=True)
+    .join(cia_enenv, on=["name", "slug", "region"], how="full", coalesce=True)
+    .join(cia_pplsoc, on=["name", "slug", "region"], how="full", coalesce=True)
+    .select("name", "slug", "region")
+    .join(cia_area, on=["name", "slug", "region"], how="anti")
+    .join(cia_commtran, on=["name", "slug", "region"], how="left")
+)
+```
+
+## Challenge 3
+
+
+
+# Utrecht
+
+Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
+
+## Challenge 1
+
+:::{.challenge}
+
+| What are top-3 districts with the highest median garden size? Plot the retail values of the properties in these districts against the build year. Which of these districts, do you think is the oldest? There was a one big phase of housing development in two of these districts. When do you think it happened?
+| :bulb: This is a filtering join problem. You need to think of it in two phases: first you create summaries and you the original dataset to the summaries as a way of subsetting the records.
+:::
+
+```{python}
+(
+    ut
+    .group_by("district")
+    .agg(pl.col("garden_size").median().alias("avg_garden"))
+    .sort("avg_garden", descending=True)
+    .head(3)
+    .join(ut, on="district", how="left")
+    .pipe(ggplot, aes(x="build_year", y="retail_value", color="house_type"))
+    + geom_point()
+    + facet_wrap('district', ncol=1)
+)
+```
+
+# Challenge 2
+
+:::{.challenge}
+
+| Reproduce this plot.
+| :bulb: You dont need the joins for this, but you do need two data sources for your plot.
+
+:::
+
+```{python}
+dist_df = ut.group_by("district").agg(
+    cs.ends_with("coor").median(),
+    pl.col("dist_from_train").mean().alias("avg_dist_from_train"),
+)
+
+(
+    ut.pipe(ggplot, aes(x="x_coor", y="y_coor", color="dist_from_train"))
+    + geom_point(aes(size='lot_area'))
+    + geom_label(
+        data=dist_df, mapping=aes(label="district", color="avg_dist_from_train"))
+    + labs(x="x", y="y", size="Lot Area", color="Distance from train")
+)
+
+```
+
+
+## Challenge 3
+
+
+:::{.challenge}
+| Plot the retail values against the lot areas of private houses (woonhuis). Add text labels showing the street name of the top 3 houses in terms of the lot size. Which districts are these houses located in?
+| :bulb: You can color the text labels by district to differentiate between them.
+
+```{python}
+top3_houses = (
+    ut.filter(pl.col("house_type") == "woonhuis")
+    .sort("lot_area", descending=True)
+    .head(3)
+)
+
+
+(
+    ut
+    .filter(pl.col("house_type") == "woonhuis")
+    .pipe(ggplot, aes(x="lot_area", y="retail_value"))
+    + geom_point()
+    + geom_text(data=top3_houses, mapping=aes(label="street", color="district"))
+)
+
+```

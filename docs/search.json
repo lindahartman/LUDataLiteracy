@@ -11,7 +11,7 @@
     "href": "4_Wrangling_joins.html",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "",
-    "text": "Under preparation"
+    "text": "The objective of the tutorial is to give student a chance to practice the data wrangling and joins applying the skills learned through the video lessons on a new dataset."
   },
   {
     "objectID": "5_Pivots_GT.html",
@@ -565,5 +565,89 @@
     "title": "Kings County Housing",
     "section": "",
     "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID for each home sold\n\n\ndate\nDate of the home sale\n\n\nprice\nPrice of each home sold\n\n\nbedrooms\nNumber of bedrooms\n\n\nbathrooms\nNumber of bathrooms\n\n\nsqft_living\nSquare footage of the apartments interior living space\n\n\nsqft_lot\nSquare footage of the land space\n\n\nfloors\nNumber of floors\n\n\nwaterfront\nA dummy variable for whether the apartment was overlooking the waterfront or not\n\n\nview\nAn index from 0 to 4 of how good the view of the property was\n\n\ncondition\nAn index from 1 to 5 on the condition of the apartment\n\n\ngrade\nAn index from 1 to 13 where 1-3 falls short of building construction and design, 7 has an average level of construction and design and 11-13 have a high quality level of construction and design\n\n\nsqft_above\nSquare footage of the interior housing space above ground level\n\n\nsqft_basement\nSquare footage of the interior housing space below ground level\n\n\nyr_built\nYear the house was initially built\n\n\nyr_renovated\nYear of the house’s last renovation and, if not renovated, the year built\n\n\nzipcode\nZipcode the house belongs to\n\n\nlat\nLatitude\n\n\nlong\nLongitude\n\n\nsqft_living15\nAverage square footage of the apartments interior living space for the nearest 15 neighbors\n\n\nsqft_lot15\nAverage square footage of the land space for the nearest 15 neighbors\n\n\ndistrict\nSchool district name"
+  },
+  {
+    "objectID": "CIA.html",
+    "href": "CIA.html",
+    "title": "CIA Factbook",
+    "section": "",
+    "text": "The Area dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\narea_sqkm\nCountry area in sq km"
+  },
+  {
+    "objectID": "CIA.html#area",
+    "href": "CIA.html#area",
+    "title": "CIA Factbook",
+    "section": "",
+    "text": "The Area dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\narea_sqkm\nCountry area in sq km"
+  },
+  {
+    "objectID": "CIA.html#commerce-and-transport",
+    "href": "CIA.html#commerce-and-transport",
+    "title": "CIA Factbook",
+    "section": "Commerce and Transport",
+    "text": "Commerce and Transport\nThe Commerce and Transport dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\nairports\nNumber of airports\n\n\nbroadband_fixed_subscriptions\nNumber of broadband subscriptions\n\n\ninternet_users\nNumber of internet users\n\n\nmerchant_marine\nNumber of merchant marine vessels\n\n\nrailways\nLength of railway network, in km\n\n\nroadways\nLength of road network, in km\n\n\ntelephone_fixed_line\nNumber of subscriptions for fixed line telephones\n\n\ntelephone_moblie_cellular\nNumber of subscriptions for mobile/cellular network\n\n\nwaterways\nLength of river network, in km"
+  },
+  {
+    "objectID": "CIA.html#economy-and-security",
+    "href": "CIA.html#economy-and-security",
+    "title": "CIA Factbook",
+    "section": "Economy and Security",
+    "text": "Economy and Security\nThe Economy and Security dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\ncurrent_account_balance\nCurrent account balance, in USD\n\n\ndebt_external\nExternal debt, in USD\n\n\nexports\nExports, in USD\n\n\ngdp_composition_by_sector_of_origin_agriculture\nGDP from agriculture, in %\n\n\ngdp_composition_by_sector_of_origin_industry\nGDP from industry, in %\n\n\ngdp_composition_by_sector_of_origin_services\nGDP from services, in %\n\n\ngini_index_coefficient_distribution_of_family_income\nGini coefficients\n\n\nimports\nImports, in USD\n\n\nindustrial_production_growth_rate\nIndustrial production growth rate, in %\n\n\ninflation_rate_consumer_prices\nInflation, in %\n\n\nlabor_force\nLabor Force, number of people\n\n\nmilitary_expenditures\nMilitary expenditures, % of GDP\n\n\npublic_debt\nPublic debt, % of GDP\n\n\nreal_gdp_purchasing_power_parity\nReal GDP (PPP), in USD\n\n\nreal_gdp_growth_rate\nReal GDP growth rate, in %\n\n\nreal_gdp_per_capita\nReal GDP (PPP), in USD\n\n\nreserves_of_foreign_exchange_and_gold\nReserves, in USD\n\n\ntaxes_and_other_revenues\nTaxes and other revenues, % of GDP\n\n\nunemployment_rate\nUnemployment rate, in %\n\n\nyouth_unemployment_rate_ages_15_24\nYouth unemployment rate, in %"
+  },
+  {
+    "objectID": "CIA.html#energy-and-environment",
+    "href": "CIA.html#energy-and-environment",
+    "title": "CIA Factbook",
+    "section": "Energy and Environment",
+    "text": "Energy and Environment\nThe Energy and Environment dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\ncurrent_account_balance\ncurrent account balance, in USD\n\n\ndebt_external\nExternal debt, in USD\n\n\nexports\nExport in USD\n\n\ncarbon_dioxide_emissions\nCO2 emissions, in metric tonnes\n\n\nelectricity_installed_generating_capacity\ninstalled generating capacity in kW\n\n\nenergy_consumption_per_capita\nBtu/person\n\n\nrevenue_from_coal\nRevenue from coal in bln USD\n\n\nrevenue_from_forest_resources\nRevenue from forest in bln USD"
+  },
+  {
+    "objectID": "CIA.html#people-and-society",
+    "href": "CIA.html#people-and-society",
+    "title": "CIA Factbook",
+    "section": "People and Society",
+    "text": "People and Society\nThe People and Society dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\nalcohol_consumption_per_capita\nAlcohol consumption, liter\n\n\nbirth_rate\nBirth rate, per 1000 population\n\n\nchildren_under_the_age_of_5_years_underweight\nChildren under the age of 5 years underweight, in %\n\n\ndeath_rate\nDeath rate, per 1000 population\n\n\neducation_expenditures\nEducation expenditure, % of GDP\n\n\ninfant_mortality_rate\nInfant morality rate, deaths per 1000 live births\n\n\nlife_expectancy_at_birth\nLife expectancy at birth, years\n\n\nmaternal_mortality_ratio\nMaternal morality ratio, deaths per 1000 live births\n\n\nmedian_age\nMedian age, years\n\n\nnet_migration_rate\nNet migration rate, migrants per 1000 population\n\n\nobesity_adult_prevalence_rate\nObesity, adult prevalence, in %\n\n\npopulation_total\nPopulation, ppl\n\n\npopulation_growth_rate\nPopulatio growth rate, in %\n\n\ntobacco_use\nTobacco use, in % of population\n\n\ntotal_fertility_rate\nTotal fertility rate, children born per woman"
+  },
+  {
+    "objectID": "4_Wrangling_joins.html#preparation",
+    "href": "4_Wrangling_joins.html#preparation",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Wrangling and Joins. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\nfrom great_tables import GT\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\n\ncia_area = pl.read_csv(\"data/factbook_area_2024.csv\")\ncia_commtran = pl.read_csv(\"data/factbook_comm_transport_2024.csv\")\ncia_ecosec = pl.read_csv(\"data/factbook_economy_security_2024.csv\")\ncia_enenv = pl.read_csv(\"data/factbook_energy_environment_2024.csv\")\ncia_pplsoc = pl.read_csv(\"data/factbook_people_society_2024.csv\")"
+  },
+  {
+    "objectID": "4_Wrangling_joins.html#challenge-1",
+    "href": "4_Wrangling_joins.html#challenge-1",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat’s the largest territory for which we don’t have carbon dioxide emissions?"
+  },
+  {
+    "objectID": "4_Wrangling_joins.html#challenge-2",
+    "href": "4_Wrangling_joins.html#challenge-2",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "Challenge 2",
+    "text": "Challenge 2\nAre there any countries or territories in any of the CIA factbook datasets, for which we do not have the territory size? Whats the total number of airports in these territories?"
+  },
+  {
+    "objectID": "4_Wrangling_joins.html#challenge-3",
+    "href": "4_Wrangling_joins.html#challenge-3",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "Challenge 3",
+    "text": "Challenge 3"
+  },
+  {
+    "objectID": "4_Wrangling_joins.html#challenge-1-1",
+    "href": "4_Wrangling_joins.html#challenge-1-1",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the highest median garden size? Plot the retail values of the properties in these districts against the build year. Which of these districts, do you think is the oldest? There was a one big phase of housing development in two of these districts. When do you think it happened?\n💡 This is a filtering join problem. You need to think of it in two phases: first you create summaries and you the original dataset to the summaries as a way of subsetting the records."
+  },
+  {
+    "objectID": "4_Wrangling_joins.html#challenge-3-1",
+    "href": "4_Wrangling_joins.html#challenge-3-1",
+    "title": "Practical 4: Data Wrangling + joins",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values against the lot areas of private houses (woonhuis). Add text labels showing the street name of the top 3 houses in terms of the lot size. Which districts are these houses located in?\n💡 You can color the text labels by district to differentiate between them."
   }
 ]
