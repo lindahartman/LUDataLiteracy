@@ -1,0 +1,70 @@
+---
+title: "CIA Factbook"
+---
+
+```{python}
+#| include: false
+
+import polars as pl
+from great_tables import GT
+```
+
+## Area
+
+The Area dataset contains the following columns
+
+```{python}
+#| echo: false
+(
+    pl.read_csv('data/cia_area_data_dictionary.csv')
+    .pipe(GT).opt_stylize(1)
+)
+```
+
+## Commerce and Transport
+
+The Commerce and Transport dataset contains the following columns
+
+```{python}
+#| echo: false
+(
+pl.read_csv('data/cia_commtran_data_dictionary.csv')
+.pipe(GT).opt_stylize(1)
+)
+```
+
+## Economy and Security
+
+The Economy and Security dataset contains the following columns
+
+```{python}
+#| echo: false
+(
+pl.read_csv('data/cia_ecosec_data_dictionary.csv')
+.pipe(GT).opt_stylize(1)
+)
+```
+
+## Energy and Environment
+
+The Energy and Environment dataset contains the following columns
+
+```{python}
+#| echo: false
+(
+pl.read_csv('data/cia_enenv_data_dictionary.csv')
+.pipe(GT).opt_stylize(1)
+)
+```
+
+## People and Society
+
+The People and Society dataset contains the following columns
+
+```{python}
+#| echo: false
+(
+pl.read_csv('data/cia_pplsoc_data_dictionary.csv')
+.pipe(GT).opt_stylize(1)
+)
+```

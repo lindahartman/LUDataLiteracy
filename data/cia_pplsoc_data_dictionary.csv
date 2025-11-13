@@ -5,7 +5,7 @@ region,Region of the world where the country is located
 alcohol_consumption_per_capita,"Alcohol consumption, liter"
 birth_rate,"Birth rate, per 1000 population"
 children_under_the_age_of_5_years_underweight,"Children under the age of 5 years underweight, in %"
-death_rate,"Dearth rate, per 1000 population"
+death_rate,"Death rate, per 1000 population"
 education_expenditures,"Education expenditure, % of GDP"
 infant_mortality_rate,"Infant morality rate, deaths per 1000 live births"
 life_expectancy_at_birth,"Life expectancy at birth, years"

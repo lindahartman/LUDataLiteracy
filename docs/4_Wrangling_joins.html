@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,6 +100,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <style>
 div.callout-challenge.callout {
   border-left-color: firebrick;
@@ -198,11 +235,35 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link active" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#cia" id="toc-cia" class="nav-link" data-scroll-target="#cia">CIA</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link" data-scroll-target="#challenge-1">Challenge 1</a></li>
+  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link" data-scroll-target="#challenge-2">Challenge 2</a></li>
+  <li><a href="#challenge-3" id="toc-challenge-3" class="nav-link" data-scroll-target="#challenge-3">Challenge 3</a></li>
+  <li><a href="#challenge-4" id="toc-challenge-4" class="nav-link" data-scroll-target="#challenge-4">Challenge 4</a></li>
+  <li><a href="#challenge-5" id="toc-challenge-5" class="nav-link" data-scroll-target="#challenge-5">Challenge 5</a></li>
+  <li><a href="#challenge-6" id="toc-challenge-6" class="nav-link" data-scroll-target="#challenge-6">Challenge 6</a></li>
+  </ul></li>
+  <li><a href="#utrecht" id="toc-utrecht" class="nav-link" data-scroll-target="#utrecht">Utrecht</a>
+  <ul class="collapse">
+  <li><a href="#challenge-7" id="toc-challenge-7" class="nav-link" data-scroll-target="#challenge-7">Challenge 7</a></li>
+  </ul></li>
+  <li><a href="#challenge-8" id="toc-challenge-8" class="nav-link" data-scroll-target="#challenge-8">Challenge 8</a>
+  <ul class="collapse">
+  <li><a href="#challenge-9" id="toc-challenge-9" class="nav-link" data-scroll-target="#challenge-9">Challenge 9</a></li>
+  <li><a href="#challenge-10" id="toc-challenge-10" class="nav-link" data-scroll-target="#challenge-10">Challenge 10</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -211,7 +272,7 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -223,9 +284,231 @@ div.callout-question.callout-style-default .callout-icon::before, div.callout-qu
 </header>
 
 
-<p>Under preparation</p>
+<p>The objective of the tutorial is to give student a chance to practice the data wrangling and joins applying the skills learned through the video lessons on a new dataset.</p>
+<section id="preparation" class="level2">
+<h2 class="anchored" data-anchor-id="preparation">Preparation</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.</p>
+<pre><code>uv run jupyter lab</code></pre>
+<p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Wrangling and Joins</code>. Then add a code cell and place the following code there.</p>
+<div id="05a5cd21" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .</p>
+<div id="c9306122" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cia_area <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_area_2024.csv"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cia_commtran <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_comm_transport_2024.csv"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>cia_ecosec <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_economy_security_2024.csv"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>cia_enenv <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_energy_environment_2024.csv"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>cia_pplsoc <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_people_society_2024.csv"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>iso_df <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24-countrycodes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cia" class="level1">
+<h1>CIA</h1>
+<p>Answer the following challenges using <a href="./CIA.html">CIA</a> datasets.</p>
+<section id="challenge-1" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-1">Challenge 1</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot life expectancy (<code>life_expectancy_at_birth</code>) vs gdp per capita (<code>real_gdp_per_capita</code>). Does the plot look like the first plot in the course we made?</p>
+</div>
+</div>
+</section>
+<section id="challenge-2" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-2">Challenge 2</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What’s the largest territory (by area) for which we don’t have carbon dioxide emissions?</p>
+</div>
+</div>
+</section>
+<section id="challenge-3" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-3">Challenge 3</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Are there any countries or territories in any of the CIA factbook datasets, for which we do not have the territory size (area)? Whats the total number of airports in these territories?</p>
+</div>
+</div>
+</section>
+<section id="challenge-4" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-4">Challenge 4</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given the GDP growth rate and population growth rate, what would be the average GDP per capital in every region next year? Show it as a column plot. Is average GDP per capita in the Middle East is expected to be higher than the average GDP per capita in the East and Southeast Asia?</p>
+</div>
+</div>
+</section>
+<section id="challenge-5" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-5">Challenge 5</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">How many countries are missing the infant mortality rate? How many of those also don’t have gdp per capita estimate?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You may find it useful to group by the expression like this <code>.group_by(pl.col('real_gdp_per_capita').is_null()</code>)</div>
+</div>
+</div>
+</section>
+<section id="challenge-6" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-6">Challenge 6</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Make a great table showing GDP per capita from different sources. Limit the list to top-5 countries by GDP per capita from agriculture. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using <code>alpha3</code> code next to the country name.<br>
+<span class="emoji" data-emoji="bulb">💡</span> Use gdp composition and gdp per capita columns in <code>cia_ecosec</code><br>
+<span class="emoji" data-emoji="bulb">💡</span> To manually correct the country names, use the <code>.with_columns()</code> expression with</div>
+<pre><code>.when().then(pl.lit('this'))
+.when().then(pl.lit('that'))
+.otherwise(pl.col('name'))</code></pre>
+<p>The <code>pl.lit()</code> is a wrapper for literal values (i.e.&nbsp;strings, corresponding to country names).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="utrecht" class="level1">
+<h1>Utrecht</h1>
+<p>Answer the following challenges using <a href="./Utrecht.html">Utrecht</a> dataset.</p>
+<section id="challenge-7" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-7">Challenge 7</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">What are top-3 districts with the highest median garden size? Plot the retail values of the properties in these districts against the build year. Which of these districts, do you think is the oldest? There was a one big phase of housing development in two of these districts. When do you think it happened?<br>
+<span class="emoji" data-emoji="bulb">💡</span> This is a filtering join problem. You need to think of it in two phases: first you create summaries and you the original dataset to the summaries as a way of subsetting the records.</div>
+</div>
+</div>
+</section>
+</section>
+<section id="challenge-8" class="level1">
+<h1>Challenge 8</h1>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Reproduce this plot.<br>
+<span class="emoji" data-emoji="bulb">💡</span> You dont need the joins for this, but you do need to supply different data sources for the two layers in your plot.</div>
+</div>
+</div>
+<div id="39eb0914" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<figure class="figure">
+<p><img src="4_Wrangling_joins_files/figure-html/cell-11-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="challenge-9" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-9">Challenge 9</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Plot the retail values against the lot areas of private houses (woonhuis). Add text labels showing the street name of the top 3 houses in terms of the lot size. Which districts are these houses located in?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You can color the text labels by district to differentiate between them.</div>
+</div>
+</div>
+</section>
+<section id="challenge-10" class="level2">
+<h2 class="anchored" data-anchor-id="challenge-10">Challenge 10</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the retail retail value vs the house area of the houses whose price per square meter AND lot area are above the respective median values for their district. Color the points by district and show lot area with the point size. Is the relationship linear?</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
