@@ -37,11 +37,11 @@ Then import the datasets for this practical. Add another code cell below (using 
 
 ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
 
-cia_area = pl.read_csv("data/factbook_area_2024.csv")
-cia_commtran = pl.read_csv("data/factbook_comm_transport_2024.csv")
-cia_ecosec = pl.read_csv("data/factbook_economy_security_2024.csv")
-cia_enenv = pl.read_csv("data/factbook_energy_environment_2024.csv")
-cia_pplsoc = pl.read_csv("data/factbook_people_society_2024.csv")
+cia_area = pl.read_csv("https://bit.ly/data24ciaarea")
+cia_commtran = pl.read_csv("https://bit.ly/data24ciacommtran")
+cia_ecosec = pl.read_csv("https://bit.ly/data24ciaecosec")
+cia_enenv = pl.read_csv("https://bit.ly/data24ciaenenv")
+cia_pplsoc = pl.read_csv("https://bit.ly/data24ciapplsoc")
 iso_df = pl.read_csv("https://bit.ly/data24-countrycodes")
 ```
 
@@ -173,6 +173,53 @@ The `pl.lit()` is a wrapper for literal values (i.e. strings, corresponding to c
 :::
 
 ```{python}
+cia_agr5 = (
+  cia_ecosec
+  .select('name', 'slug','region', cs.starts_with("gdp_composition"),
+  cs.ends_with("per_capita"))
+ .with_columns(cs.starts_with('gdp_composition')*pl.col('real_gdp_per_capita')/100)
+     .filter(cs.ends_with('agriculture').is_not_null())
+  .sort(cs.ends_with('agriculture'), descending=True)
+  .head(5)
+)
+
+# Join with ISO to see problems
+cia_agr5_issues = (cia_agr5       
+  .join(iso_df,left_on="name",right_on="country",how='left')
+.filter(pl.col("alpha3").is_null())
+# .select("name")[0,"
+)
+for val in cia_agr5_issues["name"]:
+    print(val)
+## Faroe Islands and Falkland Islands
+
+
+```
+```{python}
+(
+  cia_agr5 
+  .with_columns(name=pl.when(pl.col('name').str.contains("Faroe Islands"))
+                      .then(pl.lit('Faroe Islands (the)'))
+                      .when(pl.col('name').str.contains("Falkland"))
+                      .then(pl.lit("Falkland Islands (the) [Malvinas]"))
+                      .otherwise(pl.col('name'))
+                      )
+  .join(iso_df, left_on="name", right_on="country", how="left")
+  .pipe(GT)
+  .tab_spanner_delim(delim="_", split="last", limit=1, columns=cs.starts_with("gdp_composition"))
+  .cols_hide(columns=["alpha2", "numeric"])
+  .cols_move_to_start(columns="alpha3")
+  .cols_label(alpha3="")
+  .fmt_number(columns=cs.starts_with("gdp_comp"), decimals=0)
+  .fmt_flag(columns="alpha3")
+)
+```
+
+
+```{python}
+#| include: false
+#| echo: false
+# Alternative in one set
 (
   cia_ecosec
   .select('name', 'region', cs.starts_with("gdp_composition"),
@@ -209,7 +256,7 @@ Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 :::{.challenge}
 
 | What are top-3 districts with the highest median garden size? Plot the retail values of the properties in these districts against the build year. Which of these districts, do you think is the oldest? There was a one big phase of housing development in two of these districts. When do you think it happened?
-| :bulb: This is a filtering join problem. You need to think of it in two phases: first you create summaries and you the original dataset to the summaries as a way of subsetting the records.
+| :bulb: This is a filtering join problem. You need to think of it in two phases: first you create summaries and then you join the original dataset to the summaries as a way of subsetting the records.
 :::
 
 ```{python}
