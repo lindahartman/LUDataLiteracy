@@ -296,14 +296,14 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Wrangling and Joins</code>. Then add a code cell and place the following code there.</p>
-<div id="19f51ce3" class="cell" data-execution_count="1">
+<div id="5a3ce03e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .</p>
-<div id="a5b920bf" class="cell" data-execution_count="2">
+<div id="29c12e5c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cia_area <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_area_2024.csv"</span>)</span>
@@ -379,17 +379,48 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Make a great table containing top-5 countries by GDP per capita from agriculture. Show also GPD per capita from other sources. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using <code>alpha3</code> code next to the country name.<br>
-<span class="emoji" data-emoji="bulb">💡</span> Use gdp composition and existing gdp per capita columns in <code>cia_ecosec</code><br>
-<span class="emoji" data-emoji="bulb">💡</span> To manually correct the country names, use <code>.when().then(pl.lit('x')).when().then(pl.lit('y')).otherwise()</code> expression within <code>.with_columns()</code>. The <code>pl.lit()</code> is a wrapper for literal values (e.g.&nbsp;strings).</div>
+<p>Given the GDP growth rate and population growth rate, what would be the average GDP per capital in every region next year? Show it as a column plot. Is average GDP per capita in the Middle East is expected to be higher than the average GDP per capita in the East and Southeast Asia?</p>
 </div>
 </div>
 </section>
 <section id="challenge-5" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-5">Challenge 5</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">How many countries are missing the infant mortality rate? How many of those also don’t have gdp per capita estimate?<br>
+<span class="emoji" data-emoji="bulb">💡</span> You may find it useful to group by the expression like this <code>.group_by(pl.col('real_gdp_per_capita').is_null()</code>)</div>
+</div>
+</div>
 </section>
 <section id="challenge-6" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-6">Challenge 6</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="line-block">Make a great table showing GDP per capita from different sources. Limit the list to top-5 countries by GDP per capita from agriculture. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using <code>alpha3</code> code next to the country name.<br>
+<span class="emoji" data-emoji="bulb">💡</span> Use gdp composition and gdp per capita columns in <code>cia_ecosec</code><br>
+<span class="emoji" data-emoji="bulb">💡</span> To manually correct the country names, use the <code>.with_columns()</code> expression with</div>
+<pre><code>.when().then(pl.lit('this'))
+.when().then(pl.lit('that'))
+.otherwise(pl.col('name'))</code></pre>
+<p>The <code>pl.lit()</code> is a wrapper for literal values (i.e.&nbsp;strings, corresponding to country names).</p>
+</div>
+</div>
 </section>
 </section>
 <section id="utrecht" class="level1">
@@ -426,14 +457,14 @@ Challenge
 </div>
 <div class="callout-body-container callout-body">
 <div class="line-block">Reproduce this plot.<br>
-<span class="emoji" data-emoji="bulb">💡</span> You dont need the joins for this, but you do need two data sources for your plot.</div>
+<span class="emoji" data-emoji="bulb">💡</span> You dont need the joins for this, but you do need to supply different data sources for the two layers in your plot.</div>
 </div>
 </div>
-<div id="04a328b9" class="cell" data-execution_count="8">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div id="c97bd08e" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <figure class="figure">
-<p><img src="4_Wrangling_joins_files/figure-html/cell-9-output-1.png" width="672" height="480" class="figure-img"></p>
+<p><img src="4_Wrangling_joins_files/figure-html/cell-11-output-1.png" width="672" height="480" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -457,6 +488,19 @@ Challenge
 </section>
 <section id="challenge-10" class="level2">
 <h2 class="anchored" data-anchor-id="challenge-10">Challenge 10</h2>
+<div class="callout callout-style-default callout-challenge callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Challenge
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the retail retail value vs the house area of the houses whose price per square meter AND lot area are above the respective median values for their district. Color the points by district and show lot area with the point size. Is the relationship linear?</p>
+</div>
+</div>
 
 
 </section>

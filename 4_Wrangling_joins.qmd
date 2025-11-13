@@ -106,15 +106,66 @@ Are there any countries or territories in any of the CIA factbook datasets, for 
     .select("name", "slug", "region")
     .join(cia_area, on=["name", "slug", "region"], how="anti")
     .join(cia_commtran, on=["name", "slug", "region"], how="left")
+    .select('name','region', 'airports')
 )
 ```
 
 ## Challenge 4
 
 :::{.challenge}
-| Make a great table containing top-5 countries by GDP per capita from agriculture. Show also GPD per capita from other sources. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using `alpha3` code next to the country name.
-| :bulb: Use gdp composition and existing gdp per capita columns in `cia_ecosec`
-| :bulb: To manually correct the country names, use `.when().then(pl.lit('x')).when().then(pl.lit('y')).otherwise()` expression within `.with_columns()`. The `pl.lit()` is a wrapper for literal values (e.g. strings). 
+Given the GDP growth rate and population growth rate, what would be the average GDP per capital in every region next year? Show it as a column plot.
+Is average GDP per capita in the Middle East is expected to be higher than the average GDP per capita in the East and Southeast Asia?
+:::
+
+```{python}
+(
+  cia_ecosec
+  .join(cia_pplsoc, on=["name", "slug", "region"], how="inner")
+  .with_columns(real_gdp_next_year=pl.col("real_gdp_purchasing_power_parity")*(1+pl.col("real_gdp_growth_rate")/100),
+  pop_next_year=pl.col("population_total")*(1+pl.col("population_growth_rate")/100))
+  .with_columns(gdp_per_cap=pl.col('real_gdp_next_year')/pl.col('pop_next_year'))
+  .group_by('region')
+  .agg(pl.col('gdp_per_cap').mean())
+  .pipe(ggplot)
+  + geom_col(aes(x="region", y="gdp_per_cap"))
+  + coord_flip()
+)
+```
+
+## Challenge 5
+
+:::{.challenge}
+| How many countries are missing the infant mortality rate? How many of those also don't have gdp per capita estimate?
+| :bulb:  You may find it useful to group by the expression like this `.group_by(pl.col('real_gdp_per_capita').is_null()`)
+:::
+
+```{python}
+(
+  cia_pplsoc
+  .select("name", "slug", "region", "infant_mortality_rate")
+  .filter(pl.col("infant_mortality_rate").is_null())
+  .join(cia_ecosec, on=["name", "slug", "region"], how="left")
+  .select("name", "real_gdp_per_capita")
+  .group_by(pl.col('real_gdp_per_capita').is_null())
+  .agg(pl.len())
+)
+```
+
+
+## Challenge 6
+
+:::{.challenge}
+| Make a great table showing GDP per capita from different sources. Limit the list to top-5 countries by GDP per capita from agriculture. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using `alpha3` code next to the country name.
+| :bulb: Use gdp composition and gdp per capita columns in `cia_ecosec`
+| :bulb: To manually correct the country names, use the `.with_columns()` expression with
+
+```
+.when().then(pl.lit('this'))
+.when().then(pl.lit('that'))
+.otherwise(pl.col('name'))
+```
+
+The `pl.lit()` is a wrapper for literal values (i.e. strings, corresponding to country names). 
 :::
 
 ```{python}
@@ -126,7 +177,7 @@ Are there any countries or territories in any of the CIA factbook datasets, for 
   .filter(cs.ends_with('agriculture').is_not_null())
   .sort(cs.ends_with('agriculture'), descending=True)
   .head(5)
-  .with_columns(name=pl.when(pl.col('name')=="Faroe Islands")
+  .with_columns(name=pl.when(pl.col('name').str.contains("Faroe Islands"))
                       .then(pl.lit('Faroe Islands (the)'))
                       .when(pl.col('name').str.contains("Falkland"))
                       .then(pl.lit("Falkland Islands (the) [Malvinas]"))
@@ -143,11 +194,6 @@ Are there any countries or territories in any of the CIA factbook datasets, for 
 )
 
 ```
-
-## Challenge 5
-
-
-## Challenge 6
 
 
 # Utrecht
@@ -181,7 +227,7 @@ Answer the following challenges using [Utrecht](Utrecht.qmd) dataset.
 :::{.challenge}
 
 | Reproduce this plot.
-| :bulb: You dont need the joins for this, but you do need two data sources for your plot.
+| :bulb: You dont need the joins for this, but you do need to supply different data sources for the two layers in your plot. 
 
 :::
 
@@ -231,3 +277,29 @@ top3_houses = (
 
 ## Challenge 10
 
+:::{.challenge}
+Plot the retail retail value vs the house area of the houses whose price per square meter AND lot area are above the respective median values for their district. Color the points by district and show lot area with the point size. Is the relationship linear?
+:::
+
+```{python}
+med_df=(
+  ut
+  .with_columns(ppsqm = pl.col("retail_value")/pl.col("house_area"))
+  .group_by("district")
+  .agg(pl.col('ppsqm').median().name.prefix('median_'),
+        pl.col('lot_area').median().name.prefix('median_'))
+)
+
+(
+  ut
+  .join(med_df, on="district", how="left")
+  .with_columns(ppsqm=pl.col("retail_value")/pl.col("house_area"))
+  .filter(pl.col("ppsqm")>pl.col("median_ppsqm"),
+          pl.col("lot_area")>pl.col("median_lot_area"))
+  .pipe(ggplot, aes(x="retail_value", y="house_area"))
+  +geom_point(aes(color="district", size="lot_area"))
+  +geom_smooth(method="lm")
+)
+
+
+```

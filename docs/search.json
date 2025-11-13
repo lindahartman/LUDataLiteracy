@@ -186,7 +186,7 @@
     "href": "1_DataViz_sol.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values."
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-4",
@@ -536,7 +536,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3571\n2\n\n\n…\n…\n\n\n3584\n1\n\n\n3527\n1\n\n\n3532\n1\n\n\n3531\n1\n\n\n3451\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3521\n2\n\n\n…\n…\n\n\n3581\n1\n\n\n3584\n1\n\n\n3527\n1\n\n\n3531\n1\n\n\n3451\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-6",
@@ -578,7 +578,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n2206700215\n2\n\n\n3969300030\n2\n\n\n2726049071\n2\n\n\n1788800630\n2\n\n\n…\n…\n\n\n5132000140\n2\n\n\n5536100020\n2\n\n\n4031000520\n2\n\n\n251300110\n2\n\n\n5430300171\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n5417600130\n2\n\n\n722039087\n2\n\n\n9809000020\n2\n\n\n9407110710\n2\n\n\n…\n…\n\n\n251300110\n2\n\n\n4154300296\n2\n\n\n4031000520\n2\n\n\n8832900780\n2\n\n\n3578401060\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-12",
@@ -634,21 +634,21 @@
     "href": "4_Wrangling_joins.html#challenge-4",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table containing top-5 countries by GDP per capita from agriculture. Show also GPD per capita from other sources. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using alpha3 code next to the country name.\n💡 Use gdp composition and existing gdp per capita columns in cia_ecosec\n💡 To manually correct the country names, use .when().then(pl.lit('x')).when().then(pl.lit('y')).otherwise() expression within .with_columns(). The pl.lit() is a wrapper for literal values (e.g. strings)."
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nGiven the GDP growth rate and population growth rate, what would be the average GDP per capital in every region next year? Show it as a column plot. Is average GDP per capita in the Middle East is expected to be higher than the average GDP per capita in the East and Southeast Asia?"
   },
   {
     "objectID": "4_Wrangling_joins.html#challenge-5",
     "href": "4_Wrangling_joins.html#challenge-5",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "Challenge 5",
-    "text": "Challenge 5"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nHow many countries are missing the infant mortality rate? How many of those also don’t have gdp per capita estimate?\n💡 You may find it useful to group by the expression like this .group_by(pl.col('real_gdp_per_capita').is_null())"
   },
   {
     "objectID": "4_Wrangling_joins.html#challenge-6",
     "href": "4_Wrangling_joins.html#challenge-6",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "Challenge 6",
-    "text": "Challenge 6"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nMake a great table showing GDP per capita from different sources. Limit the list to top-5 countries by GDP per capita from agriculture. Join in ISO country names. Which country names are not properly matched? Correct the country names in your table and show the country flags using alpha3 code next to the country name.\n💡 Use gdp composition and gdp per capita columns in cia_ecosec\n💡 To manually correct the country names, use the .with_columns() expression with\n.when().then(pl.lit('this'))\n.when().then(pl.lit('that'))\n.otherwise(pl.col('name'))\nThe pl.lit() is a wrapper for literal values (i.e. strings, corresponding to country names)."
   },
   {
     "objectID": "4_Wrangling_joins.html#challenge-7",
@@ -669,7 +669,7 @@
     "href": "4_Wrangling_joins.html#challenge-10",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "Challenge 10",
-    "text": "Challenge 10"
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail retail value vs the house area of the houses whose price per square meter AND lot area are above the respective median values for their district. Color the points by district and show lot area with the point size. Is the relationship linear?"
   },
   {
     "objectID": "KingsCounty.html",
