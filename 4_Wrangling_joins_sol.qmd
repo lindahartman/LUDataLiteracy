@@ -302,7 +302,7 @@ dist_df = ut.group_by("district").agg(
 
 
 ```{python}
-#| include: false
+#| output: false
 #| echo: true
 dist_df = ut.group_by("district").agg(
     cs.ends_with("coor").median(),
