@@ -113,8 +113,8 @@ Are there any countries or territories in any of the CIA factbook datasets, for 
 ## Challenge 4
 
 :::{.challenge}
-Given the GDP growth rate and population growth rate, what would be the average GDP per capital in every region next year? Show it as a column plot.
-Is average GDP per capita in the Middle East is expected to be higher than the average GDP per capita in the East and Southeast Asia?
+Given the GDP growth rate and population growth rate, what would be the average GDP per capita in every region next year? Show it as a column plot.
+Is average GDP per capita in the Middle East expected to be higher than the average GDP per capita in the East and Southeast Asia?
 :::
 
 ```{python}
@@ -122,12 +122,16 @@ Is average GDP per capita in the Middle East is expected to be higher than the a
   cia_ecosec
   .join(cia_pplsoc, on=["name", "slug", "region"], how="inner")
   .with_columns(real_gdp_next_year=pl.col("real_gdp_purchasing_power_parity")*(1+pl.col("real_gdp_growth_rate")/100),
-  pop_next_year=pl.col("population_total")*(1+pl.col("population_growth_rate")/100))
-  .with_columns(gdp_per_cap=pl.col('real_gdp_next_year')/pl.col('pop_next_year'))
+        pop_next_year=pl.col("population_total")*(1+pl.col("population_growth_rate")/100))
+     #Should sum over regions before calc per capita
+  # else need weights!
   .group_by('region')
-  .agg(pl.col('gdp_per_cap').mean())
+  .agg(pl.col('real_gdp_next_year').sum(),
+       pl.col('pop_next_year').sum())   
+    
+  .with_columns(gdp_per_cap=pl.col('real_gdp_next_year')/pl.col('pop_next_year'))
   .pipe(ggplot)
-  + geom_col(aes(x="region", y="gdp_per_cap"))
+  + geom_col(aes(x="reorder(region,gdp_per_cap,ascending=False)", y="gdp_per_cap"))
   + coord_flip()
 )
 ```
