@@ -33,6 +33,7 @@ website:
         menu:
           - Utrecht.qmd
           - KingsCounty.qmd
+          - CIA.qmd
       - about.qmd
 
 format:
