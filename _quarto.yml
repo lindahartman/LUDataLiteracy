@@ -35,6 +35,8 @@ website:
           - Utrecht.qmd
           - KingsCounty.qmd
           - CIA.qmd
+          - Ames_houses.qmd
+          - Ames_schools.qmd
       - about.qmd
 
 format:
