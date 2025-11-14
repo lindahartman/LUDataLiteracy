@@ -1,5 +1,5 @@
 ---
-title: "Ames schools"
+title: "Ames Schools"
 ---
 
 ```{python}
