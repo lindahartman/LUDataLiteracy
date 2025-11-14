@@ -1,0 +1,28 @@
+Variable,Type,Description,Variable2
+MS_SubClass,categorical,the type of dwelling involved in the sale,MS_SubClass
+Lot_Frontage,continuous,linear feet of street connected to property,Lot_Frontage
+Lot_Area,continuous,lot size in square feet,Lot_Area
+Street,categorical,the type of road access to property,Street
+UTM_x,continuous,UTM x coordinate (easting) in meters,UTM_x
+UTM_y,continuous,UTM y coordinate (northing) in meters,UTM_y
+School_District,categorical,School district for elementary school,School_District
+Bldg_Type,categorical,Type of dwelling,Bldg_Type
+Overall_Cond,categorical,Rating of the overall condition of the house,Overall_Cond
+Year_Built,continuous/ordinal,Original construction date,Year_Built
+Year_Remod_Add,continuous/ordinal,Remodel date (same as construction date if no remodeling),Year_Remod_Add
+Roof_Style,categorical,Type of roof,Roof_Style
+Gr_Liv_Area,continuous,Above grade (ground) living area square feet,Gr_Liv_Area
+Total_Bsmt_SF,continuous,Total square feet of basement area,Total_Bsmt_SF
+Bsmt_Unf_SF,continuous, Unfinished square feet of basement area,Bsmt_Unf_SF
+Bsmt_Full_Bath,continuous,Basement full bathrooms,Bsmt_Full_Bath
+Bsmt_Half_Bath,continuous,Basement half bathrooms,Bsmt_Half_Bath
+Full_Bath,continuous,Full bathrooms above grade,Full_Bath
+Half_Bath,continuous,Half baths above grade,Half_Bath
+Bedroom_AbvGr,continuous,Bedrooms above grade (does NOT include basement bedrooms),Bedroom_AbvGr
+Garage_Type,categorical, Garage location,Garage_Type
+Garage_Area,continuous,Size of garage in square feet,Garage_Area
+Year_Sold,continuous,Year Sold,Year_Sold
+Mo_Sold,continuous,Month Sold,Mo_Sold
+YM_Sold,date,Date of sale (year and month),YM_Sold
+Sale_Condition,categorical,Condition of sale,Sale_Condition
+Sale_Price,continuous,Sale price,Sale_Price

@@ -1,0 +1,10 @@
+Variable,Type,Description
+District,categorical,School district (elementary school)
+UTM_x,continuous,School UTM x coordinate (easting) in meters
+UTM_y,continuous,School UTM y coordinate (northing) in meters
+Students,continuous,Number of students
+Teachers,continuous,Number of students
+Math_Prof,continuous,Math proficiency (% of students)
+Reading_Prof,continuous,Reading proficiency (% of students)
+Score,continuous,Overall score based on proficiency and expected proficiency
+IowaRank,continuous,"Ranking in Iowa, based on Score"
