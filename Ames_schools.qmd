@@ -1,0 +1,20 @@
+---
+title: "Ames schools"
+---
+
+```{python}
+#| include: false
+
+import polars as pl
+from great_tables import GT
+```
+
+The dataset was retrieved [here](https://www.usnews.com/education/k12/elementary-schools/iowa) in 2025, and contains the following columns
+
+```{python}
+#| echo: false
+
+as_doc = pl.read_csv("data/ames_schools_dict.csv")
+
+as_doc.pipe(GT).opt_stylize(1)
+```
