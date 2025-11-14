@@ -42,6 +42,13 @@
     "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
   },
   {
+    "objectID": "Ames_schools.html",
+    "href": "Ames_schools.html",
+    "title": "Ames schools",
+    "section": "",
+    "text": "The dataset was retrieved here in 2025, and contains the following columns\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\n\n\n\n\nDistrict\ncategorical\nSchool district (elementary school)\n\n\nUTM_x\ncontinuous\nSchool UTM x coordinate (easting) in meters\n\n\nUTM_y\ncontinuous\nSchool UTM y coordinate (northing) in meters\n\n\nStudents\ncontinuous\nNumber of students\n\n\nTeachers\ncontinuous\nNumber of students\n\n\nMath_Prof\ncontinuous\nMath proficiency (% of students)\n\n\nReading_Prof\ncontinuous\nReading proficiency (% of students)\n\n\nScore\ncontinuous\nOverall score based on proficiency and expected proficiency\n\n\nIowaRank\ncontinuous\nRanking in Iowa, based on Score"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -571,7 +578,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3522\n2\n\n\n…\n…\n\n\n3513\n1\n\n\n3451\n1\n\n\n3554\n1\n\n\n3527\n1\n\n\n3581\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3543\n3\n\n\n3553\n3\n\n\n3541\n2\n\n\n…\n…\n\n\n3533\n1\n\n\n3532\n1\n\n\n3511\n1\n\n\n3453\n1\n\n\n3451\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-6",
@@ -613,7 +620,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n7899800045\n2\n\n\n5249801440\n2\n\n\n2892700041\n2\n\n\n7409700215\n2\n\n\n…\n…\n\n\n9250900104\n2\n\n\n3523069060\n2\n\n\n1630700361\n2\n\n\n2767603612\n2\n\n\n6117501820\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n2143700830\n2\n\n\n3333002450\n2\n\n\n7899800045\n2\n\n\n7657000540\n2\n\n\n…\n…\n\n\n1139600270\n2\n\n\n4443800385\n2\n\n\n251300110\n2\n\n\n6117501820\n2\n\n\n9828200460\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-12",
@@ -767,7 +774,7 @@
     "href": "4_Wrangling_joins_sol.html#challenge-5",
     "title": "Practical 4: Data Wrangling + joins",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nHow many countries are missing the infant mortality rate? How many of those also don’t have gdp per capita estimate?\n💡 You may find it useful to group by the expression like this .group_by(pl.col('real_gdp_per_capita').is_null())\n\n\n\n(\n  cia_pplsoc\n  .select(\"name\", \"slug\", \"region\", \"infant_mortality_rate\")\n  .filter(pl.col(\"infant_mortality_rate\").is_null())\n  .join(cia_ecosec, on=[\"name\", \"slug\", \"region\"], how=\"left\")\n  .select(\"name\", \"real_gdp_per_capita\")\n  .group_by(pl.col('real_gdp_per_capita').is_null())\n  .agg(pl.len())\n)\n\n\nshape: (2, 2)\n\n\n\nreal_gdp_per_capita\nlen\n\n\nbool\nu32\n\n\n\n\ntrue\n7\n\n\nfalse\n3"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nHow many countries are missing the infant mortality rate? How many of those also don’t have gdp per capita estimate?\n💡 You may find it useful to group by the expression like this .group_by(pl.col('real_gdp_per_capita').is_null())\n\n\n\n(\n  cia_pplsoc\n  .select(\"name\", \"slug\", \"region\", \"infant_mortality_rate\")\n  .filter(pl.col(\"infant_mortality_rate\").is_null())\n  .join(cia_ecosec, on=[\"name\", \"slug\", \"region\"], how=\"left\")\n  .select(\"name\", \"real_gdp_per_capita\")\n  .group_by(pl.col('real_gdp_per_capita').is_null())\n  .agg(pl.len())\n)\n\n\nshape: (2, 2)\n\n\n\nreal_gdp_per_capita\nlen\n\n\nbool\nu32\n\n\n\n\nfalse\n3\n\n\ntrue\n7"
   },
   {
     "objectID": "4_Wrangling_joins_sol.html#challenge-6",
@@ -803,6 +810,13 @@
     "title": "Practical 6: Producing reports with Quarto",
     "section": "",
     "text": "Under preparation"
+  },
+  {
+    "objectID": "Ames_houses.html",
+    "href": "Ames_houses.html",
+    "title": "Ames Housing Data",
+    "section": "",
+    "text": "The dataset is selected and tranformed set of variables from Dr. Dean De Cock and contains the following columns\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\nVariable2\n\n\n\n\nMS_SubClass\ncategorical\nthe type of dwelling involved in the sale\nMS_SubClass\n\n\nLot_Frontage\ncontinuous\nlinear feet of street connected to property\nLot_Frontage\n\n\nLot_Area\ncontinuous\nlot size in square feet\nLot_Area\n\n\nStreet\ncategorical\nthe type of road access to property\nStreet\n\n\nUTM_x\ncontinuous\nUTM x coordinate (easting) in meters\nUTM_x\n\n\nUTM_y\ncontinuous\nUTM y coordinate (northing) in meters\nUTM_y\n\n\nSchool_District\ncategorical\nSchool district for elementary school\nSchool_District\n\n\nBldg_Type\ncategorical\nType of dwelling\nBldg_Type\n\n\nOverall_Cond\ncategorical\nRating of the overall condition of the house\nOverall_Cond\n\n\nYear_Built\ncontinuous/ordinal\nOriginal construction date\nYear_Built\n\n\nYear_Remod_Add\ncontinuous/ordinal\nRemodel date (same as construction date if no remodeling)\nYear_Remod_Add\n\n\nRoof_Style\ncategorical\nType of roof\nRoof_Style\n\n\nGr_Liv_Area\ncontinuous\nAbove grade (ground) living area square feet\nGr_Liv_Area\n\n\nTotal_Bsmt_SF\ncontinuous\nTotal square feet of basement area\nTotal_Bsmt_SF\n\n\nBsmt_Unf_SF\ncontinuous\nUnfinished square feet of basement area\nBsmt_Unf_SF\n\n\nBsmt_Full_Bath\ncontinuous\nBasement full bathrooms\nBsmt_Full_Bath\n\n\nBsmt_Half_Bath\ncontinuous\nBasement half bathrooms\nBsmt_Half_Bath\n\n\nFull_Bath\ncontinuous\nFull bathrooms above grade\nFull_Bath\n\n\nHalf_Bath\ncontinuous\nHalf baths above grade\nHalf_Bath\n\n\nBedroom_AbvGr\ncontinuous\nBedrooms above grade (does NOT include basement bedrooms)\nBedroom_AbvGr\n\n\nGarage_Type\ncategorical\nGarage location\nGarage_Type\n\n\nGarage_Area\ncontinuous\nSize of garage in square feet\nGarage_Area\n\n\nYear_Sold\ncontinuous\nYear Sold\nYear_Sold\n\n\nMo_Sold\ncontinuous\nMonth Sold\nMo_Sold\n\n\nYM_Sold\ndate\nDate of sale (year and month)\nYM_Sold\n\n\nSale_Condition\ncategorical\nCondition of sale\nSale_Condition\n\n\nSale_Price\ncontinuous\nSale price\nSale_Price"
   },
   {
     "objectID": "CIA.html",

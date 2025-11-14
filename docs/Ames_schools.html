@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – LUDataLiteracy</title>
+<title>Ames schools – LUDataLiteracy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,18 +66,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <style>
-div.callout-question.callout {
-  border-left-color: pink;
-}
-div.callout-question.callout-style-default > .callout-header {
-  background-color: rgb(from pink r g b / 13%);
-}
-div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
-  content: '🧠';
-  background-image: none;
-}
 div.callout-challenge.callout {
   border-left-color: firebrick;
 }
@@ -87,6 +79,17 @@ div.callout-challenge.callout-style-default > .callout-header {
 div.callout-challenge .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-challenge.callout-style-default .callout-icon::before, div.callout-challenge.callout-titled .callout-icon::before {
   content: '🛠️';
+  background-image: none;
+}
+div.callout-question.callout {
+  border-left-color: pink;
+}
+div.callout-question.callout-style-default > .callout-header {
+  background-color: rgb(from pink r g b / 13%);
+}
+div.callout-question .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-question.callout-style-default .callout-icon::before, div.callout-question.callout-titled .callout-icon::before {
+  content: '🧠';
   background-image: none;
 }
 </style>
@@ -200,7 +203,7 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -222,7 +225,7 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Ames schools</h1>
 </div>
 
 
@@ -239,9 +242,123 @@ div.callout-challenge.callout-style-default .callout-icon::before, div.callout-c
 </header>
 
 
-<p>This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.</p>
-<p>Practicals are under construction and the state preliminary until the scheduled help sessions.</p>
-<p>Solutions will be published after each Practical for further practice.</p>
+<p>The dataset was retrieved <a href="https://www.usnews.com/education/k12/elementary-schools/iowa">here</a> in 2025, and contains the following columns</p>
+<div id="324b48cb" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div id="glkfndgzpi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#glkfndgzpi table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#glkfndgzpi thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#glkfndgzpi p { margin: 0; padding: 0; }
+ #glkfndgzpi .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #004D80; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #004D80; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #glkfndgzpi .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #glkfndgzpi .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #glkfndgzpi .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #glkfndgzpi .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #glkfndgzpi .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; }
+ #glkfndgzpi .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #glkfndgzpi .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #glkfndgzpi .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #glkfndgzpi .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #glkfndgzpi .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #glkfndgzpi .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #glkfndgzpi .gt_spanner_row { border-bottom-style: hidden; }
+ #glkfndgzpi .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #glkfndgzpi .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; vertical-align: middle; }
+ #glkfndgzpi .gt_from_md> :first-child { margin-top: 0; }
+ #glkfndgzpi .gt_from_md> :last-child { margin-bottom: 0; }
+ #glkfndgzpi .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: none; border-top-width: 1px; border-top-color: #89D3FE; border-left-style: none; border-left-width: 1px; border-left-color: #89D3FE; border-right-style: none; border-right-width: 1px; border-right-color: #89D3FE; vertical-align: middle; overflow-x: hidden; }
+ #glkfndgzpi .gt_stub { color: #FFFFFF; background-color: #0076BA; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #0076BA; padding-left: 5px; padding-right: 5px; }
+ #glkfndgzpi .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #glkfndgzpi .gt_row_group_first td { border-top-width: 2px; }
+ #glkfndgzpi .gt_row_group_first th { border-top-width: 2px; }
+ #glkfndgzpi .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #glkfndgzpi .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #0076BA; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #0076BA; }
+ #glkfndgzpi .gt_grand_summary_row { color: #333333; background-color: #89D3FE; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #glkfndgzpi .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #glkfndgzpi .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #glkfndgzpi .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #glkfndgzpi .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #glkfndgzpi .gt_left { text-align: left; }
+ #glkfndgzpi .gt_center { text-align: center; }
+ #glkfndgzpi .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #glkfndgzpi .gt_font_normal { font-weight: normal; }
+ #glkfndgzpi .gt_font_bold { font-weight: bold; }
+ #glkfndgzpi .gt_font_italic { font-style: italic; }
+ #glkfndgzpi .gt_super { font-size: 65%; }
+ #glkfndgzpi .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #glkfndgzpi .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
+<th id="Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Type</th>
+<th id="Description" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Description</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left">District</td>
+<td class="gt_row gt_left">categorical</td>
+<td class="gt_row gt_left">School district (elementary school)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">UTM_x</td>
+<td class="gt_row gt_left gt_striped">continuous</td>
+<td class="gt_row gt_left gt_striped">School UTM x coordinate (easting) in meters</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">UTM_y</td>
+<td class="gt_row gt_left">continuous</td>
+<td class="gt_row gt_left">School UTM y coordinate (northing) in meters</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Students</td>
+<td class="gt_row gt_left gt_striped">continuous</td>
+<td class="gt_row gt_left gt_striped">Number of students</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Teachers</td>
+<td class="gt_row gt_left">continuous</td>
+<td class="gt_row gt_left">Number of students</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Math_Prof</td>
+<td class="gt_row gt_left gt_striped">continuous</td>
+<td class="gt_row gt_left gt_striped">Math proficiency (% of students)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">Reading_Prof</td>
+<td class="gt_row gt_left">continuous</td>
+<td class="gt_row gt_left">Reading proficiency (% of students)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped">Score</td>
+<td class="gt_row gt_left gt_striped">continuous</td>
+<td class="gt_row gt_left gt_striped">Overall score based on proficiency and expected proficiency</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">IowaRank</td>
+<td class="gt_row gt_left">continuous</td>
+<td class="gt_row gt_left">Ranking in Iowa, based on Score</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
 
 
 
