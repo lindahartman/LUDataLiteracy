@@ -1,13 +1,13 @@
 Variable,Type,Description
-MS_SubClass,categorical,the type of dwelling involved in the sale
+MS_SubClass,categorical,Municipality classification of dwelling involved in the sale
+Bldg_Type,categorical,Building type of dwelling
+Overall_Cond,categorical,Rating of the overall condition of the house
 Lot_Frontage,continuous,linear feet of street connected to property
 Lot_Area,continuous,lot size in square feet
 Street,categorical,the type of road access to property
 UTM_x,continuous,UTM x coordinate (easting) in meters
 UTM_y,continuous,UTM y coordinate (northing) in meters
 School_District,categorical,School district for elementary school
-Bldg_Type,categorical,Type of dwelling
-Overall_Cond,categorical,Rating of the overall condition of the house
 Year_Built,continuous/ordinal,Original construction date
 Year_Remod_Add,continuous/ordinal,Remodel date (same as construction date if no remodeling)
 Roof_Style,categorical,Type of roof
