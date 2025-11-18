@@ -37,11 +37,11 @@ Then import the datasets for this practical. Add another code cell below (using 
 
 ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
 
-cia_area = pl.read_csv("data/factbook_area_2024.csv")
-cia_commtran = pl.read_csv("data/factbook_comm_transport_2024.csv")
-cia_ecosec = pl.read_csv("data/factbook_economy_security_2024.csv")
-cia_enenv = pl.read_csv("data/factbook_energy_environment_2024.csv")
-cia_pplsoc = pl.read_csv("data/factbook_people_society_2024.csv")
+cia_area = pl.read_csv("https://bit.ly/data24ciaarea")
+cia_commtran = pl.read_csv("https://bit.ly/data24ciacommtran")
+cia_ecosec = pl.read_csv("https://bit.ly/data24ciaecosec")
+cia_enenv = pl.read_csv("https://bit.ly/data24ciaenenv")
+cia_pplsoc = pl.read_csv("https://bit.ly/data24ciapplsoc")
 iso_df = pl.read_csv("https://bit.ly/data24-countrycodes")
 ```
 
@@ -57,6 +57,7 @@ Answer the following challenges using [CIA](CIA.qmd) datasets.
 Calculate share of GDP from sources other than industry, services and agriculture for all countries in Africa. Present results in great table sorted from largest to smallest. Do you find anything strange about the data?
 :::
 
+
 ```{python}
 (
     cia_ecosec
@@ -66,9 +67,20 @@ Calculate share of GDP from sources other than industry, services and agricultur
     .group_by('name')
     .agg(other_sources=100-pl.col('value').sum())
     .sort('other_sources', descending=True)
+    .pipe(GT)
+     .cols_label(name="Country",
+                 other_sources="GDP from other sector (%)"
+                )
+     .fmt_number('other_sources',decimals=1)
+     .tab_header(title="GDP share from other sectors*",
+         subtitle="Africal countries, sorted by share")
+       .tab_source_note(" Other than industry, services and agriculture")
+         .opt_stylize(style=1)
+   
+
 )
 
-
+    
 ```
 
 ## Challenge 2
@@ -78,7 +90,9 @@ Calculate share of GDP from sources other than industry, services and agricultur
 | Select the summary percentiles produced by the `.describe()` method for all variables containing the term "rate" in the People and Society dataset and plot the point estimates using a set of points for every variable. Color the points by the percentile level.
 | :bulb: Minimum value is corresponding to the 0th percentile and maximum is coinciding with the 100th percentile.
 | :bulb: If you want to convert percentile string value to a number try `str.replace("%","").str.to_integer()`
+
 :::
+
 
 ```{python}
 (
@@ -92,6 +106,7 @@ Calculate share of GDP from sources other than industry, services and agricultur
                         .when(pl.col("statistic")=="max")
                         .then(pl.lit("100%"))
                         .otherwise(pl.col("statistic")))
+  # Make numeric statistic to sort correctly in label
   .with_columns(pl.col('statistic').
    str.replace("%","").str.to_integer().alias("statisticI"))
     .pipe(ggplot, aes(x="variable", y="value", color="reorder(statistic,statisticI)"))

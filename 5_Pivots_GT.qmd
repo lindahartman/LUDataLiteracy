@@ -34,14 +34,13 @@ Then import the datasets for this practical. Add another code cell below (using 
 ```{python}
 # | echo: true
 # | include: true
-
 ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
 
-cia_area = pl.read_csv("data/factbook_area_2024.csv")
-cia_commtran = pl.read_csv("data/factbook_comm_transport_2024.csv")
-cia_ecosec = pl.read_csv("data/factbook_economy_security_2024.csv")
-cia_enenv = pl.read_csv("data/factbook_energy_environment_2024.csv")
-cia_pplsoc = pl.read_csv("data/factbook_people_society_2024.csv")
+cia_area = pl.read_csv("https://bit.ly/data24ciaarea")
+cia_commtran = pl.read_csv("https://bit.ly/data24ciacommtran")
+cia_ecosec = pl.read_csv("https://bit.ly/data24ciaecosec")
+cia_enenv = pl.read_csv("https://bit.ly/data24ciaenenv")
+cia_pplsoc = pl.read_csv("https://bit.ly/data24ciapplsoc")
 iso_df = pl.read_csv("https://bit.ly/data24-countrycodes")
 ```
 
