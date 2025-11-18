@@ -30,6 +30,7 @@ website:
           - 2_DataViz_wrangling_sol.qmd
           - 3_Wrangling_GT_sol.qmd
           - 4_Wrangling_joins_sol.qmd
+          - 5_Pivots_GT_sol.qmd
       - text: "Data"
         menu:
           - Utrecht.qmd
