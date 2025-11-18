@@ -102,6 +102,7 @@ Calculate share of GDP from sources other than industry, services and agricultur
 :::
 
 ```{python}
+#| include: true
 (
     cia_pplsoc.describe()
     .select("statistic", cs.contains("rate"))
@@ -115,8 +116,8 @@ Calculate share of GDP from sources other than industry, services and agricultur
         .otherwise(pl.lit("q_") + pl.col("statistic"))
     )
     .pivot(on="statistic", values="value")
-    .pipe(ggplot)
-    + geom_point(aes(y="q_50%", x="variable"), size=3)
+    .pipe(ggplot)+
+    geom_point(aes(y="q_50%", x="variable"), size=3)
     + geom_segment(aes(x="variable", xend="variable", y="q_25%", yend="q_75%"), size=2)
     + geom_segment(aes(x="variable", xend="variable", y="q_0%", yend="q_100%"), size=0.5)
     + coord_flip()
@@ -168,4 +169,95 @@ Calculate share of GDP from sources other than industry, services and agricultur
     .fmt_percent(columns=cs.numeric(), decimals=1)
     .opt_stylize(1)
 )
+```
+
+## Challenge 6
+
+:::{.challenge}
+| Show the densty plot of every numeric variable in the People and Societies dataset as small multiples (facets), three subplots in each row.
+| :bulb: You will need to free up the scales as `facet_wrap(scales='free')`
+:::
+
+```{python}
+(
+    cia_pplsoc
+    .drop("slug", "region")
+    .unpivot(index="name")
+    .pipe(ggplot)+
+    geom_density(aes(x="value"))+
+    facet_wrap("variable", scales="free", ncol=3)
+)
+```
+
+## Challenge 7
+
+:::{.challenge}
+Pivot the descriptive table (`.describe()`) for all numeric variables in the Energy and Environment dataset, making it one row per variable (instead of one column per variable). Do you find this presentation of the summary statistics easier to read?
+:::
+
+```{python}
+(
+    cia_enenv
+    .select(cs.numeric())
+    .describe()
+    .unpivot(index="statistic")
+    .pivot(on="statistic", index="variable")
+)
+```
+
+
+# Utrecht
+
+Answer the following challenges using the [Utrecht](Utrecht.qmd) dataset.
+
+## Challenge 8
+
+:::{.challenge}
+| Your friend is torn between choosing a small studio downtown Utrecht (located in Javastraat, ID = 5068) or one of the similarly-priced (same asking price) apartments along the Moerashoeve street in Nieuwegein. Could you show these two options side by side in a great table, showing the meaningful variables of comparison to highlight the trade-offs your friend will be making when choosing between these two options? Show the difference between the respective values in absolute values and in percent.
+| :bulb: If you want to extract a value, subset it to 1x1 dataframe and then extract with `.item()`
+| :bulb: For the apartments in Nieuwegein, feel free to choose one that you think is the best. Explain your choice.
+:::
+
+```{python}
+(
+    ut.sort("asking_price")
+    .with_columns(price_diff=pl.col("asking_price").diff())
+    .filter(pl.col("price_diff") == 0)
+)
+## get the asking price
+budget = ut.filter(pl.col("id") == 5068).select("asking_price").item()
+
+# I take the largest retail value apartment in Nieuwegein, because otherwise apartment are the same.
+apt_neu = (
+    ut.filter(pl.col("city") == "Nieuwegein", pl.col("asking_price") == budget)
+    .sort("retail_value")
+    .tail(1)
+    .select("id")
+    .item()
+)
+
+(
+    ut.filter(pl.col("id").is_in([5068, apt_neu]))
+    .select(
+        # "id",
+        "house_area",
+        "garden_size",
+        "rooms",
+        "build_year",
+        "retail_value",
+        #    "energy_label",
+        "street",
+        #    "city",
+        "dist_from_train",
+    )
+    .unpivot(index="street")
+    .pivot(on="street", values="value")
+    .with_columns(
+        difference=pl.col("Moerashoeve") - pl.col("Javastraat"),
+        pct_difference=pl.col("Moerashoeve")/pl.col("Javastraat")-1)
+    .pipe(GT)
+    .fmt_percent(columns="pct_difference", decimals=1)
+    .opt_stylize(1)
+)
+
 ```

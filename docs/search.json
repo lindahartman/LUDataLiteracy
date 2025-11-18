@@ -7,347 +7,116 @@
     "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID\n\n\nzip_code4\nZip Code 4 digits\n\n\nzip_code6\nZip Code 6 symbols\n\n\nzip_code6_id\nZip Code 6 symbols ID\n\n\nhouse_type\nHouse Type: Apartment or House\n\n\nlot_area\nLot Aream, sqm\n\n\nhouse_area\nHouse Area, sqm\n\n\ngarden_size\nGarden Size, sqm\n\n\nrooms\nNumber of Rooms\n\n\nbathrooms\nNumber of Bathrooms\n\n\nx_coor\nX Coordinate\n\n\ny_coor\nY Coordinate\n\n\nbuild_year\nBuild Year\n\n\nretail_value\nRetail Value, k€\n\n\nasking_price\nAsking Price, k€\n\n\nenergy_label\nEnergy Label ('A++' to 'G')\n\n\nenergy_eff\nBinary variable equal 1 for energy labels A, A+, A++, and 0 otherwise\n\n\nvaluation_date\nValuation Date\n\n\nstreet\nStreet Name\n\n\nsubdistrict\nSubdistrict Name\n\n\ndistrict\nDistrict Name\n\n\ncity\nCity\n\n\ndist_from_train\nDistance from train, km"
   },
   {
-    "objectID": "CIA.html",
-    "href": "CIA.html",
-    "title": "CIA Factbook",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Getting started",
     "section": "",
-    "text": "The Area dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\narea_sqkm\nCountry area in sq km"
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
   },
   {
-    "objectID": "CIA.html#area",
-    "href": "CIA.html#area",
-    "title": "CIA Factbook",
+    "objectID": "index.html#shell-basics",
+    "href": "index.html#shell-basics",
+    "title": "Getting started",
     "section": "",
-    "text": "The Area dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\narea_sqkm\nCountry area in sq km"
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
   },
   {
-    "objectID": "CIA.html#commerce-and-transport",
-    "href": "CIA.html#commerce-and-transport",
-    "title": "CIA Factbook",
-    "section": "Commerce and Transport",
-    "text": "Commerce and Transport\nThe Commerce and Transport dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\nairports\nNumber of airports\n\n\nbroadband_fixed_subscriptions\nNumber of broadband subscriptions\n\n\ninternet_users\nNumber of internet users\n\n\nmerchant_marine\nNumber of merchant marine vessels\n\n\nrailways\nLength of railway network, in km\n\n\nroadways\nLength of road network, in km\n\n\ntelephone_fixed_line\nNumber of subscriptions for fixed line telephones\n\n\ntelephone_moblie_cellular\nNumber of subscriptions for mobile/cellular network\n\n\nwaterways\nLength of river network, in km"
+    "objectID": "index.html#installing-and-using-uv",
+    "href": "index.html#installing-and-using-uv",
+    "title": "Getting started",
+    "section": "Installing and using uv",
+    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
   },
   {
-    "objectID": "CIA.html#economy-and-security",
-    "href": "CIA.html#economy-and-security",
-    "title": "CIA Factbook",
-    "section": "Economy and Security",
-    "text": "Economy and Security\nThe Economy and Security dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\ncurrent_account_balance\nCurrent account balance, in USD\n\n\ndebt_external\nExternal debt, in USD\n\n\nexports\nExports, in USD\n\n\ngdp_composition_by_sector_of_origin_agriculture\nGDP from agriculture, in %\n\n\ngdp_composition_by_sector_of_origin_industry\nGDP from industry, in %\n\n\ngdp_composition_by_sector_of_origin_services\nGDP from services, in %\n\n\ngini_index_coefficient_distribution_of_family_income\nGini coefficients\n\n\nimports\nImports, in USD\n\n\nindustrial_production_growth_rate\nIndustrial production growth rate, in %\n\n\ninflation_rate_consumer_prices\nInflation, in %\n\n\nlabor_force\nLabor Force, number of people\n\n\nmilitary_expenditures\nMilitary expenditures, % of GDP\n\n\npublic_debt\nPublic debt, % of GDP\n\n\nreal_gdp_purchasing_power_parity\nReal GDP (PPP), in USD\n\n\nreal_gdp_growth_rate\nReal GDP growth rate, in %\n\n\nreal_gdp_per_capita\nReal GDP (PPP), in USD\n\n\nreserves_of_foreign_exchange_and_gold\nReserves, in USD\n\n\ntaxes_and_other_revenues\nTaxes and other revenues, % of GDP\n\n\nunemployment_rate\nUnemployment rate, in %\n\n\nyouth_unemployment_rate_ages_15_24\nYouth unemployment rate, in %"
+    "objectID": "index.html#python-project-setup",
+    "href": "index.html#python-project-setup",
+    "title": "Getting started",
+    "section": "Python & Project Setup",
+    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
   },
   {
-    "objectID": "CIA.html#energy-and-environment",
-    "href": "CIA.html#energy-and-environment",
-    "title": "CIA Factbook",
-    "section": "Energy and Environment",
-    "text": "Energy and Environment\nThe Energy and Environment dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\ncurrent_account_balance\ncurrent account balance, in USD\n\n\ndebt_external\nExternal debt, in USD\n\n\nexports\nExport in USD\n\n\ncarbon_dioxide_emissions\nCO2 emissions, in metric tonnes\n\n\nelectricity_installed_generating_capacity\ninstalled generating capacity in kW\n\n\nenergy_consumption_per_capita\nBtu/person\n\n\nrevenue_from_coal\nRevenue from coal in bln USD\n\n\nrevenue_from_forest_resources\nRevenue from forest in bln USD"
+    "objectID": "index.html#jupyter",
+    "href": "index.html#jupyter",
+    "title": "Getting started",
+    "section": "Jupyter",
+    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
   },
   {
-    "objectID": "CIA.html#people-and-society",
-    "href": "CIA.html#people-and-society",
-    "title": "CIA Factbook",
-    "section": "People and Society",
-    "text": "People and Society\nThe People and Society dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\nalcohol_consumption_per_capita\nAlcohol consumption, liter\n\n\nbirth_rate\nBirth rate, per 1000 population\n\n\nchildren_under_the_age_of_5_years_underweight\nChildren under the age of 5 years underweight, in %\n\n\ndeath_rate\nDeath rate, per 1000 population\n\n\neducation_expenditures\nEducation expenditure, % of GDP\n\n\ninfant_mortality_rate\nInfant morality rate, deaths per 1000 live births\n\n\nlife_expectancy_at_birth\nLife expectancy at birth, years\n\n\nmaternal_mortality_ratio\nMaternal morality ratio, deaths per 1000 live births\n\n\nmedian_age\nMedian age, years\n\n\nnet_migration_rate\nNet migration rate, migrants per 1000 population\n\n\nobesity_adult_prevalence_rate\nObesity, adult prevalence, in %\n\n\npopulation_total\nPopulation, ppl\n\n\npopulation_growth_rate\nPopulatio growth rate, in %\n\n\ntobacco_use\nTobacco use, in % of population\n\n\ntotal_fertility_rate\nTotal fertility rate, children born per woman"
-  },
-  {
-    "objectID": "2_DataViz_wrangling.html",
-    "href": "2_DataViz_wrangling.html",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "The objective of the tutorial is to give student a chance to practice the data visualization and data wrangling applying the skills learned through the video lessons on a new dataset."
+    "text": "This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.\nPracticals are under construction and the state preliminary until the scheduled help sessions.\nSolutions will be published after each Practical for further practice."
   },
   {
-    "objectID": "2_DataViz_wrangling.html#preparation",
-    "href": "2_DataViz_wrangling.html#preparation",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html",
+    "href": "5_Pivots_GT.html",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "",
+    "text": "The objective of the tutorial is to give student a chance to practice the data wrangling and joins applying the skills learned through the video lessons on a new dataset."
+  },
+  {
+    "objectID": "5_Pivots_GT.html#preparation",
+    "href": "5_Pivots_GT.html#preparation",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)"
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Pivots and great tables. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\nfrom great_tables import GT\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\n\ncia_area = pl.read_csv(\"data/factbook_area_2024.csv\")\ncia_commtran = pl.read_csv(\"data/factbook_comm_transport_2024.csv\")\ncia_ecosec = pl.read_csv(\"data/factbook_economy_security_2024.csv\")\ncia_enenv = pl.read_csv(\"data/factbook_energy_environment_2024.csv\")\ncia_pplsoc = pl.read_csv(\"data/factbook_people_society_2024.csv\")\niso_df = pl.read_csv(\"https://bit.ly/data24-countrycodes\")"
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-1",
-    "href": "2_DataViz_wrangling.html#challenge-1",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-1",
+    "href": "5_Pivots_GT.html#challenge-1",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate share of GDP from sources other than industry, services and agriculture for all countries in Africa. Present results in great table sorted from largest to smallest. Do you find anything strange about the data?"
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-2",
-    "href": "2_DataViz_wrangling.html#challenge-2",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-2",
+    "href": "5_Pivots_GT.html#challenge-2",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?\n💡 You can pass the data to plotnine using the .pipe() method."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nSelect the summary quantiles produced by the .describe() method for all variables containing the term “rate” in the People and Society dataset and plot the point estimates using a set of points for every variable. Color the points by the quantile level.\n💡 Minimum value is corresponding to the 0th quantile and maximum is coinciding with the 100th quantile."
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-3",
-    "href": "2_DataViz_wrangling.html#challenge-3",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-3",
+    "href": "5_Pivots_GT.html#challenge-3",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce the plot.\n💡 The plot is built using geom_segment()"
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-4",
-    "href": "2_DataViz_wrangling.html#challenge-4",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-4",
+    "href": "5_Pivots_GT.html#challenge-4",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCompare the values of variables containing the term “rate” in the People and Society dataset for Sweden and Denmark. Present results as a great table with two columns - one for each country.\n💡 See if you can make the table look more clean by replacing some symbols with .str.replace_all()"
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-5",
-    "href": "2_DataViz_wrangling.html#challenge-5",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-5",
+    "href": "5_Pivots_GT.html#challenge-5",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table comparing the proportion of missing values across all numeric columns in the joined CIA Factbook datasets by region."
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-6",
-    "href": "2_DataViz_wrangling.html#challenge-6",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-6",
+    "href": "5_Pivots_GT.html#challenge-6",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole-number division in Python is written as //"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nShow the densty plot of every numeric variable in the People and Societies dataset as small multiples (facets), three subplots in each row.\n💡 You will need to free up the scales as facet_wrap(scales='free')"
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-7",
-    "href": "2_DataViz_wrangling.html#challenge-7",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-7",
+    "href": "5_Pivots_GT.html#challenge-7",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can extract the ISO week number from the date using the .dt.week() method"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPivot the descriptive table (.describe()) for all numeric variables in the Energy and Environment dataset, making it one row per variable (instead of one column per variable). Do you find this presentation of the summary statistics easier to read?"
   },
   {
-    "objectID": "2_DataViz_wrangling.html#challenge-8",
-    "href": "2_DataViz_wrangling.html#challenge-8",
-    "title": "Practical 2: Data Visualization + Wrangling",
+    "objectID": "5_Pivots_GT.html#challenge-8",
+    "href": "5_Pivots_GT.html#challenge-8",
+    "title": "Practical 5: Pivots + great tables",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhich street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?\n💡 You can calculate the proportion using .over() clause"
-  },
-  {
-    "objectID": "2_DataViz_wrangling.html#challenge-9",
-    "href": "2_DataViz_wrangling.html#challenge-9",
-    "title": "Practical 2: Data Visualization + Wrangling",
-    "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nDefine the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?\nPlot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?\n💡 You can see the house on Google Street View if you search Google Maps using x_coor, y_coor."
-  },
-  {
-    "objectID": "2_DataViz_wrangling.html#challenge-10",
-    "href": "2_DataViz_wrangling.html#challenge-10",
-    "title": "Practical 2: Data Visualization + Wrangling",
-    "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the number of houses sold in each district.\n💡 Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the reorder() function in Plotnine and see if you can improve your plot with it."
-  },
-  {
-    "objectID": "2_DataViz_wrangling.html#challenge-11",
-    "href": "2_DataViz_wrangling.html#challenge-11",
-    "title": "Practical 2: Data Visualization + Wrangling",
-    "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?"
-  },
-  {
-    "objectID": "2_DataViz_wrangling.html#challenge-12",
-    "href": "2_DataViz_wrangling.html#challenge-12",
-    "title": "Practical 2: Data Visualization + Wrangling",
-    "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start()."
-  },
-  {
-    "objectID": "6_Quarto.html",
-    "href": "6_Quarto.html",
-    "title": "Practical 6: Producing reports with Quarto",
-    "section": "",
-    "text": "Under preparation"
-  },
-  {
-    "objectID": "1_DataViz_sol.html",
-    "href": "1_DataViz_sol.html",
-    "title": "Practical 1: Data Visualization",
-    "section": "",
-    "text": "This document contain a solved version of the first practical on Data Visualization with Plotnine.\nThe objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.\nRemember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours!"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#preparation",
-    "href": "1_DataViz_sol.html#preparation",
-    "title": "Practical 1: Data Visualization",
-    "section": "Preparation:",
-    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)\n\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-1",
-    "href": "1_DataViz_sol.html#challenge-1",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, k€', color='House type')\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-2",
-    "href": "1_DataViz_sol.html#challenge-2",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-3",
-    "href": "1_DataViz_sol.html#challenge-3",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-4",
-    "href": "1_DataViz_sol.html#challenge-4",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-5",
-    "href": "1_DataViz_sol.html#challenge-5",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-6",
-    "href": "1_DataViz_sol.html#challenge-6",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-7",
-    "href": "1_DataViz_sol.html#challenge-7",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-8",
-    "href": "1_DataViz_sol.html#challenge-8",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-9",
-    "href": "1_DataViz_sol.html#challenge-9",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-10",
-    "href": "1_DataViz_sol.html#challenge-10",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-11",
-    "href": "1_DataViz_sol.html#challenge-11",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-12",
-    "href": "1_DataViz_sol.html#challenge-12",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
-  },
-  {
-    "objectID": "1_DataViz.html",
-    "href": "1_DataViz.html",
-    "title": "Practical 1: Data Visualization",
-    "section": "",
-    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\nThe objective of the tutorial is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset."
-  },
-  {
-    "objectID": "1_DataViz.html#preparation",
-    "href": "1_DataViz.html#preparation",
-    "title": "Practical 1: Data Visualization",
-    "section": "Preparation:",
-    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-1",
-    "href": "1_DataViz.html#challenge-1",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-2",
-    "href": "1_DataViz.html#challenge-2",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-3",
-    "href": "1_DataViz.html#challenge-3",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-4",
-    "href": "1_DataViz.html#challenge-4",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-5",
-    "href": "1_DataViz.html#challenge-5",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-6",
-    "href": "1_DataViz.html#challenge-6",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?"
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-7",
-    "href": "1_DataViz.html#challenge-7",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!"
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-8",
-    "href": "1_DataViz.html#challenge-8",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-9",
-    "href": "1_DataViz.html#challenge-9",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-10",
-    "href": "1_DataViz.html#challenge-10",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-11",
-    "href": "1_DataViz.html#challenge-11",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot."
-  },
-  {
-    "objectID": "1_DataViz.html#challenge-12",
-    "href": "1_DataViz.html#challenge-12",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nYour friend is torn between choosing a small studio downtown Utrecht (located in Javastraat, ID = 5068) or one of the similarly-priced (same asking price) apartments along the Moerashoeve street in Nieuwegein. Could you show these two options side by side in a great table, showing the meaningful variables of comparison to highlight the trade-offs your friend will be making when choosing between these two options? Show the difference between the respective values in absolute values and in percent.\n💡 If you want to extract a value, subset it to 1x1 dataframe and then extract with .item()\n💡 For the apartments in Nieuwegein, feel free to choose one that you think is the best. Explain your choice."
   },
   {
     "objectID": "3_Wrangling_GT.html",
@@ -448,46 +217,298 @@
     "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot\n💡 You can use .dt.month_start() to floor the date to beginning of the month"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "2_DataViz_wrangling.html",
+    "href": "2_DataViz_wrangling.html",
+    "title": "Practical 2: Data Visualization + Wrangling",
     "section": "",
-    "text": "This website hosts the Practicals for Lund University course MNXB07 Data Literacy with Python.\nPracticals are under construction and the state preliminary until the scheduled help sessions.\nSolutions will be published after each Practical for further practice."
+    "text": "The objective of the tutorial is to give student a chance to practice the data visualization and data wrangling applying the skills learned through the video lessons on a new dataset."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Getting started",
+    "objectID": "2_DataViz_wrangling.html#preparation",
+    "href": "2_DataViz_wrangling.html#preparation",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-1",
+    "href": "2_DataViz_wrangling.html#challenge-1",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-2",
+    "href": "2_DataViz_wrangling.html#challenge-2",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?\n💡 You can pass the data to plotnine using the .pipe() method."
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-3",
+    "href": "2_DataViz_wrangling.html#challenge-3",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-4",
+    "href": "2_DataViz_wrangling.html#challenge-4",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-5",
+    "href": "2_DataViz_wrangling.html#challenge-5",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-6",
+    "href": "2_DataViz_wrangling.html#challenge-6",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole-number division in Python is written as //"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-7",
+    "href": "2_DataViz_wrangling.html#challenge-7",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can extract the ISO week number from the date using the .dt.week() method"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-8",
+    "href": "2_DataViz_wrangling.html#challenge-8",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhich street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?\n💡 You can calculate the proportion using .over() clause"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-9",
+    "href": "2_DataViz_wrangling.html#challenge-9",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 9",
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nDefine the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?\nPlot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?\n💡 You can see the house on Google Street View if you search Google Maps using x_coor, y_coor."
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-10",
+    "href": "2_DataViz_wrangling.html#challenge-10",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 10",
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the number of houses sold in each district.\n💡 Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the reorder() function in Plotnine and see if you can improve your plot with it."
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-11",
+    "href": "2_DataViz_wrangling.html#challenge-11",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 11",
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?"
+  },
+  {
+    "objectID": "2_DataViz_wrangling.html#challenge-12",
+    "href": "2_DataViz_wrangling.html#challenge-12",
+    "title": "Practical 2: Data Visualization + Wrangling",
+    "section": "Challenge 12",
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start()."
+  },
+  {
+    "objectID": "1_DataViz.html",
+    "href": "1_DataViz.html",
+    "title": "Practical 1: Data Visualization",
     "section": "",
-    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
+    "text": "This is the tutorial for the first practical on Data Visualization with Plotnine\nThe objective of the tutorial is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset."
   },
   {
-    "objectID": "index.html#shell-basics",
-    "href": "index.html#shell-basics",
-    "title": "Getting started",
+    "objectID": "1_DataViz.html#preparation",
+    "href": "1_DataViz.html#preparation",
+    "title": "Practical 1: Data Visualization",
+    "section": "Preparation:",
+    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-1",
+    "href": "1_DataViz.html#challenge-1",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-2",
+    "href": "1_DataViz.html#challenge-2",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-3",
+    "href": "1_DataViz.html#challenge-3",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-4",
+    "href": "1_DataViz.html#challenge-4",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-5",
+    "href": "1_DataViz.html#challenge-5",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-6",
+    "href": "1_DataViz.html#challenge-6",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?"
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-7",
+    "href": "1_DataViz.html#challenge-7",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!"
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-8",
+    "href": "1_DataViz.html#challenge-8",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-9",
+    "href": "1_DataViz.html#challenge-9",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 9",
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-10",
+    "href": "1_DataViz.html#challenge-10",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 10",
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-11",
+    "href": "1_DataViz.html#challenge-11",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 11",
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot."
+  },
+  {
+    "objectID": "1_DataViz.html#challenge-12",
+    "href": "1_DataViz.html#challenge-12",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 12",
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
+  },
+  {
+    "objectID": "1_DataViz_sol.html",
+    "href": "1_DataViz_sol.html",
+    "title": "Practical 1: Data Visualization",
     "section": "",
-    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
+    "text": "This document contain a solved version of the first practical on Data Visualization with Plotnine.\nThe objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.\nRemember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours!"
   },
   {
-    "objectID": "index.html#installing-and-using-uv",
-    "href": "index.html#installing-and-using-uv",
-    "title": "Getting started",
-    "section": "Installing and using uv",
-    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
+    "objectID": "1_DataViz_sol.html#preparation",
+    "href": "1_DataViz_sol.html#preparation",
+    "title": "Practical 1: Data Visualization",
+    "section": "Preparation:",
+    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)\n\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
   },
   {
-    "objectID": "index.html#python-project-setup",
-    "href": "index.html#python-project-setup",
-    "title": "Getting started",
-    "section": "Python & Project Setup",
-    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
+    "objectID": "1_DataViz_sol.html#challenge-1",
+    "href": "1_DataViz_sol.html#challenge-1",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, k€', color='House type')\n)"
   },
   {
-    "objectID": "index.html#jupyter",
-    "href": "index.html#jupyter",
-    "title": "Getting started",
-    "section": "Jupyter",
-    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
+    "objectID": "1_DataViz_sol.html#challenge-2",
+    "href": "1_DataViz_sol.html#challenge-2",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-3",
+    "href": "1_DataViz_sol.html#challenge-3",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values."
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-4",
+    "href": "1_DataViz_sol.html#challenge-4",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-5",
+    "href": "1_DataViz_sol.html#challenge-5",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-6",
+    "href": "1_DataViz_sol.html#challenge-6",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-7",
+    "href": "1_DataViz_sol.html#challenge-7",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-8",
+    "href": "1_DataViz_sol.html#challenge-8",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-9",
+    "href": "1_DataViz_sol.html#challenge-9",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 9",
+    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-10",
+    "href": "1_DataViz_sol.html#challenge-10",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 10",
+    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-11",
+    "href": "1_DataViz_sol.html#challenge-11",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 11",
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
+  },
+  {
+    "objectID": "1_DataViz_sol.html#challenge-12",
+    "href": "1_DataViz_sol.html#challenge-12",
+    "title": "Practical 1: Data Visualization",
+    "section": "Challenge 12",
+    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html",
@@ -522,7 +543,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-3",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?\n\n\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='house_area', y='asking_price'))+\n    geom_point(aes(size='lot_area&gt;300', color='build_year'))+\n    geom_smooth(method='lm')\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='x_coor', y='y_coor'))+\n    geom_jitter(aes(color='lot_area&gt;300'))\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('lot_area')&gt;300)\n    .select(pl.col('zip_code4'))\n)\n\n/home/dm0737pe/Projects/DATA24/.venv/lib/python3.13/site-packages/plotnine/scales/scale_size.py:46: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nshape: (2, 1)\n\n\n\nzip_code4\n\n\ni64\n\n\n\n\n3543\n\n\n3543"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?\n\n\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='house_area', y='asking_price'))+\n    geom_point(aes(size='lot_area&gt;300', color='build_year'))+\n    geom_smooth(method='lm')\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('build_year')&gt;1900)\n    .pipe(ggplot, aes(x='x_coor', y='y_coor'))+\n    geom_jitter(aes(color='lot_area&gt;300'))\n)\n\n(\nut\n    .filter(pl.col('house_type')=='woonhuis')\n    .filter(pl.col('lot_area')&gt;300)\n    .select(pl.col('zip_code4'))\n)\n\nC:\\Users\\DmytroPerepolkin\\Projects\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\scales\\scale_size.py:46: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nshape: (2, 1)\n\n\n\nzip_code4\n\n\ni64\n\n\n\n\n3543\n\n\n3543"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-4",
@@ -536,7 +557,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3521\n2\n\n\n…\n…\n\n\n3581\n1\n\n\n3584\n1\n\n\n3527\n1\n\n\n3531\n1\n\n\n3451\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3438\n2\n\n\n…\n…\n\n\n3453\n1\n\n\n3533\n1\n\n\n3584\n1\n\n\n3554\n1\n\n\n3581\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-6",
@@ -578,7 +599,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n5417600130\n2\n\n\n722039087\n2\n\n\n9809000020\n2\n\n\n9407110710\n2\n\n\n…\n…\n\n\n251300110\n2\n\n\n4154300296\n2\n\n\n4031000520\n2\n\n\n8832900780\n2\n\n\n3578401060\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n9407110710\n2\n\n\n1788800630\n2\n\n\n5249801440\n2\n\n\n5417600130\n2\n\n\n…\n…\n\n\n5132000140\n2\n\n\n2767603612\n2\n\n\n641900050\n2\n\n\n4031000520\n2\n\n\n5430300171\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-12",
@@ -586,13 +607,6 @@
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 12",
     "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start().\n\n\n\n(\n    kc\n    .with_columns(monyear=pl.col('date').dt.month_start(),\n                ppsqm=pl.col('price')/pl.col('sqft_living'))\n    .group_by('monyear')\n    .agg(av_ppsqm=pl.col('ppsqm').mean())\n    .pipe(ggplot, aes(x='monyear', y='av_ppsqm'))+\n    geom_line()\n)\n\n(\n    kc\n    .with_columns(monyear=pl.col('date').dt.month_start(),\n                ppsqm=pl.col('price')/pl.col('sqft_living'))\n    .pipe(ggplot, aes(x='date', y='ppsqm'))+\n    geom_smooth(method='lm', color=\"blue\")\n)\n\n(\n    kc\n    .with_columns(monyear=pl.col('date').dt.month_start(),\n                ppsqm=pl.col('price')/pl.col('sqft_living'))\n    .group_by('monyear', 'district')\n    .agg(av_ppsqm=pl.col('ppsqm').mean())\n    .pipe(ggplot, aes(x='monyear', y='av_ppsqm'))+\n    geom_smooth(method='lm')+\n    facet_wrap('district')\n)"
-  },
-  {
-    "objectID": "5_Pivots_GT.html",
-    "href": "5_Pivots_GT.html",
-    "title": "Practical 5: Pivots + Great Tables",
-    "section": "",
-    "text": "Under preparation"
   },
   {
     "objectID": "4_Wrangling_joins.html",
@@ -670,6 +684,55 @@
     "title": "Practical 4: Data Wrangling + joins",
     "section": "Challenge 10",
     "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail retail value vs the house area of the houses whose price per square meter AND lot area are above the respective median values for their district. Color the points by district and show lot area with the point size. Is the relationship linear?"
+  },
+  {
+    "objectID": "6_Quarto.html",
+    "href": "6_Quarto.html",
+    "title": "Practical 6: Producing reports with Quarto",
+    "section": "",
+    "text": "Under preparation"
+  },
+  {
+    "objectID": "CIA.html",
+    "href": "CIA.html",
+    "title": "CIA Factbook",
+    "section": "",
+    "text": "The Area dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\narea_sqkm\nCountry area in sq km"
+  },
+  {
+    "objectID": "CIA.html#area",
+    "href": "CIA.html#area",
+    "title": "CIA Factbook",
+    "section": "",
+    "text": "The Area dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\narea_sqkm\nCountry area in sq km"
+  },
+  {
+    "objectID": "CIA.html#commerce-and-transport",
+    "href": "CIA.html#commerce-and-transport",
+    "title": "CIA Factbook",
+    "section": "Commerce and Transport",
+    "text": "Commerce and Transport\nThe Commerce and Transport dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\nairports\nNumber of airports\n\n\nbroadband_fixed_subscriptions\nNumber of broadband subscriptions\n\n\ninternet_users\nNumber of internet users\n\n\nmerchant_marine\nNumber of merchant marine vessels\n\n\nrailways\nLength of railway network, in km\n\n\nroadways\nLength of road network, in km\n\n\ntelephone_fixed_line\nNumber of subscriptions for fixed line telephones\n\n\ntelephone_moblie_cellular\nNumber of subscriptions for mobile/cellular network\n\n\nwaterways\nLength of river network, in km"
+  },
+  {
+    "objectID": "CIA.html#economy-and-security",
+    "href": "CIA.html#economy-and-security",
+    "title": "CIA Factbook",
+    "section": "Economy and Security",
+    "text": "Economy and Security\nThe Economy and Security dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\ncurrent_account_balance\nCurrent account balance, in USD\n\n\ndebt_external\nExternal debt, in USD\n\n\nexports\nExports, in USD\n\n\ngdp_composition_by_sector_of_origin_agriculture\nGDP from agriculture, in %\n\n\ngdp_composition_by_sector_of_origin_industry\nGDP from industry, in %\n\n\ngdp_composition_by_sector_of_origin_services\nGDP from services, in %\n\n\ngini_index_coefficient_distribution_of_family_income\nGini coefficients\n\n\nimports\nImports, in USD\n\n\nindustrial_production_growth_rate\nIndustrial production growth rate, in %\n\n\ninflation_rate_consumer_prices\nInflation, in %\n\n\nlabor_force\nLabor Force, number of people\n\n\nmilitary_expenditures\nMilitary expenditures, % of GDP\n\n\npublic_debt\nPublic debt, % of GDP\n\n\nreal_gdp_purchasing_power_parity\nReal GDP (PPP), in USD\n\n\nreal_gdp_growth_rate\nReal GDP growth rate, in %\n\n\nreal_gdp_per_capita\nReal GDP (PPP), in USD\n\n\nreserves_of_foreign_exchange_and_gold\nReserves, in USD\n\n\ntaxes_and_other_revenues\nTaxes and other revenues, % of GDP\n\n\nunemployment_rate\nUnemployment rate, in %\n\n\nyouth_unemployment_rate_ages_15_24\nYouth unemployment rate, in %"
+  },
+  {
+    "objectID": "CIA.html#energy-and-environment",
+    "href": "CIA.html#energy-and-environment",
+    "title": "CIA Factbook",
+    "section": "Energy and Environment",
+    "text": "Energy and Environment\nThe Energy and Environment dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\ncurrent_account_balance\ncurrent account balance, in USD\n\n\ndebt_external\nExternal debt, in USD\n\n\nexports\nExport in USD\n\n\ncarbon_dioxide_emissions\nCO2 emissions, in metric tonnes\n\n\nelectricity_installed_generating_capacity\ninstalled generating capacity in kW\n\n\nenergy_consumption_per_capita\nBtu/person\n\n\nrevenue_from_coal\nRevenue from coal in bln USD\n\n\nrevenue_from_forest_resources\nRevenue from forest in bln USD"
+  },
+  {
+    "objectID": "CIA.html#people-and-society",
+    "href": "CIA.html#people-and-society",
+    "title": "CIA Factbook",
+    "section": "People and Society",
+    "text": "People and Society\nThe People and Society dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nname\nName of the country\n\n\nslug\nUnique country identifier on CIA factbook website\n\n\nregion\nRegion of the world where the country is located\n\n\nalcohol_consumption_per_capita\nAlcohol consumption, liter\n\n\nbirth_rate\nBirth rate, per 1000 population\n\n\nchildren_under_the_age_of_5_years_underweight\nChildren under the age of 5 years underweight, in %\n\n\ndeath_rate\nDeath rate, per 1000 population\n\n\neducation_expenditures\nEducation expenditure, % of GDP\n\n\ninfant_mortality_rate\nInfant morality rate, deaths per 1000 live births\n\n\nlife_expectancy_at_birth\nLife expectancy at birth, years\n\n\nmaternal_mortality_ratio\nMaternal morality ratio, deaths per 1000 live births\n\n\nmedian_age\nMedian age, years\n\n\nnet_migration_rate\nNet migration rate, migrants per 1000 population\n\n\nobesity_adult_prevalence_rate\nObesity, adult prevalence, in %\n\n\npopulation_total\nPopulation, ppl\n\n\npopulation_growth_rate\nPopulatio growth rate, in %\n\n\ntobacco_use\nTobacco use, in % of population\n\n\ntotal_fertility_rate\nTotal fertility rate, children born per woman"
   },
   {
     "objectID": "KingsCounty.html",
