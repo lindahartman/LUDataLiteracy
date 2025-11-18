@@ -2,8 +2,8 @@
 title: "Practical 5: Pivots + great tables"
 from: markdown+emoji
 execute:
-  include: false
-  echo: false
+  include: true
+  echo: true
 ---
 
 The objective of the tutorial is to give student a chance to practice the data wrangling and joins applying the skills learned through the video lessons on a new dataset.
@@ -73,6 +73,7 @@ Calculate share of GDP from sources other than industry, services and agricultur
 
 ## Challenge 2
 
+
 :::{.challenge}
 | Select the summary percentiles produced by the `.describe()` method for all variables containing the term "rate" in the People and Society dataset and plot the point estimates using a set of points for every variable. Color the points by the percentile level.
 | :bulb: Minimum value is corresponding to the 0th percentile and maximum is coinciding with the 100th percentile.
@@ -91,9 +92,12 @@ Calculate share of GDP from sources other than industry, services and agricultur
                         .when(pl.col("statistic")=="max")
                         .then(pl.lit("100%"))
                         .otherwise(pl.col("statistic")))
-    .pipe(ggplot, aes(x="variable", y="value", color="statistic"))
-    + geom_point(size=3)
-    + coord_flip()
+  .with_columns(pl.col('statistic').
+   str.replace("%","").str.to_integer().alias("statisticI"))
+    .pipe(ggplot, aes(x="variable", y="value", color="reorder(statistic,statisticI)"))
+     + geom_point(size=3)
+     + coord_flip()
+    +labs(color="Percentile")
 )
 ```
 
@@ -222,7 +226,6 @@ Answer the following challenges using the [Utrecht](Utrecht.qmd) dataset.
 :::
 
 ```{python}
-
 ## get the asking price
 budget = ut.filter(pl.col("id") == 5068).select("asking_price").item()
 
