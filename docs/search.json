@@ -58,9 +58,72 @@
   {
     "objectID": "5_Pivots_GT.html",
     "href": "5_Pivots_GT.html",
-    "title": "Practical 5: Pivots + Great Tables",
+    "title": "Practical 5: Pivots + great tables",
     "section": "",
-    "text": "Under preparation"
+    "text": "The objective of the tutorial is to give student a chance to practice the data wrangling and joins applying the skills learned through the video lessons on a new dataset."
+  },
+  {
+    "objectID": "5_Pivots_GT.html#preparation",
+    "href": "5_Pivots_GT.html#preparation",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Preparation",
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Pivots and great tables. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\nfrom great_tables import GT\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .\n\nut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\n\ncia_area = pl.read_csv(\"data/factbook_area_2024.csv\")\ncia_commtran = pl.read_csv(\"data/factbook_comm_transport_2024.csv\")\ncia_ecosec = pl.read_csv(\"data/factbook_economy_security_2024.csv\")\ncia_enenv = pl.read_csv(\"data/factbook_energy_environment_2024.csv\")\ncia_pplsoc = pl.read_csv(\"data/factbook_people_society_2024.csv\")\niso_df = pl.read_csv(\"https://bit.ly/data24-countrycodes\")"
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-1",
+    "href": "5_Pivots_GT.html#challenge-1",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate share of GDP from sources other than industry, services and agriculture for all countries in Africa. Present results in great table sorted from largest to smallest. Do you find anything strange about the data?"
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-2",
+    "href": "5_Pivots_GT.html#challenge-2",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nSelect the summary quantiles produced by the .describe() method for all variables containing the term “rate” in the People and Society dataset and plot the point estimates using a set of points for every variable. Color the points by the quantile level.\n💡 Minimum value is corresponding to the 0th quantile and maximum is coinciding with the 100th quantile."
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-3",
+    "href": "5_Pivots_GT.html#challenge-3",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 3",
+    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce the plot.\n💡 The plot is built using geom_segment()"
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-4",
+    "href": "5_Pivots_GT.html#challenge-4",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 4",
+    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCompare the values of variables containing the term “rate” in the People and Society dataset for Sweden and Denmark. Present results as a great table with two columns - one for each country.\n💡 See if you can make the table look more clean by replacing some symbols with .str.replace_all()"
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-5",
+    "href": "5_Pivots_GT.html#challenge-5",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 5",
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a great table comparing the proportion of missing values across all numeric columns in the joined CIA Factbook datasets by region."
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-6",
+    "href": "5_Pivots_GT.html#challenge-6",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 6",
+    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nShow the densty plot of every numeric variable in the People and Societies dataset as small multiples (facets), three subplots in each row.\n💡 You will need to free up the scales as facet_wrap(scales='free')"
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-7",
+    "href": "5_Pivots_GT.html#challenge-7",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 7",
+    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPivot the descriptive table (.describe()) for all numeric variables in the Energy and Environment dataset, making it one row per variable (instead of one column per variable). Do you find this presentation of the summary statistics easier to read?"
+  },
+  {
+    "objectID": "5_Pivots_GT.html#challenge-8",
+    "href": "5_Pivots_GT.html#challenge-8",
+    "title": "Practical 5: Pivots + great tables",
+    "section": "Challenge 8",
+    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nYour friend is torn between choosing a small studio downtown Utrecht (located in Javastraat, ID = 5068) or one of the similarly-priced (same asking price) apartments along the Moerashoeve street in Nieuwegein. Could you show these two options side by side in a great table, showing the meaningful variables of comparison to highlight the trade-offs your friend will be making when choosing between these two options? Show the difference between the respective values in absolute values and in percent.\n💡 If you want to extract a value, subset it to 1x1 dataframe and then extract with .item()\n💡 For the apartments in Nieuwegein, feel free to choose one that you think is the best. Explain your choice."
   },
   {
     "objectID": "4_Wrangling_joins.html",
@@ -578,7 +641,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3522\n2\n\n\n…\n…\n\n\n3532\n1\n\n\n3513\n1\n\n\n3573\n1\n\n\n3531\n1\n\n\n3511\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()\n\n\n\n(\n    ut\n    .select(cs.starts_with('zip'), cs.matches('street'), cs.matches('dist_from_train'))\n    .group_by(pl.col('zip_code4'))\n    .agg(n_str=pl.n_unique('street'))\n    .sort('n_str', descending=True)\n)\n\n(\n    ut\n    .filter(pl.col('zip_code4')==3544)\n    .group_by('street')\n    .agg(min_dist=pl.col('dist_from_train').min())\n    .sort('min_dist')\n)\n\n\nshape: (26, 2)\n\n\n\nzip_code4\nn_str\n\n\ni64\nu32\n\n\n\n\n3544\n5\n\n\n3452\n4\n\n\n3553\n3\n\n\n3543\n3\n\n\n3521\n2\n\n\n…\n…\n\n\n3584\n1\n\n\n3531\n1\n\n\n3581\n1\n\n\n3554\n1\n\n\n3513\n1\n\n\n\n\n\n\n\nshape: (5, 2)\n\n\n\nstreet\nmin_dist\n\n\nstr\nf64\n\n\n\n\n\"Klifrakplantsoen\"\n3.6\n\n\n\"Zandooghof\"\n4.32\n\n\n\"van der Broekstraat\"\n4.6\n\n\n\"Kees van Bohemenhof\"\n4.96\n\n\n\"Pablo Picassostraat\"\n5.43"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-6",
@@ -620,7 +683,7 @@
     "href": "2_DataViz_wrangling_sol.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n5101405604\n2\n\n\n7129304540\n2\n\n\n9809000020\n2\n\n\n6141100320\n2\n\n\n…\n…\n\n\n5132000140\n2\n\n\n5430300171\n2\n\n\n251300110\n2\n\n\n8832900780\n2\n\n\n5282200015\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?\n\n\n\n(\n    kc\n    .group_by('id')\n    .agg(pl.len())\n    .filter(pl.col('len')&gt;1)\n    .sort('len', descending=True)\n)\n\n(\n    kc\n    .filter(pl.col('id')==795000620)\n    .sort('date')\n    .select(diff=pl.col('price').diff())\n    .sum()\n)\n\n\nshape: (176, 2)\n\n\n\nid\nlen\n\n\ni64\nu32\n\n\n\n\n795000620\n3\n\n\n8910500150\n2\n\n\n2568300045\n2\n\n\n3333002450\n2\n\n\n3969300030\n2\n\n\n…\n…\n\n\n4364700600\n2\n\n\n4031000520\n2\n\n\n1630700361\n2\n\n\n3558900590\n2\n\n\n5430300171\n2\n\n\n\n\n\n\n\nshape: (1, 1)\n\n\n\ndiff\n\n\ni64\n\n\n\n\n42000"
   },
   {
     "objectID": "2_DataViz_wrangling_sol.html#challenge-12",
@@ -655,7 +718,7 @@
     "href": "3_Wrangling_GT_sol.html#challenge-2",
     "title": "Practical 3: Data Wrangling + great tables",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? What is the number of missing values in the energy_label column of these district?\n💡 To find out the number of houses in energy class B or better check out the meaning of columns energy_label and energy_eff. You might want to use both of them!\n💡 The logical OR operator in Python is denoted by |\n\n\n\n(\n    ut\n    .group_by('district')\n    .agg(pl.col('energy_label').is_null().sum().alias('energy_missing'))\n    .sort('energy_missing', descending=True)\n)\n\n\n(\n    ut\n    .with_columns(bplus=(pl.col('energy_label')=='B') | \n                        (pl.col('energy_eff')==1)\n                )\n    .group_by('district')\n    .agg(bplus_count=pl.col('bplus').sum(),\n        missing_count=pl.col('energy_label').is_null().sum())\n    .sort('bplus_count', descending=True)\n    .head(3)\n)\n\n\nshape: (3, 3)\n\n\n\ndistrict\nbplus_count\nmissing_count\n\n\nstr\nu32\nu32\n\n\n\n\n\"Leidsche Rijn\"\n25\n0\n\n\n\"Zuid-West\"\n25\n0\n\n\n\"Vleuten-De Meern\"\n17\n0"
+    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are top-3 districts with the largest number of properties in energy class B or better? What is the number of missing values in the energy_label column of these district?\n💡 To find out the number of houses in energy class B or better check out the meaning of columns energy_label and energy_eff. You might want to use both of them!\n💡 The logical OR operator in Python is denoted by |\n\n\n\n(\n    ut\n    .group_by('district')\n    .agg(pl.col('energy_label').is_null().sum().alias('energy_missing'))\n    .sort('energy_missing', descending=True)\n)\n\n\n(\n    ut\n    .with_columns(bplus=(pl.col('energy_label')=='B') | \n                        (pl.col('energy_eff')==1)\n                )\n    .group_by('district')\n    .agg(bplus_count=pl.col('bplus').sum(),\n        missing_count=pl.col('energy_label').is_null().sum())\n    .sort('bplus_count', descending=True)\n    .head(3)\n)\n\n\nshape: (3, 3)\n\n\n\ndistrict\nbplus_count\nmissing_count\n\n\nstr\nu32\nu32\n\n\n\n\n\"Zuid-West\"\n25\n0\n\n\n\"Leidsche Rijn\"\n25\n0\n\n\n\"Vleuten-De Meern\"\n17\n0"
   },
   {
     "objectID": "3_Wrangling_GT_sol.html#challenge-3",
@@ -816,7 +879,7 @@
     "href": "Ames_houses.html",
     "title": "Ames Housing Data",
     "section": "",
-    "text": "The dataset is selected and tranformed set of variables from Dr. Dean De Cock and contains the following columns\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\n\n\n\n\nMS_SubClass\ncategorical\nthe type of dwelling involved in the sale\n\n\nLot_Frontage\ncontinuous\nlinear feet of street connected to property\n\n\nLot_Area\ncontinuous\nlot size in square feet\n\n\nStreet\ncategorical\nthe type of road access to property\n\n\nUTM_x\ncontinuous\nUTM x coordinate (easting) in meters\n\n\nUTM_y\ncontinuous\nUTM y coordinate (northing) in meters\n\n\nSchool_District\ncategorical\nSchool district for elementary school\n\n\nBldg_Type\ncategorical\nType of dwelling\n\n\nOverall_Cond\ncategorical\nRating of the overall condition of the house\n\n\nYear_Built\ncontinuous/ordinal\nOriginal construction date\n\n\nYear_Remod_Add\ncontinuous/ordinal\nRemodel date (same as construction date if no remodeling)\n\n\nRoof_Style\ncategorical\nType of roof\n\n\nGr_Liv_Area\ncontinuous\nAbove grade (ground) living area square feet\n\n\nTotal_Bsmt_SF\ncontinuous\nTotal square feet of basement area\n\n\nBsmt_Unf_SF\ncontinuous\nUnfinished square feet of basement area\n\n\nBsmt_Full_Bath\ncontinuous\nBasement full bathrooms\n\n\nBsmt_Half_Bath\ncontinuous\nBasement half bathrooms\n\n\nFull_Bath\ncontinuous\nFull bathrooms above grade\n\n\nHalf_Bath\ncontinuous\nHalf baths above grade\n\n\nBedroom_AbvGr\ncontinuous\nBedrooms above grade (does NOT include basement bedrooms)\n\n\nGarage_Type\ncategorical\nGarage location\n\n\nGarage_Area\ncontinuous\nSize of garage in square feet\n\n\nYear_Sold\ncontinuous\nYear Sold\n\n\nMo_Sold\ncontinuous\nMonth Sold\n\n\nYM_Sold\ndate\nDate of sale (year and month)\n\n\nSale_Condition\ncategorical\nCondition of sale\n\n\nSale_Price\ncontinuous\nSale price ($)"
+    "text": "The dataset is selected and tranformed set of variables from Dr. Dean De Cock and contains the following columns\n\n\n\n\n\n\n\n\nVariable\nType\nDescription\n\n\n\n\nMS_SubClass\ncategorical\nMunicipality classification of dwelling involved in the sale\n\n\nBldg_Type\ncategorical\nBuilding type of dwelling\n\n\nOverall_Cond\ncategorical\nRating of the overall condition of the house\n\n\nLot_Frontage\ncontinuous\nlinear feet of street connected to property\n\n\nLot_Area\ncontinuous\nlot size in square feet\n\n\nStreet\ncategorical\nthe type of road access to property\n\n\nUTM_x\ncontinuous\nUTM x coordinate (easting) in meters\n\n\nUTM_y\ncontinuous\nUTM y coordinate (northing) in meters\n\n\nSchool_District\ncategorical\nSchool district for elementary school\n\n\nYear_Built\ncontinuous/ordinal\nOriginal construction date\n\n\nYear_Remod_Add\ncontinuous/ordinal\nRemodel date (same as construction date if no remodeling)\n\n\nRoof_Style\ncategorical\nType of roof\n\n\nGr_Liv_Area\ncontinuous\nAbove grade (ground) living area square feet\n\n\nTotal_Bsmt_SF\ncontinuous\nTotal square feet of basement area\n\n\nBsmt_Unf_SF\ncontinuous\nUnfinished square feet of basement area\n\n\nBsmt_Full_Bath\ncontinuous\nBasement full bathrooms\n\n\nBsmt_Half_Bath\ncontinuous\nBasement half bathrooms\n\n\nFull_Bath\ncontinuous\nFull bathrooms above grade\n\n\nHalf_Bath\ncontinuous\nHalf baths above grade\n\n\nBedroom_AbvGr\ncontinuous\nBedrooms above grade (does NOT include basement bedrooms)\n\n\nGarage_Type\ncategorical\nGarage location\n\n\nGarage_Area\ncontinuous\nSize of garage in square feet\n\n\nYear_Sold\ncontinuous\nYear Sold\n\n\nMo_Sold\ncontinuous\nMonth Sold\n\n\nYM_Sold\ndate\nDate of sale (year and month)\n\n\nSale_Condition\ncategorical\nCondition of sale\n\n\nSale_Price\ncontinuous\nSale price ($)"
   },
   {
     "objectID": "CIA.html",
