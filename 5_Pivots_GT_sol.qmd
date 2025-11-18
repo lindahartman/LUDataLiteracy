@@ -124,7 +124,34 @@ Calculate share of GDP from sources other than industry, services and agricultur
 :::
 
 ```{python}
-#| include: true
+#| echo: false
+(
+    cia_pplsoc.describe()
+    .select("statistic", cs.contains("rate"))
+    .tail(5)
+    .unpivot(index="statistic")
+    .with_columns(
+        statistic=pl.when(pl.col("statistic") == "min")
+        .then(pl.lit("q_0%"))
+        .when(pl.col("statistic") == "max")
+        .then(pl.lit("q_100%"))
+        .otherwise(pl.lit("q_") + pl.col("statistic"))
+    )
+    .pivot(on="statistic", values="value")
+    .pipe(ggplot)+
+    geom_point(aes(y="q_50%", x="variable"), size=3)
+    + geom_segment(aes(x="variable", xend="variable", y="q_25%", yend="q_75%"), size=2)
+    + geom_segment(aes(x="variable", xend="variable", y="q_0%", yend="q_100%"), size=0.5)
+    + coord_flip()
+    + labs(x="", y="Rate", title="People and Society metics",
+            subtitle="Min, max, median and interquartile range",
+            caption="Source: CIA Factbook 2024")
+)
+```
+
+
+```{python}
+#| output: false
 (
     cia_pplsoc.describe()
     .select("statistic", cs.contains("rate"))
