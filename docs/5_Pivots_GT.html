@@ -312,14 +312,14 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Pivots and great tables</code>. Then add a code cell and place the following code there.</p>
-<div id="f64a0b98" class="cell" data-execution_count="1">
+<div id="c35a9914" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .</p>
-<div id="0cd1ac84" class="cell" data-execution_count="2">
+<div id="517ce8ab" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cia_area <span class="op">=</span> pl.read_csv(<span class="st">"data/factbook_area_2024.csv"</span>)</span>
@@ -363,8 +363,9 @@ Challenge
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="line-block">Select the summary quantiles produced by the <code>.describe()</code> method for all variables containing the term “rate” in the People and Society dataset and plot the point estimates using a set of points for every variable. Color the points by the quantile level.<br>
-<span class="emoji" data-emoji="bulb">💡</span> Minimum value is corresponding to the 0th quantile and maximum is coinciding with the 100th quantile.</div>
+<div class="line-block">Select the summary percentiles produced by the <code>.describe()</code> method for all variables containing the term “rate” in the People and Society dataset and plot the point estimates using a set of points for every variable. Color the points by the percentile level.<br>
+<span class="emoji" data-emoji="bulb">💡</span> Minimum value is corresponding to the 0th percentile and maximum is coinciding with the 100th percentile.<br>
+<span class="emoji" data-emoji="bulb">💡</span> If you want to convert percentile string value to a number try <code>str.replace("%","").str.to_integer()</code></div>
 </div>
 </div>
 </section>
@@ -384,7 +385,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> The plot is built using <code>geom_segment()</code></div>
 </div>
 </div>
-<div id="539c0bb2" class="cell" data-execution_count="5">
+<div id="ae258439" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
