@@ -1,4 +1,35 @@
 ---
 title: "Practical 6: Producing reports with Quarto"
 ---
-Under preparation
+
+## Challenges
+:::{.callout-note}
+The following challenges are related to using [Quarto](https://quarto.org/docs/get-started/hello/jupyter.html) to style the report and prepare it for publication.
+
+Take one of the notebooks you prepared during the practical session and work on it iteratively implementing the features you learned about in the videos from the last module.
+:::
+
+
+:::{.challenge}
+| Add a front matter, specify the author information, title, subtitle and the automatically updated date.
+:::
+
+:::{.challenge}
+| Work on markdown cells to improve the narrative portion of your report. Include section headers, create bullet point lists, use **bold** and *italic* to emphasize important parts of the text.
+| :bulb: Did you know that you can [write equations](https://quarto.org/docs/get-started/authoring/jupyter.html#equations) in a markdown cell? Quarto will render it in a beautiful math font.
+:::
+
+:::{.challenge}
+| Provide labels to the cells which output `plotnine` figures. Add figure captions and refer to those figures in the markdown cells below the rendered images.
+| :bulb: Have a look at [these](https://quarto.org/docs/get-started/computations/jupyter.html#multiple-figures) instructions for rendering two figures side by side. Pay attentio to subcaptions and layout arguments.
+:::
+
+:::{.callout-tip}
+Did you know that these color blocks of text are called callouts? You can add them to your report following the instructions [here](https://quarto.org/docs/get-started/authoring/jupyter.html#callouts).
+:::
+
+:::{.challenge}
+Try rendering your report as HTML, as DOCX and as PDF (follow the TinyTex installation instructions in the video). Add a README file and populate it with instructions for how to run your analysis report.
+:::
+
+There's so much more to learn about Quarto. Bookmark this [guide](https://quarto.org/docs/output-formats/html-basics.html) and come back to it when you need to look up something.
