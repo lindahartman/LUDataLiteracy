@@ -316,14 +316,14 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal from your project directory using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Pivots and great tables</code>. Then add a code cell and place the following code there.</p>
-<div id="daef972c" class="cell" data-execution_count="1">
+<div id="8d1595f5" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import .</p>
-<div id="515082ab" class="cell" data-execution_count="2">
+<div id="2ba8f266" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24utrecht"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cia_area <span class="op">=</span> pl.read_csv(<span class="st">"https://bit.ly/data24ciaarea"</span>)</span>
@@ -389,7 +389,7 @@ Challenge
 <span class="emoji" data-emoji="bulb">💡</span> The plot is built using <code>geom_segment()</code></div>
 </div>
 </div>
-<div id="7cabc538" class="cell" data-execution_count="5">
+<div id="e47b355d" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
