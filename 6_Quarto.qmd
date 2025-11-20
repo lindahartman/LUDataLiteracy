@@ -1,4 +1,36 @@
 ---
 title: "Practical 6: Producing reports with Quarto"
 ---
-Under preparation
+
+## Challenges
+
+:::{.callout-note}
+These challenges focus on using Quarto[Quarto](https://quarto.org/docs/get-started/hello/jupyter.html) to style the report and prepare it for publication.
+
+Pick one of the notebooks you created during the practical session and iteratively apply the features demonstrated in the videos from the last module.
+:::
+
+
+:::{.challenge}
+| Add front matter to your notebook. Specify the title, subtitle, author information, and an automatically updated date.
+:::
+
+:::{.challenge}
+| Enhance the narrative in your markdown cells. Use section headers, bullet point lists, bold, and italic text to highlight key points.
+| :bulb: Tip: You can also [write equations](https://quarto.org/docs/get-started/authoring/jupyter.html#equations) in markdown cells. Quarto renders them in a clean, professional math font.
+:::
+
+:::{.challenge}
+| Label the cells that generate plotnine figures. Add figure captions and reference these figures in the markdown below the images.
+| :bulb: Check out [these instructions](https://quarto.org/docs/get-started/computations/jupyter.html#multiple-figures) for placing two figures side by side, including subcaptions and layout options.
+:::
+
+:::{.callout-tip}
+These colored blocks are called callouts. You can add them to your report—see instructions [here](https://quarto.org/docs/get-started/authoring/jupyter.html#callouts).
+:::
+
+:::{.challenge}
+Render your report in multiple formats: HTML, DOCX, and PDF (see the TinyTeX installation video for guidance). Create a README file with instructions on how to run your analysis report.
+:::
+
+There’s much more to explore in Quarto. Keep this [guide](https://quarto.org/docs/output-formats/html-basics.html) bookmarked for future reference.
