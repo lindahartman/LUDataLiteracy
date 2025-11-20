@@ -1,11 +1,12 @@
 ---
 title: "Practical 6: Producing reports with Quarto"
+from: markdown+emoji
 ---
 
 ## Challenges
 
 :::{.callout-note}
-These challenges focus on using Quarto[Quarto](https://quarto.org/docs/get-started/hello/jupyter.html) to style the report and prepare it for publication.
+These challenges focus on using [Quarto](https://quarto.org/docs/get-started/hello/jupyter.html) to style the report and prepare it for publication.
 
 Pick one of the notebooks you created during the practical session and iteratively apply the features demonstrated in the videos from the last module.
 :::
@@ -18,6 +19,7 @@ Pick one of the notebooks you created during the practical session and iterative
 :::{.challenge}
 | Enhance the narrative in your markdown cells. Use section headers, bullet point lists, bold, and italic text to highlight key points.
 | :bulb: Tip: You can also [write equations](https://quarto.org/docs/get-started/authoring/jupyter.html#equations) in markdown cells. Quarto renders them in a clean, professional math font.
+
 :::
 
 :::{.challenge}
