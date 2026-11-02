@@ -1,7 +1,16 @@
 project:
   type: website
   output-dir: docs
-
+  render:
+    - index.qmd
+    - 1_DataViz.qmd
+    - 1_DataViz_sol.qmd
+    - Utrecht.qmd
+    - KingsCounty.qmd
+    - CIA.qmd
+    - Ames_houses.qmd
+    - Ames_schools.qmd
+    - about.qmd
 brand: brand/_brand.yml
 
 execute:
@@ -19,18 +28,18 @@ website:
       - text: "Practicals"
         menu:
           - 1_DataViz.qmd
-          - 2_DataViz_wrangling.qmd
-          - 3_Wrangling_GT.qmd
-          - 4_Wrangling_joins.qmd
-          - 5_Pivots_GT.qmd
-          - 6_Quarto.qmd
-      - text: "Solutions"
-        menu:
-          - 1_DataViz_sol.qmd
-          - 2_DataViz_wrangling_sol.qmd
-          - 3_Wrangling_GT_sol.qmd
-          - 4_Wrangling_joins_sol.qmd
-          - 5_Pivots_GT_sol.qmd
+        #  - 2_DataViz_wrangling.qmd
+          #- 3_Wrangling_GT.qmd
+         # - 4_Wrangling_joins.qmd
+        #  - 5_Pivots_GT.qmd
+       #   - 6_Quarto.qmd
+    #  - text: "Solutions"
+     #   menu:
+         # - 1_DataViz_sol.qmd
+        #  - 2_DataViz_wrangling_sol.qmd
+         # - 3_Wrangling_GT_sol.qmd
+        #  - 4_Wrangling_joins_sol.qmd
+         # - 5_Pivots_GT_sol.qmd
       - text: "Data"
         menu:
           - Utrecht.qmd
