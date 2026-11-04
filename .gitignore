@@ -13,6 +13,9 @@ Thumbs.db
 
 /.quarto/
 
+#
+ignored_reports/
+
 ## Suggested additions from ChatGPT
 # -------------------------
 # Quarto website
