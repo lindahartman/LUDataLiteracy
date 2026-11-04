@@ -21,139 +21,6 @@
     "text": "The dataset contains the following columns\n\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nid\nUnique ID for each home sold\n\n\ndate\nDate of the home sale\n\n\nprice\nPrice of each home sold\n\n\nbedrooms\nNumber of bedrooms\n\n\nbathrooms\nNumber of bathrooms\n\n\nsqft_living\nSquare footage of the apartments interior living space\n\n\nsqft_lot\nSquare footage of the land space\n\n\nfloors\nNumber of floors\n\n\nwaterfront\nA dummy variable for whether the apartment was overlooking the waterfront or not\n\n\nview\nAn index from 0 to 4 of how good the view of the property was\n\n\ncondition\nAn index from 1 to 5 on the condition of the apartment\n\n\ngrade\nAn index from 1 to 13 where 1-3 falls short of building construction and design, 7 has an average level of construction and design and 11-13 have a high quality level of construction and design\n\n\nsqft_above\nSquare footage of the interior housing space above ground level\n\n\nsqft_basement\nSquare footage of the interior housing space below ground level\n\n\nyr_built\nYear the house was initially built\n\n\nyr_renovated\nYear of the house’s last renovation and, if not renovated, the year built\n\n\nzipcode\nZipcode the house belongs to\n\n\nlat\nLatitude\n\n\nlong\nLongitude\n\n\nsqft_living15\nAverage square footage of the apartments interior living space for the nearest 15 neighbors\n\n\nsqft_lot15\nAverage square footage of the land space for the nearest 15 neighbors\n\n\ndistrict\nSchool district name"
   },
   {
-    "objectID": "1_DataViz_sol.html",
-    "href": "1_DataViz_sol.html",
-    "title": "Practical 1: Data Visualization",
-    "section": "",
-    "text": "This document contain a solved version of the first practical on Data Visualization with Plotnine.\nThe objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.\nRemember that there is typically no right or wrong solution, eg. your solution can be correct even if it differs from ours!"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#preparation",
-    "href": "1_DataViz_sol.html#preparation",
-    "title": "Practical 1: Data Visualization",
-    "section": "Preparation:",
-    "text": "Preparation:\n\nNavigator’s computer\nPlease open the files you need for reference, they will be the navigator’s best tools to help the driver efficiently:\n\nOpen your self-created code-along notebook with the commands you tried during the preparatory videos.\nKeep this document on the screen\nOpen data dictionary for Utrecht data\n\nHave a look at the manuscripts for the preparatory videos. Although, texts are rather chatty, the code (and explanations) can be useful!\n\n\n\nDriver’s computer\n\n\n\n\n\n\nNote\n\n\n\nPlease open a terminal and navigate to the course folder you created during the installation and preparations (remember cd and ls). When terminal is in the correct location (mine is C:/Projects/Teaching/data-literacy-project/), start the Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization. Then add a code cell and place the following code there.\n\nimport polars as pl\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\n#ut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\nut = pl.read_csv(\"https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/utrecht_2025.csv\", try_parse_dates=True)\n#kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)\nkc = pl.read_csv('https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/kc_house_data.csv', try_parse_dates=True)\n\nSave the notebook, eg. as Practical1.ipynb.\nAfter the Practical, share the notebook (+ pyproject.toml) in your programming pair."
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-1",
-    "href": "1_DataViz_sol.html#challenge-1",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, k€', color='House type')\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-2",
-    "href": "1_DataViz_sol.html#challenge-2",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-3",
-    "href": "1_DataViz_sol.html#challenge-3",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values."
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-4",
-    "href": "1_DataViz_sol.html#challenge-4",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-5",
-    "href": "1_DataViz_sol.html#challenge-5",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-6",
-    "href": "1_DataViz_sol.html#challenge-6",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-7",
-    "href": "1_DataViz_sol.html#challenge-7",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-8",
-    "href": "1_DataViz_sol.html#challenge-8",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-9",
-    "href": "1_DataViz_sol.html#challenge-9",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-10",
-    "href": "1_DataViz_sol.html#challenge-10",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-11",
-    "href": "1_DataViz_sol.html#challenge-11",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
-  },
-  {
-    "objectID": "1_DataViz_sol.html#challenge-12",
-    "href": "1_DataViz_sol.html#challenge-12",
-    "title": "Practical 1: Data Visualization",
-    "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Getting started",
-    "section": "",
-    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
-  },
-  {
-    "objectID": "index.html#shell-basics",
-    "href": "index.html#shell-basics",
-    "title": "Getting started",
-    "section": "",
-    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
-  },
-  {
-    "objectID": "index.html#installing-and-using-uv",
-    "href": "index.html#installing-and-using-uv",
-    "title": "Getting started",
-    "section": "Installing and using uv",
-    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
-  },
-  {
-    "objectID": "index.html#python-project-setup",
-    "href": "index.html#python-project-setup",
-    "title": "Getting started",
-    "section": "Python & Project Setup",
-    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
-  },
-  {
-    "objectID": "index.html#jupyter",
-    "href": "index.html#jupyter",
-    "title": "Getting started",
-    "section": "Jupyter",
-    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
-  },
-  {
     "objectID": "1_DataViz.html",
     "href": "1_DataViz.html",
     "title": "Practical 1: Data Visualization",
@@ -250,6 +117,41 @@
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 12",
     "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Getting started",
+    "section": "",
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
+  },
+  {
+    "objectID": "index.html#shell-basics",
+    "href": "index.html#shell-basics",
+    "title": "Getting started",
+    "section": "",
+    "text": "Common commands:\npwd          # print working directory\nls           # list files\ncd Pictures  # change to Pictures directory\ncd ..        # go up one level"
+  },
+  {
+    "objectID": "index.html#installing-and-using-uv",
+    "href": "index.html#installing-and-using-uv",
+    "title": "Getting started",
+    "section": "Installing and using uv",
+    "text": "Installing and using uv\nMac / Linux:\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows (PowerShell):\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nAfter uv is installed you can check that it is discoverable on your system\nuv --version\nMore info: uv documentation"
+  },
+  {
+    "objectID": "index.html#python-project-setup",
+    "href": "index.html#python-project-setup",
+    "title": "Getting started",
+    "section": "Python & Project Setup",
+    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev setuptools jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
+  },
+  {
+    "objectID": "index.html#jupyter",
+    "href": "index.html#jupyter",
+    "title": "Getting started",
+    "section": "Jupyter",
+    "text": "Jupyter\nLaunch Jupyter\nuv run jupyter lab\nHere are some shortcuts which can be used in Command mode.\n\n\n\nShortcut\nMeaning\n\n\n\n\nEnter\nEnter the edit mode\n\n\nEsc\nExit the edit mode and return to command mode\n\n\ny\nChange cell to code\n\n\nm\nChange cell to markdown (text)\n\n\na\nInsert cell above\n\n\nb\nInsert cell below\n\n\nd d\nDelete current cell\n\n\nCtrl+Enter\nRun current cell"
   },
   {
     "objectID": "Utrecht.html",
