@@ -1,6 +1,9 @@
 ---
 title: "Practical 1: Data Visualization"
 from: markdown+emoji
+format:
+  html:
+    embed-resources: true
 execute: 
   include: false
   echo: false
@@ -45,17 +48,20 @@ uv run jupyter lab
 Create a new notebook and add a text cell atop your document for this practical session. Add a header `# Data Visualization`. Then add a code cell and place the following code there.
 
 ```{python}
+#| include: true
+#| echo: true
 import polars as pl
 from plotnine import *
 ```
 
 Then import the datasets for this practical. Add another code cell below (using the key 'B') and paste the following code. This will import two datasets we will be using in the session: [Utrecht](Utrecht.qmd) and [King's County](KingsCounty.qmd).
 
+
 ```{python}
-#ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)
-ut = pl.read_csv("https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/utrecht_2025.csv", try_parse_dates=True)
-#kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)
-kc = pl.read_csv('https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/kc_house_data.csv', try_parse_dates=True)
+#| include: true
+#| echo: true
+ut = pl.read_csv("https://tinyurl.com/data24utrecht", try_parse_dates=True)
+kc = pl.read_csv('https://tinyurl.com/data24kingscounty', try_parse_dates=True)
 ```
 
 
@@ -98,14 +104,6 @@ labs(x='House Area, sqm', y='Retail Price, k€', color='House type')
 :::
 
 
-```{python}
-(
-ggplot(ut)+
-geom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +
-labs(x='Number of rooms', y='Asking Price', color='Bathrooms')
-)
-```
-
 
 
 ## Challenge 3
@@ -118,23 +116,6 @@ labs(x='Number of rooms', y='Asking Price', color='Bathrooms')
 
 :::
 
-```{python}
-(
-ggplot(ut)+
-geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
-scale_x_continuous(limits=[1900, 2025])+
-labs(x='Year Built', y='Energy Class', color='House type')
-)
-```
-
-```{python}
-(
-ggplot(ut)+
-geom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +
-scale_x_continuous(limits=[1998, 2025])+
-labs(x='Year Built', y='Energy Class', color='House type')
-)
-```
 
 
 ## Challenge 4
@@ -145,8 +126,6 @@ labs(x='Year Built', y='Energy Class', color='House type')
 | :bulb: You can add multi-line strings in Python using triple quotes like this `"""long string which may span multiple lines"""`
 
 ```{python}
-
-
 #| include: true
 (
 ggplot(ut)+
@@ -172,14 +151,6 @@ Plot the retail values of houses by district. Which district has the highest med
 
 :::
 
-```{python}
-(
-ggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+
-geom_boxplot()+
-coord_flip()+
-labs(x="", y="Retail value, kEUR")
-)
-```
 
 
 
@@ -190,17 +161,6 @@ Plot the distribution of retail values for the two house types. Which of the two
 
 :::
 
-```{python}
-
-# this could be two separate plots, then after_stat() would not be required
-(
-ggplot(ut,aes(x='retail_value'))+
-geom_histogram(aes(fill='house_type', y=after_stat("density")),bins=15,alpha=0.3)+
-geom_density(mapping=aes(color='house_type'))+
-facet_wrap('house_type', ncol=1)+
-labs(x="Retail value, kEUR")
-)
-```
 
 
 
@@ -212,15 +172,6 @@ labs(x="Retail value, kEUR")
 
 :::
 
-```{python}
-(
-ggplot(ut, aes(y='retail_value', x='house_area'))+
-geom_point()+
-geom_smooth(method="lm", color="blue")+
-labs(y="Retail value, kEUR", x="House Area")+
-facet_wrap('district')
-)
-```
 
 
 
@@ -232,31 +183,6 @@ facet_wrap('district')
 
 :::
 
-```{python}
-(
-ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
-geom_point()
-)
-```
-
-```{python}
-(
-ggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+
-geom_point()+
-facet_wrap('district')
-)
-```
-
-```{python}
-(
-ggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+
-geom_jitter()+
-coord_flip()+
-facet_wrap('district', scales='free_y')+
-scale_y_log10()
-
-)
-```
 
 
 
@@ -271,12 +197,6 @@ Plot house prices against living area, coloring the points by property grade.
 
 :::
 
-```{python}
-(
-ggplot(kc, aes(y='price', x='sqft_living', color='grade'))+
-geom_point(alpha=0.3)
-)
-```
 
 
 ## Challenge 10
@@ -287,13 +207,6 @@ geom_point(alpha=0.3)
 
 :::
 
-```{python}
-(
-ggplot(kc, aes(y='price', x='yr_built', color='grade'))+
-geom_point(alpha=0.3)+
-scale_y_log10()
-)
-```
 
 ## Challenge 11
 :::{.challenge}
@@ -301,13 +214,6 @@ scale_y_log10()
 | :bulb: You can directly plot a transformation including one or more variables, eg. `y='price/sqft_living'` for the price per square foot.
 :::
 
-```{python}
-(
-ggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+
-geom_jitter(aes(color='yr_built'),alpha=0.3)+
-geom_boxplot()
-)
-```
 
 
 
@@ -316,10 +222,4 @@ geom_boxplot()
 Visualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?
 :::
 
-```{python}
-(
-ggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+
-geom_density(alpha=0.3)
-)
-```
 
