@@ -39,7 +39,7 @@
     "href": "1_DataViz_sol.html#challenge-1",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price, kE', color='House type')\n)"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price,  k€', color='House type')\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-2",
@@ -53,14 +53,14 @@
     "href": "1_DataViz_sol.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projekt\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 8 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projekt\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values."
+    "text": "Challenge 3\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projekt\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projekt\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 82 rows containing missing values."
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-4",
     "href": "1_DataViz_sol.html#challenge-4",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price, kE', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price,  k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-5",
