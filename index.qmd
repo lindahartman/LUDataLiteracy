@@ -55,8 +55,7 @@ Install course libraries:
 
 ```
 uv add gapminder plotnine polars pyarrow great_tables
-uv add --dev jupyter ipykernel pyyaml nbformat
-nbclient jupyterlab-quarto
+uv add --dev jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto
 uv add --dev "setuptools<81"
 ```
 
