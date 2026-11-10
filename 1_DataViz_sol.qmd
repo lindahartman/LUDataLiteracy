@@ -88,7 +88,7 @@ Reproduce this plot.
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
-labs(x='House Area, sqm', y='Retail Price, kE', color='House type')
+labs(x='House Area, sqm', y='Retail Price,  k€', color='House type')
 )
 ```
 ```{python}
@@ -98,7 +98,7 @@ labs(x='House Area, sqm', y='Retail Price, kE', color='House type')
 (
 ggplot(ut)+
 geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +
-labs(x='House Area, sqm', y='Retail Price, kE', color='House type')
+labs(x='House Area, sqm', y='Retail Price,  k€', color='House type')
 )
 ```
 :::
@@ -173,7 +173,7 @@ geom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+
 geom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+
 labs(title='Scatterplot of house area and retail value',
 subtitle='Color indicates the type of property',
-x='House Area, sqm', y='Retail Price, kE', color='House type',
+x='House Area, sqm', y='Retail Price,  k€', color='House type',
 caption="""A linear regression approximates the positive relation between
 the variables (with error bands shown in gray)""")+
 scale_color_brewer('qual', 2)+
