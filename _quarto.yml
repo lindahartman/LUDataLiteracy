@@ -4,7 +4,7 @@ project:
   render:
     - index.qmd
     - 1_DataViz.qmd
-   # - 1_DataViz_sol.qmd
+    - 1_DataViz_sol.qmd
 #  - 2_DataViz_wrangling.qmd 
 #  - 2_DataViz_wrangling_sol.qmd
   #- 3_Wrangling_GT.qmd
@@ -42,9 +42,9 @@ website:
          # - 4_Wrangling_joins.qmd
         #  - 5_Pivots_GT.qmd
        #   - 6_Quarto.qmd
-    #  - text: "Solutions"
-     #   menu:
-         # - 1_DataViz_sol.qmd
+      - text: "Solutions"
+        menu:
+          - 1_DataViz_sol.qmd
         #  - 2_DataViz_wrangling_sol.qmd
          # - 3_Wrangling_GT_sol.qmd
         #  - 4_Wrangling_joins_sol.qmd
