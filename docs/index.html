@@ -250,8 +250,7 @@ cd ..        # go up one level</code></pre>
 cd data-literacy-project</code></pre>
 <p>Install course libraries:</p>
 <pre><code>uv add gapminder plotnine polars pyarrow great_tables
-uv add --dev jupyter ipykernel pyyaml nbformat
-nbclient jupyterlab-quarto
+uv add --dev jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto
 uv add --dev "setuptools&lt;81"</code></pre>
 <p>uv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:</p>
 <pre><code>uv sync</code></pre>

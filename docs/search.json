@@ -144,7 +144,7 @@
     "href": "index.html#python-project-setup",
     "title": "Getting started",
     "section": "Python & Project Setup",
-    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev jupyter ipykernel pyyaml nbformat\nnbclient jupyterlab-quarto\nuv add --dev \"setuptools&lt;81\"\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
+    "text": "Python & Project Setup\nInstall the latest Python:\nuv python install\nCreate a new project (replace the name if you like):\nuv init data-literacy-project\ncd data-literacy-project\nInstall course libraries:\nuv add gapminder plotnine polars pyarrow great_tables\nuv add --dev jupyter ipykernel pyyaml nbformat nbclient jupyterlab-quarto\nuv add --dev \"setuptools&lt;81\"\nuv creates a pyproject.toml with dependencies and a local .venv for the environment. To restore everything later:\nuv sync"
   },
   {
     "objectID": "index.html#jupyter",
