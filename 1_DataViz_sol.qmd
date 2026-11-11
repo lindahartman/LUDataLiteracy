@@ -9,7 +9,7 @@ execute:
   echo: true
 ---
 
-This document contain a solved version of the first practical on **Data Visualization with Plotnine**.
+This document contain a solved version of the first practical on **Data Visualization with Plotnine**.  (Look for the 'Show Solution* and press the arrow!)
 
 The objective of the practical is to give students a chance to practice data visualization by applying the skills learned through the video lessons, on a new dataset.
 
