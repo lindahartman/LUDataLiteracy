@@ -32,91 +32,91 @@
     "href": "2_DataViz_wrangling.html#preparation",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\n#ut = pl.read_csv(\"https://bit.ly/data24utrecht\", try_parse_dates=True)\n#kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)\nut = pl.read_csv(\"https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/utrecht_2025.csv\", try_parse_dates=True)\nkc = pl.read_csv('https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/kc_house_data.csv', try_parse_dates=True)"
+    "text": "Preparation\n\n\n\n\n\n\nNote\n\n\n\nBefore you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.\nuv run jupyter lab\nCreate a new notebook and add a text cell atop your document for this practical session. Add a header # Data Visualization and wrangling. Then add a code cell and place the following code there.\n\nimport polars as pl\nimport polars.selectors as cs\nfrom plotnine import *\n\nThen import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: Utrecht and King’s County.\n\nut = pl.read_csv(\"https://tinyurl.com/data24utrecht\", try_parse_dates=True)\nkc = pl.read_csv('https://tinyurl.com/data24kingscounty', try_parse_dates=True)"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-1",
     "href": "2_DataViz_wrangling.html#challenge-1",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nWhat is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nWhat is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-2",
     "href": "2_DataViz_wrangling.html#challenge-2",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?\n💡 You can pass the data to plotnine using the .pipe() method."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot house area against lot area for the woonhuis properties and add a linear trend line. Which points stand out as outliers from the overall pattern? Roughly what lot area would you expect for a 200 sqm house based on this line?\n💡 You can pass the data to plotnine using the .pipe() method."
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-3",
     "href": "2_DataViz_wrangling.html#challenge-3",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nDo the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-4",
     "href": "2_DataViz_wrangling.html#challenge-4",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nCreate a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nCreate a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-5",
     "href": "2_DataViz_wrangling.html#challenge-5",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nWhich 4-digit zip code includes the largest number of streets?\nWithin that zip code, what is the street name of the house closest to the train station?\n💡 You can count unique values using n_unique() and find the minimum value with min()"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-6",
     "href": "2_DataViz_wrangling.html#challenge-6",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole-number division in Python is written as //"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot a line showing the average house size per decade in the 20th century. How many peaks in the house sizes can you identify?\n💡 The whole-number division in Python is written as //"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-7",
     "href": "2_DataViz_wrangling.html#challenge-7",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nCalculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can extract the ISO week number from the date using the .dt.week() method"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nCalculate the average square meter price per valuation week based on the retail value and plot it. Do you see any trend in real estate prices over time?\n💡 Measure per square meter price as retail value divided by house area\n💡 You can extract the ISO week number from the date using the .dt.week() method"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-8",
     "href": "2_DataViz_wrangling.html#challenge-8",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhich street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?\n💡 You can calculate the proportion using .over() clause"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nWhich street has the highest number of energy-efficient houses? What proportion of houses on that street are energy efficient? When was the oldest of these houses built?\n💡 You can calculate the proportion using .over() clause"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-9",
     "href": "2_DataViz_wrangling.html#challenge-9",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nDefine the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?\nPlot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?\n💡 You can see the house on Google Street View if you search Google Maps using x_coor, y_coor."
+    "text": "Challenge 9\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nDefine the asking price premium as the percentage difference between the asking price and the retail value. Which house has the highest asking price premium in the dataset? Compare this house to the others on the same street — is it also the most expensive on a per-square-meter basis?\nPlot the distribution of asking price per square meter. What do the top three most expensive properties in Utrecht (per square meter) have in common?\n💡 You can see the house on Google Street View if you search Google Maps using x_coor, y_coor."
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-10",
     "href": "2_DataViz_wrangling.html#challenge-10",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the number of houses sold in each district.\n💡 Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the reorder() function in Plotnine and see if you can improve your plot with it."
+    "text": "Challenge 10\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the number of houses sold in each district.\n💡 Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the reorder() function in Plotnine and see if you can improve your plot with it."
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-11",
     "href": "2_DataViz_wrangling.html#challenge-11",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nHow many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?"
   },
   {
     "objectID": "2_DataViz_wrangling.html#challenge-12",
     "href": "2_DataViz_wrangling.html#challenge-12",
     "title": "Practical 2: Data Visualization + Wrangling",
     "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start()."
+    "text": "Challenge 12\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the average monthly house prices. Do you see signs of house-price inflation? Does your conclusion hold for every district?\n💡 ou can round dates to the start of each month using dt.month_start()."
   },
   {
     "objectID": "1_DataViz.html",
@@ -137,84 +137,84 @@
     "href": "1_DataViz.html#challenge-1",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot."
+    "text": "Challenge 1\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot."
   },
   {
     "objectID": "1_DataViz.html#challenge-2",
     "href": "1_DataViz.html#challenge-2",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly."
+    "text": "Challenge 2\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly."
   },
   {
     "objectID": "1_DataViz.html#challenge-3",
     "href": "1_DataViz.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
+    "text": "Challenge 3\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])"
   },
   {
     "objectID": "1_DataViz.html#challenge-4",
     "href": "1_DataViz.html#challenge-4",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
+    "text": "Challenge 4\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\""
   },
   {
     "objectID": "1_DataViz.html#challenge-5",
     "href": "1_DataViz.html#challenge-5",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read."
+    "text": "Challenge 5\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read."
   },
   {
     "objectID": "1_DataViz.html#challenge-6",
     "href": "1_DataViz.html#challenge-6",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?"
   },
   {
     "objectID": "1_DataViz.html#challenge-7",
     "href": "1_DataViz.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!"
   },
   {
     "objectID": "1_DataViz.html#challenge-8",
     "href": "1_DataViz.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary."
+    "text": "Challenge 8\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary."
   },
   {
     "objectID": "1_DataViz.html#challenge-9",
     "href": "1_DataViz.html#challenge-9",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade."
+    "text": "Challenge 9\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade."
   },
   {
     "objectID": "1_DataViz.html#challenge-10",
     "href": "1_DataViz.html#challenge-10",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting."
+    "text": "Challenge 10\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting."
   },
   {
     "objectID": "1_DataViz.html#challenge-11",
     "href": "1_DataViz.html#challenge-11",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot."
+    "text": "Challenge 11\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot."
   },
   {
     "objectID": "1_DataViz.html#challenge-12",
     "href": "1_DataViz.html#challenge-12",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
+    "text": "Challenge 12\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?"
   },
   {
     "objectID": "index.html",
@@ -270,84 +270,84 @@
     "href": "1_DataViz_sol.html#challenge-1",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 1",
-    "text": "Challenge 1\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price,  k€', color='House type')\n)"
+    "text": "Challenge 1\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type')) +\nlabs(x='House Area, sqm', y='Retail Price,  k€', color='House type')\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-2",
     "href": "1_DataViz_sol.html#challenge-2",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 2",
-    "text": "Challenge 2\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
+    "text": "Challenge 2\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the (asked) price of the house against the number of rooms. Use color to indicate number of bathrooms in each house.\n💡 Plot bathrooms as a ‘factor’ to show the two categories more distinctly.\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='rooms', y='asking_price', color='factor(bathrooms)')) +\nlabs(x='Number of rooms', y='Asking Price', color='Bathrooms')\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-3",
     "href": "1_DataViz_sol.html#challenge-3",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 3",
-    "text": "Challenge 3\n\n\n\n\n\n\nChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projects\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
+    "text": "Challenge 3\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nHow did the energy class of houses evolve for those built during the 20th and 21st century?\nWhat is the build year of the newest house (woonhuis) with energy class B?\n💡 You can limit the plot to the years between x1 and x2 using scale_x_continuous(limits=[x1, x2])\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1900, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projekt\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 7 rows containing missing values.\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut)+\ngeom_jitter(mapping=aes(x='build_year', y='energy_label', color='house_type')) +\nscale_x_continuous(limits=[1998, 2025])+\nlabs(x='Year Built', y='Energy Class', color='House type')\n)\n\n\nC:\\Projekt\\Teaching\\LUDataLiteracy\\.venv\\Lib\\site-packages\\plotnine\\layer.py:374: PlotnineWarning: geom_jitter : Removed 81 rows containing missing values."
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-4",
     "href": "1_DataViz_sol.html#challenge-4",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 4",
-    "text": "Challenge 4\n\n\n\n\n\n\nChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price,  k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
+    "text": "Challenge 4\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nReproduce this plot.\n💡 If you want to match the color palette as well, it’s qualitative brewer scale number 2\n💡 You can add multi-line strings in Python using triple quotes like this \"\"\"long string which may span multiple lines\"\"\"\n\n\nShow solution\n(\nggplot(ut)+\ngeom_point(mapping=aes(x='house_area', y='retail_value', color='house_type'))+\ngeom_smooth(mapping=aes(x='house_area', y='retail_value'),method='lm')+\nlabs(title='Scatterplot of house area and retail value',\nsubtitle='Color indicates the type of property',\nx='House Area, sqm', y='Retail Price,  k€', color='House type',\ncaption=\"\"\"A linear regression approximates the positive relation between\nthe variables (with error bands shown in gray)\"\"\")+\nscale_color_brewer('qual', 2)+\ntheme_bw()\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-5",
     "href": "1_DataViz_sol.html#challenge-5",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 5",
-    "text": "Challenge 5\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
+    "text": "Challenge 5\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the retail values of houses by district. Which district has the highest median prices, and which has the lowest? Use coord_flip() if the district names are hard to read.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='reorder(district, retail_value)'))+\ngeom_boxplot()+\ncoord_flip()+\nlabs(x=\"\", y=\"Retail value, kEUR\")\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-6",
     "href": "1_DataViz_sol.html#challenge-6",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 6",
-    "text": "Challenge 6\n\n\n\n\n\n\nChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
+    "text": "Challenge 6\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot the distribution of retail values for the two house types. Which of the two appears more symmetrical?\n\n\n\n\nShow solution\n# this could be two separate plots, then after_stat() would not be required\n(\nggplot(ut,aes(x='retail_value'))+\ngeom_histogram(aes(fill='house_type', y=after_stat(\"density\")),bins=15,alpha=0.3)+\ngeom_density(mapping=aes(color='house_type'))+\nfacet_wrap('house_type', ncol=1)+\nlabs(x=\"Retail value, kEUR\")\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-7",
     "href": "1_DataViz_sol.html#challenge-7",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 7",
-    "text": "Challenge 7\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
+    "text": "Challenge 7\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot house prices against house size for each district in small multiples. Add a blue linear regression line to each subplot. Which district shows the steepest slope, and which the shallowest?\n💡 facet_wrapcould be of good help here!\n\n\n\n\nShow solution\n(\nggplot(ut, aes(y='retail_value', x='house_area'))+\ngeom_point()+\ngeom_smooth(method=\"lm\", color=\"blue\")+\nlabs(y=\"Retail value, kEUR\", x=\"House Area\")+\nfacet_wrap('district')\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-8",
     "href": "1_DataViz_sol.html#challenge-8",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 8",
-    "text": "Challenge 8\n\n\n\n\n\n\nChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
+    "text": "Challenge 8\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nWhat are the approximate coordinates of the train station? In which district do you think it is located? And what might be its zip code? (You can Google to check your guess.)\n💡 There is a variable for distance to train station in the data, see Utrecht Data Dictionary.\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='x_coor', y='y_coor', color='dist_from_train'))+\ngeom_point()+\nfacet_wrap('district')\n)\n\n\n\n\n\n\n\n\n\n\n\nShow solution\n(\nggplot(ut, aes(x='factor(zip_code4)', y='dist_from_train'))+\ngeom_jitter()+\ncoord_flip()+\nfacet_wrap('district', scales='free_y')+\nscale_y_log10()\n\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-9",
     "href": "1_DataViz_sol.html#challenge-9",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 9",
-    "text": "Challenge 9\n\n\n\n\n\n\nChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
+    "text": "Challenge 9\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nPlot house prices against living area, coloring the points by property grade.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='sqft_living', color='grade'))+\ngeom_point(alpha=0.3)\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-10",
     "href": "1_DataViz_sol.html#challenge-10",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 10",
-    "text": "Challenge 10\n\n\n\n\n\n\nChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
+    "text": "Challenge 10\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nDo newer houses tend to cost more? Do higher-grade houses cost more? Are newer houses generally higher grade?\n💡 Use a log scale for house prices to reduce overplotting.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price', x='yr_built', color='grade'))+\ngeom_point(alpha=0.3)+\nscale_y_log10()\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-11",
     "href": "1_DataViz_sol.html#challenge-11",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 11",
-    "text": "Challenge 11\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
+    "text": "Challenge 11\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for each housing condition. Would you say that newer houses tend to be in better condition?\n💡 You can directly plot a transformation including one or more variables, eg. y='price/sqft_living' for the price per square foot.\n\n\n\n\nShow solution\n(\nggplot(kc, aes(y='price/sqft_living', x='factor(condition)'))+\ngeom_jitter(aes(color='yr_built'),alpha=0.3)+\ngeom_boxplot()\n)"
   },
   {
     "objectID": "1_DataViz_sol.html#challenge-12",
     "href": "1_DataViz_sol.html#challenge-12",
     "title": "Practical 1: Data Visualization",
     "section": "Challenge 12",
-    "text": "Challenge 12\n\n\n\n\n\n\nChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
+    "text": "Challenge 12\n\n\n\n\n\n\nChallengeChallenge\n\n\n\nVisualize the distribution of price per square foot of living area for water-facing and non-water-facing properties. Which distribution appears more symmetrical?\n\n\n\n\nShow solution\n(\nggplot(kc, aes(x='price/sqft_living', color= 'factor(waterfront)', fill='factor(waterfront)'))+\ngeom_density(alpha=0.3)\n)"
   },
   {
     "objectID": "Utrecht.html",
