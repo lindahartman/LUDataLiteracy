@@ -310,13 +310,13 @@ Note
 <p>Before you begin your peer-programming session, please, start the new Jupyter notebook environment in your terminal using the command you learned in Module 1 of the course.</p>
 <pre><code>uv run jupyter lab</code></pre>
 <p>Create a new notebook and add a text cell atop your document for this practical session. Add a header <code># Data Visualization and wrangling</code>. Then add a code cell and place the following code there.</p>
-<div id="bec97a32" class="cell" data-execution_count="1">
+<div id="fc76cef0" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars.selectors <span class="im">as</span> cs</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Then import the datasets for this practical. Add another code cell below (using the key ‘B’) and paste the following code. This will import two datasets we will be using in the session: <a href="./Utrecht.html">Utrecht</a> and <a href="./KingsCounty.html">King’s County</a>.</p>
-<div id="9801d550" class="cell" data-execution_count="2">
+<div id="458a1ff4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ut = pl.read_csv("https://bit.ly/data24utrecht", try_parse_dates=True)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#kc = pl.read_csv('https://bit.ly/data24kingscounty', try_parse_dates=True)</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ut <span class="op">=</span> pl.read_csv(<span class="st">"https://raw.githubusercontent.com/lindahartman/LUDataLiteracy/refs/heads/main/data/utrecht_2025.csv"</span>, try_parse_dates<span class="op">=</span><span class="va">True</span>)</span>
@@ -343,7 +343,7 @@ Note
 <p>What is the average garden size for the houses in the Utrecht dataset? What is the median distance from the train station?</p>
 </div>
 </div>
-<div id="19d898db" class="cell" data-execution_count="3">
+<div id="f98d0391" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -671,7 +671,7 @@ Note
 <span class="emoji" data-emoji="bulb">💡</span> You can pass the data to <code>plotnine</code> using the <code>.pipe()</code> method.</div>
 </div>
 </div>
-<div id="1eb640a1" class="cell" data-execution_count="4">
+<div id="d365cfb5" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -706,7 +706,7 @@ Note
 <p>Do the outliers you identified in the previous plot also stand out in the relationship between house area and asking price? Do these outliers correspond to newer or older houses? Are they located close to one another? What are their 4-digit zip codes?</p>
 </div>
 </div>
-<div id="19dc9a55" class="cell" data-execution_count="5">
+<div id="e17be91f" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -796,7 +796,7 @@ Note
 <p>Create a small dataset that includes only houses from the zip codes identified in the previous challenge. Show the street name, house size, lot area, build year, energy class, and asking price. How many houses are in your dataset? Arrange the observations by the year the houses were built. On which street is the oldest of these houses located?</p>
 </div>
 </div>
-<div id="442502fa" class="cell" data-execution_count="6">
+<div id="4278b124" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -898,7 +898,7 @@ Within that zip code, what is the street name of the house closest to the train 
 <span class="emoji" data-emoji="bulb">💡</span> You can count unique values using <code>n_unique()</code> and find the minimum value with <code>min()</code></div>
 </div>
 </div>
-<div id="7d9f3227" class="cell" data-execution_count="7">
+<div id="7f474d9e" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -947,15 +947,15 @@ Within that zip code, what is the street name of the house closest to the train 
 <td>4</td>
 </tr>
 <tr class="odd">
-<td>3553</td>
-<td>3</td>
-</tr>
-<tr class="even">
 <td>3543</td>
 <td>3</td>
 </tr>
+<tr class="even">
+<td>3553</td>
+<td>3</td>
+</tr>
 <tr class="odd">
-<td>3522</td>
+<td>3512</td>
 <td>2</td>
 </tr>
 <tr class="even">
@@ -963,23 +963,23 @@ Within that zip code, what is the street name of the house closest to the train 
 <td>…</td>
 </tr>
 <tr class="odd">
+<td>3584</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>3531</td>
+<td>1</td>
+</tr>
+<tr class="odd">
 <td>3451</td>
 <td>1</td>
 </tr>
 <tr class="even">
-<td>3532</td>
+<td>3581</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td>3531</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>3554</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td>3453</td>
+<td>3572</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -1049,7 +1049,7 @@ Within that zip code, what is the street name of the house closest to the train 
 <span class="emoji" data-emoji="bulb">💡</span> The whole-number division in Python is written as <code>//</code></div>
 </div>
 </div>
-<div id="ae2451bf" class="cell" data-execution_count="8">
+<div id="07a78bf0" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -1088,7 +1088,7 @@ Within that zip code, what is the street name of the house closest to the train 
 <span class="emoji" data-emoji="bulb">💡</span> You can extract the ISO week number from the date using the <code>.dt.week()</code> method</div>
 </div>
 </div>
-<div id="d306d88d" class="cell" data-execution_count="9">
+<div id="4dec43be" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -1127,7 +1127,7 @@ Within that zip code, what is the street name of the house closest to the train 
 <span class="emoji" data-emoji="bulb">💡</span> You can calculate the proportion using <code>.over()</code> clause</div>
 </div>
 </div>
-<div id="f0c55602" class="cell" data-execution_count="10">
+<div id="cea63f28" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -1267,7 +1267,7 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <span class="emoji" data-emoji="bulb">💡</span> You can see the house on Google Street View if you search Google Maps using <code>x_coor</code>, <code>y_coor</code>.</div>
 </div>
 </div>
-<div id="61b73cb4" class="cell" data-execution_count="11">
+<div id="1502cd9e" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -2012,7 +2012,7 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <span class="emoji" data-emoji="bulb">💡</span> Use a bar chart to visualize the counts and flip the coordinates to make the labels easier to read. Research the difference between a bar chart and a column plot in Plotnine. Investigate how to use the <code>reorder()</code> function in Plotnine and see if you can improve your plot with it.</div>
 </div>
 </div>
-<div id="1480f85f" class="cell" data-execution_count="12">
+<div id="91490cb9" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -2062,7 +2062,7 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <p>How many houses changed owners more than once? What is the maximum number of times a house was sold? Where is this house located? How much profit was made by flipping it?</p>
 </div>
 </div>
-<div id="91febb83" class="cell" data-execution_count="13">
+<div id="908eb0d7" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(</span>
@@ -2107,19 +2107,19 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <td>3</td>
 </tr>
 <tr class="even">
+<td>3935900232</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>9407110710</td>
+<td>2</td>
+</tr>
+<tr class="even">
 <td>3333002450</td>
 <td>2</td>
 </tr>
 <tr class="odd">
-<td>5417600130</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>2726049071</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>1823049202</td>
+<td>722039087</td>
 <td>2</td>
 </tr>
 <tr class="even">
@@ -2127,23 +2127,23 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <td>…</td>
 </tr>
 <tr class="odd">
-<td>641900050</td>
+<td>9828200460</td>
 <td>2</td>
 </tr>
 <tr class="even">
-<td>4031000520</td>
-<td>2</td>
-</tr>
-<tr class="odd">
 <td>8832900780</td>
 <td>2</td>
 </tr>
+<tr class="odd">
+<td>5536100020</td>
+<td>2</td>
+</tr>
 <tr class="even">
-<td>251300110</td>
+<td>2767603612</td>
 <td>2</td>
 </tr>
 <tr class="odd">
-<td>5430300171</td>
+<td>4031000520</td>
 <td>2</td>
 </tr>
 </tbody>
@@ -2194,7 +2194,7 @@ Plot the distribution of asking price per square meter. What do the top three mo
 <span class="emoji" data-emoji="bulb">💡</span> ou can round dates to the start of each month using <code>dt.month_start()</code>.</div>
 </div>
 </div>
-<div id="65144ae7" class="cell" data-execution_count="14">
+<div id="f108f582" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Show solution</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(</span>
